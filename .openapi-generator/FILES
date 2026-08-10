@@ -27,6 +27,7 @@ docs/FilterRuleResponse.md
 docs/FilterRuleUpdate.md
 docs/FilterRuleValidateRequest.md
 docs/FilterRuleValidateResponse.md
+docs/GeminiApi.md
 docs/GoogleApi.md
 docs/HTTPValidationError.md
 docs/IdealistaApi.md
@@ -35,6 +36,7 @@ docs/InstagramApi.md
 docs/LeboncoinApi.md
 docs/LinkedInApi.md
 docs/LoopNetApi.md
+docs/PerplexityApi.md
 docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md
 docs/RealtorApi.md
 docs/RedditApi.md
@@ -95,6 +97,7 @@ src/main/java/com/scrapebadger/client/api/DepopApi.java
 src/main/java/com/scrapebadger/client/api/DuckDuckGoApi.java
 src/main/java/com/scrapebadger/client/api/EBayApi.java
 src/main/java/com/scrapebadger/client/api/FacebookApi.java
+src/main/java/com/scrapebadger/client/api/GeminiApi.java
 src/main/java/com/scrapebadger/client/api/GoogleApi.java
 src/main/java/com/scrapebadger/client/api/IdealistaApi.java
 src/main/java/com/scrapebadger/client/api/ImmobiliareApi.java
@@ -102,6 +105,7 @@ src/main/java/com/scrapebadger/client/api/InstagramApi.java
 src/main/java/com/scrapebadger/client/api/LeboncoinApi.java
 src/main/java/com/scrapebadger/client/api/LinkedInApi.java
 src/main/java/com/scrapebadger/client/api/LoopNetApi.java
+src/main/java/com/scrapebadger/client/api/PerplexityApi.java
 src/main/java/com/scrapebadger/client/api/RealtorApi.java
 src/main/java/com/scrapebadger/client/api/RedditApi.java
 src/main/java/com/scrapebadger/client/api/RedfinApi.java
@@ -157,6 +161,7 @@ src/test/java/com/scrapebadger/client/api/DepopApiTest.java
 src/test/java/com/scrapebadger/client/api/DuckDuckGoApiTest.java
 src/test/java/com/scrapebadger/client/api/EBayApiTest.java
 src/test/java/com/scrapebadger/client/api/FacebookApiTest.java
+src/test/java/com/scrapebadger/client/api/GeminiApiTest.java
 src/test/java/com/scrapebadger/client/api/GoogleApiTest.java
 src/test/java/com/scrapebadger/client/api/IdealistaApiTest.java
 src/test/java/com/scrapebadger/client/api/ImmobiliareApiTest.java
@@ -164,6 +169,7 @@ src/test/java/com/scrapebadger/client/api/InstagramApiTest.java
 src/test/java/com/scrapebadger/client/api/LeboncoinApiTest.java
 src/test/java/com/scrapebadger/client/api/LinkedInApiTest.java
 src/test/java/com/scrapebadger/client/api/LoopNetApiTest.java
+src/test/java/com/scrapebadger/client/api/PerplexityApiTest.java
 src/test/java/com/scrapebadger/client/api/RealtorApiTest.java
 src/test/java/com/scrapebadger/client/api/RedditApiTest.java
 src/test/java/com/scrapebadger/client/api/RedfinApiTest.java
