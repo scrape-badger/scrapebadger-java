@@ -1,3 +1,55 @@
+# ScrapeBadger Java SDK
+
+[![version](https://img.shields.io/maven-central/v/com.scrapebadger/scrapebadger)](https://central.sonatype.com/artifact/com.scrapebadger/scrapebadger) [![CI](https://img.shields.io/github/actions/workflow/status/scrape-badger/scrapebadger-java/ci.yml?label=CI)](https://github.com/scrape-badger/scrapebadger-java/actions) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+Official **Java** SDK for [ScrapeBadger](https://scrapebadger.com) — one API key for
+30+ scraping APIs: Twitter/X, Reddit, Facebook, Instagram, TikTok, YouTube, Amazon, eBay,
+Walmart, Vinted, Google (18 products), Bing, Yahoo, ChatGPT, Perplexity, real estate, and
+any URL via the general Web Scraping API. Generated from the ScrapeBadger OpenAPI spec —
+always in sync with the API. ⚠️ This repository is regenerated automatically; don't send
+PRs here, request changes via the [roadmap](https://github.com/scrape-badger/roadmap).
+
+📚 [API docs](https://docs.scrapebadger.com) · 🧰 [All SDKs](https://scrapebadger.com/sdks) · 🔑 [Get an API key](https://scrapebadger.com/auth/signup) — 1,000 free credits
+
+## 🚀 Install
+
+```
+// Maven
+<dependency>
+  <groupId>com.scrapebadger</groupId>
+  <artifactId>scrapebadger</artifactId>
+</dependency>
+```
+
+## ⚡ Quick start
+
+```java
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.ApiKeyAuth;
+import com.scrapebadger.client.api.TwitterApi;
+
+ApiClient client = Configuration.getDefaultApiClient();
+ApiKeyAuth auth = (ApiKeyAuth) client.getAuthentication("ApiKeyAuth");
+auth.setApiKey("YOUR_API_KEY");
+
+TwitterApi twitter = new TwitterApi(client);
+Object user = twitter.twitterGetUserByUsername("elonmusk");
+System.out.println(user);
+```
+
+Every scraper is available as its own API class (`TwitterApi`, `AmazonApi`, `GoogleApi`, …)
+with one method per endpoint — the full list is in the reference below.
+
+## 🛠 Development
+
+```sh
+mvn -B package -DskipTests   # compile
+mvn -B test                  # tests
+```
+
+---
+
 # scrapebadger
 
 ScrapeBadger API
