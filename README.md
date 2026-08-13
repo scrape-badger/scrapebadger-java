@@ -181,6 +181,14 @@ All URIs are relative to *https://scrapebadger.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**accountGetAccountInfo**](docs/AccountApi.md#accountGetAccountInfo) | **GET** /v1/account/me | Get account info
+*AirbnbApi* | [**airbnbAirbnbScraperHealthCheck**](docs/AirbnbApi.md#airbnbAirbnbScraperHealthCheck) | **GET** /v1/airbnb/health | Airbnb scraper health check
+*AirbnbApi* | [**airbnbAirbnbScraperHealthCheckHead**](docs/AirbnbApi.md#airbnbAirbnbScraperHealthCheckHead) | **HEAD** /v1/airbnb/health | Airbnb scraper health check
+*AirbnbApi* | [**airbnbGetAvailabilityCalendar**](docs/AirbnbApi.md#airbnbGetAvailabilityCalendar) | **GET** /v1/airbnb/listings/{room_id}/calendar | Get availability calendar
+*AirbnbApi* | [**airbnbGetExperienceDetail**](docs/AirbnbApi.md#airbnbGetExperienceDetail) | **GET** /v1/airbnb/experiences/{experience_id} | Get experience detail
+*AirbnbApi* | [**airbnbGetListingDetail**](docs/AirbnbApi.md#airbnbGetListingDetail) | **GET** /v1/airbnb/listings/{room_id} | Get listing detail
+*AirbnbApi* | [**airbnbGetListingReviews**](docs/AirbnbApi.md#airbnbGetListingReviews) | **GET** /v1/airbnb/listings/{room_id}/reviews | Get listing reviews
+*AirbnbApi* | [**airbnbSearchExperiences**](docs/AirbnbApi.md#airbnbSearchExperiences) | **GET** /v1/airbnb/experiences | Search experiences
+*AirbnbApi* | [**airbnbSearchStays**](docs/AirbnbApi.md#airbnbSearchStays) | **GET** /v1/airbnb/search | Search stays
 *AmazonApi* | [**amazonAmazonScraperHealthCheck**](docs/AmazonApi.md#amazonAmazonScraperHealthCheck) | **GET** /v1/amazon/health | Amazon scraper health check
 *AmazonApi* | [**amazonAmazonScraperHealthCheckHead**](docs/AmazonApi.md#amazonAmazonScraperHealthCheckHead) | **HEAD** /v1/amazon/health | Amazon scraper health check
 *AmazonApi* | [**amazonBestsellersByCategory**](docs/AmazonApi.md#amazonBestsellersByCategory) | **GET** /v1/amazon/bestsellers | Bestsellers by category

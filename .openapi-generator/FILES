@@ -8,6 +8,7 @@ build.gradle
 build.sbt
 docs/AccountApi.md
 docs/AccountInfo.md
+docs/AirbnbApi.md
 docs/AmazonApi.md
 docs/ApartmentsApi.md
 docs/AppStoreApi.md
@@ -90,6 +91,7 @@ src/main/java/com/scrapebadger/client/ServerConfiguration.java
 src/main/java/com/scrapebadger/client/ServerVariable.java
 src/main/java/com/scrapebadger/client/StringUtil.java
 src/main/java/com/scrapebadger/client/api/AccountApi.java
+src/main/java/com/scrapebadger/client/api/AirbnbApi.java
 src/main/java/com/scrapebadger/client/api/AmazonApi.java
 src/main/java/com/scrapebadger/client/api/ApartmentsApi.java
 src/main/java/com/scrapebadger/client/api/AppStoreApi.java
@@ -156,6 +158,7 @@ src/main/java/com/scrapebadger/client/model/WebhookResponse.java
 src/main/java/com/scrapebadger/client/model/WebhookTestRequest.java
 src/main/java/com/scrapebadger/client/model/WebhookTestResponse.java
 src/test/java/com/scrapebadger/client/api/AccountApiTest.java
+src/test/java/com/scrapebadger/client/api/AirbnbApiTest.java
 src/test/java/com/scrapebadger/client/api/AmazonApiTest.java
 src/test/java/com/scrapebadger/client/api/ApartmentsApiTest.java
 src/test/java/com/scrapebadger/client/api/AppStoreApiTest.java
