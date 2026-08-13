@@ -65,16 +65,32 @@ public class FacebookApiTest {
     }
 
     /**
+     * Get advertiser page info
+     *
+     * Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void facebookGetAdvertiserPageInfoTest() throws ApiException {
+        String pageId = null;
+        String country = null;
+        Object response = api.facebookGetAdvertiserPageInfo(pageId, country);
+        // TODO: test validations
+    }
+
+    /**
      * Get an ad
      *
-     * Get a single Ad Library ad by its archive id.
+     * Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void facebookGetAnAdTest() throws ApiException {
         String adArchiveId = null;
-        Object response = api.facebookGetAnAd(adArchiveId);
+        String country = null;
+        Object response = api.facebookGetAnAd(adArchiveId, country);
         // TODO: test validations
     }
 
@@ -218,6 +234,21 @@ public class FacebookApiTest {
     @Test
     public void facebookListLocationsTest() throws ApiException {
         Object response = api.facebookListLocations();
+        // TODO: test validations
+    }
+
+    /**
+     * Search advertiser pages
+     *
+     * Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void facebookSearchAdvertiserPagesTest() throws ApiException {
+        String query = null;
+        String country = null;
+        Object response = api.facebookSearchAdvertiserPages(query, country);
         // TODO: test validations
     }
 

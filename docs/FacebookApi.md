@@ -6,6 +6,7 @@ All URIs are relative to *https://scrapebadger.com*
 |------------- | ------------- | -------------|
 | [**facebookBrowseAMarketplaceCategory**](FacebookApi.md#facebookBrowseAMarketplaceCategory) | **GET** /v1/facebook/marketplace/category/{category} | Browse a Marketplace category |
 | [**facebookGetAMarketplaceItem**](FacebookApi.md#facebookGetAMarketplaceItem) | **GET** /v1/facebook/marketplace/item/{item_id} | Get a Marketplace item |
+| [**facebookGetAdvertiserPageInfo**](FacebookApi.md#facebookGetAdvertiserPageInfo) | **GET** /v1/facebook/ads/pages/{page_id} | Get advertiser page info |
 | [**facebookGetAnAd**](FacebookApi.md#facebookGetAnAd) | **GET** /v1/facebook/ads/{ad_archive_id} | Get an ad |
 | [**facebookGetGroupDetail**](FacebookApi.md#facebookGetGroupDetail) | **GET** /v1/facebook/groups/{group_id} | Get group detail |
 | [**facebookGetGroupPosts**](FacebookApi.md#facebookGetGroupPosts) | **GET** /v1/facebook/groups/{group_id}/posts | Get group posts |
@@ -17,6 +18,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**facebookGetProfilePosts**](FacebookApi.md#facebookGetProfilePosts) | **GET** /v1/facebook/profiles/{identifier}/posts | Get profile posts |
 | [**facebookListCategories**](FacebookApi.md#facebookListCategories) | **GET** /v1/facebook/marketplace/categories | List categories |
 | [**facebookListLocations**](FacebookApi.md#facebookListLocations) | **GET** /v1/facebook/marketplace/locations | List locations |
+| [**facebookSearchAdvertiserPages**](FacebookApi.md#facebookSearchAdvertiserPages) | **GET** /v1/facebook/ads/pages/search | Search advertiser pages |
 | [**facebookSearchEvents**](FacebookApi.md#facebookSearchEvents) | **GET** /v1/facebook/search/events | Search events |
 | [**facebookSearchEverything**](FacebookApi.md#facebookSearchEverything) | **GET** /v1/facebook/search | Search everything |
 | [**facebookSearchGroups**](FacebookApi.md#facebookSearchGroups) | **GET** /v1/facebook/search/groups | Search groups |
@@ -178,13 +180,85 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
+<a id="facebookGetAdvertiserPageInfo"></a>
+# **facebookGetAdvertiserPageInfo**
+> Object facebookGetAdvertiserPageInfo(pageId, country)
+
+Get advertiser page info
+
+Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.FacebookApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    FacebookApi apiInstance = new FacebookApi(defaultClient);
+    String pageId = "pageId_example"; // String | 
+    String country = "US"; // String | 
+    try {
+      Object result = apiInstance.facebookGetAdvertiserPageInfo(pageId, country);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FacebookApi#facebookGetAdvertiserPageInfo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **pageId** | **String**|  | |
+| **country** | **String**|  | [optional] [default to US] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
 <a id="facebookGetAnAd"></a>
 # **facebookGetAnAd**
-> Object facebookGetAnAd(adArchiveId)
+> Object facebookGetAnAd(adArchiveId, country)
 
 Get an ad
 
-Get a single Ad Library ad by its archive id.
+Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
 
 ### Example
 ```java
@@ -209,8 +283,9 @@ public class Example {
 
     FacebookApi apiInstance = new FacebookApi(defaultClient);
     String adArchiveId = "adArchiveId_example"; // String | 
+    String country = "US"; // String | ISO country code (an EU code returns EU transparency)
     try {
-      Object result = apiInstance.facebookGetAnAd(adArchiveId);
+      Object result = apiInstance.facebookGetAnAd(adArchiveId, country);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookGetAnAd");
@@ -228,6 +303,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **adArchiveId** | **String**|  | |
+| **country** | **String**| ISO country code (an EU code returns EU transparency) | [optional] [default to US] |
 
 ### Return type
 
@@ -947,6 +1023,78 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+<a id="facebookSearchAdvertiserPages"></a>
+# **facebookSearchAdvertiserPages**
+> Object facebookSearchAdvertiserPages(query, country)
+
+Search advertiser pages
+
+Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.FacebookApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    FacebookApi apiInstance = new FacebookApi(defaultClient);
+    String query = "query_example"; // String | Advertiser name or keyword
+    String country = "US"; // String | 
+    try {
+      Object result = apiInstance.facebookSearchAdvertiserPages(query, country);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FacebookApi#facebookSearchAdvertiserPages");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **query** | **String**| Advertiser name or keyword | |
+| **country** | **String**|  | [optional] [default to US] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="facebookSearchEvents"></a>
 # **facebookSearchEvents**

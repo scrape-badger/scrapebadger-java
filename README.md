@@ -269,6 +269,7 @@ Class | Method | HTTP request | Description
 *EBayApi* | [**ebaySearchListings**](docs/EBayApi.md#ebaySearchListings) | **GET** /v1/ebay/search | Search listings
 *FacebookApi* | [**facebookBrowseAMarketplaceCategory**](docs/FacebookApi.md#facebookBrowseAMarketplaceCategory) | **GET** /v1/facebook/marketplace/category/{category} | Browse a Marketplace category
 *FacebookApi* | [**facebookGetAMarketplaceItem**](docs/FacebookApi.md#facebookGetAMarketplaceItem) | **GET** /v1/facebook/marketplace/item/{item_id} | Get a Marketplace item
+*FacebookApi* | [**facebookGetAdvertiserPageInfo**](docs/FacebookApi.md#facebookGetAdvertiserPageInfo) | **GET** /v1/facebook/ads/pages/{page_id} | Get advertiser page info
 *FacebookApi* | [**facebookGetAnAd**](docs/FacebookApi.md#facebookGetAnAd) | **GET** /v1/facebook/ads/{ad_archive_id} | Get an ad
 *FacebookApi* | [**facebookGetGroupDetail**](docs/FacebookApi.md#facebookGetGroupDetail) | **GET** /v1/facebook/groups/{group_id} | Get group detail
 *FacebookApi* | [**facebookGetGroupPosts**](docs/FacebookApi.md#facebookGetGroupPosts) | **GET** /v1/facebook/groups/{group_id}/posts | Get group posts
@@ -280,6 +281,7 @@ Class | Method | HTTP request | Description
 *FacebookApi* | [**facebookGetProfilePosts**](docs/FacebookApi.md#facebookGetProfilePosts) | **GET** /v1/facebook/profiles/{identifier}/posts | Get profile posts
 *FacebookApi* | [**facebookListCategories**](docs/FacebookApi.md#facebookListCategories) | **GET** /v1/facebook/marketplace/categories | List categories
 *FacebookApi* | [**facebookListLocations**](docs/FacebookApi.md#facebookListLocations) | **GET** /v1/facebook/marketplace/locations | List locations
+*FacebookApi* | [**facebookSearchAdvertiserPages**](docs/FacebookApi.md#facebookSearchAdvertiserPages) | **GET** /v1/facebook/ads/pages/search | Search advertiser pages
 *FacebookApi* | [**facebookSearchEvents**](docs/FacebookApi.md#facebookSearchEvents) | **GET** /v1/facebook/search/events | Search events
 *FacebookApi* | [**facebookSearchEverything**](docs/FacebookApi.md#facebookSearchEverything) | **GET** /v1/facebook/search | Search everything
 *FacebookApi* | [**facebookSearchGroups**](docs/FacebookApi.md#facebookSearchGroups) | **GET** /v1/facebook/search/groups | Search groups

@@ -375,8 +375,9 @@ public class FacebookApi {
         return localVarCall;
     }
     /**
-     * Build call for facebookGetAnAd
-     * @param adArchiveId  (required)
+     * Build call for facebookGetAdvertiserPageInfo
+     * @param pageId  (required)
+     * @param country  (optional, default to US)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -388,7 +389,146 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetAnAdCall(String adArchiveId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call facebookGetAdvertiserPageInfoCall(String pageId, String country, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/facebook/ads/pages/{page_id}"
+            .replace("{" + "page_id" + "}", localVarApiClient.escapeString(pageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (country != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("country", country));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call facebookGetAdvertiserPageInfoValidateBeforeCall(String pageId, String country, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'pageId' is set
+        if (pageId == null) {
+            throw new ApiException("Missing the required parameter 'pageId' when calling facebookGetAdvertiserPageInfo(Async)");
+        }
+
+        return facebookGetAdvertiserPageInfoCall(pageId, country, _callback);
+
+    }
+
+    /**
+     * Get advertiser page info
+     * Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+     * @param pageId  (required)
+     * @param country  (optional, default to US)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object facebookGetAdvertiserPageInfo(String pageId, String country) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookGetAdvertiserPageInfoWithHttpInfo(pageId, country);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get advertiser page info
+     * Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+     * @param pageId  (required)
+     * @param country  (optional, default to US)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> facebookGetAdvertiserPageInfoWithHttpInfo(String pageId, String country) throws ApiException {
+        okhttp3.Call localVarCall = facebookGetAdvertiserPageInfoValidateBeforeCall(pageId, country, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get advertiser page info (asynchronously)
+     * Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+     * @param pageId  (required)
+     * @param country  (optional, default to US)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call facebookGetAdvertiserPageInfoAsync(String pageId, String country, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = facebookGetAdvertiserPageInfoValidateBeforeCall(pageId, country, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for facebookGetAnAd
+     * @param adArchiveId  (required)
+     * @param country ISO country code (an EU code returns EU transparency) (optional, default to US)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call facebookGetAnAdCall(String adArchiveId, String country, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -414,6 +554,10 @@ public class FacebookApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (country != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("country", country));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -434,20 +578,21 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call facebookGetAnAdValidateBeforeCall(String adArchiveId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call facebookGetAnAdValidateBeforeCall(String adArchiveId, String country, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'adArchiveId' is set
         if (adArchiveId == null) {
             throw new ApiException("Missing the required parameter 'adArchiveId' when calling facebookGetAnAd(Async)");
         }
 
-        return facebookGetAnAdCall(adArchiveId, _callback);
+        return facebookGetAnAdCall(adArchiveId, country, _callback);
 
     }
 
     /**
      * Get an ad
-     * Get a single Ad Library ad by its archive id.
+     * Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
      * @param adArchiveId  (required)
+     * @param country ISO country code (an EU code returns EU transparency) (optional, default to US)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -458,15 +603,16 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object facebookGetAnAd(String adArchiveId) throws ApiException {
-        ApiResponse<Object> localVarResp = facebookGetAnAdWithHttpInfo(adArchiveId);
+    public Object facebookGetAnAd(String adArchiveId, String country) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookGetAnAdWithHttpInfo(adArchiveId, country);
         return localVarResp.getData();
     }
 
     /**
      * Get an ad
-     * Get a single Ad Library ad by its archive id.
+     * Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
      * @param adArchiveId  (required)
+     * @param country ISO country code (an EU code returns EU transparency) (optional, default to US)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -477,16 +623,17 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> facebookGetAnAdWithHttpInfo(String adArchiveId) throws ApiException {
-        okhttp3.Call localVarCall = facebookGetAnAdValidateBeforeCall(adArchiveId, null);
+    public ApiResponse<Object> facebookGetAnAdWithHttpInfo(String adArchiveId, String country) throws ApiException {
+        okhttp3.Call localVarCall = facebookGetAnAdValidateBeforeCall(adArchiveId, country, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get an ad (asynchronously)
-     * Get a single Ad Library ad by its archive id.
+     * Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
      * @param adArchiveId  (required)
+     * @param country ISO country code (an EU code returns EU transparency) (optional, default to US)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -498,9 +645,9 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetAnAdAsync(String adArchiveId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call facebookGetAnAdAsync(String adArchiveId, String country, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = facebookGetAnAdValidateBeforeCall(adArchiveId, _callback);
+        okhttp3.Call localVarCall = facebookGetAnAdValidateBeforeCall(adArchiveId, country, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1823,6 +1970,148 @@ public class FacebookApi {
     public okhttp3.Call facebookListLocationsAsync(final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = facebookListLocationsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for facebookSearchAdvertiserPages
+     * @param query Advertiser name or keyword (required)
+     * @param country  (optional, default to US)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call facebookSearchAdvertiserPagesCall(String query, String country, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/facebook/ads/pages/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (country != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("country", country));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call facebookSearchAdvertiserPagesValidateBeforeCall(String query, String country, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling facebookSearchAdvertiserPages(Async)");
+        }
+
+        return facebookSearchAdvertiserPagesCall(query, country, _callback);
+
+    }
+
+    /**
+     * Search advertiser pages
+     * Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+     * @param query Advertiser name or keyword (required)
+     * @param country  (optional, default to US)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object facebookSearchAdvertiserPages(String query, String country) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookSearchAdvertiserPagesWithHttpInfo(query, country);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search advertiser pages
+     * Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+     * @param query Advertiser name or keyword (required)
+     * @param country  (optional, default to US)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> facebookSearchAdvertiserPagesWithHttpInfo(String query, String country) throws ApiException {
+        okhttp3.Call localVarCall = facebookSearchAdvertiserPagesValidateBeforeCall(query, country, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search advertiser pages (asynchronously)
+     * Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+     * @param query Advertiser name or keyword (required)
+     * @param country  (optional, default to US)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call facebookSearchAdvertiserPagesAsync(String query, String country, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = facebookSearchAdvertiserPagesValidateBeforeCall(query, country, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
