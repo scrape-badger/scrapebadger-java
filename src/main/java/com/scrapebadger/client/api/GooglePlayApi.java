@@ -77,6 +77,7 @@ public class GooglePlayApi {
      * @param categoryId Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39; (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +89,7 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googlePlayBrowseACategoryCall(String categoryId, String country, String lang, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googlePlayBrowseACategoryCall(String categoryId, String country, String lang, Integer num, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -122,6 +123,10 @@ public class GooglePlayApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("lang", lang));
         }
 
+        if (num != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("num", num));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -142,13 +147,13 @@ public class GooglePlayApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googlePlayBrowseACategoryValidateBeforeCall(String categoryId, String country, String lang, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call googlePlayBrowseACategoryValidateBeforeCall(String categoryId, String country, String lang, Integer num, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'categoryId' is set
         if (categoryId == null) {
             throw new ApiException("Missing the required parameter 'categoryId' when calling googlePlayBrowseACategory(Async)");
         }
 
-        return googlePlayBrowseACategoryCall(categoryId, country, lang, _callback);
+        return googlePlayBrowseACategoryCall(categoryId, country, lang, num, _callback);
 
     }
 
@@ -158,6 +163,7 @@ public class GooglePlayApi {
      * @param categoryId Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39; (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -168,8 +174,8 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object googlePlayBrowseACategory(String categoryId, String country, String lang) throws ApiException {
-        ApiResponse<Object> localVarResp = googlePlayBrowseACategoryWithHttpInfo(categoryId, country, lang);
+    public Object googlePlayBrowseACategory(String categoryId, String country, String lang, Integer num) throws ApiException {
+        ApiResponse<Object> localVarResp = googlePlayBrowseACategoryWithHttpInfo(categoryId, country, lang, num);
         return localVarResp.getData();
     }
 
@@ -179,6 +185,7 @@ public class GooglePlayApi {
      * @param categoryId Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39; (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -189,8 +196,8 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googlePlayBrowseACategoryWithHttpInfo(String categoryId, String country, String lang) throws ApiException {
-        okhttp3.Call localVarCall = googlePlayBrowseACategoryValidateBeforeCall(categoryId, country, lang, null);
+    public ApiResponse<Object> googlePlayBrowseACategoryWithHttpInfo(String categoryId, String country, String lang, Integer num) throws ApiException {
+        okhttp3.Call localVarCall = googlePlayBrowseACategoryValidateBeforeCall(categoryId, country, lang, num, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -201,6 +208,7 @@ public class GooglePlayApi {
      * @param categoryId Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39; (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -212,9 +220,9 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googlePlayBrowseACategoryAsync(String categoryId, String country, String lang, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googlePlayBrowseACategoryAsync(String categoryId, String country, String lang, Integer num, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googlePlayBrowseACategoryValidateBeforeCall(categoryId, country, lang, _callback);
+        okhttp3.Call localVarCall = googlePlayBrowseACategoryValidateBeforeCall(categoryId, country, lang, num, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -681,6 +689,7 @@ public class GooglePlayApi {
      * @param developer Developer name or numeric id (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -692,7 +701,7 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googlePlayGetDeveloperAppsCall(String developer, String country, String lang, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googlePlayGetDeveloperAppsCall(String developer, String country, String lang, Integer num, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -726,6 +735,10 @@ public class GooglePlayApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("lang", lang));
         }
 
+        if (num != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("num", num));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -746,13 +759,13 @@ public class GooglePlayApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googlePlayGetDeveloperAppsValidateBeforeCall(String developer, String country, String lang, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call googlePlayGetDeveloperAppsValidateBeforeCall(String developer, String country, String lang, Integer num, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'developer' is set
         if (developer == null) {
             throw new ApiException("Missing the required parameter 'developer' when calling googlePlayGetDeveloperApps(Async)");
         }
 
-        return googlePlayGetDeveloperAppsCall(developer, country, lang, _callback);
+        return googlePlayGetDeveloperAppsCall(developer, country, lang, num, _callback);
 
     }
 
@@ -762,6 +775,7 @@ public class GooglePlayApi {
      * @param developer Developer name or numeric id (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -772,8 +786,8 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object googlePlayGetDeveloperApps(String developer, String country, String lang) throws ApiException {
-        ApiResponse<Object> localVarResp = googlePlayGetDeveloperAppsWithHttpInfo(developer, country, lang);
+    public Object googlePlayGetDeveloperApps(String developer, String country, String lang, Integer num) throws ApiException {
+        ApiResponse<Object> localVarResp = googlePlayGetDeveloperAppsWithHttpInfo(developer, country, lang, num);
         return localVarResp.getData();
     }
 
@@ -783,6 +797,7 @@ public class GooglePlayApi {
      * @param developer Developer name or numeric id (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -793,8 +808,8 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googlePlayGetDeveloperAppsWithHttpInfo(String developer, String country, String lang) throws ApiException {
-        okhttp3.Call localVarCall = googlePlayGetDeveloperAppsValidateBeforeCall(developer, country, lang, null);
+    public ApiResponse<Object> googlePlayGetDeveloperAppsWithHttpInfo(String developer, String country, String lang, Integer num) throws ApiException {
+        okhttp3.Call localVarCall = googlePlayGetDeveloperAppsValidateBeforeCall(developer, country, lang, num, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -805,6 +820,7 @@ public class GooglePlayApi {
      * @param developer Developer name or numeric id (required)
      * @param country Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to US)
      * @param lang Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to en)
+     * @param num Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -816,9 +832,9 @@ public class GooglePlayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googlePlayGetDeveloperAppsAsync(String developer, String country, String lang, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googlePlayGetDeveloperAppsAsync(String developer, String country, String lang, Integer num, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googlePlayGetDeveloperAppsValidateBeforeCall(developer, country, lang, _callback);
+        okhttp3.Call localVarCall = googlePlayGetDeveloperAppsValidateBeforeCall(developer, country, lang, num, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

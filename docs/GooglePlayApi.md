@@ -18,7 +18,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="googlePlayBrowseACategory"></a>
 # **googlePlayBrowseACategory**
-> Object googlePlayBrowseACategory(categoryId, country, lang)
+> Object googlePlayBrowseACategory(categoryId, country, lang, num)
 
 Browse a category
 
@@ -49,8 +49,9 @@ public class Example {
     String categoryId = "categoryId_example"; // String | Play category id, e.g. 'GAME_PUZZLE' or 'SOCIAL'
     String country = "US"; // String | Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'
     String lang = "en"; // String | Play content language (hl), e.g. 'en' or 'pt-BR'
+    Integer num = 100; // Integer | Max apps; follows each rail's 'see more' continuation above the ~40-120 the page renders directly
     try {
-      Object result = apiInstance.googlePlayBrowseACategory(categoryId, country, lang);
+      Object result = apiInstance.googlePlayBrowseACategory(categoryId, country, lang, num);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GooglePlayApi#googlePlayBrowseACategory");
@@ -70,6 +71,7 @@ public class Example {
 | **categoryId** | **String**| Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39; | |
 | **country** | **String**| Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; | [optional] [default to US] |
 | **lang** | **String**| Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; | [optional] [default to en] |
+| **num** | **Integer**| Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly | [optional] [default to 100] |
 
 ### Return type
 
@@ -318,7 +320,7 @@ public class Example {
 
 <a id="googlePlayGetDeveloperApps"></a>
 # **googlePlayGetDeveloperApps**
-> Object googlePlayGetDeveloperApps(developer, country, lang)
+> Object googlePlayGetDeveloperApps(developer, country, lang, num)
 
 Get developer apps
 
@@ -349,8 +351,9 @@ public class Example {
     String developer = "developer_example"; // String | Developer name or numeric id
     String country = "US"; // String | Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'
     String lang = "en"; // String | Play content language (hl), e.g. 'en' or 'pt-BR'
+    Integer num = 100; // Integer | Max apps; follows rail continuations above the page's directly-rendered slice
     try {
-      Object result = apiInstance.googlePlayGetDeveloperApps(developer, country, lang);
+      Object result = apiInstance.googlePlayGetDeveloperApps(developer, country, lang, num);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GooglePlayApi#googlePlayGetDeveloperApps");
@@ -370,6 +373,7 @@ public class Example {
 | **developer** | **String**| Developer name or numeric id | |
 | **country** | **String**| Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; | [optional] [default to US] |
 | **lang** | **String**| Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; | [optional] [default to en] |
+| **num** | **Integer**| Max apps; follows rail continuations above the page&#39;s directly-rendered slice | [optional] [default to 100] |
 
 ### Return type
 

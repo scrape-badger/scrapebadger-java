@@ -43,7 +43,8 @@ public class GooglePlayApiTest {
         String categoryId = null;
         String country = null;
         String lang = null;
-        Object response = api.googlePlayBrowseACategory(categoryId, country, lang);
+        Integer num = null;
+        Object response = api.googlePlayBrowseACategory(categoryId, country, lang, num);
         // TODO: test validations
     }
 
@@ -109,7 +110,8 @@ public class GooglePlayApiTest {
         String developer = null;
         String country = null;
         String lang = null;
-        Object response = api.googlePlayGetDeveloperApps(developer, country, lang);
+        Integer num = null;
+        Object response = api.googlePlayGetDeveloperApps(developer, country, lang, num);
         // TODO: test validations
     }
 
