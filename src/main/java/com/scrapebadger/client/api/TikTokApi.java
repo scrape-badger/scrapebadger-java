@@ -2046,6 +2046,145 @@ public class TikTokApi {
         return localVarCall;
     }
     /**
+     * Build call for tiktokGetTiktokAdDetail
+     * @param adId  (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokGetTiktokAdDetailCall(String adId, String region, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/tiktok/ads/{ad_id}"
+            .replace("{" + "ad_id" + "}", localVarApiClient.escapeString(adId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tiktokGetTiktokAdDetailValidateBeforeCall(String adId, String region, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'adId' is set
+        if (adId == null) {
+            throw new ApiException("Missing the required parameter 'adId' when calling tiktokGetTiktokAdDetail(Async)");
+        }
+
+        return tiktokGetTiktokAdDetailCall(adId, region, _callback);
+
+    }
+
+    /**
+     * Get TikTok ad detail
+     * Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+     * @param adId  (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object tiktokGetTiktokAdDetail(String adId, String region) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokGetTiktokAdDetailWithHttpInfo(adId, region);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get TikTok ad detail
+     * Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+     * @param adId  (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> tiktokGetTiktokAdDetailWithHttpInfo(String adId, String region) throws ApiException {
+        okhttp3.Call localVarCall = tiktokGetTiktokAdDetailValidateBeforeCall(adId, region, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get TikTok ad detail (asynchronously)
+     * Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+     * @param adId  (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokGetTiktokAdDetailAsync(String adId, String region, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tiktokGetTiktokAdDetailValidateBeforeCall(adId, region, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for tiktokGetTranscript
      * @param videoId  (required)
      * @param region  (optional, default to US)
@@ -3315,6 +3454,156 @@ public class TikTokApi {
     public okhttp3.Call tiktokSearchTheTiktokAdLibraryAsync(String query, String advertiserId, String region, Integer days, String sort, Integer offset, String searchId, Integer count, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = tiktokSearchTheTiktokAdLibraryValidateBeforeCall(query, advertiserId, region, days, sort, offset, searchId, count, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for tiktokSearchTiktokAdvertisers
+     * @param query Advertiser name (or partial) to look up (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @param count  (optional, default to 10)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokSearchTiktokAdvertisersCall(String query, String region, Integer count, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/tiktok/ads/advertisers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        if (count != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tiktokSearchTiktokAdvertisersValidateBeforeCall(String query, String region, Integer count, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling tiktokSearchTiktokAdvertisers(Async)");
+        }
+
+        return tiktokSearchTiktokAdvertisersCall(query, region, count, _callback);
+
+    }
+
+    /**
+     * Search TikTok advertisers
+     * Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+     * @param query Advertiser name (or partial) to look up (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @param count  (optional, default to 10)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object tiktokSearchTiktokAdvertisers(String query, String region, Integer count) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokSearchTiktokAdvertisersWithHttpInfo(query, region, count);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search TikTok advertisers
+     * Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+     * @param query Advertiser name (or partial) to look up (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @param count  (optional, default to 10)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> tiktokSearchTiktokAdvertisersWithHttpInfo(String query, String region, Integer count) throws ApiException {
+        okhttp3.Call localVarCall = tiktokSearchTiktokAdvertisersValidateBeforeCall(query, region, count, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search TikTok advertisers (asynchronously)
+     * Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+     * @param query Advertiser name (or partial) to look up (required)
+     * @param region EU region code (the Ad Library is EU-only) (optional, default to DE)
+     * @param count  (optional, default to 10)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokSearchTiktokAdvertisersAsync(String query, String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tiktokSearchTiktokAdvertisersValidateBeforeCall(query, region, count, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

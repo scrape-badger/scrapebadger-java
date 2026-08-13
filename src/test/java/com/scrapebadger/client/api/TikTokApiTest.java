@@ -243,6 +243,21 @@ public class TikTokApiTest {
     }
 
     /**
+     * Get TikTok ad detail
+     *
+     * Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokGetTiktokAdDetailTest() throws ApiException {
+        String adId = null;
+        String region = null;
+        Object response = api.tiktokGetTiktokAdDetail(adId, region);
+        // TODO: test validations
+    }
+
+    /**
      * Get transcript
      *
      * Get subtitle/caption tracks for a TikTok video.
@@ -379,6 +394,22 @@ public class TikTokApiTest {
         String searchId = null;
         Integer count = null;
         Object response = api.tiktokSearchTheTiktokAdLibrary(query, advertiserId, region, days, sort, offset, searchId, count);
+        // TODO: test validations
+    }
+
+    /**
+     * Search TikTok advertisers
+     *
+     * Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokSearchTiktokAdvertisersTest() throws ApiException {
+        String query = null;
+        String region = null;
+        Integer count = null;
+        Object response = api.tiktokSearchTiktokAdvertisers(query, region, count);
         // TODO: test validations
     }
 

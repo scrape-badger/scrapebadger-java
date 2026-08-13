@@ -17,6 +17,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**tiktokGetOembedMetadata**](TikTokApi.md#tiktokGetOembedMetadata) | **GET** /v1/tiktok/oembed | Get oEmbed metadata |
 | [**tiktokGetRelatedVideos**](TikTokApi.md#tiktokGetRelatedVideos) | **GET** /v1/tiktok/videos/{video_id}/related | Get related videos |
 | [**tiktokGetReposts**](TikTokApi.md#tiktokGetReposts) | **GET** /v1/tiktok/users/{username}/reposts | Get reposts |
+| [**tiktokGetTiktokAdDetail**](TikTokApi.md#tiktokGetTiktokAdDetail) | **GET** /v1/tiktok/ads/{ad_id} | Get TikTok ad detail |
 | [**tiktokGetTranscript**](TikTokApi.md#tiktokGetTranscript) | **GET** /v1/tiktok/videos/{video_id}/transcript | Get transcript |
 | [**tiktokGetUserProfile**](TikTokApi.md#tiktokGetUserProfile) | **GET** /v1/tiktok/users/{username} | Get user profile |
 | [**tiktokGetUserVideos**](TikTokApi.md#tiktokGetUserVideos) | **GET** /v1/tiktok/users/{username}/videos | Get user videos |
@@ -26,6 +27,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**tiktokListRegions**](TikTokApi.md#tiktokListRegions) | **GET** /v1/tiktok/regions | List regions |
 | [**tiktokSearchHashtags**](TikTokApi.md#tiktokSearchHashtags) | **GET** /v1/tiktok/search/hashtags | Search hashtags |
 | [**tiktokSearchTheTiktokAdLibrary**](TikTokApi.md#tiktokSearchTheTiktokAdLibrary) | **GET** /v1/tiktok/ads/search | Search the TikTok Ad Library |
+| [**tiktokSearchTiktokAdvertisers**](TikTokApi.md#tiktokSearchTiktokAdvertisers) | **GET** /v1/tiktok/ads/advertisers | Search TikTok advertisers |
 | [**tiktokSearchUsers**](TikTokApi.md#tiktokSearchUsers) | **GET** /v1/tiktok/search/users | Search users |
 | [**tiktokSearchVideos**](TikTokApi.md#tiktokSearchVideos) | **GET** /v1/tiktok/search/videos | Search videos |
 | [**tiktokTrendingHashtags**](TikTokApi.md#tiktokTrendingHashtags) | **GET** /v1/tiktok/trending/hashtags | Trending hashtags |
@@ -1001,6 +1003,78 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
+<a id="tiktokGetTiktokAdDetail"></a>
+# **tiktokGetTiktokAdDetail**
+> Object tiktokGetTiktokAdDetail(adId, region)
+
+Get TikTok ad detail
+
+Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.TikTokApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    TikTokApi apiInstance = new TikTokApi(defaultClient);
+    String adId = "adId_example"; // String | 
+    String region = "DE"; // String | EU region code (the Ad Library is EU-only)
+    try {
+      Object result = apiInstance.tiktokGetTiktokAdDetail(adId, region);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TikTokApi#tiktokGetTiktokAdDetail");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **adId** | **String**|  | |
+| **region** | **String**| EU region code (the Ad Library is EU-only) | [optional] [default to DE] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
 <a id="tiktokGetTranscript"></a>
 # **tiktokGetTranscript**
 > Object tiktokGetTranscript(videoId, region)
@@ -1630,6 +1704,80 @@ public class Example {
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **searchId** | **String**|  | [optional] [default to ] |
 | **count** | **Integer**|  | [optional] [default to 20] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="tiktokSearchTiktokAdvertisers"></a>
+# **tiktokSearchTiktokAdvertisers**
+> Object tiktokSearchTiktokAdvertisers(query, region, count)
+
+Search TikTok advertisers
+
+Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.TikTokApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    TikTokApi apiInstance = new TikTokApi(defaultClient);
+    String query = "query_example"; // String | Advertiser name (or partial) to look up
+    String region = "DE"; // String | EU region code (the Ad Library is EU-only)
+    Integer count = 10; // Integer | 
+    try {
+      Object result = apiInstance.tiktokSearchTiktokAdvertisers(query, region, count);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TikTokApi#tiktokSearchTiktokAdvertisers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **query** | **String**| Advertiser name (or partial) to look up | |
+| **region** | **String**| EU region code (the Ad Library is EU-only) | [optional] [default to DE] |
+| **count** | **Integer**|  | [optional] [default to 10] |
 
 ### Return type
 

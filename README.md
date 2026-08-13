@@ -465,6 +465,7 @@ Class | Method | HTTP request | Description
 *TikTokApi* | [**tiktokGetOembedMetadata**](docs/TikTokApi.md#tiktokGetOembedMetadata) | **GET** /v1/tiktok/oembed | Get oEmbed metadata
 *TikTokApi* | [**tiktokGetRelatedVideos**](docs/TikTokApi.md#tiktokGetRelatedVideos) | **GET** /v1/tiktok/videos/{video_id}/related | Get related videos
 *TikTokApi* | [**tiktokGetReposts**](docs/TikTokApi.md#tiktokGetReposts) | **GET** /v1/tiktok/users/{username}/reposts | Get reposts
+*TikTokApi* | [**tiktokGetTiktokAdDetail**](docs/TikTokApi.md#tiktokGetTiktokAdDetail) | **GET** /v1/tiktok/ads/{ad_id} | Get TikTok ad detail
 *TikTokApi* | [**tiktokGetTranscript**](docs/TikTokApi.md#tiktokGetTranscript) | **GET** /v1/tiktok/videos/{video_id}/transcript | Get transcript
 *TikTokApi* | [**tiktokGetUserProfile**](docs/TikTokApi.md#tiktokGetUserProfile) | **GET** /v1/tiktok/users/{username} | Get user profile
 *TikTokApi* | [**tiktokGetUserVideos**](docs/TikTokApi.md#tiktokGetUserVideos) | **GET** /v1/tiktok/users/{username}/videos | Get user videos
@@ -474,6 +475,7 @@ Class | Method | HTTP request | Description
 *TikTokApi* | [**tiktokListRegions**](docs/TikTokApi.md#tiktokListRegions) | **GET** /v1/tiktok/regions | List regions
 *TikTokApi* | [**tiktokSearchHashtags**](docs/TikTokApi.md#tiktokSearchHashtags) | **GET** /v1/tiktok/search/hashtags | Search hashtags
 *TikTokApi* | [**tiktokSearchTheTiktokAdLibrary**](docs/TikTokApi.md#tiktokSearchTheTiktokAdLibrary) | **GET** /v1/tiktok/ads/search | Search the TikTok Ad Library
+*TikTokApi* | [**tiktokSearchTiktokAdvertisers**](docs/TikTokApi.md#tiktokSearchTiktokAdvertisers) | **GET** /v1/tiktok/ads/advertisers | Search TikTok advertisers
 *TikTokApi* | [**tiktokSearchUsers**](docs/TikTokApi.md#tiktokSearchUsers) | **GET** /v1/tiktok/search/users | Search users
 *TikTokApi* | [**tiktokSearchVideos**](docs/TikTokApi.md#tiktokSearchVideos) | **GET** /v1/tiktok/search/videos | Search videos
 *TikTokApi* | [**tiktokTrendingHashtags**](docs/TikTokApi.md#tiktokTrendingHashtags) | **GET** /v1/tiktok/trending/hashtags | Trending hashtags
