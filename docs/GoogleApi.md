@@ -434,9 +434,9 @@ public class Example {
 
     GoogleApi apiInstance = new GoogleApi(defaultClient);
     String dataId = "dataId_example"; // String | Maps data ID
-    String sortBy = "qualityScore"; // String | 
+    String sortBy = "qualityScore"; // String | qualityScore | newestFirst | ratingHigh | ratingLow
     String hl = "en"; // String | 
-    String nextPageToken = "nextPageToken_example"; // String | 
+    String nextPageToken = "nextPageToken_example"; // String | Cursor from the previous response's pagination.next; omit for page 1.
     Integer results = 10; // Integer | 
     try {
       Object result = apiInstance.googleGetPlaceReviews(dataId, sortBy, hl, nextPageToken, results);
@@ -457,9 +457,9 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **dataId** | **String**| Maps data ID | |
-| **sortBy** | **String**|  | [optional] [default to qualityScore] |
+| **sortBy** | **String**| qualityScore | newestFirst | ratingHigh | ratingLow | [optional] [default to qualityScore] |
 | **hl** | **String**|  | [optional] [default to en] |
-| **nextPageToken** | **String**|  | [optional] |
+| **nextPageToken** | **String**| Cursor from the previous response&#39;s pagination.next; omit for page 1. | [optional] |
 | **results** | **Integer**|  | [optional] [default to 10] |
 
 ### Return type

@@ -804,9 +804,9 @@ public class GoogleApi {
     /**
      * Build call for googleGetPlaceReviews
      * @param dataId Maps data ID (required)
-     * @param sortBy  (optional, default to qualityScore)
+     * @param sortBy qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to qualityScore)
      * @param hl  (optional, default to en)
-     * @param nextPageToken  (optional)
+     * @param nextPageToken Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)
      * @param results  (optional, default to 10)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -898,9 +898,9 @@ public class GoogleApi {
      * Get place reviews
      * 
      * @param dataId Maps data ID (required)
-     * @param sortBy  (optional, default to qualityScore)
+     * @param sortBy qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to qualityScore)
      * @param hl  (optional, default to en)
-     * @param nextPageToken  (optional)
+     * @param nextPageToken Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)
      * @param results  (optional, default to 10)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -921,9 +921,9 @@ public class GoogleApi {
      * Get place reviews
      * 
      * @param dataId Maps data ID (required)
-     * @param sortBy  (optional, default to qualityScore)
+     * @param sortBy qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to qualityScore)
      * @param hl  (optional, default to en)
-     * @param nextPageToken  (optional)
+     * @param nextPageToken Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)
      * @param results  (optional, default to 10)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -945,9 +945,9 @@ public class GoogleApi {
      * Get place reviews (asynchronously)
      * 
      * @param dataId Maps data ID (required)
-     * @param sortBy  (optional, default to qualityScore)
+     * @param sortBy qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to qualityScore)
      * @param hl  (optional, default to en)
-     * @param nextPageToken  (optional)
+     * @param nextPageToken Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)
      * @param results  (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
