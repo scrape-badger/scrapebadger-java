@@ -16,6 +16,7 @@ docs/BaiduApi.md
 docs/BillingLogListResponse.md
 docs/BillingLogResponse.md
 docs/BingApi.md
+docs/BookingApi.md
 docs/ChatGptApi.md
 docs/DepopApi.md
 docs/DuckDuckGoApi.md
@@ -97,6 +98,7 @@ src/main/java/com/scrapebadger/client/api/ApartmentsApi.java
 src/main/java/com/scrapebadger/client/api/AppStoreApi.java
 src/main/java/com/scrapebadger/client/api/BaiduApi.java
 src/main/java/com/scrapebadger/client/api/BingApi.java
+src/main/java/com/scrapebadger/client/api/BookingApi.java
 src/main/java/com/scrapebadger/client/api/ChatGptApi.java
 src/main/java/com/scrapebadger/client/api/DepopApi.java
 src/main/java/com/scrapebadger/client/api/DuckDuckGoApi.java
@@ -164,6 +166,7 @@ src/test/java/com/scrapebadger/client/api/ApartmentsApiTest.java
 src/test/java/com/scrapebadger/client/api/AppStoreApiTest.java
 src/test/java/com/scrapebadger/client/api/BaiduApiTest.java
 src/test/java/com/scrapebadger/client/api/BingApiTest.java
+src/test/java/com/scrapebadger/client/api/BookingApiTest.java
 src/test/java/com/scrapebadger/client/api/ChatGptApiTest.java
 src/test/java/com/scrapebadger/client/api/DepopApiTest.java
 src/test/java/com/scrapebadger/client/api/DuckDuckGoApiTest.java
