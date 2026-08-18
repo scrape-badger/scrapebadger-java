@@ -8,6 +8,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**bookingBookingScraperHealthCheckHead**](BookingApi.md#bookingBookingScraperHealthCheckHead) | **HEAD** /v1/booking/health | Booking scraper health check |
 | [**bookingGetPropertyDetail**](BookingApi.md#bookingGetPropertyDetail) | **GET** /v1/booking/properties/{country_code}/{slug} | Get property detail |
 | [**bookingGetPropertyReviews**](BookingApi.md#bookingGetPropertyReviews) | **GET** /v1/booking/properties/{country_code}/{slug}/reviews | Get property reviews |
+| [**bookingGetRoomTypesAndLiveRates**](BookingApi.md#bookingGetRoomTypesAndLiveRates) | **GET** /v1/booking/properties/{country_code}/{slug}/rooms | Get room types and live rates |
 | [**bookingSearchDestinations**](BookingApi.md#bookingSearchDestinations) | **GET** /v1/booking/destinations | Search destinations |
 | [**bookingSearchProperties**](BookingApi.md#bookingSearchProperties) | **GET** /v1/booking/search | Search properties |
 
@@ -284,6 +285,92 @@ public class Example {
 | **reviewLanguage** | **String**| Only reviews written in this language, e.g. &#39;fr&#39; | [optional] |
 | **guestType** | **String**| FAMILIES | COUPLES | GROUP_OF_FRIENDS | SOLO_TRAVELLERS | BUSINESS_TRAVELLERS | [optional] |
 | **language** | **String**| Locale for labels, e.g. en-us | [optional] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="bookingGetRoomTypesAndLiveRates"></a>
+# **bookingGetRoomTypesAndLiveRates**
+> Object bookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language)
+
+Get room types and live rates
+
+Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.BookingApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    BookingApi apiInstance = new BookingApi(defaultClient);
+    String countryCode = "countryCode_example"; // String | Two-letter country code, e.g. 'it'
+    String slug = "slug_example"; // String | Booking page name, e.g. 'hotel-artemide'
+    String checkin = "checkin_example"; // String | Check-in date YYYY-MM-DD
+    String checkout = "checkout_example"; // String | Check-out date YYYY-MM-DD
+    Integer adults = 2; // Integer | 
+    String children = "children_example"; // String | Comma-separated children ages, e.g. '4,9'
+    Integer rooms = 1; // Integer | 
+    String currency = "currency_example"; // String | ISO currency, e.g. EUR, USD, GBP
+    String language = "language_example"; // String | Locale, e.g. en-us, fr, de
+    try {
+      Object result = apiInstance.bookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BookingApi#bookingGetRoomTypesAndLiveRates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **countryCode** | **String**| Two-letter country code, e.g. &#39;it&#39; | |
+| **slug** | **String**| Booking page name, e.g. &#39;hotel-artemide&#39; | |
+| **checkin** | **String**| Check-in date YYYY-MM-DD | |
+| **checkout** | **String**| Check-out date YYYY-MM-DD | |
+| **adults** | **Integer**|  | [optional] [default to 2] |
+| **children** | **String**| Comma-separated children ages, e.g. &#39;4,9&#39; | [optional] |
+| **rooms** | **Integer**|  | [optional] [default to 1] |
+| **currency** | **String**| ISO currency, e.g. EUR, USD, GBP | [optional] |
+| **language** | **String**| Locale, e.g. en-us, fr, de | [optional] |
 
 ### Return type
 

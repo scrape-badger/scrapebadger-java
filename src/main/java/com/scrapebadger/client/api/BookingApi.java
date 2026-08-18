@@ -661,6 +661,213 @@ public class BookingApi {
         return localVarCall;
     }
     /**
+     * Build call for bookingGetRoomTypesAndLiveRates
+     * @param countryCode Two-letter country code, e.g. &#39;it&#39; (required)
+     * @param slug Booking page name, e.g. &#39;hotel-artemide&#39; (required)
+     * @param checkin Check-in date YYYY-MM-DD (required)
+     * @param checkout Check-out date YYYY-MM-DD (required)
+     * @param adults  (optional, default to 2)
+     * @param children Comma-separated children ages, e.g. &#39;4,9&#39; (optional)
+     * @param rooms  (optional, default to 1)
+     * @param currency ISO currency, e.g. EUR, USD, GBP (optional)
+     * @param language Locale, e.g. en-us, fr, de (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call bookingGetRoomTypesAndLiveRatesCall(String countryCode, String slug, String checkin, String checkout, Integer adults, String children, Integer rooms, String currency, String language, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/booking/properties/{country_code}/{slug}/rooms"
+            .replace("{" + "country_code" + "}", localVarApiClient.escapeString(countryCode.toString()))
+            .replace("{" + "slug" + "}", localVarApiClient.escapeString(slug.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (checkin != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("checkin", checkin));
+        }
+
+        if (checkout != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("checkout", checkout));
+        }
+
+        if (adults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("adults", adults));
+        }
+
+        if (children != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("children", children));
+        }
+
+        if (rooms != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("rooms", rooms));
+        }
+
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (language != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call bookingGetRoomTypesAndLiveRatesValidateBeforeCall(String countryCode, String slug, String checkin, String checkout, Integer adults, String children, Integer rooms, String currency, String language, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'countryCode' is set
+        if (countryCode == null) {
+            throw new ApiException("Missing the required parameter 'countryCode' when calling bookingGetRoomTypesAndLiveRates(Async)");
+        }
+
+        // verify the required parameter 'slug' is set
+        if (slug == null) {
+            throw new ApiException("Missing the required parameter 'slug' when calling bookingGetRoomTypesAndLiveRates(Async)");
+        }
+
+        // verify the required parameter 'checkin' is set
+        if (checkin == null) {
+            throw new ApiException("Missing the required parameter 'checkin' when calling bookingGetRoomTypesAndLiveRates(Async)");
+        }
+
+        // verify the required parameter 'checkout' is set
+        if (checkout == null) {
+            throw new ApiException("Missing the required parameter 'checkout' when calling bookingGetRoomTypesAndLiveRates(Async)");
+        }
+
+        return bookingGetRoomTypesAndLiveRatesCall(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language, _callback);
+
+    }
+
+    /**
+     * Get room types and live rates
+     * Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+     * @param countryCode Two-letter country code, e.g. &#39;it&#39; (required)
+     * @param slug Booking page name, e.g. &#39;hotel-artemide&#39; (required)
+     * @param checkin Check-in date YYYY-MM-DD (required)
+     * @param checkout Check-out date YYYY-MM-DD (required)
+     * @param adults  (optional, default to 2)
+     * @param children Comma-separated children ages, e.g. &#39;4,9&#39; (optional)
+     * @param rooms  (optional, default to 1)
+     * @param currency ISO currency, e.g. EUR, USD, GBP (optional)
+     * @param language Locale, e.g. en-us, fr, de (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object bookingGetRoomTypesAndLiveRates(String countryCode, String slug, String checkin, String checkout, Integer adults, String children, Integer rooms, String currency, String language) throws ApiException {
+        ApiResponse<Object> localVarResp = bookingGetRoomTypesAndLiveRatesWithHttpInfo(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get room types and live rates
+     * Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+     * @param countryCode Two-letter country code, e.g. &#39;it&#39; (required)
+     * @param slug Booking page name, e.g. &#39;hotel-artemide&#39; (required)
+     * @param checkin Check-in date YYYY-MM-DD (required)
+     * @param checkout Check-out date YYYY-MM-DD (required)
+     * @param adults  (optional, default to 2)
+     * @param children Comma-separated children ages, e.g. &#39;4,9&#39; (optional)
+     * @param rooms  (optional, default to 1)
+     * @param currency ISO currency, e.g. EUR, USD, GBP (optional)
+     * @param language Locale, e.g. en-us, fr, de (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> bookingGetRoomTypesAndLiveRatesWithHttpInfo(String countryCode, String slug, String checkin, String checkout, Integer adults, String children, Integer rooms, String currency, String language) throws ApiException {
+        okhttp3.Call localVarCall = bookingGetRoomTypesAndLiveRatesValidateBeforeCall(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get room types and live rates (asynchronously)
+     * Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+     * @param countryCode Two-letter country code, e.g. &#39;it&#39; (required)
+     * @param slug Booking page name, e.g. &#39;hotel-artemide&#39; (required)
+     * @param checkin Check-in date YYYY-MM-DD (required)
+     * @param checkout Check-out date YYYY-MM-DD (required)
+     * @param adults  (optional, default to 2)
+     * @param children Comma-separated children ages, e.g. &#39;4,9&#39; (optional)
+     * @param rooms  (optional, default to 1)
+     * @param currency ISO currency, e.g. EUR, USD, GBP (optional)
+     * @param language Locale, e.g. en-us, fr, de (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call bookingGetRoomTypesAndLiveRatesAsync(String countryCode, String slug, String checkin, String checkout, Integer adults, String children, Integer rooms, String currency, String language, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = bookingGetRoomTypesAndLiveRatesValidateBeforeCall(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for bookingSearchDestinations
      * @param query Free-text place, e.g. &#39;amsterd&#39; (required)
      * @param limit  (optional, default to 8)

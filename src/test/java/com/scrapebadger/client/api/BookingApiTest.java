@@ -97,6 +97,28 @@ public class BookingApiTest {
     }
 
     /**
+     * Get room types and live rates
+     *
+     * Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void bookingGetRoomTypesAndLiveRatesTest() throws ApiException {
+        String countryCode = null;
+        String slug = null;
+        String checkin = null;
+        String checkout = null;
+        Integer adults = null;
+        String children = null;
+        Integer rooms = null;
+        String currency = null;
+        String language = null;
+        Object response = api.bookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+        // TODO: test validations
+    }
+
+    /**
      * Search destinations
      *
      * Resolve a place name to Booking&#39;s &#x60;dest_id&#x60;/&#x60;dest_type&#x60;, with coordinates and country — feed the pair back into /search for an exact match.
