@@ -253,7 +253,7 @@ public class EBayApi {
         return localVarCall;
     }
     /**
-     * Build call for ebayCompletedSoldListings
+     * Build call for ebayCompletedSoldListingsDeprecated
      * @param query Search keywords (required)
      * @param domain  (optional, default to com)
      * @param categoryId  (optional)
@@ -273,8 +273,10 @@ public class EBayApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call ebayCompletedSoldListingsCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, final ApiCallback _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call ebayCompletedSoldListingsDeprecatedCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -354,20 +356,21 @@ public class EBayApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ebayCompletedSoldListingsValidateBeforeCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ebayCompletedSoldListingsDeprecatedValidateBeforeCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling ebayCompletedSoldListings(Async)");
+            throw new ApiException("Missing the required parameter 'query' when calling ebayCompletedSoldListingsDeprecated(Async)");
         }
 
-        return ebayCompletedSoldListingsCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, _callback);
+        return ebayCompletedSoldListingsDeprecatedCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, _callback);
 
     }
 
     /**
-     * Completed / sold listings
-     * Search completed/sold listings — eBay&#39;s sold-price history.
+     * Completed / sold listings (deprecated)
+     * Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
      * @param query Search keywords (required)
      * @param domain  (optional, default to com)
      * @param categoryId  (optional)
@@ -386,15 +389,17 @@ public class EBayApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public Object ebayCompletedSoldListings(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice) throws ApiException {
-        ApiResponse<Object> localVarResp = ebayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+    @Deprecated
+    public Object ebayCompletedSoldListingsDeprecated(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice) throws ApiException {
+        ApiResponse<Object> localVarResp = ebayCompletedSoldListingsDeprecatedWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
         return localVarResp.getData();
     }
 
     /**
-     * Completed / sold listings
-     * Search completed/sold listings — eBay&#39;s sold-price history.
+     * Completed / sold listings (deprecated)
+     * Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
      * @param query Search keywords (required)
      * @param domain  (optional, default to com)
      * @param categoryId  (optional)
@@ -413,16 +418,18 @@ public class EBayApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public ApiResponse<Object> ebayCompletedSoldListingsWithHttpInfo(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice) throws ApiException {
-        okhttp3.Call localVarCall = ebayCompletedSoldListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, null);
+    @Deprecated
+    public ApiResponse<Object> ebayCompletedSoldListingsDeprecatedWithHttpInfo(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice) throws ApiException {
+        okhttp3.Call localVarCall = ebayCompletedSoldListingsDeprecatedValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Completed / sold listings (asynchronously)
-     * Search completed/sold listings — eBay&#39;s sold-price history.
+     * Completed / sold listings (deprecated) (asynchronously)
+     * Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
      * @param query Search keywords (required)
      * @param domain  (optional, default to com)
      * @param categoryId  (optional)
@@ -442,10 +449,12 @@ public class EBayApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call ebayCompletedSoldListingsAsync(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, final ApiCallback<Object> _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call ebayCompletedSoldListingsDeprecatedAsync(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ebayCompletedSoldListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, _callback);
+        okhttp3.Call localVarCall = ebayCompletedSoldListingsDeprecatedValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

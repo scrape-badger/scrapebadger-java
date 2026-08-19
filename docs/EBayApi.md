@@ -5,7 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**ebayBrowseACategory**](EBayApi.md#ebayBrowseACategory) | **GET** /v1/ebay/categories/{category_id}/items | Browse a category |
-| [**ebayCompletedSoldListings**](EBayApi.md#ebayCompletedSoldListings) | **GET** /v1/ebay/completed | Completed / sold listings |
+| [**ebayCompletedSoldListingsDeprecated**](EBayApi.md#ebayCompletedSoldListingsDeprecated) | **GET** /v1/ebay/completed | Completed / sold listings (deprecated) |
 | [**ebayEbayScraperHealthCheck**](EBayApi.md#ebayEbayScraperHealthCheck) | **GET** /v1/ebay/health | eBay scraper health check |
 | [**ebayEbayScraperHealthCheckHead**](EBayApi.md#ebayEbayScraperHealthCheckHead) | **HEAD** /v1/ebay/health | eBay scraper health check |
 | [**ebayGetItemDetail**](EBayApi.md#ebayGetItemDetail) | **GET** /v1/ebay/items/{item_id} | Get item detail |
@@ -101,13 +101,13 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-<a id="ebayCompletedSoldListings"></a>
-# **ebayCompletedSoldListings**
-> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice)
+<a id="ebayCompletedSoldListingsDeprecated"></a>
+# **ebayCompletedSoldListingsDeprecated**
+> Object ebayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice)
 
-Completed / sold listings
+Completed / sold listings (deprecated)
 
-Search completed/sold listings — eBay&#39;s sold-price history.
+Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
 
 ### Example
 ```java
@@ -141,10 +141,10 @@ public class Example {
     BigDecimal minPrice = new BigDecimal(78); // BigDecimal | 
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | 
     try {
-      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+      Object result = apiInstance.ebayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EBayApi#ebayCompletedSoldListings");
+      System.err.println("Exception when calling EBayApi#ebayCompletedSoldListingsDeprecated");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

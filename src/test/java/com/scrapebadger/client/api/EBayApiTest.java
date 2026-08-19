@@ -53,14 +53,14 @@ public class EBayApiTest {
     }
 
     /**
-     * Completed / sold listings
+     * Completed / sold listings (deprecated)
      *
-     * Search completed/sold listings — eBay&#39;s sold-price history.
+     * Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void ebayCompletedSoldListingsTest() throws ApiException {
+    public void ebayCompletedSoldListingsDeprecatedTest() throws ApiException {
         String query = null;
         String domain = null;
         String categoryId = null;
@@ -70,7 +70,7 @@ public class EBayApiTest {
         String condition = null;
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
-        Object response = api.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+        Object response = api.ebayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
         // TODO: test validations
     }
 
