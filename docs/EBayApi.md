@@ -5,7 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**ebayBrowseACategory**](EBayApi.md#ebayBrowseACategory) | **GET** /v1/ebay/categories/{category_id}/items | Browse a category |
-| [**ebayCompletedSoldListingsDeprecated**](EBayApi.md#ebayCompletedSoldListingsDeprecated) | **GET** /v1/ebay/completed | Completed / sold listings (deprecated) |
+| [**ebayCompletedSoldListings**](EBayApi.md#ebayCompletedSoldListings) | **GET** /v1/ebay/completed | Completed / sold listings |
 | [**ebayEbayScraperHealthCheck**](EBayApi.md#ebayEbayScraperHealthCheck) | **GET** /v1/ebay/health | eBay scraper health check |
 | [**ebayEbayScraperHealthCheckHead**](EBayApi.md#ebayEbayScraperHealthCheckHead) | **HEAD** /v1/ebay/health | eBay scraper health check |
 | [**ebayGetItemDetail**](EBayApi.md#ebayGetItemDetail) | **GET** /v1/ebay/items/{item_id} | Get item detail |
@@ -101,13 +101,13 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-<a id="ebayCompletedSoldListingsDeprecated"></a>
-# **ebayCompletedSoldListingsDeprecated**
-> Object ebayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice)
+<a id="ebayCompletedSoldListings"></a>
+# **ebayCompletedSoldListings**
+> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice)
 
-Completed / sold listings (deprecated)
+Completed / sold listings
 
-Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
+Search completed/sold listings — eBay&#39;s sold-price history.
 
 ### Example
 ```java
@@ -132,19 +132,19 @@ public class Example {
 
     EBayApi apiInstance = new EBayApi(defaultClient);
     String query = "query_example"; // String | Search keywords
-    String domain = "com"; // String | 
-    String categoryId = "categoryId_example"; // String | 
+    String domain = "com"; // String | Marketplace domain (com, co.uk, de …)
+    String categoryId = "categoryId_example"; // String | Restrict to a category id
     Integer page = 1; // Integer | 
-    Integer perPage = 56; // Integer | 
+    Integer perPage = 56; // Integer | 60, 120 or 240
     String sortBy = "best_match"; // String | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low
     String condition = "condition_example"; // String | new|open_box|refurbished|used|for_parts
     BigDecimal minPrice = new BigDecimal(78); // BigDecimal | 
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | 
     try {
-      Object result = apiInstance.ebayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EBayApi#ebayCompletedSoldListingsDeprecated");
+      System.err.println("Exception when calling EBayApi#ebayCompletedSoldListings");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -159,10 +159,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **query** | **String**| Search keywords | |
-| **domain** | **String**|  | [optional] [default to com] |
-| **categoryId** | **String**|  | [optional] |
+| **domain** | **String**| Marketplace domain (com, co.uk, de …) | [optional] [default to com] |
+| **categoryId** | **String**| Restrict to a category id | [optional] |
 | **page** | **Integer**|  | [optional] [default to 1] |
-| **perPage** | **Integer**|  | [optional] |
+| **perPage** | **Integer**| 60, 120 or 240 | [optional] |
 | **sortBy** | **String**| best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low | [optional] [default to best_match] |
 | **condition** | **String**| new|open_box|refurbished|used|for_parts | [optional] |
 | **minPrice** | **BigDecimal**|  | [optional] |

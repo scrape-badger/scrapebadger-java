@@ -262,7 +262,7 @@ Class | Method | HTTP request | Description
 *DuckDuckGoApi* | [**duckduckgoVideoSearch**](docs/DuckDuckGoApi.md#duckduckgoVideoSearch) | **GET** /v1/duckduckgo/videos | Video search
 *DuckDuckGoApi* | [**duckduckgoWebSearch**](docs/DuckDuckGoApi.md#duckduckgoWebSearch) | **GET** /v1/duckduckgo/search | Web search
 *EBayApi* | [**ebayBrowseACategory**](docs/EBayApi.md#ebayBrowseACategory) | **GET** /v1/ebay/categories/{category_id}/items | Browse a category
-*EBayApi* | [**ebayCompletedSoldListingsDeprecated**](docs/EBayApi.md#ebayCompletedSoldListingsDeprecated) | **GET** /v1/ebay/completed | Completed / sold listings (deprecated)
+*EBayApi* | [**ebayCompletedSoldListings**](docs/EBayApi.md#ebayCompletedSoldListings) | **GET** /v1/ebay/completed | Completed / sold listings
 *EBayApi* | [**ebayEbayScraperHealthCheck**](docs/EBayApi.md#ebayEbayScraperHealthCheck) | **GET** /v1/ebay/health | eBay scraper health check
 *EBayApi* | [**ebayEbayScraperHealthCheckHead**](docs/EBayApi.md#ebayEbayScraperHealthCheckHead) | **HEAD** /v1/ebay/health | eBay scraper health check
 *EBayApi* | [**ebayGetItemDetail**](docs/EBayApi.md#ebayGetItemDetail) | **GET** /v1/ebay/items/{item_id} | Get item detail
