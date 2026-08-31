@@ -103,7 +103,7 @@ public class Example {
 
 <a id="ebayCompletedSoldListings"></a>
 # **ebayCompletedSoldListings**
-> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice)
+> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location)
 
 Completed / sold listings
 
@@ -137,11 +137,12 @@ public class Example {
     Integer page = 1; // Integer | 
     Integer perPage = 56; // Integer | 60, 120 or 240
     String sortBy = "best_match"; // String | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low
-    String condition = "condition_example"; // String | new|open_box|refurbished|used|for_parts
+    String condition = "condition_example"; // String | new|open_box|refurbished|used|for_parts|graded|ungraded
     BigDecimal minPrice = new BigDecimal(78); // BigDecimal | 
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | 
+    String location = "location_example"; // String | domestic|worldwide
     try {
-      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EBayApi#ebayCompletedSoldListings");
@@ -164,9 +165,10 @@ public class Example {
 | **page** | **Integer**|  | [optional] [default to 1] |
 | **perPage** | **Integer**| 60, 120 or 240 | [optional] |
 | **sortBy** | **String**| best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low | [optional] [default to best_match] |
-| **condition** | **String**| new|open_box|refurbished|used|for_parts | [optional] |
+| **condition** | **String**| new|open_box|refurbished|used|for_parts|graded|ungraded | [optional] |
 | **minPrice** | **BigDecimal**|  | [optional] |
 | **maxPrice** | **BigDecimal**|  | [optional] |
+| **location** | **String**| domestic|worldwide | [optional] |
 
 ### Return type
 
@@ -891,7 +893,7 @@ This endpoint does not need any parameter.
 
 <a id="ebaySearchListings"></a>
 # **ebaySearchListings**
-> Object ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping)
+> Object ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location)
 
 Search listings
 
@@ -925,13 +927,14 @@ public class Example {
     Integer page = 1; // Integer | 
     Integer perPage = 56; // Integer | 60, 120 or 240
     String sortBy = "best_match"; // String | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low
-    String condition = "condition_example"; // String | new|open_box|refurbished|used|for_parts
+    String condition = "condition_example"; // String | new|open_box|refurbished|used|for_parts|graded|ungraded
     String buyingFormat = "buyingFormat_example"; // String | auction|buy_it_now|best_offer
     BigDecimal minPrice = new BigDecimal(78); // BigDecimal | 
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | 
     Boolean freeShipping = false; // Boolean | 
+    String location = "location_example"; // String | domestic|worldwide
     try {
-      Object result = apiInstance.ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping);
+      Object result = apiInstance.ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EBayApi#ebaySearchListings");
@@ -954,11 +957,12 @@ public class Example {
 | **page** | **Integer**|  | [optional] [default to 1] |
 | **perPage** | **Integer**| 60, 120 or 240 | [optional] |
 | **sortBy** | **String**| best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low | [optional] [default to best_match] |
-| **condition** | **String**| new|open_box|refurbished|used|for_parts | [optional] |
+| **condition** | **String**| new|open_box|refurbished|used|for_parts|graded|ungraded | [optional] |
 | **buyingFormat** | **String**| auction|buy_it_now|best_offer | [optional] |
 | **minPrice** | **BigDecimal**|  | [optional] |
 | **maxPrice** | **BigDecimal**|  | [optional] |
 | **freeShipping** | **Boolean**|  | [optional] [default to false] |
+| **location** | **String**| domestic|worldwide | [optional] |
 
 ### Return type
 
