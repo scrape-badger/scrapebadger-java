@@ -414,6 +414,20 @@ public class TikTokApiTest {
     }
 
     /**
+     * Search TikTok Shop products
+     *
+     * Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokSearchTiktokShopProductsTest() throws ApiException {
+        String q = null;
+        Object response = api.tiktokSearchTiktokShopProducts(q);
+        // TODO: test validations
+    }
+
+    /**
      * Search users
      *
      * Search TikTok users by keyword.
@@ -444,6 +458,61 @@ public class TikTokApiTest {
         Integer count = null;
         String cursor = null;
         Object response = api.tiktokSearchVideos(query, region, count, cursor);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop best sellers
+     *
+     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopBestSellersTest() throws ApiException {
+        Integer count = null;
+        Object response = api.tiktokTiktokShopBestSellers(count);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop category: subcategories + top products
+     *
+     * A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopCategorySubcategoriesTopProductsTest() throws ApiException {
+        String categoryId = null;
+        Object response = api.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop product detail
+     *
+     * Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopProductDetailTest() throws ApiException {
+        String productId = null;
+        Object response = api.tiktokTiktokShopProductDetail(productId);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop root categories
+     *
+     * Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopRootCategoriesTest() throws ApiException {
+        Object response = api.tiktokTiktokShopRootCategories();
         // TODO: test validations
     }
 
