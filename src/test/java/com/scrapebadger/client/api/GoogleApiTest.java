@@ -429,16 +429,18 @@ public class GoogleApiTest {
     /**
      * Multi-seller offers by barcode
      *
-     * Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+     * Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void googleMultiSellerOffersByBarcodeTest() throws ApiException {
         String barcode = null;
+        String catalogId = null;
         String gl = null;
         String hl = null;
-        Object response = api.googleMultiSellerOffersByBarcode(barcode, gl, hl);
+        String domain = null;
+        Object response = api.googleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain);
         // TODO: test validations
     }
 

@@ -3847,9 +3847,11 @@ public class GoogleApi {
     }
     /**
      * Build call for googleMultiSellerOffersByBarcode
-     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (required)
+     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)
+     * @param catalogId Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)
      * @param gl Country code (ISO 3166 alpha-2) (optional)
      * @param hl Language code (optional, default to en)
+     * @param domain Google domain (optional, default to google.com)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3861,7 +3863,7 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googleMultiSellerOffersByBarcodeCall(String barcode, String gl, String hl, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googleMultiSellerOffersByBarcodeCall(String barcode, String catalogId, String gl, String hl, String domain, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3890,12 +3892,20 @@ public class GoogleApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("barcode", barcode));
         }
 
+        if (catalogId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("catalog_id", catalogId));
+        }
+
         if (gl != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("gl", gl));
         }
 
         if (hl != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("hl", hl));
+        }
+
+        if (domain != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("domain", domain));
         }
 
         final String[] localVarAccepts = {
@@ -3918,22 +3928,19 @@ public class GoogleApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googleMultiSellerOffersByBarcodeValidateBeforeCall(String barcode, String gl, String hl, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'barcode' is set
-        if (barcode == null) {
-            throw new ApiException("Missing the required parameter 'barcode' when calling googleMultiSellerOffersByBarcode(Async)");
-        }
-
-        return googleMultiSellerOffersByBarcodeCall(barcode, gl, hl, _callback);
+    private okhttp3.Call googleMultiSellerOffersByBarcodeValidateBeforeCall(String barcode, String catalogId, String gl, String hl, String domain, final ApiCallback _callback) throws ApiException {
+        return googleMultiSellerOffersByBarcodeCall(barcode, catalogId, gl, hl, domain, _callback);
 
     }
 
     /**
      * Multi-seller offers by barcode
-     * Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
-     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (required)
+     * Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
+     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)
+     * @param catalogId Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)
      * @param gl Country code (ISO 3166 alpha-2) (optional)
      * @param hl Language code (optional, default to en)
+     * @param domain Google domain (optional, default to google.com)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3944,17 +3951,19 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object googleMultiSellerOffersByBarcode(String barcode, String gl, String hl) throws ApiException {
-        ApiResponse<Object> localVarResp = googleMultiSellerOffersByBarcodeWithHttpInfo(barcode, gl, hl);
+    public Object googleMultiSellerOffersByBarcode(String barcode, String catalogId, String gl, String hl, String domain) throws ApiException {
+        ApiResponse<Object> localVarResp = googleMultiSellerOffersByBarcodeWithHttpInfo(barcode, catalogId, gl, hl, domain);
         return localVarResp.getData();
     }
 
     /**
      * Multi-seller offers by barcode
-     * Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
-     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (required)
+     * Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
+     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)
+     * @param catalogId Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)
      * @param gl Country code (ISO 3166 alpha-2) (optional)
      * @param hl Language code (optional, default to en)
+     * @param domain Google domain (optional, default to google.com)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3965,18 +3974,20 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googleMultiSellerOffersByBarcodeWithHttpInfo(String barcode, String gl, String hl) throws ApiException {
-        okhttp3.Call localVarCall = googleMultiSellerOffersByBarcodeValidateBeforeCall(barcode, gl, hl, null);
+    public ApiResponse<Object> googleMultiSellerOffersByBarcodeWithHttpInfo(String barcode, String catalogId, String gl, String hl, String domain) throws ApiException {
+        okhttp3.Call localVarCall = googleMultiSellerOffersByBarcodeValidateBeforeCall(barcode, catalogId, gl, hl, domain, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Multi-seller offers by barcode (asynchronously)
-     * Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
-     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (required)
+     * Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
+     * @param barcode Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)
+     * @param catalogId Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)
      * @param gl Country code (ISO 3166 alpha-2) (optional)
      * @param hl Language code (optional, default to en)
+     * @param domain Google domain (optional, default to google.com)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3988,9 +3999,9 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googleMultiSellerOffersByBarcodeAsync(String barcode, String gl, String hl, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googleMultiSellerOffersByBarcodeAsync(String barcode, String catalogId, String gl, String hl, String domain, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googleMultiSellerOffersByBarcodeValidateBeforeCall(barcode, gl, hl, _callback);
+        okhttp3.Call localVarCall = googleMultiSellerOffersByBarcodeValidateBeforeCall(barcode, catalogId, gl, hl, domain, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
