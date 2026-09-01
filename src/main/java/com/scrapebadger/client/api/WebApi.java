@@ -866,7 +866,7 @@ public class WebApi {
 
     /**
      * Take a screenshot
-     * Take a screenshot of a URL. (Phase 2 — patchright engine)
+     * Take a screenshot of a URL. (browser engine)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -883,7 +883,7 @@ public class WebApi {
 
     /**
      * Take a screenshot
-     * Take a screenshot of a URL. (Phase 2 — patchright engine)
+     * Take a screenshot of a URL. (browser engine)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -901,7 +901,7 @@ public class WebApi {
 
     /**
      * Take a screenshot (asynchronously)
-     * Take a screenshot of a URL. (Phase 2 — patchright engine)
+     * Take a screenshot of a URL. (browser engine)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
