@@ -304,7 +304,7 @@ public class Example {
 
 <a id="amazonGetAllSellerOffersBuybox"></a>
 # **amazonGetAllSellerOffersBuybox**
-> Object amazonGetAllSellerOffersBuybox(asin, domain, zip)
+> Object amazonGetAllSellerOffersBuybox(asin, domain, zip, page)
 
 Get all seller offers (buybox)
 
@@ -335,8 +335,9 @@ public class Example {
     String asin = "asin_example"; // String | 
     String domain = "com"; // String | 
     String zip = "zip_example"; // String | 
+    Integer page = 1; // Integer | Offer page, 10 rows each
     try {
-      Object result = apiInstance.amazonGetAllSellerOffersBuybox(asin, domain, zip);
+      Object result = apiInstance.amazonGetAllSellerOffersBuybox(asin, domain, zip, page);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AmazonApi#amazonGetAllSellerOffersBuybox");
@@ -356,6 +357,7 @@ public class Example {
 | **asin** | **String**|  | |
 | **domain** | **String**|  | [optional] [default to com] |
 | **zip** | **String**|  | [optional] |
+| **page** | **Integer**| Offer page, 10 rows each | [optional] [default to 1] |
 
 ### Return type
 

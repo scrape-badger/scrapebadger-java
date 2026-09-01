@@ -615,6 +615,7 @@ public class AmazonApi {
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param zip  (optional)
+     * @param page Offer page, 10 rows each (optional, default to 1)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -626,7 +627,7 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amazonGetAllSellerOffersBuyboxCall(String asin, String domain, String zip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amazonGetAllSellerOffersBuyboxCall(String asin, String domain, String zip, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -660,6 +661,10 @@ public class AmazonApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("zip", zip));
         }
 
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -680,13 +685,13 @@ public class AmazonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amazonGetAllSellerOffersBuyboxValidateBeforeCall(String asin, String domain, String zip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amazonGetAllSellerOffersBuyboxValidateBeforeCall(String asin, String domain, String zip, Integer page, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'asin' is set
         if (asin == null) {
             throw new ApiException("Missing the required parameter 'asin' when calling amazonGetAllSellerOffersBuybox(Async)");
         }
 
-        return amazonGetAllSellerOffersBuyboxCall(asin, domain, zip, _callback);
+        return amazonGetAllSellerOffersBuyboxCall(asin, domain, zip, page, _callback);
 
     }
 
@@ -696,6 +701,7 @@ public class AmazonApi {
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param zip  (optional)
+     * @param page Offer page, 10 rows each (optional, default to 1)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -706,8 +712,8 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object amazonGetAllSellerOffersBuybox(String asin, String domain, String zip) throws ApiException {
-        ApiResponse<Object> localVarResp = amazonGetAllSellerOffersBuyboxWithHttpInfo(asin, domain, zip);
+    public Object amazonGetAllSellerOffersBuybox(String asin, String domain, String zip, Integer page) throws ApiException {
+        ApiResponse<Object> localVarResp = amazonGetAllSellerOffersBuyboxWithHttpInfo(asin, domain, zip, page);
         return localVarResp.getData();
     }
 
@@ -717,6 +723,7 @@ public class AmazonApi {
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param zip  (optional)
+     * @param page Offer page, 10 rows each (optional, default to 1)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -727,8 +734,8 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> amazonGetAllSellerOffersBuyboxWithHttpInfo(String asin, String domain, String zip) throws ApiException {
-        okhttp3.Call localVarCall = amazonGetAllSellerOffersBuyboxValidateBeforeCall(asin, domain, zip, null);
+    public ApiResponse<Object> amazonGetAllSellerOffersBuyboxWithHttpInfo(String asin, String domain, String zip, Integer page) throws ApiException {
+        okhttp3.Call localVarCall = amazonGetAllSellerOffersBuyboxValidateBeforeCall(asin, domain, zip, page, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -739,6 +746,7 @@ public class AmazonApi {
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param zip  (optional)
+     * @param page Offer page, 10 rows each (optional, default to 1)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -750,9 +758,9 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amazonGetAllSellerOffersBuyboxAsync(String asin, String domain, String zip, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call amazonGetAllSellerOffersBuyboxAsync(String asin, String domain, String zip, Integer page, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = amazonGetAllSellerOffersBuyboxValidateBeforeCall(asin, domain, zip, _callback);
+        okhttp3.Call localVarCall = amazonGetAllSellerOffersBuyboxValidateBeforeCall(asin, domain, zip, page, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

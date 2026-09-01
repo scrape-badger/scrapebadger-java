@@ -103,7 +103,8 @@ public class AmazonApiTest {
         String asin = null;
         String domain = null;
         String zip = null;
-        Object response = api.amazonGetAllSellerOffersBuybox(asin, domain, zip);
+        Integer page = null;
+        Object response = api.amazonGetAllSellerOffersBuybox(asin, domain, zip, page);
         // TODO: test validations
     }
 
