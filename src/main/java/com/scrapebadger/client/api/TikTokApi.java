@@ -3611,6 +3611,8 @@ public class TikTokApi {
     /**
      * Build call for tiktokSearchTiktokShopProducts
      * @param q Keyword, e.g. &#39;wireless earbuds&#39; (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param offset Pass back next_offset for the next page (US) (optional, default to 0)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3622,7 +3624,7 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokSearchTiktokShopProductsCall(String q, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokSearchTiktokShopProductsCall(String q, String region, Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3651,6 +3653,14 @@ public class TikTokApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("q", q));
         }
 
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3671,20 +3681,22 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokSearchTiktokShopProductsValidateBeforeCall(String q, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokSearchTiktokShopProductsValidateBeforeCall(String q, String region, Integer offset, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'q' is set
         if (q == null) {
             throw new ApiException("Missing the required parameter 'q' when calling tiktokSearchTiktokShopProducts(Async)");
         }
 
-        return tiktokSearchTiktokShopProductsCall(q, _callback);
+        return tiktokSearchTiktokShopProductsCall(q, region, offset, _callback);
 
     }
 
     /**
      * Search TikTok Shop products
-     * Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+     * Keyword search over TikTok Shop products: 30 per page with offset pagination (US); the first page also carries matching shops and related searches.
      * @param q Keyword, e.g. &#39;wireless earbuds&#39; (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param offset Pass back next_offset for the next page (US) (optional, default to 0)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3695,15 +3707,17 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokSearchTiktokShopProducts(String q) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokSearchTiktokShopProductsWithHttpInfo(q);
+    public Object tiktokSearchTiktokShopProducts(String q, String region, Integer offset) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokSearchTiktokShopProductsWithHttpInfo(q, region, offset);
         return localVarResp.getData();
     }
 
     /**
      * Search TikTok Shop products
-     * Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+     * Keyword search over TikTok Shop products: 30 per page with offset pagination (US); the first page also carries matching shops and related searches.
      * @param q Keyword, e.g. &#39;wireless earbuds&#39; (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param offset Pass back next_offset for the next page (US) (optional, default to 0)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3714,16 +3728,18 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokSearchTiktokShopProductsWithHttpInfo(String q) throws ApiException {
-        okhttp3.Call localVarCall = tiktokSearchTiktokShopProductsValidateBeforeCall(q, null);
+    public ApiResponse<Object> tiktokSearchTiktokShopProductsWithHttpInfo(String q, String region, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = tiktokSearchTiktokShopProductsValidateBeforeCall(q, region, offset, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search TikTok Shop products (asynchronously)
-     * Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+     * Keyword search over TikTok Shop products: 30 per page with offset pagination (US); the first page also carries matching shops and related searches.
      * @param q Keyword, e.g. &#39;wireless earbuds&#39; (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param offset Pass back next_offset for the next page (US) (optional, default to 0)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3735,9 +3751,9 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokSearchTiktokShopProductsAsync(String q, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokSearchTiktokShopProductsAsync(String q, String region, Integer offset, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokSearchTiktokShopProductsValidateBeforeCall(q, _callback);
+        okhttp3.Call localVarCall = tiktokSearchTiktokShopProductsValidateBeforeCall(q, region, offset, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4060,6 +4076,7 @@ public class TikTokApi {
     }
     /**
      * Build call for tiktokTiktokShopBestSellers
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param count Max products to return (optional, default to 20)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4072,7 +4089,7 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopBestSellersCall(Integer count, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopBestSellersCall(String region, Integer count, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4096,6 +4113,10 @@ public class TikTokApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
 
         if (count != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
@@ -4121,14 +4142,15 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokTiktokShopBestSellersValidateBeforeCall(Integer count, final ApiCallback _callback) throws ApiException {
-        return tiktokTiktokShopBestSellersCall(count, _callback);
+    private okhttp3.Call tiktokTiktokShopBestSellersValidateBeforeCall(String region, Integer count, final ApiCallback _callback) throws ApiException {
+        return tiktokTiktokShopBestSellersCall(region, count, _callback);
 
     }
 
     /**
      * TikTok Shop best sellers
-     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US only).
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param count Max products to return (optional, default to 20)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4140,14 +4162,15 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokTiktokShopBestSellers(Integer count) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokTiktokShopBestSellersWithHttpInfo(count);
+    public Object tiktokTiktokShopBestSellers(String region, Integer count) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopBestSellersWithHttpInfo(region, count);
         return localVarResp.getData();
     }
 
     /**
      * TikTok Shop best sellers
-     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US only).
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param count Max products to return (optional, default to 20)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4159,15 +4182,16 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokTiktokShopBestSellersWithHttpInfo(Integer count) throws ApiException {
-        okhttp3.Call localVarCall = tiktokTiktokShopBestSellersValidateBeforeCall(count, null);
+    public ApiResponse<Object> tiktokTiktokShopBestSellersWithHttpInfo(String region, Integer count) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopBestSellersValidateBeforeCall(region, count, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * TikTok Shop best sellers (asynchronously)
-     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US only).
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param count Max products to return (optional, default to 20)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4180,9 +4204,9 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopBestSellersAsync(Integer count, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopBestSellersAsync(String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokTiktokShopBestSellersValidateBeforeCall(count, _callback);
+        okhttp3.Call localVarCall = tiktokTiktokShopBestSellersValidateBeforeCall(region, count, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4190,6 +4214,7 @@ public class TikTokApi {
     /**
      * Build call for tiktokTiktokShopCategorySubcategoriesTopProducts
      * @param categoryId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4201,7 +4226,7 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopCategorySubcategoriesTopProductsCall(String categoryId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopCategorySubcategoriesTopProductsCall(String categoryId, String region, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4227,6 +4252,10 @@ public class TikTokApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4247,20 +4276,21 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokTiktokShopCategorySubcategoriesTopProductsValidateBeforeCall(String categoryId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokTiktokShopCategorySubcategoriesTopProductsValidateBeforeCall(String categoryId, String region, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'categoryId' is set
         if (categoryId == null) {
             throw new ApiException("Missing the required parameter 'categoryId' when calling tiktokTiktokShopCategorySubcategoriesTopProducts(Async)");
         }
 
-        return tiktokTiktokShopCategorySubcategoriesTopProductsCall(categoryId, _callback);
+        return tiktokTiktokShopCategorySubcategoriesTopProductsCall(categoryId, region, _callback);
 
     }
 
     /**
      * TikTok Shop category: subcategories + top products
-     * A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+     * A category&#39;s subcategories and its top products as TikTok Shop ranks them.
      * @param categoryId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4271,15 +4301,16 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokTiktokShopCategorySubcategoriesTopProducts(String categoryId) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(categoryId);
+    public Object tiktokTiktokShopCategorySubcategoriesTopProducts(String categoryId, String region) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(categoryId, region);
         return localVarResp.getData();
     }
 
     /**
      * TikTok Shop category: subcategories + top products
-     * A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+     * A category&#39;s subcategories and its top products as TikTok Shop ranks them.
      * @param categoryId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4290,16 +4321,17 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(String categoryId) throws ApiException {
-        okhttp3.Call localVarCall = tiktokTiktokShopCategorySubcategoriesTopProductsValidateBeforeCall(categoryId, null);
+    public ApiResponse<Object> tiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(String categoryId, String region) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopCategorySubcategoriesTopProductsValidateBeforeCall(categoryId, region, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * TikTok Shop category: subcategories + top products (asynchronously)
-     * A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+     * A category&#39;s subcategories and its top products as TikTok Shop ranks them.
      * @param categoryId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4311,16 +4343,17 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopCategorySubcategoriesTopProductsAsync(String categoryId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopCategorySubcategoriesTopProductsAsync(String categoryId, String region, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokTiktokShopCategorySubcategoriesTopProductsValidateBeforeCall(categoryId, _callback);
+        okhttp3.Call localVarCall = tiktokTiktokShopCategorySubcategoriesTopProductsValidateBeforeCall(categoryId, region, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for tiktokTiktokShopProductDetail
-     * @param productId  (required)
+     * Build call for tiktokTiktokShopDealsFeed
+     * @param deal  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4332,7 +4365,146 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopProductDetailCall(String productId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopDealsFeedCall(String deal, String region, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/tiktok/shop/deals/{deal}"
+            .replace("{" + "deal" + "}", localVarApiClient.escapeString(deal.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tiktokTiktokShopDealsFeedValidateBeforeCall(String deal, String region, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'deal' is set
+        if (deal == null) {
+            throw new ApiException("Missing the required parameter 'deal' when calling tiktokTiktokShopDealsFeed(Async)");
+        }
+
+        return tiktokTiktokShopDealsFeedCall(deal, region, _callback);
+
+    }
+
+    /**
+     * TikTok Shop deals feed
+     * A curated storefront feed: recommended-for-you, or premium-offers (US only).
+     * @param deal  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object tiktokTiktokShopDealsFeed(String deal, String region) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopDealsFeedWithHttpInfo(deal, region);
+        return localVarResp.getData();
+    }
+
+    /**
+     * TikTok Shop deals feed
+     * A curated storefront feed: recommended-for-you, or premium-offers (US only).
+     * @param deal  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> tiktokTiktokShopDealsFeedWithHttpInfo(String deal, String region) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopDealsFeedValidateBeforeCall(deal, region, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * TikTok Shop deals feed (asynchronously)
+     * A curated storefront feed: recommended-for-you, or premium-offers (US only).
+     * @param deal  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokTiktokShopDealsFeedAsync(String deal, String region, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tiktokTiktokShopDealsFeedValidateBeforeCall(deal, region, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for tiktokTiktokShopProductDetail
+     * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokTiktokShopProductDetailCall(String productId, String region, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4358,6 +4530,10 @@ public class TikTokApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4378,20 +4554,21 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokTiktokShopProductDetailValidateBeforeCall(String productId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokTiktokShopProductDetailValidateBeforeCall(String productId, String region, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'productId' is set
         if (productId == null) {
             throw new ApiException("Missing the required parameter 'productId' when calling tiktokTiktokShopProductDetail(Async)");
         }
 
-        return tiktokTiktokShopProductDetailCall(productId, _callback);
+        return tiktokTiktokShopProductDetailCall(productId, region, _callback);
 
     }
 
     /**
      * TikTok Shop product detail
-     * Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+     * Full TikTok Shop product page: description, images, price, SKUs with stock, first reviews, shop and TikTok&#39;s AI summary.
      * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4402,15 +4579,16 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokTiktokShopProductDetail(String productId) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokTiktokShopProductDetailWithHttpInfo(productId);
+    public Object tiktokTiktokShopProductDetail(String productId, String region) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopProductDetailWithHttpInfo(productId, region);
         return localVarResp.getData();
     }
 
     /**
      * TikTok Shop product detail
-     * Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+     * Full TikTok Shop product page: description, images, price, SKUs with stock, first reviews, shop and TikTok&#39;s AI summary.
      * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4421,16 +4599,17 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokTiktokShopProductDetailWithHttpInfo(String productId) throws ApiException {
-        okhttp3.Call localVarCall = tiktokTiktokShopProductDetailValidateBeforeCall(productId, null);
+    public ApiResponse<Object> tiktokTiktokShopProductDetailWithHttpInfo(String productId, String region) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopProductDetailValidateBeforeCall(productId, region, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * TikTok Shop product detail (asynchronously)
-     * Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+     * Full TikTok Shop product page: description, images, price, SKUs with stock, first reviews, shop and TikTok&#39;s AI summary.
      * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4442,15 +4621,23 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopProductDetailAsync(String productId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopProductDetailAsync(String productId, String region, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokTiktokShopProductDetailValidateBeforeCall(productId, _callback);
+        okhttp3.Call localVarCall = tiktokTiktokShopProductDetailValidateBeforeCall(productId, region, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for tiktokTiktokShopRootCategories
+     * Build call for tiktokTiktokShopProductReviews
+     * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param page  (optional, default to 1)
+     * @param count  (optional, default to 20)
+     * @param sort recommended | recent (optional, default to recommended)
+     * @param rating Only this star rating (optional)
+     * @param withMedia Only reviews with photos/videos (optional, default to false)
+     * @param verified Only verified purchases (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4459,9 +4646,190 @@ public class TikTokApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopRootCategoriesCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopProductReviewsCall(String productId, String region, Integer page, Integer count, String sort, Integer rating, Boolean withMedia, Boolean verified, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/tiktok/shop/products/{product_id}/reviews"
+            .replace("{" + "product_id" + "}", localVarApiClient.escapeString(productId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (count != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (rating != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("rating", rating));
+        }
+
+        if (withMedia != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_media", withMedia));
+        }
+
+        if (verified != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("verified", verified));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tiktokTiktokShopProductReviewsValidateBeforeCall(String productId, String region, Integer page, Integer count, String sort, Integer rating, Boolean withMedia, Boolean verified, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'productId' is set
+        if (productId == null) {
+            throw new ApiException("Missing the required parameter 'productId' when calling tiktokTiktokShopProductReviews(Async)");
+        }
+
+        return tiktokTiktokShopProductReviewsCall(productId, region, page, count, sort, rating, withMedia, verified, _callback);
+
+    }
+
+    /**
+     * TikTok Shop product reviews
+     * Paginated product reviews with the rating breakdown (US).
+     * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param page  (optional, default to 1)
+     * @param count  (optional, default to 20)
+     * @param sort recommended | recent (optional, default to recommended)
+     * @param rating Only this star rating (optional)
+     * @param withMedia Only reviews with photos/videos (optional, default to false)
+     * @param verified Only verified purchases (optional, default to false)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object tiktokTiktokShopProductReviews(String productId, String region, Integer page, Integer count, String sort, Integer rating, Boolean withMedia, Boolean verified) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopProductReviewsWithHttpInfo(productId, region, page, count, sort, rating, withMedia, verified);
+        return localVarResp.getData();
+    }
+
+    /**
+     * TikTok Shop product reviews
+     * Paginated product reviews with the rating breakdown (US).
+     * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param page  (optional, default to 1)
+     * @param count  (optional, default to 20)
+     * @param sort recommended | recent (optional, default to recommended)
+     * @param rating Only this star rating (optional)
+     * @param withMedia Only reviews with photos/videos (optional, default to false)
+     * @param verified Only verified purchases (optional, default to false)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> tiktokTiktokShopProductReviewsWithHttpInfo(String productId, String region, Integer page, Integer count, String sort, Integer rating, Boolean withMedia, Boolean verified) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopProductReviewsValidateBeforeCall(productId, region, page, count, sort, rating, withMedia, verified, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * TikTok Shop product reviews (asynchronously)
+     * Paginated product reviews with the rating breakdown (US).
+     * @param productId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param page  (optional, default to 1)
+     * @param count  (optional, default to 20)
+     * @param sort recommended | recent (optional, default to recommended)
+     * @param rating Only this star rating (optional)
+     * @param withMedia Only reviews with photos/videos (optional, default to false)
+     * @param verified Only verified purchases (optional, default to false)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokTiktokShopProductReviewsAsync(String productId, String region, Integer page, Integer count, String sort, Integer rating, Boolean withMedia, Boolean verified, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tiktokTiktokShopProductReviewsValidateBeforeCall(productId, region, page, count, sort, rating, withMedia, verified, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for tiktokTiktokShopRootCategories
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokTiktokShopRootCategoriesCall(String region, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4486,6 +4854,10 @@ public class TikTokApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4506,14 +4878,15 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokTiktokShopRootCategoriesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return tiktokTiktokShopRootCategoriesCall(_callback);
+    private okhttp3.Call tiktokTiktokShopRootCategoriesValidateBeforeCall(String region, final ApiCallback _callback) throws ApiException {
+        return tiktokTiktokShopRootCategoriesCall(region, _callback);
 
     }
 
     /**
      * TikTok Shop root categories
-     * Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+     * Top-level TikTok Shop categories of a market. Drill down with /shop/categories/{id}.
+     * @param region Market: US, GB, ID (optional, default to US)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4521,16 +4894,18 @@ public class TikTokApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokTiktokShopRootCategories() throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokTiktokShopRootCategoriesWithHttpInfo();
+    public Object tiktokTiktokShopRootCategories(String region) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopRootCategoriesWithHttpInfo(region);
         return localVarResp.getData();
     }
 
     /**
      * TikTok Shop root categories
-     * Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+     * Top-level TikTok Shop categories of a market. Drill down with /shop/categories/{id}.
+     * @param region Market: US, GB, ID (optional, default to US)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4538,17 +4913,19 @@ public class TikTokApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokTiktokShopRootCategoriesWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = tiktokTiktokShopRootCategoriesValidateBeforeCall(null);
+    public ApiResponse<Object> tiktokTiktokShopRootCategoriesWithHttpInfo(String region) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopRootCategoriesValidateBeforeCall(region, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * TikTok Shop root categories (asynchronously)
-     * Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+     * Top-level TikTok Shop categories of a market. Drill down with /shop/categories/{id}.
+     * @param region Market: US, GB, ID (optional, default to US)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4557,11 +4934,167 @@ public class TikTokApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokTiktokShopRootCategoriesAsync(final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokTiktokShopRootCategoriesAsync(String region, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokTiktokShopRootCategoriesValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = tiktokTiktokShopRootCategoriesValidateBeforeCall(region, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for tiktokTiktokShopStoreProducts
+     * @param sellerId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param cursor Pass back next_cursor for the next page (optional, default to )
+     * @param count  (optional, default to 20)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokTiktokShopStoreProductsCall(String sellerId, String region, String cursor, Integer count, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/tiktok/shop/stores/{seller_id}"
+            .replace("{" + "seller_id" + "}", localVarApiClient.escapeString(sellerId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        if (count != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call tiktokTiktokShopStoreProductsValidateBeforeCall(String sellerId, String region, String cursor, Integer count, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sellerId' is set
+        if (sellerId == null) {
+            throw new ApiException("Missing the required parameter 'sellerId' when calling tiktokTiktokShopStoreProducts(Async)");
+        }
+
+        return tiktokTiktokShopStoreProductsCall(sellerId, region, cursor, count, _callback);
+
+    }
+
+    /**
+     * TikTok Shop store + products
+     * A store&#39;s stats and its cursor-paginated product catalogue (US).
+     * @param sellerId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param cursor Pass back next_cursor for the next page (optional, default to )
+     * @param count  (optional, default to 20)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object tiktokTiktokShopStoreProducts(String sellerId, String region, String cursor, Integer count) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokTiktokShopStoreProductsWithHttpInfo(sellerId, region, cursor, count);
+        return localVarResp.getData();
+    }
+
+    /**
+     * TikTok Shop store + products
+     * A store&#39;s stats and its cursor-paginated product catalogue (US).
+     * @param sellerId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param cursor Pass back next_cursor for the next page (optional, default to )
+     * @param count  (optional, default to 20)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> tiktokTiktokShopStoreProductsWithHttpInfo(String sellerId, String region, String cursor, Integer count) throws ApiException {
+        okhttp3.Call localVarCall = tiktokTiktokShopStoreProductsValidateBeforeCall(sellerId, region, cursor, count, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * TikTok Shop store + products (asynchronously)
+     * A store&#39;s stats and its cursor-paginated product catalogue (US).
+     * @param sellerId  (required)
+     * @param region Market: US, GB, ID (optional, default to US)
+     * @param cursor Pass back next_cursor for the next page (optional, default to )
+     * @param count  (optional, default to 20)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call tiktokTiktokShopStoreProductsAsync(String sellerId, String region, String cursor, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = tiktokTiktokShopStoreProductsValidateBeforeCall(sellerId, region, cursor, count, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -416,14 +416,16 @@ public class TikTokApiTest {
     /**
      * Search TikTok Shop products
      *
-     * Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+     * Keyword search over TikTok Shop products: 30 per page with offset pagination (US); the first page also carries matching shops and related searches.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void tiktokSearchTiktokShopProductsTest() throws ApiException {
         String q = null;
-        Object response = api.tiktokSearchTiktokShopProducts(q);
+        String region = null;
+        Integer offset = null;
+        Object response = api.tiktokSearchTiktokShopProducts(q, region, offset);
         // TODO: test validations
     }
 
@@ -464,55 +466,112 @@ public class TikTokApiTest {
     /**
      * TikTok Shop best sellers
      *
-     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US only).
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void tiktokTiktokShopBestSellersTest() throws ApiException {
+        String region = null;
         Integer count = null;
-        Object response = api.tiktokTiktokShopBestSellers(count);
+        Object response = api.tiktokTiktokShopBestSellers(region, count);
         // TODO: test validations
     }
 
     /**
      * TikTok Shop category: subcategories + top products
      *
-     * A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+     * A category&#39;s subcategories and its top products as TikTok Shop ranks them.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void tiktokTiktokShopCategorySubcategoriesTopProductsTest() throws ApiException {
         String categoryId = null;
-        Object response = api.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId);
+        String region = null;
+        Object response = api.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop deals feed
+     *
+     * A curated storefront feed: recommended-for-you, or premium-offers (US only).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopDealsFeedTest() throws ApiException {
+        String deal = null;
+        String region = null;
+        Object response = api.tiktokTiktokShopDealsFeed(deal, region);
         // TODO: test validations
     }
 
     /**
      * TikTok Shop product detail
      *
-     * Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+     * Full TikTok Shop product page: description, images, price, SKUs with stock, first reviews, shop and TikTok&#39;s AI summary.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void tiktokTiktokShopProductDetailTest() throws ApiException {
         String productId = null;
-        Object response = api.tiktokTiktokShopProductDetail(productId);
+        String region = null;
+        Object response = api.tiktokTiktokShopProductDetail(productId, region);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop product reviews
+     *
+     * Paginated product reviews with the rating breakdown (US).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopProductReviewsTest() throws ApiException {
+        String productId = null;
+        String region = null;
+        Integer page = null;
+        Integer count = null;
+        String sort = null;
+        Integer rating = null;
+        Boolean withMedia = null;
+        Boolean verified = null;
+        Object response = api.tiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified);
         // TODO: test validations
     }
 
     /**
      * TikTok Shop root categories
      *
-     * Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+     * Top-level TikTok Shop categories of a market. Drill down with /shop/categories/{id}.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void tiktokTiktokShopRootCategoriesTest() throws ApiException {
-        Object response = api.tiktokTiktokShopRootCategories();
+        String region = null;
+        Object response = api.tiktokTiktokShopRootCategories(region);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop store + products
+     *
+     * A store&#39;s stats and its cursor-paginated product catalogue (US).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopStoreProductsTest() throws ApiException {
+        String sellerId = null;
+        String region = null;
+        String cursor = null;
+        Integer count = null;
+        Object response = api.tiktokTiktokShopStoreProducts(sellerId, region, cursor, count);
         // TODO: test validations
     }
 
