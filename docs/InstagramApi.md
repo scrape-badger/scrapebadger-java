@@ -35,7 +35,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 About this account
 
-Country, join date and former usernames.
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
 
 ### Example
 ```java
@@ -105,6 +105,8 @@ public class Example {
 
 Blended top search
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -173,7 +175,7 @@ public class Example {
 
 Get active stories
 
-Active stories (account pool only).
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
 
 ### Example
 ```java
@@ -242,6 +244,8 @@ public class Example {
 > Object instagramGetAudioTrack(audioId)
 
 Get audio track
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```java
@@ -383,7 +387,7 @@ public class Example {
 
 Get followers
 
-Followers list, paginated (account pool).
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
 
 ### Example
 ```java
@@ -459,6 +463,8 @@ public class Example {
 
 Get following
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -531,6 +537,8 @@ public class Example {
 
 Get hashtag info
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -598,6 +606,8 @@ public class Example {
 > Object instagramGetHighlights(username)
 
 Get highlights
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```java
@@ -667,6 +677,8 @@ public class Example {
 
 Get likers
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -734,6 +746,8 @@ public class Example {
 > Object instagramGetLocation(locationPk)
 
 Get location
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```java
@@ -943,6 +957,8 @@ public class Example {
 
 Get tagged posts
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -1088,6 +1104,8 @@ public class Example {
 > Object instagramGetUserReels(username, amount, cursor)
 
 Get user reels
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```java
@@ -1287,6 +1305,8 @@ This endpoint does not need any parameter.
 
 Recent hashtag posts
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -1359,6 +1379,8 @@ public class Example {
 
 Related profiles
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -1426,6 +1448,8 @@ public class Example {
 > Object instagramSearchHashtags(query)
 
 Search hashtags
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```java
@@ -1495,6 +1519,8 @@ public class Example {
 
 Search users
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```java
 // Import classes:
@@ -1562,6 +1588,8 @@ public class Example {
 > Object instagramTopHashtagPosts(tag, amount, cursor)
 
 Top hashtag posts
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```java

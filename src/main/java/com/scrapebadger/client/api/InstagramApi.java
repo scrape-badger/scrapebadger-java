@@ -144,7 +144,7 @@ public class InstagramApi {
 
     /**
      * About this account
-     * Country, join date and former usernames.
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
      * @param username  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -163,7 +163,7 @@ public class InstagramApi {
 
     /**
      * About this account
-     * Country, join date and former usernames.
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
      * @param username  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -183,7 +183,7 @@ public class InstagramApi {
 
     /**
      * About this account (asynchronously)
-     * Country, join date and former usernames.
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
      * @param username  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -278,7 +278,7 @@ public class InstagramApi {
 
     /**
      * Blended top search
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -297,7 +297,7 @@ public class InstagramApi {
 
     /**
      * Blended top search
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -317,7 +317,7 @@ public class InstagramApi {
 
     /**
      * Blended top search (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -409,7 +409,7 @@ public class InstagramApi {
 
     /**
      * Get active stories
-     * Active stories (account pool only).
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
      * @param username  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -428,7 +428,7 @@ public class InstagramApi {
 
     /**
      * Get active stories
-     * Active stories (account pool only).
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
      * @param username  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -448,7 +448,7 @@ public class InstagramApi {
 
     /**
      * Get active stories (asynchronously)
-     * Active stories (account pool only).
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
      * @param username  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -540,7 +540,7 @@ public class InstagramApi {
 
     /**
      * Get audio track
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param audioId  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -559,7 +559,7 @@ public class InstagramApi {
 
     /**
      * Get audio track
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param audioId  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -579,7 +579,7 @@ public class InstagramApi {
 
     /**
      * Get audio track (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param audioId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -833,7 +833,7 @@ public class InstagramApi {
 
     /**
      * Get followers
-     * Followers list, paginated (account pool).
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
      * @param username  (required)
      * @param amount  (optional, default to 50)
      * @param cursor  (optional)
@@ -855,7 +855,7 @@ public class InstagramApi {
 
     /**
      * Get followers
-     * Followers list, paginated (account pool).
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
      * @param username  (required)
      * @param amount  (optional, default to 50)
      * @param cursor  (optional)
@@ -878,7 +878,7 @@ public class InstagramApi {
 
     /**
      * Get followers (asynchronously)
-     * Followers list, paginated (account pool).
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
      * @param username  (required)
      * @param amount  (optional, default to 50)
      * @param cursor  (optional)
@@ -983,7 +983,7 @@ public class InstagramApi {
 
     /**
      * Get following
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 50)
      * @param cursor  (optional)
@@ -1004,7 +1004,7 @@ public class InstagramApi {
 
     /**
      * Get following
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 50)
      * @param cursor  (optional)
@@ -1026,7 +1026,7 @@ public class InstagramApi {
 
     /**
      * Get following (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 50)
      * @param cursor  (optional)
@@ -1120,7 +1120,7 @@ public class InstagramApi {
 
     /**
      * Get hashtag info
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1139,7 +1139,7 @@ public class InstagramApi {
 
     /**
      * Get hashtag info
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1159,7 +1159,7 @@ public class InstagramApi {
 
     /**
      * Get hashtag info (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1251,7 +1251,7 @@ public class InstagramApi {
 
     /**
      * Get highlights
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1270,7 +1270,7 @@ public class InstagramApi {
 
     /**
      * Get highlights
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1290,7 +1290,7 @@ public class InstagramApi {
 
     /**
      * Get highlights (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1382,7 +1382,7 @@ public class InstagramApi {
 
     /**
      * Get likers
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param code  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1401,7 +1401,7 @@ public class InstagramApi {
 
     /**
      * Get likers
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param code  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1421,7 +1421,7 @@ public class InstagramApi {
 
     /**
      * Get likers (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param code  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1513,7 +1513,7 @@ public class InstagramApi {
 
     /**
      * Get location
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param locationPk  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1532,7 +1532,7 @@ public class InstagramApi {
 
     /**
      * Get location
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param locationPk  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1552,7 +1552,7 @@ public class InstagramApi {
 
     /**
      * Get location (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param locationPk  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1916,7 +1916,7 @@ public class InstagramApi {
 
     /**
      * Get tagged posts
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -1937,7 +1937,7 @@ public class InstagramApi {
 
     /**
      * Get tagged posts
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -1959,7 +1959,7 @@ public class InstagramApi {
 
     /**
      * Get tagged posts (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2210,7 +2210,7 @@ public class InstagramApi {
 
     /**
      * Get user reels
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2231,7 +2231,7 @@ public class InstagramApi {
 
     /**
      * Get user reels
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2253,7 +2253,7 @@ public class InstagramApi {
 
     /**
      * Get user reels (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2591,7 +2591,7 @@ public class InstagramApi {
 
     /**
      * Recent hashtag posts
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2612,7 +2612,7 @@ public class InstagramApi {
 
     /**
      * Recent hashtag posts
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2634,7 +2634,7 @@ public class InstagramApi {
 
     /**
      * Recent hashtag posts (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -2728,7 +2728,7 @@ public class InstagramApi {
 
     /**
      * Related profiles
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2747,7 +2747,7 @@ public class InstagramApi {
 
     /**
      * Related profiles
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2767,7 +2767,7 @@ public class InstagramApi {
 
     /**
      * Related profiles (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param username  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2862,7 +2862,7 @@ public class InstagramApi {
 
     /**
      * Search hashtags
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2881,7 +2881,7 @@ public class InstagramApi {
 
     /**
      * Search hashtags
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2901,7 +2901,7 @@ public class InstagramApi {
 
     /**
      * Search hashtags (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2996,7 +2996,7 @@ public class InstagramApi {
 
     /**
      * Search users
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3015,7 +3015,7 @@ public class InstagramApi {
 
     /**
      * Search users
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3035,7 +3035,7 @@ public class InstagramApi {
 
     /**
      * Search users (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param query  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3137,7 +3137,7 @@ public class InstagramApi {
 
     /**
      * Top hashtag posts
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -3158,7 +3158,7 @@ public class InstagramApi {
 
     /**
      * Top hashtag posts
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)
@@ -3180,7 +3180,7 @@ public class InstagramApi {
 
     /**
      * Top hashtag posts (asynchronously)
-     * 
+     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      * @param tag  (required)
      * @param amount  (optional, default to 20)
      * @param cursor  (optional)

@@ -11108,6 +11108,9 @@ paths:
       - application/json
   /v1/instagram/audio/{audio_id}:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_audio_track
       parameters:
       - explode: false
@@ -11139,6 +11142,9 @@ paths:
       - application/json
   /v1/instagram/hashtags/{tag}:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_hashtag_info
       parameters:
       - explode: false
@@ -11170,6 +11176,9 @@ paths:
       - application/json
   /v1/instagram/hashtags/{tag}/recent:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_recent_hashtag_posts
       parameters:
       - explode: false
@@ -11220,6 +11229,9 @@ paths:
       - application/json
   /v1/instagram/hashtags/{tag}/top:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_top_hashtag_posts
       parameters:
       - explode: false
@@ -11301,6 +11313,9 @@ paths:
       - application/json
   /v1/instagram/locations/{location_pk}:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_location
       parameters:
       - explode: false
@@ -11414,6 +11429,9 @@ paths:
       - application/json
   /v1/instagram/media/{code}/likers:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_likers
       parameters:
       - explode: false
@@ -11445,6 +11463,9 @@ paths:
       - application/json
   /v1/instagram/search/hashtags:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_search_hashtags
       parameters:
       - explode: true
@@ -11477,6 +11498,9 @@ paths:
       - application/json
   /v1/instagram/search/top:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_blended_top_search
       parameters:
       - explode: true
@@ -11509,6 +11533,9 @@ paths:
       - application/json
   /v1/instagram/search/users:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_search_users
       parameters:
       - explode: true
@@ -11574,7 +11601,10 @@ paths:
       - application/json
   /v1/instagram/users/{username}/about:
     get:
-      description: "Country, join date and former usernames."
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.\
+        \ Country, join date and former usernames."
       operationId: instagram_about_this_account
       parameters:
       - explode: false
@@ -11606,7 +11636,10 @@ paths:
       - application/json
   /v1/instagram/users/{username}/followers:
     get:
-      description: "Followers list, paginated (account pool)."
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.\
+        \ Followers list, paginated (account pool)."
       operationId: instagram_get_followers
       parameters:
       - explode: false
@@ -11666,6 +11699,9 @@ paths:
       - application/json
   /v1/instagram/users/{username}/following:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_following
       parameters:
       - explode: false
@@ -11716,6 +11752,9 @@ paths:
       - application/json
   /v1/instagram/users/{username}/highlights:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_highlights
       parameters:
       - explode: false
@@ -11798,6 +11837,9 @@ paths:
       - application/json
   /v1/instagram/users/{username}/reels:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_user_reels
       parameters:
       - explode: false
@@ -11848,6 +11890,9 @@ paths:
       - application/json
   /v1/instagram/users/{username}/related:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_related_profiles
       parameters:
       - explode: false
@@ -11879,7 +11924,10 @@ paths:
       - application/json
   /v1/instagram/users/{username}/stories:
     get:
-      description: Active stories (account pool only).
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.\
+        \ Active stories (account pool only)."
       operationId: instagram_get_active_stories
       parameters:
       - explode: false
@@ -11911,6 +11959,9 @@ paths:
       - application/json
   /v1/instagram/users/{username}/tagged:
     get:
+      description: "**Temporarily unavailable.** The authenticated Instagram tier\
+        \ is offline, so this endpoint currently returns `503 temporarily_unavailable`\
+        \ (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview."
       operationId: instagram_get_tagged_posts
       parameters:
       - explode: false
