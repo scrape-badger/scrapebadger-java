@@ -103,7 +103,7 @@ public class Example {
 
 <a id="ebayCompletedSoldListings"></a>
 # **ebayCompletedSoldListings**
-> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location)
+> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language)
 
 Completed / sold listings
 
@@ -141,8 +141,9 @@ public class Example {
     BigDecimal minPrice = new BigDecimal(78); // BigDecimal | 
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | 
     String location = "location_example"; // String | domestic|worldwide
+    String language = "language_example"; // String | english|japanese|chinese|korean
     try {
-      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
+      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EBayApi#ebayCompletedSoldListings");
@@ -169,6 +170,7 @@ public class Example {
 | **minPrice** | **BigDecimal**|  | [optional] |
 | **maxPrice** | **BigDecimal**|  | [optional] |
 | **location** | **String**| domestic|worldwide | [optional] |
+| **language** | **String**| english|japanese|chinese|korean | [optional] |
 
 ### Return type
 
@@ -893,7 +895,7 @@ This endpoint does not need any parameter.
 
 <a id="ebaySearchListings"></a>
 # **ebaySearchListings**
-> Object ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location)
+> Object ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language)
 
 Search listings
 
@@ -933,8 +935,9 @@ public class Example {
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | 
     Boolean freeShipping = false; // Boolean | 
     String location = "location_example"; // String | domestic|worldwide
+    String language = "language_example"; // String | english|japanese|chinese|korean
     try {
-      Object result = apiInstance.ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
+      Object result = apiInstance.ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EBayApi#ebaySearchListings");
@@ -963,6 +966,7 @@ public class Example {
 | **maxPrice** | **BigDecimal**|  | [optional] |
 | **freeShipping** | **Boolean**|  | [optional] [default to false] |
 | **location** | **String**| domestic|worldwide | [optional] |
+| **language** | **String**| english|japanese|chinese|korean | [optional] |
 
 ### Return type
 

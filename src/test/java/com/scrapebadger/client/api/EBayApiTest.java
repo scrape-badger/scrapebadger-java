@@ -71,7 +71,8 @@ public class EBayApiTest {
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
         String location = null;
-        Object response = api.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
+        String language = null;
+        Object response = api.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
         // TODO: test validations
     }
 
@@ -243,7 +244,8 @@ public class EBayApiTest {
         BigDecimal maxPrice = null;
         Boolean freeShipping = null;
         String location = null;
-        Object response = api.ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
+        String language = null;
+        Object response = api.ebaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language);
         // TODO: test validations
     }
 

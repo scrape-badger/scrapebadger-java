@@ -264,6 +264,7 @@ public class EBayApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -275,7 +276,7 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ebayCompletedSoldListingsCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ebayCompletedSoldListingsCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, String language, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -340,6 +341,10 @@ public class EBayApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("location", location));
         }
 
+        if (language != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -360,13 +365,13 @@ public class EBayApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ebayCompletedSoldListingsValidateBeforeCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ebayCompletedSoldListingsValidateBeforeCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, String language, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling ebayCompletedSoldListings(Async)");
         }
 
-        return ebayCompletedSoldListingsCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, _callback);
+        return ebayCompletedSoldListingsCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language, _callback);
 
     }
 
@@ -383,6 +388,7 @@ public class EBayApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -393,8 +399,8 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object ebayCompletedSoldListings(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location) throws ApiException {
-        ApiResponse<Object> localVarResp = ebayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
+    public Object ebayCompletedSoldListings(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, String language) throws ApiException {
+        ApiResponse<Object> localVarResp = ebayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
         return localVarResp.getData();
     }
 
@@ -411,6 +417,7 @@ public class EBayApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -421,8 +428,8 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> ebayCompletedSoldListingsWithHttpInfo(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location) throws ApiException {
-        okhttp3.Call localVarCall = ebayCompletedSoldListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, null);
+    public ApiResponse<Object> ebayCompletedSoldListingsWithHttpInfo(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, String language) throws ApiException {
+        okhttp3.Call localVarCall = ebayCompletedSoldListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -440,6 +447,7 @@ public class EBayApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -451,9 +459,9 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ebayCompletedSoldListingsAsync(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call ebayCompletedSoldListingsAsync(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, BigDecimal minPrice, BigDecimal maxPrice, String location, String language, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ebayCompletedSoldListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, _callback);
+        okhttp3.Call localVarCall = ebayCompletedSoldListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1817,6 +1825,7 @@ public class EBayApi {
      * @param maxPrice  (optional)
      * @param freeShipping  (optional, default to false)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1828,7 +1837,7 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ebaySearchListingsCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ebaySearchListingsCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, String language, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1901,6 +1910,10 @@ public class EBayApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("location", location));
         }
 
+        if (language != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("language", language));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1921,13 +1934,13 @@ public class EBayApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ebaySearchListingsValidateBeforeCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ebaySearchListingsValidateBeforeCall(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, String language, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling ebaySearchListings(Async)");
         }
 
-        return ebaySearchListingsCall(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, _callback);
+        return ebaySearchListingsCall(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language, _callback);
 
     }
 
@@ -1946,6 +1959,7 @@ public class EBayApi {
      * @param maxPrice  (optional)
      * @param freeShipping  (optional, default to false)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1956,8 +1970,8 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object ebaySearchListings(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location) throws ApiException {
-        ApiResponse<Object> localVarResp = ebaySearchListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
+    public Object ebaySearchListings(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, String language) throws ApiException {
+        ApiResponse<Object> localVarResp = ebaySearchListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language);
         return localVarResp.getData();
     }
 
@@ -1976,6 +1990,7 @@ public class EBayApi {
      * @param maxPrice  (optional)
      * @param freeShipping  (optional, default to false)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1986,8 +2001,8 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> ebaySearchListingsWithHttpInfo(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location) throws ApiException {
-        okhttp3.Call localVarCall = ebaySearchListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, null);
+    public ApiResponse<Object> ebaySearchListingsWithHttpInfo(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, String language) throws ApiException {
+        okhttp3.Call localVarCall = ebaySearchListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2007,6 +2022,7 @@ public class EBayApi {
      * @param maxPrice  (optional)
      * @param freeShipping  (optional, default to false)
      * @param location domestic|worldwide (optional)
+     * @param language english|japanese|chinese|korean (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2018,9 +2034,9 @@ public class EBayApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ebaySearchListingsAsync(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call ebaySearchListingsAsync(String query, String domain, String categoryId, Integer page, Integer perPage, String sortBy, String condition, String buyingFormat, BigDecimal minPrice, BigDecimal maxPrice, Boolean freeShipping, String location, String language, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ebaySearchListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, _callback);
+        okhttp3.Call localVarCall = ebaySearchListingsValidateBeforeCall(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
