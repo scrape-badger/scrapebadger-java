@@ -224,6 +224,20 @@ public class EBayApiTest {
     }
 
     /**
+     * Search by image
+     *
+     * Search active listings by image, the way eBay&#39;s camera icon does.  No &#x60;&#x60;sort_by&#x60;&#x60;: eBay ignores it on a visual results page.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void ebaySearchByImageTest() throws ApiException {
+        Map<String, Object> requestBody = null;
+        Object response = api.ebaySearchByImage(requestBody);
+        // TODO: test validations
+    }
+
+    /**
      * Search listings
      *
      * Search an eBay marketplace for active listings.

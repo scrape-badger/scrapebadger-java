@@ -16,6 +16,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**ebayKeywordSuggestions**](EBayApi.md#ebayKeywordSuggestions) | **GET** /v1/ebay/autocomplete | Keyword suggestions |
 | [**ebayListCategories**](EBayApi.md#ebayListCategories) | **GET** /v1/ebay/categories | List categories |
 | [**ebayListMarkets**](EBayApi.md#ebayListMarkets) | **GET** /v1/ebay/markets | List markets |
+| [**ebaySearchByImage**](EBayApi.md#ebaySearchByImage) | **POST** /v1/ebay/search/by-image | Search by image |
 | [**ebaySearchListings**](EBayApi.md#ebaySearchListings) | **GET** /v1/ebay/search | Search listings |
 
 
@@ -892,6 +893,76 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+<a id="ebaySearchByImage"></a>
+# **ebaySearchByImage**
+> Object ebaySearchByImage(requestBody)
+
+Search by image
+
+Search active listings by image, the way eBay&#39;s camera icon does.  No &#x60;&#x60;sort_by&#x60;&#x60;: eBay ignores it on a visual results page.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.EBayApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    EBayApi apiInstance = new EBayApi(defaultClient);
+    Map<String, Object> requestBody = null; // Map<String, Object> | 
+    try {
+      Object result = apiInstance.ebaySearchByImage(requestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EBayApi#ebaySearchByImage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="ebaySearchListings"></a>
 # **ebaySearchListings**
