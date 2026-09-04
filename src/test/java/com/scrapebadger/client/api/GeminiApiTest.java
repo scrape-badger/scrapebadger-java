@@ -43,7 +43,8 @@ public class GeminiApiTest {
         String prompt = null;
         String country = null;
         String webSearch = null;
-        Object response = api.geminiAskGeminiAQuestion(prompt, country, webSearch);
+        String imageUrl = null;
+        Object response = api.geminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl);
         // TODO: test validations
     }
 

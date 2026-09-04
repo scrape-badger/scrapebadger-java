@@ -14,7 +14,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="geminiAskGeminiAQuestion"></a>
 # **geminiAskGeminiAQuestion**
-> Object geminiAskGeminiAQuestion(prompt, country, webSearch)
+> Object geminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl)
 
 Ask Gemini a question
 
@@ -45,8 +45,9 @@ public class Example {
     String prompt = "prompt_example"; // String | The prompt to send to Gemini (max 4096 characters).
     String country = "country_example"; // String | ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'.
     String webSearch = "auto"; // String | auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). `web_search_triggered` in the response always reports what actually happened.
+    String imageUrl = "imageUrl_example"; // String | Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts `image_base64`. Exactly one of the two.
     try {
-      Object result = apiInstance.geminiAskGeminiAQuestion(prompt, country, webSearch);
+      Object result = apiInstance.geminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GeminiApi#geminiAskGeminiAQuestion");
@@ -66,6 +67,7 @@ public class Example {
 | **prompt** | **String**| The prompt to send to Gemini (max 4096 characters). | |
 | **country** | **String**| ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. | [optional] |
 | **webSearch** | **String**| auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. | [optional] [default to auto] |
+| **imageUrl** | **String**| Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. | [optional] |
 
 ### Return type
 

@@ -77,6 +77,7 @@ public class GeminiApi {
      * @param prompt The prompt to send to Gemini (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param webSearch auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to auto)
+     * @param imageUrl Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +89,7 @@ public class GeminiApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call geminiAskGeminiAQuestionCall(String prompt, String country, String webSearch, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call geminiAskGeminiAQuestionCall(String prompt, String country, String webSearch, String imageUrl, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,6 +126,10 @@ public class GeminiApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("web_search", webSearch));
         }
 
+        if (imageUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("image_url", imageUrl));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -145,13 +150,13 @@ public class GeminiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call geminiAskGeminiAQuestionValidateBeforeCall(String prompt, String country, String webSearch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call geminiAskGeminiAQuestionValidateBeforeCall(String prompt, String country, String webSearch, String imageUrl, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'prompt' is set
         if (prompt == null) {
             throw new ApiException("Missing the required parameter 'prompt' when calling geminiAskGeminiAQuestion(Async)");
         }
 
-        return geminiAskGeminiAQuestionCall(prompt, country, webSearch, _callback);
+        return geminiAskGeminiAQuestionCall(prompt, country, webSearch, imageUrl, _callback);
 
     }
 
@@ -161,6 +166,7 @@ public class GeminiApi {
      * @param prompt The prompt to send to Gemini (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param webSearch auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to auto)
+     * @param imageUrl Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -171,8 +177,8 @@ public class GeminiApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object geminiAskGeminiAQuestion(String prompt, String country, String webSearch) throws ApiException {
-        ApiResponse<Object> localVarResp = geminiAskGeminiAQuestionWithHttpInfo(prompt, country, webSearch);
+    public Object geminiAskGeminiAQuestion(String prompt, String country, String webSearch, String imageUrl) throws ApiException {
+        ApiResponse<Object> localVarResp = geminiAskGeminiAQuestionWithHttpInfo(prompt, country, webSearch, imageUrl);
         return localVarResp.getData();
     }
 
@@ -182,6 +188,7 @@ public class GeminiApi {
      * @param prompt The prompt to send to Gemini (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param webSearch auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to auto)
+     * @param imageUrl Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -192,8 +199,8 @@ public class GeminiApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> geminiAskGeminiAQuestionWithHttpInfo(String prompt, String country, String webSearch) throws ApiException {
-        okhttp3.Call localVarCall = geminiAskGeminiAQuestionValidateBeforeCall(prompt, country, webSearch, null);
+    public ApiResponse<Object> geminiAskGeminiAQuestionWithHttpInfo(String prompt, String country, String webSearch, String imageUrl) throws ApiException {
+        okhttp3.Call localVarCall = geminiAskGeminiAQuestionValidateBeforeCall(prompt, country, webSearch, imageUrl, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -204,6 +211,7 @@ public class GeminiApi {
      * @param prompt The prompt to send to Gemini (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param webSearch auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to auto)
+     * @param imageUrl Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -215,9 +223,9 @@ public class GeminiApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call geminiAskGeminiAQuestionAsync(String prompt, String country, String webSearch, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call geminiAskGeminiAQuestionAsync(String prompt, String country, String webSearch, String imageUrl, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = geminiAskGeminiAQuestionValidateBeforeCall(prompt, country, webSearch, _callback);
+        okhttp3.Call localVarCall = geminiAskGeminiAQuestionValidateBeforeCall(prompt, country, webSearch, imageUrl, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

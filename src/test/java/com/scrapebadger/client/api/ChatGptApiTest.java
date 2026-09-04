@@ -43,7 +43,8 @@ public class ChatGptApiTest {
         String prompt = null;
         String country = null;
         String webSearch = null;
-        Object response = api.chatgptAskChatgptAQuestion(prompt, country, webSearch);
+        String imageUrl = null;
+        Object response = api.chatgptAskChatgptAQuestion(prompt, country, webSearch, imageUrl);
         // TODO: test validations
     }
 
