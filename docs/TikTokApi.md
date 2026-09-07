@@ -31,9 +31,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**tiktokSearchTiktokShopProducts**](TikTokApi.md#tiktokSearchTiktokShopProducts) | **GET** /v1/tiktok/shop/search | Search TikTok Shop products |
 | [**tiktokSearchUsers**](TikTokApi.md#tiktokSearchUsers) | **GET** /v1/tiktok/search/users | Search users |
 | [**tiktokSearchVideos**](TikTokApi.md#tiktokSearchVideos) | **GET** /v1/tiktok/search/videos | Search videos |
-| [**tiktokTiktokShopBestSellers**](TikTokApi.md#tiktokTiktokShopBestSellers) | **GET** /v1/tiktok/shop/ranking | TikTok Shop best sellers |
 | [**tiktokTiktokShopCategorySubcategoriesTopProducts**](TikTokApi.md#tiktokTiktokShopCategorySubcategoriesTopProducts) | **GET** /v1/tiktok/shop/categories/{category_id} | TikTok Shop category: subcategories + top products |
-| [**tiktokTiktokShopDealsFeed**](TikTokApi.md#tiktokTiktokShopDealsFeed) | **GET** /v1/tiktok/shop/deals/{deal} | TikTok Shop deals feed |
 | [**tiktokTiktokShopProductDetail**](TikTokApi.md#tiktokTiktokShopProductDetail) | **GET** /v1/tiktok/shop/products/{product_id} | TikTok Shop product detail |
 | [**tiktokTiktokShopProductReviews**](TikTokApi.md#tiktokTiktokShopProductReviews) | **GET** /v1/tiktok/shop/products/{product_id}/reviews | TikTok Shop product reviews |
 | [**tiktokTiktokShopRootCategories**](TikTokApi.md#tiktokTiktokShopRootCategories) | **GET** /v1/tiktok/shop/categories | TikTok Shop root categories |
@@ -2032,78 +2030,6 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-<a id="tiktokTiktokShopBestSellers"></a>
-# **tiktokTiktokShopBestSellers**
-> Object tiktokTiktokShopBestSellers(region, count)
-
-TikTok Shop best sellers
-
-TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US only).
-
-### Example
-```java
-// Import classes:
-import com.scrapebadger.client.ApiClient;
-import com.scrapebadger.client.ApiException;
-import com.scrapebadger.client.Configuration;
-import com.scrapebadger.client.auth.*;
-import com.scrapebadger.client.models.*;
-import com.scrapebadger.client.api.TikTokApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://scrapebadger.com");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
-
-    TikTokApi apiInstance = new TikTokApi(defaultClient);
-    String region = "US"; // String | Market: US, GB, ID
-    Integer count = 20; // Integer | Max products to return
-    try {
-      Object result = apiInstance.tiktokTiktokShopBestSellers(region, count);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TikTokApi#tiktokTiktokShopBestSellers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
-| **count** | **Integer**| Max products to return | [optional] [default to 20] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
-
 <a id="tiktokTiktokShopCategorySubcategoriesTopProducts"></a>
 # **tiktokTiktokShopCategorySubcategoriesTopProducts**
 > Object tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region)
@@ -2155,78 +2081,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **categoryId** | **String**|  | |
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
-
-<a id="tiktokTiktokShopDealsFeed"></a>
-# **tiktokTiktokShopDealsFeed**
-> Object tiktokTiktokShopDealsFeed(deal, region)
-
-TikTok Shop deals feed
-
-A curated storefront feed: recommended-for-you, or premium-offers (US only).
-
-### Example
-```java
-// Import classes:
-import com.scrapebadger.client.ApiClient;
-import com.scrapebadger.client.ApiException;
-import com.scrapebadger.client.Configuration;
-import com.scrapebadger.client.auth.*;
-import com.scrapebadger.client.models.*;
-import com.scrapebadger.client.api.TikTokApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://scrapebadger.com");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
-
-    TikTokApi apiInstance = new TikTokApi(defaultClient);
-    String deal = "deal_example"; // String | 
-    String region = "US"; // String | Market: US, GB, ID
-    try {
-      Object result = apiInstance.tiktokTiktokShopDealsFeed(deal, region);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TikTokApi#tiktokTiktokShopDealsFeed");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **deal** | **String**|  | |
 | **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
 
 ### Return type

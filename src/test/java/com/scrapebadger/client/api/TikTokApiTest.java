@@ -464,21 +464,6 @@ public class TikTokApiTest {
     }
 
     /**
-     * TikTok Shop best sellers
-     *
-     * TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US only).
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void tiktokTiktokShopBestSellersTest() throws ApiException {
-        String region = null;
-        Integer count = null;
-        Object response = api.tiktokTiktokShopBestSellers(region, count);
-        // TODO: test validations
-    }
-
-    /**
      * TikTok Shop category: subcategories + top products
      *
      * A category&#39;s subcategories and its top products as TikTok Shop ranks them.
@@ -490,21 +475,6 @@ public class TikTokApiTest {
         String categoryId = null;
         String region = null;
         Object response = api.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
-        // TODO: test validations
-    }
-
-    /**
-     * TikTok Shop deals feed
-     *
-     * A curated storefront feed: recommended-for-you, or premium-offers (US only).
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void tiktokTiktokShopDealsFeedTest() throws ApiException {
-        String deal = null;
-        String region = null;
-        Object response = api.tiktokTiktokShopDealsFeed(deal, region);
         // TODO: test validations
     }
 
