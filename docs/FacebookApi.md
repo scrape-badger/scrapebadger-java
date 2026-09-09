@@ -610,11 +610,11 @@ public class Example {
 
 <a id="facebookGetPostComments"></a>
 # **facebookGetPostComments**
-> Object facebookGetPostComments(postId, after, sort)
+> Object facebookGetPostComments(postId, url, after, sort)
 
 Get post comments
 
-Get a Facebook post&#39;s comment thread (paginated).
+Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
 
 ### Example
 ```java
@@ -639,10 +639,11 @@ public class Example {
 
     FacebookApi apiInstance = new FacebookApi(defaultClient);
     String postId = "postId_example"; // String | 
+    String url = "url_example"; // String | Full post permalink/reel URL — overrides post_id
     String after = "after_example"; // String | 
-    String sort = "relevance"; // String | 
+    String sort = "relevance"; // String | relevance | newest
     try {
-      Object result = apiInstance.facebookGetPostComments(postId, after, sort);
+      Object result = apiInstance.facebookGetPostComments(postId, url, after, sort);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookGetPostComments");
@@ -660,8 +661,9 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **postId** | **String**|  | |
+| **url** | **String**| Full post permalink/reel URL — overrides post_id | [optional] |
 | **after** | **String**|  | [optional] |
-| **sort** | **String**|  | [optional] [default to relevance] |
+| **sort** | **String**| relevance | newest | [optional] [default to relevance] |
 
 ### Return type
 
@@ -684,11 +686,11 @@ public class Example {
 
 <a id="facebookGetPostDetail"></a>
 # **facebookGetPostDetail**
-> Object facebookGetPostDetail(postId)
+> Object facebookGetPostDetail(postId, url)
 
 Get post detail
 
-Get a Facebook post&#39;s detail plus its top comments.
+Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
 
 ### Example
 ```java
@@ -713,8 +715,9 @@ public class Example {
 
     FacebookApi apiInstance = new FacebookApi(defaultClient);
     String postId = "postId_example"; // String | 
+    String url = "url_example"; // String | Full post permalink/reel URL — overrides post_id
     try {
-      Object result = apiInstance.facebookGetPostDetail(postId);
+      Object result = apiInstance.facebookGetPostDetail(postId, url);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookGetPostDetail");
@@ -732,6 +735,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **postId** | **String**|  | |
+| **url** | **String**| Full post permalink/reel URL — overrides post_id | [optional] |
 
 ### Return type
 

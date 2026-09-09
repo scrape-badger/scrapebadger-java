@@ -155,30 +155,32 @@ public class FacebookApiTest {
     /**
      * Get post comments
      *
-     * Get a Facebook post&#39;s comment thread (paginated).
+     * Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void facebookGetPostCommentsTest() throws ApiException {
         String postId = null;
+        String url = null;
         String after = null;
         String sort = null;
-        Object response = api.facebookGetPostComments(postId, after, sort);
+        Object response = api.facebookGetPostComments(postId, url, after, sort);
         // TODO: test validations
     }
 
     /**
      * Get post detail
      *
-     * Get a Facebook post&#39;s detail plus its top comments.
+     * Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void facebookGetPostDetailTest() throws ApiException {
         String postId = null;
-        Object response = api.facebookGetPostDetail(postId);
+        String url = null;
+        Object response = api.facebookGetPostDetail(postId, url);
         // TODO: test validations
     }
 

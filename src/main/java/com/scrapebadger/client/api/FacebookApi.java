@@ -1195,8 +1195,9 @@ public class FacebookApi {
     /**
      * Build call for facebookGetPostComments
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @param after  (optional)
-     * @param sort  (optional, default to relevance)
+     * @param sort relevance | newest (optional, default to relevance)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1208,7 +1209,7 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetPostCommentsCall(String postId, String after, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call facebookGetPostCommentsCall(String postId, String url, String after, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1233,6 +1234,10 @@ public class FacebookApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (url != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("url", url));
+        }
 
         if (after != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
@@ -1262,22 +1267,23 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call facebookGetPostCommentsValidateBeforeCall(String postId, String after, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call facebookGetPostCommentsValidateBeforeCall(String postId, String url, String after, String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'postId' is set
         if (postId == null) {
             throw new ApiException("Missing the required parameter 'postId' when calling facebookGetPostComments(Async)");
         }
 
-        return facebookGetPostCommentsCall(postId, after, sort, _callback);
+        return facebookGetPostCommentsCall(postId, url, after, sort, _callback);
 
     }
 
     /**
      * Get post comments
-     * Get a Facebook post&#39;s comment thread (paginated).
+     * Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @param after  (optional)
-     * @param sort  (optional, default to relevance)
+     * @param sort relevance | newest (optional, default to relevance)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1288,17 +1294,18 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object facebookGetPostComments(String postId, String after, String sort) throws ApiException {
-        ApiResponse<Object> localVarResp = facebookGetPostCommentsWithHttpInfo(postId, after, sort);
+    public Object facebookGetPostComments(String postId, String url, String after, String sort) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookGetPostCommentsWithHttpInfo(postId, url, after, sort);
         return localVarResp.getData();
     }
 
     /**
      * Get post comments
-     * Get a Facebook post&#39;s comment thread (paginated).
+     * Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @param after  (optional)
-     * @param sort  (optional, default to relevance)
+     * @param sort relevance | newest (optional, default to relevance)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1309,18 +1316,19 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> facebookGetPostCommentsWithHttpInfo(String postId, String after, String sort) throws ApiException {
-        okhttp3.Call localVarCall = facebookGetPostCommentsValidateBeforeCall(postId, after, sort, null);
+    public ApiResponse<Object> facebookGetPostCommentsWithHttpInfo(String postId, String url, String after, String sort) throws ApiException {
+        okhttp3.Call localVarCall = facebookGetPostCommentsValidateBeforeCall(postId, url, after, sort, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get post comments (asynchronously)
-     * Get a Facebook post&#39;s comment thread (paginated).
+     * Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @param after  (optional)
-     * @param sort  (optional, default to relevance)
+     * @param sort relevance | newest (optional, default to relevance)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1332,9 +1340,9 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetPostCommentsAsync(String postId, String after, String sort, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call facebookGetPostCommentsAsync(String postId, String url, String after, String sort, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = facebookGetPostCommentsValidateBeforeCall(postId, after, sort, _callback);
+        okhttp3.Call localVarCall = facebookGetPostCommentsValidateBeforeCall(postId, url, after, sort, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1342,6 +1350,7 @@ public class FacebookApi {
     /**
      * Build call for facebookGetPostDetail
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1353,7 +1362,7 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetPostDetailCall(String postId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call facebookGetPostDetailCall(String postId, String url, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1379,6 +1388,10 @@ public class FacebookApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (url != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("url", url));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1399,20 +1412,21 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call facebookGetPostDetailValidateBeforeCall(String postId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call facebookGetPostDetailValidateBeforeCall(String postId, String url, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'postId' is set
         if (postId == null) {
             throw new ApiException("Missing the required parameter 'postId' when calling facebookGetPostDetail(Async)");
         }
 
-        return facebookGetPostDetailCall(postId, _callback);
+        return facebookGetPostDetailCall(postId, url, _callback);
 
     }
 
     /**
      * Get post detail
-     * Get a Facebook post&#39;s detail plus its top comments.
+     * Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1423,15 +1437,16 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object facebookGetPostDetail(String postId) throws ApiException {
-        ApiResponse<Object> localVarResp = facebookGetPostDetailWithHttpInfo(postId);
+    public Object facebookGetPostDetail(String postId, String url) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookGetPostDetailWithHttpInfo(postId, url);
         return localVarResp.getData();
     }
 
     /**
      * Get post detail
-     * Get a Facebook post&#39;s detail plus its top comments.
+     * Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1442,16 +1457,17 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> facebookGetPostDetailWithHttpInfo(String postId) throws ApiException {
-        okhttp3.Call localVarCall = facebookGetPostDetailValidateBeforeCall(postId, null);
+    public ApiResponse<Object> facebookGetPostDetailWithHttpInfo(String postId, String url) throws ApiException {
+        okhttp3.Call localVarCall = facebookGetPostDetailValidateBeforeCall(postId, url, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get post detail (asynchronously)
-     * Get a Facebook post&#39;s detail plus its top comments.
+     * Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
      * @param postId  (required)
+     * @param url Full post permalink/reel URL — overrides post_id (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1463,9 +1479,9 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetPostDetailAsync(String postId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call facebookGetPostDetailAsync(String postId, String url, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = facebookGetPostDetailValidateBeforeCall(postId, _callback);
+        okhttp3.Call localVarCall = facebookGetPostDetailValidateBeforeCall(postId, url, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
