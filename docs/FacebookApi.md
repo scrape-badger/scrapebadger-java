@@ -1314,11 +1314,11 @@ public class Example {
 
 <a id="facebookSearchMarketplace"></a>
 # **facebookSearchMarketplace**
-> Object facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, after)
+> Object facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after)
 
 Search Marketplace
 
-Search Facebook Marketplace listings by keyword and location.
+Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
 
 ### Example
 ```java
@@ -1343,16 +1343,17 @@ public class Example {
 
     FacebookApi apiInstance = new FacebookApi(defaultClient);
     String query = "query_example"; // String | Search keywords
-    String location = "nyc"; // String | Marketplace location slug
+    String location = "nyc"; // String | Marketplace location slug or numeric place id
     Integer minPrice = 56; // Integer | 
     Integer maxPrice = 56; // Integer | 
     Integer daysSinceListed = 56; // Integer | 
     String sortBy = "sortBy_example"; // String | 
     String itemCondition = "itemCondition_example"; // String | 
     String deliveryMethod = "deliveryMethod_example"; // String | 
+    Integer radius = 56; // Integer | Search radius around the location (km, or miles in the US)
     String after = "after_example"; // String | 
     try {
-      Object result = apiInstance.facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, after);
+      Object result = apiInstance.facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookSearchMarketplace");
@@ -1370,13 +1371,14 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **query** | **String**| Search keywords | |
-| **location** | **String**| Marketplace location slug | [optional] [default to nyc] |
+| **location** | **String**| Marketplace location slug or numeric place id | [optional] [default to nyc] |
 | **minPrice** | **Integer**|  | [optional] |
 | **maxPrice** | **Integer**|  | [optional] |
 | **daysSinceListed** | **Integer**|  | [optional] |
 | **sortBy** | **String**|  | [optional] |
 | **itemCondition** | **String**|  | [optional] |
 | **deliveryMethod** | **String**|  | [optional] |
+| **radius** | **Integer**| Search radius around the location (km, or miles in the US) | [optional] |
 | **after** | **String**|  | [optional] |
 
 ### Return type
