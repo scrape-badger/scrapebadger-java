@@ -13,6 +13,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**vintedListPublicVintedMobileOperations**](VintedApi.md#vintedListPublicVintedMobileOperations) | **GET** /v1/vinted/mobile/operations | List public Vinted mobile operations |
 | [**vintedReadVintedMobileData**](VintedApi.md#vintedReadVintedMobileData) | **POST** /v1/vinted/mobile/{operation} | Read Vinted mobile data |
 | [**vintedSearchBrands**](VintedApi.md#vintedSearchBrands) | **GET** /v1/vinted/brands | Search brands |
+| [**vintedSearchByImage**](VintedApi.md#vintedSearchByImage) | **POST** /v1/vinted/search_by_image | Search by image |
 | [**vintedSearchVintedItems**](VintedApi.md#vintedSearchVintedItems) | **GET** /v1/vinted/search | Search Vinted items |
 | [**vintedVintedScraperHealthCheck**](VintedApi.md#vintedVintedScraperHealthCheck) | **GET** /v1/vinted/health | Vinted scraper health check |
 | [**vintedVintedScraperHealthCheckHead**](VintedApi.md#vintedVintedScraperHealthCheckHead) | **HEAD** /v1/vinted/health | Vinted scraper health check |
@@ -644,6 +645,76 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="vintedSearchByImage"></a>
+# **vintedSearchByImage**
+> Object vintedSearchByImage(vintedImageSearchRequest)
+
+Search by image
+
+Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.VintedApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    VintedApi apiInstance = new VintedApi(defaultClient);
+    VintedImageSearchRequest vintedImageSearchRequest = new VintedImageSearchRequest(); // VintedImageSearchRequest | 
+    try {
+      Object result = apiInstance.vintedSearchByImage(vintedImageSearchRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VintedApi#vintedSearchByImage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vintedImageSearchRequest** | [**VintedImageSearchRequest**](VintedImageSearchRequest.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

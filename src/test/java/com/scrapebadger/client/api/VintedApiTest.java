@@ -16,6 +16,7 @@ package com.scrapebadger.client.api;
 import com.scrapebadger.client.ApiException;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import com.scrapebadger.client.model.VintedImageSearchRequest;
 import com.scrapebadger.client.model.VintedMobileReadRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -161,6 +162,20 @@ public class VintedApiTest {
         String keyword = null;
         String market = null;
         Object response = api.vintedSearchBrands(keyword, market);
+        // TODO: test validations
+    }
+
+    /**
+     * Search by image
+     *
+     * Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void vintedSearchByImageTest() throws ApiException {
+        VintedImageSearchRequest vintedImageSearchRequest = null;
+        Object response = api.vintedSearchByImage(vintedImageSearchRequest);
         // TODO: test validations
     }
 

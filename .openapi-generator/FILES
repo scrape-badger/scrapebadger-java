@@ -57,6 +57,7 @@ docs/TwitterApi.md
 docs/ValidationError.md
 docs/ValidationErrorLocInner.md
 docs/VintedApi.md
+docs/VintedImageSearchRequest.md
 docs/VintedMobileReadRequest.md
 docs/WalmartApi.md
 docs/WebApi.md
@@ -154,6 +155,7 @@ src/main/java/com/scrapebadger/client/model/TweetDeliveryLogListResponse.java
 src/main/java/com/scrapebadger/client/model/TweetDeliveryLogResponse.java
 src/main/java/com/scrapebadger/client/model/ValidationError.java
 src/main/java/com/scrapebadger/client/model/ValidationErrorLocInner.java
+src/main/java/com/scrapebadger/client/model/VintedImageSearchRequest.java
 src/main/java/com/scrapebadger/client/model/VintedMobileReadRequest.java
 src/main/java/com/scrapebadger/client/model/WebhookCreate.java
 src/main/java/com/scrapebadger/client/model/WebhookListItem.java
@@ -218,6 +220,7 @@ src/test/java/com/scrapebadger/client/model/TweetDeliveryLogListResponseTest.jav
 src/test/java/com/scrapebadger/client/model/TweetDeliveryLogResponseTest.java
 src/test/java/com/scrapebadger/client/model/ValidationErrorLocInnerTest.java
 src/test/java/com/scrapebadger/client/model/ValidationErrorTest.java
+src/test/java/com/scrapebadger/client/model/VintedImageSearchRequestTest.java
 src/test/java/com/scrapebadger/client/model/VintedMobileReadRequestTest.java
 src/test/java/com/scrapebadger/client/model/WebhookCreateTest.java
 src/test/java/com/scrapebadger/client/model/WebhookListItemTest.java

@@ -115,6 +115,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.TweetDeliveryLogResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ValidationError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ValidationErrorLocInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.VintedImageSearchRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.VintedMobileReadRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookCreate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookListItem.CustomTypeAdapterFactory());
