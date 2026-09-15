@@ -16,6 +16,7 @@ package com.scrapebadger.client.api;
 import com.scrapebadger.client.ApiException;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import com.scrapebadger.client.model.VintedMobileReadRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -121,6 +122,34 @@ public class VintedApiTest {
     }
 
     /**
+     * List public Vinted mobile operations
+     *
+     * Discover public read operations, parameters and runnable examples. Free.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void vintedListPublicVintedMobileOperationsTest() throws ApiException {
+        Object response = api.vintedListPublicVintedMobileOperations();
+        // TODO: test validations
+    }
+
+    /**
+     * Read Vinted mobile data
+     *
+     * Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void vintedReadVintedMobileDataTest() throws ApiException {
+        String operation = null;
+        VintedMobileReadRequest vintedMobileReadRequest = null;
+        Object response = api.vintedReadVintedMobileData(operation, vintedMobileReadRequest);
+        // TODO: test validations
+    }
+
+    /**
      * Search brands
      *
      * Search Vinted brands.
@@ -154,9 +183,13 @@ public class VintedApiTest {
         String brandIds = null;
         String catalogIds = null;
         String colorIds = null;
+        String sizeIds = null;
+        String materialIds = null;
+        Integer time = null;
+        String searchSessionId = null;
         String statusIds = null;
         String order = null;
-        Object response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order);
+        Object response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
         // TODO: test validations
     }
 

@@ -10,6 +10,8 @@ All URIs are relative to *https://scrapebadger.com*
 | [**vintedListColors**](VintedApi.md#vintedListColors) | **GET** /v1/vinted/colors | List colors |
 | [**vintedListItemConditions**](VintedApi.md#vintedListItemConditions) | **GET** /v1/vinted/statuses | List item conditions |
 | [**vintedListMarkets**](VintedApi.md#vintedListMarkets) | **GET** /v1/vinted/markets | List markets |
+| [**vintedListPublicVintedMobileOperations**](VintedApi.md#vintedListPublicVintedMobileOperations) | **GET** /v1/vinted/mobile/operations | List public Vinted mobile operations |
+| [**vintedReadVintedMobileData**](VintedApi.md#vintedReadVintedMobileData) | **POST** /v1/vinted/mobile/{operation} | Read Vinted mobile data |
 | [**vintedSearchBrands**](VintedApi.md#vintedSearchBrands) | **GET** /v1/vinted/brands | Search brands |
 | [**vintedSearchVintedItems**](VintedApi.md#vintedSearchVintedItems) | **GET** /v1/vinted/search | Search Vinted items |
 | [**vintedVintedScraperHealthCheck**](VintedApi.md#vintedVintedScraperHealthCheck) | **GET** /v1/vinted/health | Vinted scraper health check |
@@ -441,6 +443,143 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 
+<a id="vintedListPublicVintedMobileOperations"></a>
+# **vintedListPublicVintedMobileOperations**
+> Object vintedListPublicVintedMobileOperations()
+
+List public Vinted mobile operations
+
+Discover public read operations, parameters and runnable examples. Free.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.VintedApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    VintedApi apiInstance = new VintedApi(defaultClient);
+    try {
+      Object result = apiInstance.vintedListPublicVintedMobileOperations();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VintedApi#vintedListPublicVintedMobileOperations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+<a id="vintedReadVintedMobileData"></a>
+# **vintedReadVintedMobileData**
+> Object vintedReadVintedMobileData(operation, vintedMobileReadRequest)
+
+Read Vinted mobile data
+
+Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.VintedApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    VintedApi apiInstance = new VintedApi(defaultClient);
+    String operation = "operation_example"; // String | 
+    VintedMobileReadRequest vintedMobileReadRequest = new VintedMobileReadRequest(); // VintedMobileReadRequest | 
+    try {
+      Object result = apiInstance.vintedReadVintedMobileData(operation, vintedMobileReadRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VintedApi#vintedReadVintedMobileData");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **operation** | **String**|  | |
+| **vintedMobileReadRequest** | [**VintedMobileReadRequest**](VintedMobileReadRequest.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
 <a id="vintedSearchBrands"></a>
 # **vintedSearchBrands**
 > Object vintedSearchBrands(keyword, market)
@@ -515,7 +654,7 @@ public class Example {
 
 <a id="vintedSearchVintedItems"></a>
 # **vintedSearchVintedItems**
-> Object vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order)
+> Object vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order)
 
 Search Vinted items
 
@@ -553,10 +692,14 @@ public class Example {
     String brandIds = "brandIds_example"; // String | 
     String catalogIds = "catalogIds_example"; // String | Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. '1904' or '1904,79'. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the `catalog[]` value in a Vinted category URL (vinted.fr/catalog?catalog[]=1904).
     String colorIds = "colorIds_example"; // String | Comma-separated color IDs
+    String sizeIds = "sizeIds_example"; // String | Comma-separated size IDs
+    String materialIds = "materialIds_example"; // String | Comma-separated material IDs
+    Integer time = 56; // Integer | Pagination time returned by the preceding page
+    String searchSessionId = "searchSessionId_example"; // String | Reuse across pages of one search
     String statusIds = "statusIds_example"; // String | Comma-separated condition/status IDs
     String order = "order_example"; // String | 
     try {
-      Object result = apiInstance.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order);
+      Object result = apiInstance.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedSearchVintedItems");
@@ -583,6 +726,10 @@ public class Example {
 | **brandIds** | **String**|  | [optional] |
 | **catalogIds** | **String**| Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). | [optional] |
 | **colorIds** | **String**| Comma-separated color IDs | [optional] |
+| **sizeIds** | **String**| Comma-separated size IDs | [optional] |
+| **materialIds** | **String**| Comma-separated material IDs | [optional] |
+| **time** | **Integer**| Pagination time returned by the preceding page | [optional] |
+| **searchSessionId** | **String**| Reuse across pages of one search | [optional] |
 | **statusIds** | **String**| Comma-separated condition/status IDs | [optional] |
 | **order** | **String**|  | [optional] |
 
