@@ -469,7 +469,7 @@ public class Example {
     String sizes = "sizes_example"; // String | Comma-separated size IDs
     String conditions = "conditions_example"; // String | Comma-separated condition slugs (brand_new, used_excellent, ...)
     String gender = "gender_example"; // String | male | female
-    String sort = "sort_example"; // String | relevance | newlyListed | priceAscending | priceDescending
+    String sort = "sort_example"; // String | relevance (default) | priceAscending | priceDescending
     try {
       Object result = apiInstance.depopSearchDepopProducts(query, market, perPage, cursor, priceMin, priceMax, brands, categories, sizes, conditions, gender, sort);
       System.out.println(result);
@@ -499,7 +499,7 @@ public class Example {
 | **sizes** | **String**| Comma-separated size IDs | [optional] |
 | **conditions** | **String**| Comma-separated condition slugs (brand_new, used_excellent, ...) | [optional] |
 | **gender** | **String**| male | female | [optional] |
-| **sort** | **String**| relevance | newlyListed | priceAscending | priceDescending | [optional] |
+| **sort** | **String**| relevance (default) | priceAscending | priceDescending | [optional] |
 
 ### Return type
 

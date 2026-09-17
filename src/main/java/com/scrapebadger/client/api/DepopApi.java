@@ -870,7 +870,7 @@ public class DepopApi {
      * @param sizes Comma-separated size IDs (optional)
      * @param conditions Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)
      * @param gender male | female (optional)
-     * @param sort relevance | newlyListed | priceAscending | priceDescending (optional)
+     * @param sort relevance (default) | priceAscending | priceDescending (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -999,7 +999,7 @@ public class DepopApi {
      * @param sizes Comma-separated size IDs (optional)
      * @param conditions Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)
      * @param gender male | female (optional)
-     * @param sort relevance | newlyListed | priceAscending | priceDescending (optional)
+     * @param sort relevance (default) | priceAscending | priceDescending (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1029,7 +1029,7 @@ public class DepopApi {
      * @param sizes Comma-separated size IDs (optional)
      * @param conditions Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)
      * @param gender male | female (optional)
-     * @param sort relevance | newlyListed | priceAscending | priceDescending (optional)
+     * @param sort relevance (default) | priceAscending | priceDescending (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1060,7 +1060,7 @@ public class DepopApi {
      * @param sizes Comma-separated size IDs (optional)
      * @param conditions Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)
      * @param gender male | female (optional)
-     * @param sort relevance | newlyListed | priceAscending | priceDescending (optional)
+     * @param sort relevance (default) | priceAscending | priceDescending (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
