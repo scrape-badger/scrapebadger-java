@@ -15,7 +15,15 @@ package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
 import java.math.BigDecimal;
+import com.scrapebadger.client.model.BrandsResponse;
+import com.scrapebadger.client.model.ColorsResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
+import com.scrapebadger.client.model.ItemDetailResponse;
+import com.scrapebadger.client.model.MarketsResponse;
+import com.scrapebadger.client.model.SearchResponse;
+import com.scrapebadger.client.model.StatusesResponse;
+import com.scrapebadger.client.model.UserItemsResponse;
+import com.scrapebadger.client.model.UserProfileResponse;
 import com.scrapebadger.client.model.VintedImageSearchRequest;
 import com.scrapebadger.client.model.VintedMobileReadRequest;
 import org.junit.jupiter.api.Disabled;
@@ -45,7 +53,7 @@ public class VintedApiTest {
     public void vintedGetItemDetailsTest() throws ApiException {
         Integer itemId = null;
         String market = null;
-        Object response = api.vintedGetItemDetails(itemId, market);
+        ItemDetailResponse response = api.vintedGetItemDetails(itemId, market);
         // TODO: test validations
     }
 
@@ -60,7 +68,7 @@ public class VintedApiTest {
     public void vintedGetUserProfileTest() throws ApiException {
         Integer userId = null;
         String market = null;
-        Object response = api.vintedGetUserProfile(userId, market);
+        UserProfileResponse response = api.vintedGetUserProfile(userId, market);
         // TODO: test validations
     }
 
@@ -77,7 +85,7 @@ public class VintedApiTest {
         String market = null;
         Integer page = null;
         Integer perPage = null;
-        Object response = api.vintedGetUserSListedItems(userId, market, page, perPage);
+        UserItemsResponse response = api.vintedGetUserSListedItems(userId, market, page, perPage);
         // TODO: test validations
     }
 
@@ -91,7 +99,7 @@ public class VintedApiTest {
     @Test
     public void vintedListColorsTest() throws ApiException {
         String market = null;
-        Object response = api.vintedListColors(market);
+        ColorsResponse response = api.vintedListColors(market);
         // TODO: test validations
     }
 
@@ -105,7 +113,7 @@ public class VintedApiTest {
     @Test
     public void vintedListItemConditionsTest() throws ApiException {
         String market = null;
-        Object response = api.vintedListItemConditions(market);
+        StatusesResponse response = api.vintedListItemConditions(market);
         // TODO: test validations
     }
 
@@ -118,7 +126,7 @@ public class VintedApiTest {
      */
     @Test
     public void vintedListMarketsTest() throws ApiException {
-        Object response = api.vintedListMarkets();
+        MarketsResponse response = api.vintedListMarkets();
         // TODO: test validations
     }
 
@@ -161,7 +169,7 @@ public class VintedApiTest {
     public void vintedSearchBrandsTest() throws ApiException {
         String keyword = null;
         String market = null;
-        Object response = api.vintedSearchBrands(keyword, market);
+        BrandsResponse response = api.vintedSearchBrands(keyword, market);
         // TODO: test validations
     }
 
@@ -175,7 +183,7 @@ public class VintedApiTest {
     @Test
     public void vintedSearchByImageTest() throws ApiException {
         VintedImageSearchRequest vintedImageSearchRequest = null;
-        Object response = api.vintedSearchByImage(vintedImageSearchRequest);
+        SearchResponse response = api.vintedSearchByImage(vintedImageSearchRequest);
         // TODO: test validations
     }
 
@@ -204,7 +212,7 @@ public class VintedApiTest {
         String searchSessionId = null;
         String statusIds = null;
         String order = null;
-        Object response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+        SearchResponse response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
         // TODO: test validations
     }
 

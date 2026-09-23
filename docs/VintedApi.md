@@ -21,7 +21,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="vintedGetItemDetails"></a>
 # **vintedGetItemDetails**
-> Object vintedGetItemDetails(itemId, market)
+> ItemDetailResponse vintedGetItemDetails(itemId, market)
 
 Get item details
 
@@ -52,7 +52,7 @@ public class Example {
     Integer itemId = 56; // Integer | 
     String market = "fr"; // String | 
     try {
-      Object result = apiInstance.vintedGetItemDetails(itemId, market);
+      ItemDetailResponse result = apiInstance.vintedGetItemDetails(itemId, market);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedGetItemDetails");
@@ -74,7 +74,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**ItemDetailResponse**](ItemDetailResponse.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ public class Example {
 
 <a id="vintedGetUserProfile"></a>
 # **vintedGetUserProfile**
-> Object vintedGetUserProfile(userId, market)
+> UserProfileResponse vintedGetUserProfile(userId, market)
 
 Get user profile
 
@@ -124,7 +124,7 @@ public class Example {
     Integer userId = 56; // Integer | 
     String market = "fr"; // String | 
     try {
-      Object result = apiInstance.vintedGetUserProfile(userId, market);
+      UserProfileResponse result = apiInstance.vintedGetUserProfile(userId, market);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedGetUserProfile");
@@ -146,7 +146,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**UserProfileResponse**](UserProfileResponse.md)
 
 ### Authorization
 
@@ -165,7 +165,7 @@ public class Example {
 
 <a id="vintedGetUserSListedItems"></a>
 # **vintedGetUserSListedItems**
-> Object vintedGetUserSListedItems(userId, market, page, perPage)
+> UserItemsResponse vintedGetUserSListedItems(userId, market, page, perPage)
 
 Get user&#39;s listed items
 
@@ -198,7 +198,7 @@ public class Example {
     Integer page = 1; // Integer | 
     Integer perPage = 20; // Integer | 
     try {
-      Object result = apiInstance.vintedGetUserSListedItems(userId, market, page, perPage);
+      UserItemsResponse result = apiInstance.vintedGetUserSListedItems(userId, market, page, perPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedGetUserSListedItems");
@@ -222,7 +222,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**UserItemsResponse**](UserItemsResponse.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ public class Example {
 
 <a id="vintedListColors"></a>
 # **vintedListColors**
-> Object vintedListColors(market)
+> ColorsResponse vintedListColors(market)
 
 List colors
 
@@ -271,7 +271,7 @@ public class Example {
     VintedApi apiInstance = new VintedApi(defaultClient);
     String market = "fr"; // String | 
     try {
-      Object result = apiInstance.vintedListColors(market);
+      ColorsResponse result = apiInstance.vintedListColors(market);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedListColors");
@@ -292,7 +292,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**ColorsResponse**](ColorsResponse.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ public class Example {
 
 <a id="vintedListItemConditions"></a>
 # **vintedListItemConditions**
-> Object vintedListItemConditions(market)
+> StatusesResponse vintedListItemConditions(market)
 
 List item conditions
 
@@ -341,7 +341,7 @@ public class Example {
     VintedApi apiInstance = new VintedApi(defaultClient);
     String market = "fr"; // String | 
     try {
-      Object result = apiInstance.vintedListItemConditions(market);
+      StatusesResponse result = apiInstance.vintedListItemConditions(market);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedListItemConditions");
@@ -362,7 +362,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**StatusesResponse**](StatusesResponse.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ public class Example {
 
 <a id="vintedListMarkets"></a>
 # **vintedListMarkets**
-> Object vintedListMarkets()
+> MarketsResponse vintedListMarkets()
 
 List markets
 
@@ -410,7 +410,7 @@ public class Example {
 
     VintedApi apiInstance = new VintedApi(defaultClient);
     try {
-      Object result = apiInstance.vintedListMarkets();
+      MarketsResponse result = apiInstance.vintedListMarkets();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedListMarkets");
@@ -428,7 +428,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**MarketsResponse**](MarketsResponse.md)
 
 ### Authorization
 
@@ -583,7 +583,7 @@ public class Example {
 
 <a id="vintedSearchBrands"></a>
 # **vintedSearchBrands**
-> Object vintedSearchBrands(keyword, market)
+> BrandsResponse vintedSearchBrands(keyword, market)
 
 Search brands
 
@@ -614,7 +614,7 @@ public class Example {
     String keyword = "keyword_example"; // String | Brand search keyword
     String market = "fr"; // String | 
     try {
-      Object result = apiInstance.vintedSearchBrands(keyword, market);
+      BrandsResponse result = apiInstance.vintedSearchBrands(keyword, market);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedSearchBrands");
@@ -636,7 +636,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**BrandsResponse**](BrandsResponse.md)
 
 ### Authorization
 
@@ -655,7 +655,7 @@ public class Example {
 
 <a id="vintedSearchByImage"></a>
 # **vintedSearchByImage**
-> Object vintedSearchByImage(vintedImageSearchRequest)
+> SearchResponse vintedSearchByImage(vintedImageSearchRequest)
 
 Search by image
 
@@ -685,7 +685,7 @@ public class Example {
     VintedApi apiInstance = new VintedApi(defaultClient);
     VintedImageSearchRequest vintedImageSearchRequest = new VintedImageSearchRequest(); // VintedImageSearchRequest | 
     try {
-      Object result = apiInstance.vintedSearchByImage(vintedImageSearchRequest);
+      SearchResponse result = apiInstance.vintedSearchByImage(vintedImageSearchRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedSearchByImage");
@@ -706,7 +706,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**SearchResponse**](SearchResponse.md)
 
 ### Authorization
 
@@ -725,7 +725,7 @@ public class Example {
 
 <a id="vintedSearchVintedItems"></a>
 # **vintedSearchVintedItems**
-> Object vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order)
+> SearchResponse vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order)
 
 Search Vinted items
 
@@ -770,7 +770,7 @@ public class Example {
     String statusIds = "statusIds_example"; // String | Comma-separated condition/status IDs
     String order = "order_example"; // String | 
     try {
-      Object result = apiInstance.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+      SearchResponse result = apiInstance.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedSearchVintedItems");
@@ -806,7 +806,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**SearchResponse**](SearchResponse.md)
 
 ### Authorization
 

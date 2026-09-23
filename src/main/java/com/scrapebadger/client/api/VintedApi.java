@@ -28,7 +28,15 @@ import java.io.IOException;
 
 
 import java.math.BigDecimal;
+import com.scrapebadger.client.model.BrandsResponse;
+import com.scrapebadger.client.model.ColorsResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
+import com.scrapebadger.client.model.ItemDetailResponse;
+import com.scrapebadger.client.model.MarketsResponse;
+import com.scrapebadger.client.model.SearchResponse;
+import com.scrapebadger.client.model.StatusesResponse;
+import com.scrapebadger.client.model.UserItemsResponse;
+import com.scrapebadger.client.model.UserProfileResponse;
 import com.scrapebadger.client.model.VintedImageSearchRequest;
 import com.scrapebadger.client.model.VintedMobileReadRequest;
 
@@ -155,7 +163,7 @@ public class VintedApi {
      * Get detailed information about a Vinted item.
      * @param itemId  (required)
      * @param market  (optional, default to fr)
-     * @return Object
+     * @return ItemDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -165,8 +173,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedGetItemDetails(Integer itemId, String market) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedGetItemDetailsWithHttpInfo(itemId, market);
+    public ItemDetailResponse vintedGetItemDetails(Integer itemId, String market) throws ApiException {
+        ApiResponse<ItemDetailResponse> localVarResp = vintedGetItemDetailsWithHttpInfo(itemId, market);
         return localVarResp.getData();
     }
 
@@ -175,7 +183,7 @@ public class VintedApi {
      * Get detailed information about a Vinted item.
      * @param itemId  (required)
      * @param market  (optional, default to fr)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;ItemDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -185,9 +193,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedGetItemDetailsWithHttpInfo(Integer itemId, String market) throws ApiException {
+    public ApiResponse<ItemDetailResponse> vintedGetItemDetailsWithHttpInfo(Integer itemId, String market) throws ApiException {
         okhttp3.Call localVarCall = vintedGetItemDetailsValidateBeforeCall(itemId, market, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<ItemDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -207,10 +215,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedGetItemDetailsAsync(Integer itemId, String market, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedGetItemDetailsAsync(Integer itemId, String market, final ApiCallback<ItemDetailResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedGetItemDetailsValidateBeforeCall(itemId, market, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<ItemDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -294,7 +302,7 @@ public class VintedApi {
      * Get a Vinted user&#39;s profile.
      * @param userId  (required)
      * @param market  (optional, default to fr)
-     * @return Object
+     * @return UserProfileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -304,8 +312,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedGetUserProfile(Integer userId, String market) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedGetUserProfileWithHttpInfo(userId, market);
+    public UserProfileResponse vintedGetUserProfile(Integer userId, String market) throws ApiException {
+        ApiResponse<UserProfileResponse> localVarResp = vintedGetUserProfileWithHttpInfo(userId, market);
         return localVarResp.getData();
     }
 
@@ -314,7 +322,7 @@ public class VintedApi {
      * Get a Vinted user&#39;s profile.
      * @param userId  (required)
      * @param market  (optional, default to fr)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;UserProfileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -324,9 +332,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedGetUserProfileWithHttpInfo(Integer userId, String market) throws ApiException {
+    public ApiResponse<UserProfileResponse> vintedGetUserProfileWithHttpInfo(Integer userId, String market) throws ApiException {
         okhttp3.Call localVarCall = vintedGetUserProfileValidateBeforeCall(userId, market, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -346,10 +354,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedGetUserProfileAsync(Integer userId, String market, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedGetUserProfileAsync(Integer userId, String market, final ApiCallback<UserProfileResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedGetUserProfileValidateBeforeCall(userId, market, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -445,7 +453,7 @@ public class VintedApi {
      * @param market  (optional, default to fr)
      * @param page  (optional, default to 1)
      * @param perPage  (optional, default to 20)
-     * @return Object
+     * @return UserItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -455,8 +463,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedGetUserSListedItems(Integer userId, String market, Integer page, Integer perPage) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedGetUserSListedItemsWithHttpInfo(userId, market, page, perPage);
+    public UserItemsResponse vintedGetUserSListedItems(Integer userId, String market, Integer page, Integer perPage) throws ApiException {
+        ApiResponse<UserItemsResponse> localVarResp = vintedGetUserSListedItemsWithHttpInfo(userId, market, page, perPage);
         return localVarResp.getData();
     }
 
@@ -467,7 +475,7 @@ public class VintedApi {
      * @param market  (optional, default to fr)
      * @param page  (optional, default to 1)
      * @param perPage  (optional, default to 20)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;UserItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -477,9 +485,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedGetUserSListedItemsWithHttpInfo(Integer userId, String market, Integer page, Integer perPage) throws ApiException {
+    public ApiResponse<UserItemsResponse> vintedGetUserSListedItemsWithHttpInfo(Integer userId, String market, Integer page, Integer perPage) throws ApiException {
         okhttp3.Call localVarCall = vintedGetUserSListedItemsValidateBeforeCall(userId, market, page, perPage, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserItemsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -501,10 +509,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedGetUserSListedItemsAsync(Integer userId, String market, Integer page, Integer perPage, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedGetUserSListedItemsAsync(Integer userId, String market, Integer page, Integer perPage, final ApiCallback<UserItemsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedGetUserSListedItemsValidateBeforeCall(userId, market, page, perPage, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<UserItemsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -580,7 +588,7 @@ public class VintedApi {
      * List colors
      * Get available Vinted colors for filtering.
      * @param market  (optional, default to fr)
-     * @return Object
+     * @return ColorsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -590,8 +598,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedListColors(String market) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedListColorsWithHttpInfo(market);
+    public ColorsResponse vintedListColors(String market) throws ApiException {
+        ApiResponse<ColorsResponse> localVarResp = vintedListColorsWithHttpInfo(market);
         return localVarResp.getData();
     }
 
@@ -599,7 +607,7 @@ public class VintedApi {
      * List colors
      * Get available Vinted colors for filtering.
      * @param market  (optional, default to fr)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;ColorsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -609,9 +617,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedListColorsWithHttpInfo(String market) throws ApiException {
+    public ApiResponse<ColorsResponse> vintedListColorsWithHttpInfo(String market) throws ApiException {
         okhttp3.Call localVarCall = vintedListColorsValidateBeforeCall(market, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<ColorsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -630,10 +638,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedListColorsAsync(String market, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedListColorsAsync(String market, final ApiCallback<ColorsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedListColorsValidateBeforeCall(market, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<ColorsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -709,7 +717,7 @@ public class VintedApi {
      * List item conditions
      * Get available item condition statuses.
      * @param market  (optional, default to fr)
-     * @return Object
+     * @return StatusesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -719,8 +727,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedListItemConditions(String market) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedListItemConditionsWithHttpInfo(market);
+    public StatusesResponse vintedListItemConditions(String market) throws ApiException {
+        ApiResponse<StatusesResponse> localVarResp = vintedListItemConditionsWithHttpInfo(market);
         return localVarResp.getData();
     }
 
@@ -728,7 +736,7 @@ public class VintedApi {
      * List item conditions
      * Get available item condition statuses.
      * @param market  (optional, default to fr)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;StatusesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -738,9 +746,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedListItemConditionsWithHttpInfo(String market) throws ApiException {
+    public ApiResponse<StatusesResponse> vintedListItemConditionsWithHttpInfo(String market) throws ApiException {
         okhttp3.Call localVarCall = vintedListItemConditionsValidateBeforeCall(market, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -759,10 +767,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedListItemConditionsAsync(String market, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedListItemConditionsAsync(String market, final ApiCallback<StatusesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedListItemConditionsValidateBeforeCall(market, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -831,7 +839,7 @@ public class VintedApi {
     /**
      * List markets
      * List all supported Vinted markets.
-     * @return Object
+     * @return MarketsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -840,15 +848,15 @@ public class VintedApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedListMarkets() throws ApiException {
-        ApiResponse<Object> localVarResp = vintedListMarketsWithHttpInfo();
+    public MarketsResponse vintedListMarkets() throws ApiException {
+        ApiResponse<MarketsResponse> localVarResp = vintedListMarketsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * List markets
      * List all supported Vinted markets.
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;MarketsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -857,9 +865,9 @@ public class VintedApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedListMarketsWithHttpInfo() throws ApiException {
+    public ApiResponse<MarketsResponse> vintedListMarketsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = vintedListMarketsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<MarketsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -876,10 +884,10 @@ public class VintedApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedListMarketsAsync(final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedListMarketsAsync(final ApiCallback<MarketsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedListMarketsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<MarketsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1224,7 +1232,7 @@ public class VintedApi {
      * Search Vinted brands.
      * @param keyword Brand search keyword (required)
      * @param market  (optional, default to fr)
-     * @return Object
+     * @return BrandsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1234,8 +1242,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedSearchBrands(String keyword, String market) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedSearchBrandsWithHttpInfo(keyword, market);
+    public BrandsResponse vintedSearchBrands(String keyword, String market) throws ApiException {
+        ApiResponse<BrandsResponse> localVarResp = vintedSearchBrandsWithHttpInfo(keyword, market);
         return localVarResp.getData();
     }
 
@@ -1244,7 +1252,7 @@ public class VintedApi {
      * Search Vinted brands.
      * @param keyword Brand search keyword (required)
      * @param market  (optional, default to fr)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;BrandsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1254,9 +1262,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedSearchBrandsWithHttpInfo(String keyword, String market) throws ApiException {
+    public ApiResponse<BrandsResponse> vintedSearchBrandsWithHttpInfo(String keyword, String market) throws ApiException {
         okhttp3.Call localVarCall = vintedSearchBrandsValidateBeforeCall(keyword, market, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<BrandsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1276,10 +1284,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedSearchBrandsAsync(String keyword, String market, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedSearchBrandsAsync(String keyword, String market, final ApiCallback<BrandsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedSearchBrandsValidateBeforeCall(keyword, market, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<BrandsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1357,7 +1365,7 @@ public class VintedApi {
      * Search by image
      * Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; on the calls where Vinted returns a ranking, and null on the ones where it does not -- a null says nothing about the item. The score sits on an unbounded scale that Vinted changes without notice (0-1 in Sep 2026, ~36-44 since): compare it only with the other items in the SAME response, never to a fixed cut-off. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
      * @param vintedImageSearchRequest  (required)
-     * @return Object
+     * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1367,8 +1375,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedSearchByImage(VintedImageSearchRequest vintedImageSearchRequest) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
+    public SearchResponse vintedSearchByImage(VintedImageSearchRequest vintedImageSearchRequest) throws ApiException {
+        ApiResponse<SearchResponse> localVarResp = vintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
         return localVarResp.getData();
     }
 
@@ -1376,7 +1384,7 @@ public class VintedApi {
      * Search by image
      * Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; on the calls where Vinted returns a ranking, and null on the ones where it does not -- a null says nothing about the item. The score sits on an unbounded scale that Vinted changes without notice (0-1 in Sep 2026, ~36-44 since): compare it only with the other items in the SAME response, never to a fixed cut-off. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
      * @param vintedImageSearchRequest  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;SearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1386,9 +1394,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedSearchByImageWithHttpInfo(VintedImageSearchRequest vintedImageSearchRequest) throws ApiException {
+    public ApiResponse<SearchResponse> vintedSearchByImageWithHttpInfo(VintedImageSearchRequest vintedImageSearchRequest) throws ApiException {
         okhttp3.Call localVarCall = vintedSearchByImageValidateBeforeCall(vintedImageSearchRequest, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1407,10 +1415,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedSearchByImageAsync(VintedImageSearchRequest vintedImageSearchRequest, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedSearchByImageAsync(VintedImageSearchRequest vintedImageSearchRequest, final ApiCallback<SearchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedSearchByImageValidateBeforeCall(vintedImageSearchRequest, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1581,7 +1589,7 @@ public class VintedApi {
      * @param searchSessionId Reuse across pages of one search (optional)
      * @param statusIds Comma-separated condition/status IDs (optional)
      * @param order  (optional)
-     * @return Object
+     * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1591,8 +1599,8 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object vintedSearchVintedItems(String query, String market, String sellerCountry, Integer page, Integer perPage, BigDecimal priceFrom, BigDecimal priceTo, String brandIds, String catalogIds, String colorIds, String sizeIds, String materialIds, Integer time, String searchSessionId, String statusIds, String order) throws ApiException {
-        ApiResponse<Object> localVarResp = vintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+    public SearchResponse vintedSearchVintedItems(String query, String market, String sellerCountry, Integer page, Integer perPage, BigDecimal priceFrom, BigDecimal priceTo, String brandIds, String catalogIds, String colorIds, String sizeIds, String materialIds, Integer time, String searchSessionId, String statusIds, String order) throws ApiException {
+        ApiResponse<SearchResponse> localVarResp = vintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
         return localVarResp.getData();
     }
 
@@ -1615,7 +1623,7 @@ public class VintedApi {
      * @param searchSessionId Reuse across pages of one search (optional)
      * @param statusIds Comma-separated condition/status IDs (optional)
      * @param order  (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;SearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1625,9 +1633,9 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> vintedSearchVintedItemsWithHttpInfo(String query, String market, String sellerCountry, Integer page, Integer perPage, BigDecimal priceFrom, BigDecimal priceTo, String brandIds, String catalogIds, String colorIds, String sizeIds, String materialIds, Integer time, String searchSessionId, String statusIds, String order) throws ApiException {
+    public ApiResponse<SearchResponse> vintedSearchVintedItemsWithHttpInfo(String query, String market, String sellerCountry, Integer page, Integer perPage, BigDecimal priceFrom, BigDecimal priceTo, String brandIds, String catalogIds, String colorIds, String sizeIds, String materialIds, Integer time, String searchSessionId, String statusIds, String order) throws ApiException {
         okhttp3.Call localVarCall = vintedSearchVintedItemsValidateBeforeCall(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1661,10 +1669,10 @@ public class VintedApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call vintedSearchVintedItemsAsync(String query, String market, String sellerCountry, Integer page, Integer perPage, BigDecimal priceFrom, BigDecimal priceTo, String brandIds, String catalogIds, String colorIds, String sizeIds, String materialIds, Integer time, String searchSessionId, String statusIds, String order, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call vintedSearchVintedItemsAsync(String query, String market, String sellerCountry, Integer page, Integer perPage, BigDecimal priceFrom, BigDecimal priceTo, String brandIds, String catalogIds, String colorIds, String sizeIds, String materialIds, Integer time, String searchSessionId, String statusIds, String order, final ApiCallback<SearchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = vintedSearchVintedItemsValidateBeforeCall(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
