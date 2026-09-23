@@ -460,7 +460,7 @@ public class Example {
 
 Get product reviews
 
-Customer reviews for an ASIN (featured + paginated, with filters).
+Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
 
 ### Example
 ```java
@@ -486,9 +486,9 @@ public class Example {
     AmazonApi apiInstance = new AmazonApi(defaultClient);
     String asin = "asin_example"; // String | 
     String domain = "com"; // String | 
-    Integer page = 1; // Integer | Review page (1-100, ~10 reviews/page)
+    Integer page = 1; // Integer | Review page (10 reviews/page)
     String sortBy = "helpful"; // String | helpful | recent
-    String star = "star_example"; // String | one_star..five_star | positive | critical
+    String star = "star_example"; // String | 1-5 | one_star..five_star | positive | critical | all_stars
     Boolean verifiedOnly = false; // Boolean | 
     Boolean mediaOnly = false; // Boolean | 
     try {
@@ -511,9 +511,9 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **asin** | **String**|  | |
 | **domain** | **String**|  | [optional] [default to com] |
-| **page** | **Integer**| Review page (1-100, ~10 reviews/page) | [optional] [default to 1] |
+| **page** | **Integer**| Review page (10 reviews/page) | [optional] [default to 1] |
 | **sortBy** | **String**| helpful | recent | [optional] [default to helpful] |
-| **star** | **String**| one_star..five_star | positive | critical | [optional] |
+| **star** | **String**| 1-5 | one_star..five_star | positive | critical | all_stars | [optional] |
 | **verifiedOnly** | **Boolean**|  | [optional] [default to false] |
 | **mediaOnly** | **Boolean**|  | [optional] [default to false] |
 

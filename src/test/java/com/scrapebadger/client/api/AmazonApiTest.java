@@ -128,7 +128,7 @@ public class AmazonApiTest {
     /**
      * Get product reviews
      *
-     * Customer reviews for an ASIN (featured + paginated, with filters).
+     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
      *
      * @throws ApiException if the Api call fails
      */
