@@ -32,6 +32,23 @@ public class TikTokApiTest {
     private final TikTokApi api = new TikTokApi();
 
     /**
+     * Best-selling TikTok Shop products
+     *
+     * Sales-ranked best-selling products, available for every operating market.  Ranked by real sold_count (source: sales_ranked); works for SG/MY/JP where TikTok&#39;s curated /shop/rankings are not exposed. Omit category_id for a market-wide list.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokBestSellingTiktokShopProductsTest() throws ApiException {
+        String region = null;
+        String categoryId = null;
+        Integer pages = null;
+        Integer limit = null;
+        Object response = api.tiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit);
+        // TODO: test validations
+    }
+
+    /**
      * General search
      *
      * General TikTok search — video results from the Top feed.
@@ -424,8 +441,9 @@ public class TikTokApiTest {
     public void tiktokSearchTiktokShopProductsTest() throws ApiException {
         String q = null;
         String region = null;
+        String pageToken = null;
         Integer offset = null;
-        Object response = api.tiktokSearchTiktokShopProducts(q, region, offset);
+        Object response = api.tiktokSearchTiktokShopProducts(q, region, pageToken, offset);
         // TODO: test validations
     }
 
@@ -464,6 +482,23 @@ public class TikTokApiTest {
     }
 
     /**
+     * TikTok Shop category products
+     *
+     * Category recommendations. Pass accumulated exclusion IDs for the next page; these are not sales rankings.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopCategoryProductsTest() throws ApiException {
+        String categoryId = null;
+        String region = null;
+        Integer count = null;
+        List<String> excludeProductIds = null;
+        Object response = api.tiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds);
+        // TODO: test validations
+    }
+
+    /**
      * TikTok Shop category: subcategories + top products
      *
      * A category&#39;s subcategories and its top products as TikTok Shop ranks them.
@@ -496,7 +531,7 @@ public class TikTokApiTest {
     /**
      * TikTok Shop product reviews
      *
-     * Paginated product reviews with the rating breakdown (US).
+     * Paginated product reviews with rating breakdown (US and ID). Indonesia supports recent/recommended ordering, star and media filters; verified&#x3D;true is not supported.
      *
      * @throws ApiException if the Api call fails
      */
@@ -511,6 +546,22 @@ public class TikTokApiTest {
         Boolean withMedia = null;
         Boolean verified = null;
         Object response = api.tiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop regional mall feed
+     *
+     * Mall navigation and recommendations with a 15-minute continuation token.  ID, SG, MY, PH, TH, VN and JP are locally verified. Tabs are not a complete category taxonomy.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopRegionalMallFeedTest() throws ApiException {
+        String region = null;
+        Integer tabId = null;
+        String pageToken = null;
+        Object response = api.tiktokTiktokShopRegionalMallFeed(region, tabId, pageToken);
         // TODO: test validations
     }
 
@@ -542,6 +593,24 @@ public class TikTokApiTest {
         String cursor = null;
         Integer count = null;
         Object response = api.tiktokTiktokShopStoreProducts(sellerId, region, cursor, count);
+        // TODO: test validations
+    }
+
+    /**
+     * TikTok Shop theme ranking
+     *
+     * Native category/theme ranking. ID, PH, TH and VN are locally verified.  Types: 1 high seller, 2 trending, 3 ratings. Coverage depends on the configured guest profile; a category recommendation feed is not used as a substitute.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void tiktokTiktokShopThemeRankingTest() throws ApiException {
+        String rankId = null;
+        String region = null;
+        Integer rankType = null;
+        Integer cursor = null;
+        Integer count = null;
+        Object response = api.tiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count);
         // TODO: test validations
     }
 

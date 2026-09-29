@@ -4,6 +4,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**tiktokBestSellingTiktokShopProducts**](TikTokApi.md#tiktokBestSellingTiktokShopProducts) | **GET** /v1/tiktok/shop/bestsellers | Best-selling TikTok Shop products |
 | [**tiktokGeneralSearch**](TikTokApi.md#tiktokGeneralSearch) | **GET** /v1/tiktok/search | General search |
 | [**tiktokGetCommentReplies**](TikTokApi.md#tiktokGetCommentReplies) | **GET** /v1/tiktok/comments/{comment_id}/replies | Get comment replies |
 | [**tiktokGetComments**](TikTokApi.md#tiktokGetComments) | **GET** /v1/tiktok/videos/{video_id}/comments | Get comments |
@@ -31,15 +32,94 @@ All URIs are relative to *https://scrapebadger.com*
 | [**tiktokSearchTiktokShopProducts**](TikTokApi.md#tiktokSearchTiktokShopProducts) | **GET** /v1/tiktok/shop/search | Search TikTok Shop products |
 | [**tiktokSearchUsers**](TikTokApi.md#tiktokSearchUsers) | **GET** /v1/tiktok/search/users | Search users |
 | [**tiktokSearchVideos**](TikTokApi.md#tiktokSearchVideos) | **GET** /v1/tiktok/search/videos | Search videos |
+| [**tiktokTiktokShopCategoryProducts**](TikTokApi.md#tiktokTiktokShopCategoryProducts) | **GET** /v1/tiktok/shop/categories/{category_id}/products | TikTok Shop category products |
 | [**tiktokTiktokShopCategorySubcategoriesTopProducts**](TikTokApi.md#tiktokTiktokShopCategorySubcategoriesTopProducts) | **GET** /v1/tiktok/shop/categories/{category_id} | TikTok Shop category: subcategories + top products |
 | [**tiktokTiktokShopProductDetail**](TikTokApi.md#tiktokTiktokShopProductDetail) | **GET** /v1/tiktok/shop/products/{product_id} | TikTok Shop product detail |
 | [**tiktokTiktokShopProductReviews**](TikTokApi.md#tiktokTiktokShopProductReviews) | **GET** /v1/tiktok/shop/products/{product_id}/reviews | TikTok Shop product reviews |
+| [**tiktokTiktokShopRegionalMallFeed**](TikTokApi.md#tiktokTiktokShopRegionalMallFeed) | **GET** /v1/tiktok/shop/mall | TikTok Shop regional mall feed |
 | [**tiktokTiktokShopRootCategories**](TikTokApi.md#tiktokTiktokShopRootCategories) | **GET** /v1/tiktok/shop/categories | TikTok Shop root categories |
 | [**tiktokTiktokShopStoreProducts**](TikTokApi.md#tiktokTiktokShopStoreProducts) | **GET** /v1/tiktok/shop/stores/{seller_id} | TikTok Shop store + products |
+| [**tiktokTiktokShopThemeRanking**](TikTokApi.md#tiktokTiktokShopThemeRanking) | **GET** /v1/tiktok/shop/rankings/{rank_id} | TikTok Shop theme ranking |
 | [**tiktokTrendingHashtags**](TikTokApi.md#tiktokTrendingHashtags) | **GET** /v1/tiktok/trending/hashtags | Trending hashtags |
 | [**tiktokTrendingSongs**](TikTokApi.md#tiktokTrendingSongs) | **GET** /v1/tiktok/trending/songs | Trending songs |
 | [**tiktokTrendingVideos**](TikTokApi.md#tiktokTrendingVideos) | **GET** /v1/tiktok/trending/videos | Trending videos |
 
+
+<a id="tiktokBestSellingTiktokShopProducts"></a>
+# **tiktokBestSellingTiktokShopProducts**
+> Object tiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit)
+
+Best-selling TikTok Shop products
+
+Sales-ranked best-selling products, available for every operating market.  Ranked by real sold_count (source: sales_ranked); works for SG/MY/JP where TikTok&#39;s curated /shop/rankings are not exposed. Omit category_id for a market-wide list.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.TikTokApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    TikTokApi apiInstance = new TikTokApi(defaultClient);
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
+    String categoryId = "categoryId_example"; // String | 
+    Integer pages = 2; // Integer | 
+    Integer limit = 20; // Integer | 
+    try {
+      Object result = apiInstance.tiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TikTokApi#tiktokBestSellingTiktokShopProducts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
+| **categoryId** | **String**|  | [optional] |
+| **pages** | **Integer**|  | [optional] [default to 2] |
+| **limit** | **Integer**|  | [optional] [default to 20] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="tiktokGeneralSearch"></a>
 # **tiktokGeneralSearch**
@@ -1806,7 +1886,7 @@ public class Example {
 
 <a id="tiktokSearchTiktokShopProducts"></a>
 # **tiktokSearchTiktokShopProducts**
-> Object tiktokSearchTiktokShopProducts(q, region, offset)
+> Object tiktokSearchTiktokShopProducts(q, region, pageToken, offset)
 
 Search TikTok Shop products
 
@@ -1835,10 +1915,11 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String q = "q_example"; // String | Keyword, e.g. 'wireless earbuds'
-    String region = "US"; // String | Market: US, GB, ID
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
+    String pageToken = "pageToken_example"; // String | 
     Integer offset = 0; // Integer | Pass back next_offset for the next page (US)
     try {
-      Object result = apiInstance.tiktokSearchTiktokShopProducts(q, region, offset);
+      Object result = apiInstance.tiktokSearchTiktokShopProducts(q, region, pageToken, offset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TikTokApi#tiktokSearchTiktokShopProducts");
@@ -1856,7 +1937,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **q** | **String**| Keyword, e.g. &#39;wireless earbuds&#39; | |
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
+| **pageToken** | **String**|  | [optional] |
 | **offset** | **Integer**| Pass back next_offset for the next page (US) | [optional] [default to 0] |
 
 ### Return type
@@ -2030,6 +2112,82 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
+<a id="tiktokTiktokShopCategoryProducts"></a>
+# **tiktokTiktokShopCategoryProducts**
+> Object tiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds)
+
+TikTok Shop category products
+
+Category recommendations. Pass accumulated exclusion IDs for the next page; these are not sales rankings.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.TikTokApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    TikTokApi apiInstance = new TikTokApi(defaultClient);
+    String categoryId = "categoryId_example"; // String | 
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
+    Integer count = 20; // Integer | 
+    List<String> excludeProductIds = Arrays.asList(); // List<String> | Repeat for every next_exclude_product_ids value
+    try {
+      Object result = apiInstance.tiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TikTokApi#tiktokTiktokShopCategoryProducts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **categoryId** | **String**|  | |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
+| **count** | **Integer**|  | [optional] [default to 20] |
+| **excludeProductIds** | [**List&lt;String&gt;**](String.md)| Repeat for every next_exclude_product_ids value | [optional] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
 <a id="tiktokTiktokShopCategorySubcategoriesTopProducts"></a>
 # **tiktokTiktokShopCategorySubcategoriesTopProducts**
 > Object tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region)
@@ -2061,7 +2219,7 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String categoryId = "categoryId_example"; // String | 
-    String region = "US"; // String | Market: US, GB, ID
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
     try {
       Object result = apiInstance.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
       System.out.println(result);
@@ -2081,7 +2239,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **categoryId** | **String**|  | |
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
 
 ### Return type
 
@@ -2133,7 +2291,7 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String productId = "productId_example"; // String | 
-    String region = "US"; // String | Market: US, GB, ID
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
     try {
       Object result = apiInstance.tiktokTiktokShopProductDetail(productId, region);
       System.out.println(result);
@@ -2153,7 +2311,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **productId** | **String**|  | |
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
 
 ### Return type
 
@@ -2180,7 +2338,7 @@ public class Example {
 
 TikTok Shop product reviews
 
-Paginated product reviews with the rating breakdown (US).
+Paginated product reviews with rating breakdown (US and ID). Indonesia supports recent/recommended ordering, star and media filters; verified&#x3D;true is not supported.
 
 ### Example
 ```java
@@ -2205,7 +2363,7 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String productId = "productId_example"; // String | 
-    String region = "US"; // String | Market: US, GB, ID
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
     Integer page = 1; // Integer | 
     Integer count = 20; // Integer | 
     String sort = "recommended"; // String | recommended | recent
@@ -2231,13 +2389,87 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **productId** | **String**|  | |
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
 | **page** | **Integer**|  | [optional] [default to 1] |
 | **count** | **Integer**|  | [optional] [default to 20] |
 | **sort** | **String**| recommended | recent | [optional] [default to recommended] |
 | **rating** | **Integer**| Only this star rating | [optional] |
 | **withMedia** | **Boolean**| Only reviews with photos/videos | [optional] [default to false] |
 | **verified** | **Boolean**| Only verified purchases | [optional] [default to false] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="tiktokTiktokShopRegionalMallFeed"></a>
+# **tiktokTiktokShopRegionalMallFeed**
+> Object tiktokTiktokShopRegionalMallFeed(region, tabId, pageToken)
+
+TikTok Shop regional mall feed
+
+Mall navigation and recommendations with a 15-minute continuation token.  ID, SG, MY, PH, TH, VN and JP are locally verified. Tabs are not a complete category taxonomy.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.TikTokApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    TikTokApi apiInstance = new TikTokApi(defaultClient);
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
+    Integer tabId = 0; // Integer | 
+    String pageToken = "pageToken_example"; // String | 
+    try {
+      Object result = apiInstance.tiktokTiktokShopRegionalMallFeed(region, tabId, pageToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TikTokApi#tiktokTiktokShopRegionalMallFeed");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
+| **tabId** | **Integer**|  | [optional] [default to 0] |
+| **pageToken** | **String**|  | [optional] |
 
 ### Return type
 
@@ -2288,7 +2520,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
-    String region = "US"; // String | Market: US, GB, ID
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
     try {
       Object result = apiInstance.tiktokTiktokShopRootCategories(region);
       System.out.println(result);
@@ -2307,7 +2539,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
 
 ### Return type
 
@@ -2359,7 +2591,7 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String sellerId = "sellerId_example"; // String | 
-    String region = "US"; // String | Market: US, GB, ID
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
     String cursor = ""; // String | Pass back next_cursor for the next page
     Integer count = 20; // Integer | 
     try {
@@ -2381,8 +2613,86 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sellerId** | **String**|  | |
-| **region** | **String**| Market: US, GB, ID | [optional] [default to US] |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
 | **cursor** | **String**| Pass back next_cursor for the next page | [optional] [default to ] |
+| **count** | **Integer**|  | [optional] [default to 20] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="tiktokTiktokShopThemeRanking"></a>
+# **tiktokTiktokShopThemeRanking**
+> Object tiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count)
+
+TikTok Shop theme ranking
+
+Native category/theme ranking. ID, PH, TH and VN are locally verified.  Types: 1 high seller, 2 trending, 3 ratings. Coverage depends on the configured guest profile; a category recommendation feed is not used as a substitute.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.TikTokApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    TikTokApi apiInstance = new TikTokApi(defaultClient);
+    String rankId = "rankId_example"; // String | 
+    String region = "US"; // String | Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint
+    Integer rankType = 1; // Integer | 
+    Integer cursor = 0; // Integer | 
+    Integer count = 20; // Integer | 
+    try {
+      Object result = apiInstance.tiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TikTokApi#tiktokTiktokShopThemeRanking");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rankId** | **String**|  | |
+| **region** | **String**| Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies by endpoint | [optional] [default to US] |
+| **rankType** | **Integer**|  | [optional] [default to 1] |
+| **cursor** | **Integer**|  | [optional] [default to 0] |
 | **count** | **Integer**|  | [optional] [default to 20] |
 
 ### Return type
