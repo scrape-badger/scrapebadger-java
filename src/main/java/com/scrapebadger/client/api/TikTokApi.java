@@ -230,7 +230,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -319,7 +319,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -341,7 +341,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -364,7 +364,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -707,10 +707,11 @@ public class TikTokApi {
         return localVarCall;
     }
     /**
-     * Build call for tiktokGetFollowersDeprecated
+     * Build call for tiktokGetFollowers
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -721,10 +722,8 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call tiktokGetFollowersDeprecatedCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokGetFollowersCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -758,6 +757,10 @@ public class TikTokApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
         }
 
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -777,24 +780,24 @@ public class TikTokApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokGetFollowersDeprecatedValidateBeforeCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokGetFollowersValidateBeforeCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling tiktokGetFollowersDeprecated(Async)");
+            throw new ApiException("Missing the required parameter 'username' when calling tiktokGetFollowers(Async)");
         }
 
-        return tiktokGetFollowersDeprecatedCall(username, region, count, _callback);
+        return tiktokGetFollowersCall(username, region, count, cursor, _callback);
 
     }
 
     /**
-     * Get followers (deprecated)
-     * DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+     * Get followers
+     * Get publicly visible followers without an account.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -804,20 +807,19 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public Object tiktokGetFollowersDeprecated(String username, String region, Integer count) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokGetFollowersDeprecatedWithHttpInfo(username, region, count);
+    public Object tiktokGetFollowers(String username, String region, Integer count, String cursor) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokGetFollowersWithHttpInfo(username, region, count, cursor);
         return localVarResp.getData();
     }
 
     /**
-     * Get followers (deprecated)
-     * DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+     * Get followers
+     * Get publicly visible followers without an account.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -827,21 +829,20 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public ApiResponse<Object> tiktokGetFollowersDeprecatedWithHttpInfo(String username, String region, Integer count) throws ApiException {
-        okhttp3.Call localVarCall = tiktokGetFollowersDeprecatedValidateBeforeCall(username, region, count, null);
+    public ApiResponse<Object> tiktokGetFollowersWithHttpInfo(String username, String region, Integer count, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = tiktokGetFollowersValidateBeforeCall(username, region, count, cursor, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get followers (deprecated) (asynchronously)
-     * DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+     * Get followers (asynchronously)
+     * Get publicly visible followers without an account.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -852,21 +853,20 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call tiktokGetFollowersDeprecatedAsync(String username, String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokGetFollowersAsync(String username, String region, Integer count, String cursor, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokGetFollowersDeprecatedValidateBeforeCall(username, region, count, _callback);
+        okhttp3.Call localVarCall = tiktokGetFollowersValidateBeforeCall(username, region, count, cursor, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for tiktokGetFollowingDeprecated
+     * Build call for tiktokGetFollowing
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -877,10 +877,8 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call tiktokGetFollowingDeprecatedCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokGetFollowingCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -914,6 +912,10 @@ public class TikTokApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
         }
 
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -933,24 +935,24 @@ public class TikTokApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokGetFollowingDeprecatedValidateBeforeCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokGetFollowingValidateBeforeCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling tiktokGetFollowingDeprecated(Async)");
+            throw new ApiException("Missing the required parameter 'username' when calling tiktokGetFollowing(Async)");
         }
 
-        return tiktokGetFollowingDeprecatedCall(username, region, count, _callback);
+        return tiktokGetFollowingCall(username, region, count, cursor, _callback);
 
     }
 
     /**
-     * Get following (deprecated)
-     * DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+     * Get following
+     * Get publicly visible followed accounts. Hidden lists return HTTP 403.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -960,20 +962,19 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public Object tiktokGetFollowingDeprecated(String username, String region, Integer count) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokGetFollowingDeprecatedWithHttpInfo(username, region, count);
+    public Object tiktokGetFollowing(String username, String region, Integer count, String cursor) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokGetFollowingWithHttpInfo(username, region, count, cursor);
         return localVarResp.getData();
     }
 
     /**
-     * Get following (deprecated)
-     * DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+     * Get following
+     * Get publicly visible followed accounts. Hidden lists return HTTP 403.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,21 +984,20 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public ApiResponse<Object> tiktokGetFollowingDeprecatedWithHttpInfo(String username, String region, Integer count) throws ApiException {
-        okhttp3.Call localVarCall = tiktokGetFollowingDeprecatedValidateBeforeCall(username, region, count, null);
+    public ApiResponse<Object> tiktokGetFollowingWithHttpInfo(String username, String region, Integer count, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = tiktokGetFollowingValidateBeforeCall(username, region, count, cursor, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get following (deprecated) (asynchronously)
-     * DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+     * Get following (asynchronously)
+     * Get publicly visible followed accounts. Hidden lists return HTTP 403.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1008,12 +1008,10 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call tiktokGetFollowingDeprecatedAsync(String username, String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokGetFollowingAsync(String username, String region, Integer count, String cursor, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokGetFollowingDeprecatedValidateBeforeCall(username, region, count, _callback);
+        okhttp3.Call localVarCall = tiktokGetFollowingValidateBeforeCall(username, region, count, cursor, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1313,10 +1311,11 @@ public class TikTokApi {
         return localVarCall;
     }
     /**
-     * Build call for tiktokGetLikedVideosDeprecated
+     * Build call for tiktokGetLikedVideos
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1327,10 +1326,8 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call tiktokGetLikedVideosDeprecatedCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokGetLikedVideosCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1364,6 +1361,10 @@ public class TikTokApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
         }
 
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1383,24 +1384,24 @@ public class TikTokApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
-    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokGetLikedVideosDeprecatedValidateBeforeCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokGetLikedVideosValidateBeforeCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling tiktokGetLikedVideosDeprecated(Async)");
+            throw new ApiException("Missing the required parameter 'username' when calling tiktokGetLikedVideos(Async)");
         }
 
-        return tiktokGetLikedVideosDeprecatedCall(username, region, count, _callback);
+        return tiktokGetLikedVideosCall(username, region, count, cursor, _callback);
 
     }
 
     /**
-     * Get liked videos (deprecated)
-     * DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+     * Get liked videos
+     * Get public liked videos. Hidden liked lists return HTTP 403.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1410,20 +1411,19 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public Object tiktokGetLikedVideosDeprecated(String username, String region, Integer count) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokGetLikedVideosDeprecatedWithHttpInfo(username, region, count);
+    public Object tiktokGetLikedVideos(String username, String region, Integer count, String cursor) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokGetLikedVideosWithHttpInfo(username, region, count, cursor);
         return localVarResp.getData();
     }
 
     /**
-     * Get liked videos (deprecated)
-     * DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+     * Get liked videos
+     * Get public liked videos. Hidden liked lists return HTTP 403.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1433,21 +1433,20 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public ApiResponse<Object> tiktokGetLikedVideosDeprecatedWithHttpInfo(String username, String region, Integer count) throws ApiException {
-        okhttp3.Call localVarCall = tiktokGetLikedVideosDeprecatedValidateBeforeCall(username, region, count, null);
+    public ApiResponse<Object> tiktokGetLikedVideosWithHttpInfo(String username, String region, Integer count, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = tiktokGetLikedVideosValidateBeforeCall(username, region, count, cursor, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get liked videos (deprecated) (asynchronously)
-     * DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+     * Get liked videos (asynchronously)
+     * Get public liked videos. Hidden liked lists return HTTP 403.
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1458,12 +1457,10 @@ public class TikTokApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call tiktokGetLikedVideosDeprecatedAsync(String username, String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokGetLikedVideosAsync(String username, String region, Integer count, String cursor, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokGetLikedVideosDeprecatedValidateBeforeCall(username, region, count, _callback);
+        okhttp3.Call localVarCall = tiktokGetLikedVideosValidateBeforeCall(username, region, count, cursor, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1909,6 +1906,7 @@ public class TikTokApi {
      * @param videoId  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 16)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1920,7 +1918,7 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokGetRelatedVideosCall(String videoId, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokGetRelatedVideosCall(String videoId, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1954,6 +1952,10 @@ public class TikTokApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
         }
 
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1974,13 +1976,13 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokGetRelatedVideosValidateBeforeCall(String videoId, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokGetRelatedVideosValidateBeforeCall(String videoId, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'videoId' is set
         if (videoId == null) {
             throw new ApiException("Missing the required parameter 'videoId' when calling tiktokGetRelatedVideos(Async)");
         }
 
-        return tiktokGetRelatedVideosCall(videoId, region, count, _callback);
+        return tiktokGetRelatedVideosCall(videoId, region, count, cursor, _callback);
 
     }
 
@@ -1990,6 +1992,7 @@ public class TikTokApi {
      * @param videoId  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 16)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2000,8 +2003,8 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokGetRelatedVideos(String videoId, String region, Integer count) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokGetRelatedVideosWithHttpInfo(videoId, region, count);
+    public Object tiktokGetRelatedVideos(String videoId, String region, Integer count, String cursor) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokGetRelatedVideosWithHttpInfo(videoId, region, count, cursor);
         return localVarResp.getData();
     }
 
@@ -2011,6 +2014,7 @@ public class TikTokApi {
      * @param videoId  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 16)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2021,8 +2025,8 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokGetRelatedVideosWithHttpInfo(String videoId, String region, Integer count) throws ApiException {
-        okhttp3.Call localVarCall = tiktokGetRelatedVideosValidateBeforeCall(videoId, region, count, null);
+    public ApiResponse<Object> tiktokGetRelatedVideosWithHttpInfo(String videoId, String region, Integer count, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = tiktokGetRelatedVideosValidateBeforeCall(videoId, region, count, cursor, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2033,6 +2037,7 @@ public class TikTokApi {
      * @param videoId  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 16)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2044,9 +2049,9 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokGetRelatedVideosAsync(String videoId, String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokGetRelatedVideosAsync(String videoId, String region, Integer count, String cursor, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokGetRelatedVideosValidateBeforeCall(videoId, region, count, _callback);
+        okhttp3.Call localVarCall = tiktokGetRelatedVideosValidateBeforeCall(videoId, region, count, cursor, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2056,6 +2061,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2067,7 +2073,7 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokGetRepostsCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call tiktokGetRepostsCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2101,6 +2107,10 @@ public class TikTokApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
         }
 
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2121,13 +2131,13 @@ public class TikTokApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call tiktokGetRepostsValidateBeforeCall(String username, String region, Integer count, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call tiktokGetRepostsValidateBeforeCall(String username, String region, Integer count, String cursor, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling tiktokGetReposts(Async)");
         }
 
-        return tiktokGetRepostsCall(username, region, count, _callback);
+        return tiktokGetRepostsCall(username, region, count, cursor, _callback);
 
     }
 
@@ -2137,6 +2147,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2147,8 +2158,8 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object tiktokGetReposts(String username, String region, Integer count) throws ApiException {
-        ApiResponse<Object> localVarResp = tiktokGetRepostsWithHttpInfo(username, region, count);
+    public Object tiktokGetReposts(String username, String region, Integer count, String cursor) throws ApiException {
+        ApiResponse<Object> localVarResp = tiktokGetRepostsWithHttpInfo(username, region, count, cursor);
         return localVarResp.getData();
     }
 
@@ -2158,6 +2169,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2168,8 +2180,8 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> tiktokGetRepostsWithHttpInfo(String username, String region, Integer count) throws ApiException {
-        okhttp3.Call localVarCall = tiktokGetRepostsValidateBeforeCall(username, region, count, null);
+    public ApiResponse<Object> tiktokGetRepostsWithHttpInfo(String username, String region, Integer count, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = tiktokGetRepostsValidateBeforeCall(username, region, count, cursor, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2180,6 +2192,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
+     * @param cursor Continuation cursor from the previous page (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2191,9 +2204,9 @@ public class TikTokApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call tiktokGetRepostsAsync(String username, String region, Integer count, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call tiktokGetRepostsAsync(String username, String region, Integer count, String cursor, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = tiktokGetRepostsValidateBeforeCall(username, region, count, _callback);
+        okhttp3.Call localVarCall = tiktokGetRepostsValidateBeforeCall(username, region, count, cursor, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2620,7 +2633,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
-     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)
+     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2706,7 +2719,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
-     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)
+     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2728,7 +2741,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
-     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)
+     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2751,7 +2764,7 @@ public class TikTokApi {
      * @param username  (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 30)
-     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)
+     * @param cursor Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3273,7 +3286,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3362,7 +3375,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3384,7 +3397,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3407,7 +3420,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3924,7 +3937,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4013,7 +4026,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4035,7 +4048,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4058,7 +4071,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4082,7 +4095,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4171,7 +4184,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4193,7 +4206,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4216,7 +4229,7 @@ public class TikTokApi {
      * @param query Search keyword (required)
      * @param region  (optional, default to US)
      * @param count  (optional, default to 20)
-     * @param cursor Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)
+     * @param cursor Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5450,7 +5463,7 @@ public class TikTokApi {
     /**
      * Build call for tiktokTrendingHashtags
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5529,7 +5542,7 @@ public class TikTokApi {
      * Trending hashtags
      * Get trending hashtags (mobile Discover surface — view_count + creators).
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5550,7 +5563,7 @@ public class TikTokApi {
      * Trending hashtags
      * Get trending hashtags (mobile Discover surface — view_count + creators).
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5572,7 +5585,7 @@ public class TikTokApi {
      * Trending hashtags (asynchronously)
      * Get trending hashtags (mobile Discover surface — view_count + creators).
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5595,7 +5608,7 @@ public class TikTokApi {
     /**
      * Build call for tiktokTrendingSongs
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5674,7 +5687,7 @@ public class TikTokApi {
      * Trending songs
      * Get trending songs/sounds (mobile hot-music feed — ranked by usage).
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5695,7 +5708,7 @@ public class TikTokApi {
      * Trending songs
      * Get trending songs/sounds (mobile hot-music feed — ranked by usage).
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5717,7 +5730,7 @@ public class TikTokApi {
      * Trending songs (asynchronously)
      * Get trending songs/sounds (mobile hot-music feed — ranked by usage).
      * @param region  (optional, default to US)
-     * @param period  (optional, default to 7)
+     * @param period Historical windows are unavailable; omit period (optional)
      * @param count  (optional, default to 20)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

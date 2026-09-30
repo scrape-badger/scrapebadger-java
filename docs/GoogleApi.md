@@ -985,7 +985,7 @@ public class Example {
 
 Google Lens visual search
 
-Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
 
 ### Example
 ```java
@@ -1015,9 +1015,9 @@ public class Example {
     String language = "language_example"; // String | Language code (alias for hl)
     String gl = "us"; // String | Country code
     String hl = "en"; // String | Language code
-    Boolean product = false; // Boolean | Bias towards shoppable product matches
-    Boolean visualMatches = true; // Boolean | Include the visual-matches carousel
-    Boolean exactMatches = false; // Boolean | Restrict to exact-match results
+    Boolean product = false; // Boolean | NOT YET SUPPORTED — accepted, and reported back in `warnings`
+    Boolean visualMatches = true; // Boolean | Always true in practice — `false` is reported back in `warnings`
+    Boolean exactMatches = false; // Boolean | NOT YET SUPPORTED — accepted, and reported back in `warnings`
     try {
       Object result = apiInstance.googleGoogleLensVisualSearch(url, query, country, language, gl, hl, product, visualMatches, exactMatches);
       System.out.println(result);
@@ -1042,9 +1042,9 @@ public class Example {
 | **language** | **String**| Language code (alias for hl) | [optional] |
 | **gl** | **String**| Country code | [optional] [default to us] |
 | **hl** | **String**| Language code | [optional] [default to en] |
-| **product** | **Boolean**| Bias towards shoppable product matches | [optional] [default to false] |
-| **visualMatches** | **Boolean**| Include the visual-matches carousel | [optional] [default to true] |
-| **exactMatches** | **Boolean**| Restrict to exact-match results | [optional] [default to false] |
+| **product** | **Boolean**| NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; | [optional] [default to false] |
+| **visualMatches** | **Boolean**| Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; | [optional] [default to true] |
+| **exactMatches** | **Boolean**| NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; | [optional] [default to false] |
 
 ### Return type
 

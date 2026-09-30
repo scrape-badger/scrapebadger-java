@@ -8,11 +8,11 @@ All URIs are relative to *https://scrapebadger.com*
 | [**tiktokGeneralSearch**](TikTokApi.md#tiktokGeneralSearch) | **GET** /v1/tiktok/search | General search |
 | [**tiktokGetCommentReplies**](TikTokApi.md#tiktokGetCommentReplies) | **GET** /v1/tiktok/comments/{comment_id}/replies | Get comment replies |
 | [**tiktokGetComments**](TikTokApi.md#tiktokGetComments) | **GET** /v1/tiktok/videos/{video_id}/comments | Get comments |
-| [**tiktokGetFollowersDeprecated**](TikTokApi.md#tiktokGetFollowersDeprecated) | **GET** /v1/tiktok/users/{username}/followers | Get followers (deprecated) |
-| [**tiktokGetFollowingDeprecated**](TikTokApi.md#tiktokGetFollowingDeprecated) | **GET** /v1/tiktok/users/{username}/following | Get following (deprecated) |
+| [**tiktokGetFollowers**](TikTokApi.md#tiktokGetFollowers) | **GET** /v1/tiktok/users/{username}/followers | Get followers |
+| [**tiktokGetFollowing**](TikTokApi.md#tiktokGetFollowing) | **GET** /v1/tiktok/users/{username}/following | Get following |
 | [**tiktokGetHashtagDetail**](TikTokApi.md#tiktokGetHashtagDetail) | **GET** /v1/tiktok/hashtags/{name} | Get hashtag detail |
 | [**tiktokGetHashtagVideos**](TikTokApi.md#tiktokGetHashtagVideos) | **GET** /v1/tiktok/hashtags/{name}/videos | Get hashtag videos |
-| [**tiktokGetLikedVideosDeprecated**](TikTokApi.md#tiktokGetLikedVideosDeprecated) | **GET** /v1/tiktok/users/{username}/liked | Get liked videos (deprecated) |
+| [**tiktokGetLikedVideos**](TikTokApi.md#tiktokGetLikedVideos) | **GET** /v1/tiktok/users/{username}/liked | Get liked videos |
 | [**tiktokGetMusicSoundDetail**](TikTokApi.md#tiktokGetMusicSoundDetail) | **GET** /v1/tiktok/music/{music_id} | Get music/sound detail |
 | [**tiktokGetMusicVideos**](TikTokApi.md#tiktokGetMusicVideos) | **GET** /v1/tiktok/music/{music_id}/videos | Get music videos |
 | [**tiktokGetOembedMetadata**](TikTokApi.md#tiktokGetOembedMetadata) | **GET** /v1/tiktok/oembed | Get oEmbed metadata |
@@ -154,7 +154,7 @@ public class Example {
     String query = "query_example"; // String | Search keyword
     String region = "US"; // String | 
     Integer count = 20; // Integer | 
-    String cursor = "cursor_example"; // String | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor
+    String cursor = "cursor_example"; // String | Opaque continuation cursor from a prior page's pagination.cursor
     try {
       Object result = apiInstance.tiktokGeneralSearch(query, region, count, cursor);
       System.out.println(result);
@@ -176,7 +176,7 @@ public class Example {
 | **query** | **String**| Search keyword | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 20] |
-| **cursor** | **String**| Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional] |
+| **cursor** | **String**| Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional] |
 
 ### Return type
 
@@ -351,13 +351,13 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-<a id="tiktokGetFollowersDeprecated"></a>
-# **tiktokGetFollowersDeprecated**
-> Object tiktokGetFollowersDeprecated(username, region, count)
+<a id="tiktokGetFollowers"></a>
+# **tiktokGetFollowers**
+> Object tiktokGetFollowers(username, region, count, cursor)
 
-Get followers (deprecated)
+Get followers
 
-DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+Get publicly visible followers without an account.
 
 ### Example
 ```java
@@ -384,11 +384,12 @@ public class Example {
     String username = "username_example"; // String | 
     String region = "US"; // String | 
     Integer count = 30; // Integer | 
+    String cursor = "cursor_example"; // String | Continuation cursor from the previous page
     try {
-      Object result = apiInstance.tiktokGetFollowersDeprecated(username, region, count);
+      Object result = apiInstance.tiktokGetFollowers(username, region, count, cursor);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TikTokApi#tiktokGetFollowersDeprecated");
+      System.err.println("Exception when calling TikTokApi#tiktokGetFollowers");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -405,6 +406,7 @@ public class Example {
 | **username** | **String**|  | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 30] |
+| **cursor** | **String**| Continuation cursor from the previous page | [optional] |
 
 ### Return type
 
@@ -425,13 +427,13 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-<a id="tiktokGetFollowingDeprecated"></a>
-# **tiktokGetFollowingDeprecated**
-> Object tiktokGetFollowingDeprecated(username, region, count)
+<a id="tiktokGetFollowing"></a>
+# **tiktokGetFollowing**
+> Object tiktokGetFollowing(username, region, count, cursor)
 
-Get following (deprecated)
+Get following
 
-DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+Get publicly visible followed accounts. Hidden lists return HTTP 403.
 
 ### Example
 ```java
@@ -458,11 +460,12 @@ public class Example {
     String username = "username_example"; // String | 
     String region = "US"; // String | 
     Integer count = 30; // Integer | 
+    String cursor = "cursor_example"; // String | Continuation cursor from the previous page
     try {
-      Object result = apiInstance.tiktokGetFollowingDeprecated(username, region, count);
+      Object result = apiInstance.tiktokGetFollowing(username, region, count, cursor);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TikTokApi#tiktokGetFollowingDeprecated");
+      System.err.println("Exception when calling TikTokApi#tiktokGetFollowing");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -479,6 +482,7 @@ public class Example {
 | **username** | **String**|  | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 30] |
+| **cursor** | **String**| Continuation cursor from the previous page | [optional] |
 
 ### Return type
 
@@ -647,13 +651,13 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 
-<a id="tiktokGetLikedVideosDeprecated"></a>
-# **tiktokGetLikedVideosDeprecated**
-> Object tiktokGetLikedVideosDeprecated(username, region, count)
+<a id="tiktokGetLikedVideos"></a>
+# **tiktokGetLikedVideos**
+> Object tiktokGetLikedVideos(username, region, count, cursor)
 
-Get liked videos (deprecated)
+Get liked videos
 
-DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+Get public liked videos. Hidden liked lists return HTTP 403.
 
 ### Example
 ```java
@@ -680,11 +684,12 @@ public class Example {
     String username = "username_example"; // String | 
     String region = "US"; // String | 
     Integer count = 30; // Integer | 
+    String cursor = "cursor_example"; // String | Continuation cursor from the previous page
     try {
-      Object result = apiInstance.tiktokGetLikedVideosDeprecated(username, region, count);
+      Object result = apiInstance.tiktokGetLikedVideos(username, region, count, cursor);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TikTokApi#tiktokGetLikedVideosDeprecated");
+      System.err.println("Exception when calling TikTokApi#tiktokGetLikedVideos");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -701,6 +706,7 @@ public class Example {
 | **username** | **String**|  | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 30] |
+| **cursor** | **String**| Continuation cursor from the previous page | [optional] |
 
 ### Return type
 
@@ -943,7 +949,7 @@ public class Example {
 
 <a id="tiktokGetRelatedVideos"></a>
 # **tiktokGetRelatedVideos**
-> Object tiktokGetRelatedVideos(videoId, region, count)
+> Object tiktokGetRelatedVideos(videoId, region, count, cursor)
 
 Get related videos
 
@@ -974,8 +980,9 @@ public class Example {
     String videoId = "videoId_example"; // String | 
     String region = "US"; // String | 
     Integer count = 16; // Integer | 
+    String cursor = "cursor_example"; // String | Continuation cursor from the previous page
     try {
-      Object result = apiInstance.tiktokGetRelatedVideos(videoId, region, count);
+      Object result = apiInstance.tiktokGetRelatedVideos(videoId, region, count, cursor);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TikTokApi#tiktokGetRelatedVideos");
@@ -995,6 +1002,7 @@ public class Example {
 | **videoId** | **String**|  | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 16] |
+| **cursor** | **String**| Continuation cursor from the previous page | [optional] |
 
 ### Return type
 
@@ -1017,7 +1025,7 @@ public class Example {
 
 <a id="tiktokGetReposts"></a>
 # **tiktokGetReposts**
-> Object tiktokGetReposts(username, region, count)
+> Object tiktokGetReposts(username, region, count, cursor)
 
 Get reposts
 
@@ -1048,8 +1056,9 @@ public class Example {
     String username = "username_example"; // String | 
     String region = "US"; // String | 
     Integer count = 30; // Integer | 
+    String cursor = "cursor_example"; // String | Continuation cursor from the previous page
     try {
-      Object result = apiInstance.tiktokGetReposts(username, region, count);
+      Object result = apiInstance.tiktokGetReposts(username, region, count, cursor);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TikTokApi#tiktokGetReposts");
@@ -1069,6 +1078,7 @@ public class Example {
 | **username** | **String**|  | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 30] |
+| **cursor** | **String**| Continuation cursor from the previous page | [optional] |
 
 ### Return type
 
@@ -1338,7 +1348,7 @@ public class Example {
     String username = "username_example"; // String | 
     String region = "US"; // String | 
     Integer count = 30; // Integer | 
-    String cursor = "cursor_example"; // String | Pagination cursor from a prior page's `pagination.cursor` (signer path only).
+    String cursor = "cursor_example"; // String | Pagination cursor from a prior page's `pagination.cursor` (opaque; expires after 15 minutes).
     try {
       Object result = apiInstance.tiktokGetUserVideos(username, region, count, cursor);
       System.out.println(result);
@@ -1360,7 +1370,7 @@ public class Example {
 | **username** | **String**|  | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 30] |
-| **cursor** | **String**| Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). | [optional] |
+| **cursor** | **String**| Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). | [optional] |
 
 ### Return type
 
@@ -1683,7 +1693,7 @@ public class Example {
     String query = "query_example"; // String | Search keyword
     String region = "US"; // String | 
     Integer count = 20; // Integer | 
-    String cursor = "cursor_example"; // String | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor
+    String cursor = "cursor_example"; // String | Opaque continuation cursor from a prior page's pagination.cursor
     try {
       Object result = apiInstance.tiktokSearchHashtags(query, region, count, cursor);
       System.out.println(result);
@@ -1705,7 +1715,7 @@ public class Example {
 | **query** | **String**| Search keyword | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 20] |
-| **cursor** | **String**| Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional] |
+| **cursor** | **String**| Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional] |
 
 ### Return type
 
@@ -1993,7 +2003,7 @@ public class Example {
     String query = "query_example"; // String | Search keyword
     String region = "US"; // String | 
     Integer count = 20; // Integer | 
-    String cursor = "cursor_example"; // String | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor
+    String cursor = "cursor_example"; // String | Opaque continuation cursor from a prior page's pagination.cursor
     try {
       Object result = apiInstance.tiktokSearchUsers(query, region, count, cursor);
       System.out.println(result);
@@ -2015,7 +2025,7 @@ public class Example {
 | **query** | **String**| Search keyword | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 20] |
-| **cursor** | **String**| Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional] |
+| **cursor** | **String**| Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional] |
 
 ### Return type
 
@@ -2069,7 +2079,7 @@ public class Example {
     String query = "query_example"; // String | Search keyword
     String region = "US"; // String | 
     Integer count = 20; // Integer | 
-    String cursor = "cursor_example"; // String | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor
+    String cursor = "cursor_example"; // String | Opaque continuation cursor from a prior page's pagination.cursor
     try {
       Object result = apiInstance.tiktokSearchVideos(query, region, count, cursor);
       System.out.println(result);
@@ -2091,7 +2101,7 @@ public class Example {
 | **query** | **String**| Search keyword | |
 | **region** | **String**|  | [optional] [default to US] |
 | **count** | **Integer**|  | [optional] [default to 20] |
-| **cursor** | **String**| Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional] |
+| **cursor** | **String**| Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional] |
 
 ### Return type
 
@@ -2745,7 +2755,7 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String region = "US"; // String | 
-    Integer period = 7; // Integer | 
+    Integer period = 56; // Integer | Historical windows are unavailable; omit period
     Integer count = 20; // Integer | 
     try {
       Object result = apiInstance.tiktokTrendingHashtags(region, period, count);
@@ -2766,7 +2776,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **region** | **String**|  | [optional] [default to US] |
-| **period** | **Integer**|  | [optional] [default to 7] |
+| **period** | **Integer**| Historical windows are unavailable; omit period | [optional] |
 | **count** | **Integer**|  | [optional] [default to 20] |
 
 ### Return type
@@ -2819,7 +2829,7 @@ public class Example {
 
     TikTokApi apiInstance = new TikTokApi(defaultClient);
     String region = "US"; // String | 
-    Integer period = 7; // Integer | 
+    Integer period = 56; // Integer | Historical windows are unavailable; omit period
     Integer count = 20; // Integer | 
     try {
       Object result = apiInstance.tiktokTrendingSongs(region, period, count);
@@ -2840,7 +2850,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **region** | **String**|  | [optional] [default to US] |
-| **period** | **Integer**|  | [optional] [default to 7] |
+| **period** | **Integer**| Historical windows are unavailable; omit period | [optional] |
 | **count** | **Integer**|  | [optional] [default to 20] |
 
 ### Return type

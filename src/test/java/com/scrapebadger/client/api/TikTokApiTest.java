@@ -101,34 +101,36 @@ public class TikTokApiTest {
     }
 
     /**
-     * Get followers (deprecated)
+     * Get followers
      *
-     * DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+     * Get publicly visible followers without an account.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void tiktokGetFollowersDeprecatedTest() throws ApiException {
+    public void tiktokGetFollowersTest() throws ApiException {
         String username = null;
         String region = null;
         Integer count = null;
-        Object response = api.tiktokGetFollowersDeprecated(username, region, count);
+        String cursor = null;
+        Object response = api.tiktokGetFollowers(username, region, count, cursor);
         // TODO: test validations
     }
 
     /**
-     * Get following (deprecated)
+     * Get following
      *
-     * DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+     * Get publicly visible followed accounts. Hidden lists return HTTP 403.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void tiktokGetFollowingDeprecatedTest() throws ApiException {
+    public void tiktokGetFollowingTest() throws ApiException {
         String username = null;
         String region = null;
         Integer count = null;
-        Object response = api.tiktokGetFollowingDeprecated(username, region, count);
+        String cursor = null;
+        Object response = api.tiktokGetFollowing(username, region, count, cursor);
         // TODO: test validations
     }
 
@@ -165,18 +167,19 @@ public class TikTokApiTest {
     }
 
     /**
-     * Get liked videos (deprecated)
+     * Get liked videos
      *
-     * DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+     * Get public liked videos. Hidden liked lists return HTTP 403.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void tiktokGetLikedVideosDeprecatedTest() throws ApiException {
+    public void tiktokGetLikedVideosTest() throws ApiException {
         String username = null;
         String region = null;
         Integer count = null;
-        Object response = api.tiktokGetLikedVideosDeprecated(username, region, count);
+        String cursor = null;
+        Object response = api.tiktokGetLikedVideos(username, region, count, cursor);
         // TODO: test validations
     }
 
@@ -239,7 +242,8 @@ public class TikTokApiTest {
         String videoId = null;
         String region = null;
         Integer count = null;
-        Object response = api.tiktokGetRelatedVideos(videoId, region, count);
+        String cursor = null;
+        Object response = api.tiktokGetRelatedVideos(videoId, region, count, cursor);
         // TODO: test validations
     }
 
@@ -255,7 +259,8 @@ public class TikTokApiTest {
         String username = null;
         String region = null;
         Integer count = null;
-        Object response = api.tiktokGetReposts(username, region, count);
+        String cursor = null;
+        Object response = api.tiktokGetReposts(username, region, count, cursor);
         // TODO: test validations
     }
 
