@@ -44,6 +44,7 @@ docs/LeboncoinApi.md
 docs/LinkedInApi.md
 docs/LoopNetApi.md
 docs/MarketsResponse.md
+docs/NaverApi.md
 docs/PerplexityApi.md
 docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md
 docs/RealtorApi.md
@@ -134,6 +135,7 @@ src/main/java/com/scrapebadger/client/api/InstagramApi.java
 src/main/java/com/scrapebadger/client/api/LeboncoinApi.java
 src/main/java/com/scrapebadger/client/api/LinkedInApi.java
 src/main/java/com/scrapebadger/client/api/LoopNetApi.java
+src/main/java/com/scrapebadger/client/api/NaverApi.java
 src/main/java/com/scrapebadger/client/api/PerplexityApi.java
 src/main/java/com/scrapebadger/client/api/RealtorApi.java
 src/main/java/com/scrapebadger/client/api/RedditApi.java
@@ -223,6 +225,7 @@ src/test/java/com/scrapebadger/client/api/InstagramApiTest.java
 src/test/java/com/scrapebadger/client/api/LeboncoinApiTest.java
 src/test/java/com/scrapebadger/client/api/LinkedInApiTest.java
 src/test/java/com/scrapebadger/client/api/LoopNetApiTest.java
+src/test/java/com/scrapebadger/client/api/NaverApiTest.java
 src/test/java/com/scrapebadger/client/api/PerplexityApiTest.java
 src/test/java/com/scrapebadger/client/api/RealtorApiTest.java
 src/test/java/com/scrapebadger/client/api/RedditApiTest.java

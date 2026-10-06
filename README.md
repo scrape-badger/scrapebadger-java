@@ -428,6 +428,19 @@ Class | Method | HTTP request | Description
 *LoopNetApi* | [**loopnetLoopnetScraperHealthCheck**](docs/LoopNetApi.md#loopnetLoopnetScraperHealthCheck) | **GET** /v1/loopnet/health | LoopNet scraper health check
 *LoopNetApi* | [**loopnetLoopnetScraperHealthCheckHead**](docs/LoopNetApi.md#loopnetLoopnetScraperHealthCheckHead) | **HEAD** /v1/loopnet/health | LoopNet scraper health check
 *LoopNetApi* | [**loopnetSearchCommercialRealEstate**](docs/LoopNetApi.md#loopnetSearchCommercialRealEstate) | **GET** /v1/loopnet/search | Search commercial real estate
+*NaverApi* | [**naverNaverBlogSearch**](docs/NaverApi.md#naverNaverBlogSearch) | **GET** /v1/naver/blog | Naver blog search
+*NaverApi* | [**naverNaverDatalabShoppingKeywordInsight**](docs/NaverApi.md#naverNaverDatalabShoppingKeywordInsight) | **GET** /v1/naver/shopping/insight | Naver DataLab shopping keyword insight
+*NaverApi* | [**naverNaverNewsSearch**](docs/NaverApi.md#naverNaverNewsSearch) | **GET** /v1/naver/news | Naver news search
+*NaverApi* | [**naverNaverPlaceDetail**](docs/NaverApi.md#naverNaverPlaceDetail) | **GET** /v1/naver/place/{place_id} | Naver place detail
+*NaverApi* | [**naverNaverPlaceLocalSearch**](docs/NaverApi.md#naverNaverPlaceLocalSearch) | **GET** /v1/naver/local | Naver Place/Local search
+*NaverApi* | [**naverNaverPlaceVisitorReviews**](docs/NaverApi.md#naverNaverPlaceVisitorReviews) | **GET** /v1/naver/place/{place_id}/reviews | Naver place visitor reviews
+*NaverApi* | [**naverNaverScraperHealthCheck**](docs/NaverApi.md#naverNaverScraperHealthCheck) | **GET** /v1/naver/health | Naver scraper health check
+*NaverApi* | [**naverNaverScraperHealthCheckHead**](docs/NaverApi.md#naverNaverScraperHealthCheckHead) | **HEAD** /v1/naver/health | Naver scraper health check
+*NaverApi* | [**naverNaverShoppingBestsellerRankings**](docs/NaverApi.md#naverNaverShoppingBestsellerRankings) | **GET** /v1/naver/shopping/bestsellers | Naver Shopping bestseller rankings
+*NaverApi* | [**naverNaverShoppingCategoryReference**](docs/NaverApi.md#naverNaverShoppingCategoryReference) | **GET** /v1/naver/shopping/categories | Naver Shopping category reference
+*NaverApi* | [**naverNaverShoppingTrendingKeywordRankings**](docs/NaverApi.md#naverNaverShoppingTrendingKeywordRankings) | **GET** /v1/naver/shopping/keywords | Naver Shopping trending keyword rankings
+*NaverApi* | [**naverNaverWebSearch**](docs/NaverApi.md#naverNaverWebSearch) | **GET** /v1/naver/search | Naver web search
+*NaverApi* | [**naverSearchSuggestions**](docs/NaverApi.md#naverSearchSuggestions) | **GET** /v1/naver/autocomplete | Search suggestions
 *PerplexityApi* | [**perplexityAskPerplexityAQuestion**](docs/PerplexityApi.md#perplexityAskPerplexityAQuestion) | **GET** /v1/perplexity/ask | Ask Perplexity a question
 *PerplexityApi* | [**perplexityAskPerplexityAQuestionPost**](docs/PerplexityApi.md#perplexityAskPerplexityAQuestionPost) | **POST** /v1/perplexity/ask | Ask Perplexity a question (POST)
 *PerplexityApi* | [**perplexityMeasureABrandSVisibilityInAPerplexityAnswer**](docs/PerplexityApi.md#perplexityMeasureABrandSVisibilityInAPerplexityAnswer) | **GET** /v1/perplexity/brand-visibility | Measure a brand&#39;s visibility in a Perplexity answer
