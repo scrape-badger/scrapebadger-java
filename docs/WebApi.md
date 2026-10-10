@@ -6,10 +6,8 @@ All URIs are relative to *https://scrapebadger.com*
 |------------- | ------------- | -------------|
 | [**webDetectAntiBotAndCaptchaSystems**](WebApi.md#webDetectAntiBotAndCaptchaSystems) | **POST** /v1/web/detect | Detect anti-bot and CAPTCHA systems |
 | [**webExtractStructuredData**](WebApi.md#webExtractStructuredData) | **POST** /v1/web/extract | Extract structured data |
-| [**webGetBatchJobStatus**](WebApi.md#webGetBatchJobStatus) | **GET** /v1/web/batch/{job_id} | Get batch job status |
 | [**webPollAnAutoUnblockDiscoveryJob**](WebApi.md#webPollAnAutoUnblockDiscoveryJob) | **GET** /v1/web/unblock/{job_id} | Poll an auto-unblock discovery job |
 | [**webScrapeAUrl**](WebApi.md#webScrapeAUrl) | **POST** /v1/web/scrape | Scrape a URL |
-| [**webSubmitBatchScrapingJob**](WebApi.md#webSubmitBatchScrapingJob) | **POST** /v1/web/batch | Submit batch scraping job |
 | [**webTakeAScreenshot**](WebApi.md#webTakeAScreenshot) | **POST** /v1/web/screenshot | Take a screenshot |
 | [**webWebScraperHealthCheck**](WebApi.md#webWebScraperHealthCheck) | **GET** /v1/web/health | Web scraper health check |
 | [**webWebScraperHealthCheckHead**](WebApi.md#webWebScraperHealthCheckHead) | **HEAD** /v1/web/health | Web scraper health check |
@@ -82,11 +80,11 @@ This endpoint does not need any parameter.
 
 <a id="webExtractStructuredData"></a>
 # **webExtractStructuredData**
-> Object webExtractStructuredData()
+> Object webExtractStructuredData(extractRequest)
 
 Extract structured data
 
-Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
 
 ### Example
 ```java
@@ -110,8 +108,9 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     WebApi apiInstance = new WebApi(defaultClient);
+    ExtractRequest extractRequest = new ExtractRequest(); // ExtractRequest | 
     try {
-      Object result = apiInstance.webExtractStructuredData();
+      Object result = apiInstance.webExtractStructuredData(extractRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebApi#webExtractStructuredData");
@@ -125,76 +124,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-
-<a id="webGetBatchJobStatus"></a>
-# **webGetBatchJobStatus**
-> Object webGetBatchJobStatus(jobId)
-
-Get batch job status
-
-Get the status of a batch scraping job. (Phase 6)
-
-### Example
-```java
-// Import classes:
-import com.scrapebadger.client.ApiClient;
-import com.scrapebadger.client.ApiException;
-import com.scrapebadger.client.Configuration;
-import com.scrapebadger.client.auth.*;
-import com.scrapebadger.client.models.*;
-import com.scrapebadger.client.api.WebApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://scrapebadger.com");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
-
-    WebApi apiInstance = new WebApi(defaultClient);
-    String jobId = "jobId_example"; // String | 
-    try {
-      Object result = apiInstance.webGetBatchJobStatus(jobId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebApi#webGetBatchJobStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **jobId** | **String**|  | |
+| **extractRequest** | [**ExtractRequest**](ExtractRequest.md)|  | |
 
 ### Return type
 
@@ -206,7 +139,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -350,78 +283,13 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 
-<a id="webSubmitBatchScrapingJob"></a>
-# **webSubmitBatchScrapingJob**
-> Object webSubmitBatchScrapingJob()
-
-Submit batch scraping job
-
-Submit a batch of URLs for scraping. (Phase 6)
-
-### Example
-```java
-// Import classes:
-import com.scrapebadger.client.ApiClient;
-import com.scrapebadger.client.ApiException;
-import com.scrapebadger.client.Configuration;
-import com.scrapebadger.client.auth.*;
-import com.scrapebadger.client.models.*;
-import com.scrapebadger.client.api.WebApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://scrapebadger.com");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
-
-    WebApi apiInstance = new WebApi(defaultClient);
-    try {
-      Object result = apiInstance.webSubmitBatchScrapingJob();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WebApi#webSubmitBatchScrapingJob");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-
 <a id="webTakeAScreenshot"></a>
 # **webTakeAScreenshot**
-> Object webTakeAScreenshot()
+> Object webTakeAScreenshot(screenshotRequest)
 
 Take a screenshot
 
-Take a screenshot of a URL. (browser engine)
+Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
 
 ### Example
 ```java
@@ -445,8 +313,9 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     WebApi apiInstance = new WebApi(defaultClient);
+    ScreenshotRequest screenshotRequest = new ScreenshotRequest(); // ScreenshotRequest | 
     try {
-      Object result = apiInstance.webTakeAScreenshot();
+      Object result = apiInstance.webTakeAScreenshot(screenshotRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebApi#webTakeAScreenshot");
@@ -460,7 +329,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **screenshotRequest** | [**ScreenshotRequest**](ScreenshotRequest.md)|  | |
 
 ### Return type
 
@@ -472,13 +344,14 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="webWebScraperHealthCheck"></a>
 # **webWebScraperHealthCheck**

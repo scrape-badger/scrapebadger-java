@@ -23,6 +23,9 @@ docs/ColorsResponse.md
 docs/DepopApi.md
 docs/DuckDuckGoApi.md
 docs/EBayApi.md
+docs/ExtractRequest.md
+docs/ExtractRequestExtractRulesValue.md
+docs/ExtractRule.md
 docs/FacebookApi.md
 docs/FilterRuleCreate.md
 docs/FilterRuleDeliveryLogListResponse.md
@@ -50,6 +53,7 @@ docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md
 docs/RealtorApi.md
 docs/RedditApi.md
 docs/RedfinApi.md
+docs/ScreenshotRequest.md
 docs/SearchResponse.md
 docs/StatusesResponse.md
 docs/StreamMonitorCreate.md
@@ -159,6 +163,9 @@ src/main/java/com/scrapebadger/client/model/BillingLogListResponse.java
 src/main/java/com/scrapebadger/client/model/BillingLogResponse.java
 src/main/java/com/scrapebadger/client/model/BrandsResponse.java
 src/main/java/com/scrapebadger/client/model/ColorsResponse.java
+src/main/java/com/scrapebadger/client/model/ExtractRequest.java
+src/main/java/com/scrapebadger/client/model/ExtractRequestExtractRulesValue.java
+src/main/java/com/scrapebadger/client/model/ExtractRule.java
 src/main/java/com/scrapebadger/client/model/FilterRuleCreate.java
 src/main/java/com/scrapebadger/client/model/FilterRuleDeliveryLogListResponse.java
 src/main/java/com/scrapebadger/client/model/FilterRuleDeliveryLogResponse.java
@@ -171,6 +178,7 @@ src/main/java/com/scrapebadger/client/model/HTTPValidationError.java
 src/main/java/com/scrapebadger/client/model/ItemDetailResponse.java
 src/main/java/com/scrapebadger/client/model/MarketsResponse.java
 src/main/java/com/scrapebadger/client/model/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.java
+src/main/java/com/scrapebadger/client/model/ScreenshotRequest.java
 src/main/java/com/scrapebadger/client/model/SearchResponse.java
 src/main/java/com/scrapebadger/client/model/StatusesResponse.java
 src/main/java/com/scrapebadger/client/model/StreamMonitorCreate.java
@@ -244,6 +252,9 @@ src/test/java/com/scrapebadger/client/model/BillingLogListResponseTest.java
 src/test/java/com/scrapebadger/client/model/BillingLogResponseTest.java
 src/test/java/com/scrapebadger/client/model/BrandsResponseTest.java
 src/test/java/com/scrapebadger/client/model/ColorsResponseTest.java
+src/test/java/com/scrapebadger/client/model/ExtractRequestExtractRulesValueTest.java
+src/test/java/com/scrapebadger/client/model/ExtractRequestTest.java
+src/test/java/com/scrapebadger/client/model/ExtractRuleTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleCreateTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleDeliveryLogListResponseTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleDeliveryLogResponseTest.java
@@ -256,6 +267,7 @@ src/test/java/com/scrapebadger/client/model/HTTPValidationErrorTest.java
 src/test/java/com/scrapebadger/client/model/ItemDetailResponseTest.java
 src/test/java/com/scrapebadger/client/model/MarketsResponseTest.java
 src/test/java/com/scrapebadger/client/model/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponseTest.java
+src/test/java/com/scrapebadger/client/model/ScreenshotRequestTest.java
 src/test/java/com/scrapebadger/client/model/SearchResponseTest.java
 src/test/java/com/scrapebadger/client/model/StatusesResponseTest.java
 src/test/java/com/scrapebadger/client/model/StreamMonitorCreateTest.java

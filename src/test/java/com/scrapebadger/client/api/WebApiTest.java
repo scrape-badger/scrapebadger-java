@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.ExtractRequest;
 import com.scrapebadger.client.model.HTTPValidationError;
+import com.scrapebadger.client.model.ScreenshotRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,27 +49,14 @@ public class WebApiTest {
     /**
      * Extract structured data
      *
-     * Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+     * Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void webExtractStructuredDataTest() throws ApiException {
-        Object response = api.webExtractStructuredData();
-        // TODO: test validations
-    }
-
-    /**
-     * Get batch job status
-     *
-     * Get the status of a batch scraping job. (Phase 6)
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void webGetBatchJobStatusTest() throws ApiException {
-        String jobId = null;
-        Object response = api.webGetBatchJobStatus(jobId);
+        ExtractRequest extractRequest = null;
+        Object response = api.webExtractStructuredData(extractRequest);
         // TODO: test validations
     }
 
@@ -99,28 +88,16 @@ public class WebApiTest {
     }
 
     /**
-     * Submit batch scraping job
-     *
-     * Submit a batch of URLs for scraping. (Phase 6)
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void webSubmitBatchScrapingJobTest() throws ApiException {
-        Object response = api.webSubmitBatchScrapingJob();
-        // TODO: test validations
-    }
-
-    /**
      * Take a screenshot
      *
-     * Take a screenshot of a URL. (browser engine)
+     * Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void webTakeAScreenshotTest() throws ApiException {
-        Object response = api.webTakeAScreenshot();
+        ScreenshotRequest screenshotRequest = null;
+        Object response = api.webTakeAScreenshot(screenshotRequest);
         // TODO: test validations
     }
 

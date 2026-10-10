@@ -98,6 +98,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.BillingLogResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.BrandsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ColorsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ExtractRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ExtractRequestExtractRulesValue.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ExtractRule.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.FilterRuleCreate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.FilterRuleDeliveryLogListResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.FilterRuleDeliveryLogResponse.CustomTypeAdapterFactory());
@@ -110,6 +113,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ItemDetailResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.MarketsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.ScreenshotRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.SearchResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.StatusesResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.StreamMonitorCreate.CustomTypeAdapterFactory());

@@ -27,7 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.scrapebadger.client.model.ExtractRequest;
 import com.scrapebadger.client.model.HTTPValidationError;
+import com.scrapebadger.client.model.ScreenshotRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -191,6 +193,7 @@ public class WebApi {
     }
     /**
      * Build call for webExtractStructuredData
+     * @param extractRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -199,9 +202,10 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call webExtractStructuredDataCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call webExtractStructuredDataCall(ExtractRequest extractRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -215,7 +219,7 @@ public class WebApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = extractRequest;
 
         // create path and map variables
         String localVarPath = "/v1/web/extract";
@@ -235,6 +239,7 @@ public class WebApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -246,14 +251,20 @@ public class WebApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call webExtractStructuredDataValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return webExtractStructuredDataCall(_callback);
+    private okhttp3.Call webExtractStructuredDataValidateBeforeCall(ExtractRequest extractRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'extractRequest' is set
+        if (extractRequest == null) {
+            throw new ApiException("Missing the required parameter 'extractRequest' when calling webExtractStructuredData(Async)");
+        }
+
+        return webExtractStructuredDataCall(extractRequest, _callback);
 
     }
 
     /**
      * Extract structured data
-     * Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+     * Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
+     * @param extractRequest  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -261,16 +272,18 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object webExtractStructuredData() throws ApiException {
-        ApiResponse<Object> localVarResp = webExtractStructuredDataWithHttpInfo();
+    public Object webExtractStructuredData(ExtractRequest extractRequest) throws ApiException {
+        ApiResponse<Object> localVarResp = webExtractStructuredDataWithHttpInfo(extractRequest);
         return localVarResp.getData();
     }
 
     /**
      * Extract structured data
-     * Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+     * Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
+     * @param extractRequest  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -278,147 +291,19 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> webExtractStructuredDataWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = webExtractStructuredDataValidateBeforeCall(null);
+    public ApiResponse<Object> webExtractStructuredDataWithHttpInfo(ExtractRequest extractRequest) throws ApiException {
+        okhttp3.Call localVarCall = webExtractStructuredDataValidateBeforeCall(extractRequest, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Extract structured data (asynchronously)
-     * Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call webExtractStructuredDataAsync(final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = webExtractStructuredDataValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for webGetBatchJobStatus
-     * @param jobId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call webGetBatchJobStatusCall(String jobId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/web/batch/{job_id}"
-            .replace("{" + "job_id" + "}", localVarApiClient.escapeString(jobId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call webGetBatchJobStatusValidateBeforeCall(String jobId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'jobId' is set
-        if (jobId == null) {
-            throw new ApiException("Missing the required parameter 'jobId' when calling webGetBatchJobStatus(Async)");
-        }
-
-        return webGetBatchJobStatusCall(jobId, _callback);
-
-    }
-
-    /**
-     * Get batch job status
-     * Get the status of a batch scraping job. (Phase 6)
-     * @param jobId  (required)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public Object webGetBatchJobStatus(String jobId) throws ApiException {
-        ApiResponse<Object> localVarResp = webGetBatchJobStatusWithHttpInfo(jobId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get batch job status
-     * Get the status of a batch scraping job. (Phase 6)
-     * @param jobId  (required)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Object> webGetBatchJobStatusWithHttpInfo(String jobId) throws ApiException {
-        okhttp3.Call localVarCall = webGetBatchJobStatusValidateBeforeCall(jobId, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get batch job status (asynchronously)
-     * Get the status of a batch scraping job. (Phase 6)
-     * @param jobId  (required)
+     * Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
+     * @param extractRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -430,9 +315,9 @@ public class WebApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call webGetBatchJobStatusAsync(String jobId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call webExtractStructuredDataAsync(ExtractRequest extractRequest, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = webGetBatchJobStatusValidateBeforeCall(jobId, _callback);
+        okhttp3.Call localVarCall = webExtractStructuredDataValidateBeforeCall(extractRequest, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -686,124 +571,8 @@ public class WebApi {
         return localVarCall;
     }
     /**
-     * Build call for webSubmitBatchScrapingJob
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call webSubmitBatchScrapingJobCall(final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/web/batch";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call webSubmitBatchScrapingJobValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return webSubmitBatchScrapingJobCall(_callback);
-
-    }
-
-    /**
-     * Submit batch scraping job
-     * Submit a batch of URLs for scraping. (Phase 6)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-     </table>
-     */
-    public Object webSubmitBatchScrapingJob() throws ApiException {
-        ApiResponse<Object> localVarResp = webSubmitBatchScrapingJobWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Submit batch scraping job
-     * Submit a batch of URLs for scraping. (Phase 6)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Object> webSubmitBatchScrapingJobWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = webSubmitBatchScrapingJobValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Submit batch scraping job (asynchronously)
-     * Submit a batch of URLs for scraping. (Phase 6)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call webSubmitBatchScrapingJobAsync(final ApiCallback<Object> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = webSubmitBatchScrapingJobValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for webTakeAScreenshot
+     * @param screenshotRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -812,9 +581,10 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call webTakeAScreenshotCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call webTakeAScreenshotCall(ScreenshotRequest screenshotRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -828,7 +598,7 @@ public class WebApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = screenshotRequest;
 
         // create path and map variables
         String localVarPath = "/v1/web/screenshot";
@@ -848,6 +618,7 @@ public class WebApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -859,14 +630,20 @@ public class WebApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call webTakeAScreenshotValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return webTakeAScreenshotCall(_callback);
+    private okhttp3.Call webTakeAScreenshotValidateBeforeCall(ScreenshotRequest screenshotRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'screenshotRequest' is set
+        if (screenshotRequest == null) {
+            throw new ApiException("Missing the required parameter 'screenshotRequest' when calling webTakeAScreenshot(Async)");
+        }
+
+        return webTakeAScreenshotCall(screenshotRequest, _callback);
 
     }
 
     /**
      * Take a screenshot
-     * Take a screenshot of a URL. (browser engine)
+     * Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
+     * @param screenshotRequest  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -874,16 +651,18 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object webTakeAScreenshot() throws ApiException {
-        ApiResponse<Object> localVarResp = webTakeAScreenshotWithHttpInfo();
+    public Object webTakeAScreenshot(ScreenshotRequest screenshotRequest) throws ApiException {
+        ApiResponse<Object> localVarResp = webTakeAScreenshotWithHttpInfo(screenshotRequest);
         return localVarResp.getData();
     }
 
     /**
      * Take a screenshot
-     * Take a screenshot of a URL. (browser engine)
+     * Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
+     * @param screenshotRequest  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -891,17 +670,19 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> webTakeAScreenshotWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = webTakeAScreenshotValidateBeforeCall(null);
+    public ApiResponse<Object> webTakeAScreenshotWithHttpInfo(ScreenshotRequest screenshotRequest) throws ApiException {
+        okhttp3.Call localVarCall = webTakeAScreenshotValidateBeforeCall(screenshotRequest, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Take a screenshot (asynchronously)
-     * Take a screenshot of a URL. (browser engine)
+     * Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
+     * @param screenshotRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -910,11 +691,12 @@ public class WebApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call webTakeAScreenshotAsync(final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call webTakeAScreenshotAsync(ScreenshotRequest screenshotRequest, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = webTakeAScreenshotValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = webTakeAScreenshotValidateBeforeCall(screenshotRequest, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

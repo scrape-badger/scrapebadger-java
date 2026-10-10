@@ -604,10 +604,8 @@ Class | Method | HTTP request | Description
 *WalmartApi* | [**walmartWalmartScraperHealthCheckHead**](docs/WalmartApi.md#walmartWalmartScraperHealthCheckHead) | **HEAD** /v1/walmart/health | Walmart scraper health check
 *WebApi* | [**webDetectAntiBotAndCaptchaSystems**](docs/WebApi.md#webDetectAntiBotAndCaptchaSystems) | **POST** /v1/web/detect | Detect anti-bot and CAPTCHA systems
 *WebApi* | [**webExtractStructuredData**](docs/WebApi.md#webExtractStructuredData) | **POST** /v1/web/extract | Extract structured data
-*WebApi* | [**webGetBatchJobStatus**](docs/WebApi.md#webGetBatchJobStatus) | **GET** /v1/web/batch/{job_id} | Get batch job status
 *WebApi* | [**webPollAnAutoUnblockDiscoveryJob**](docs/WebApi.md#webPollAnAutoUnblockDiscoveryJob) | **GET** /v1/web/unblock/{job_id} | Poll an auto-unblock discovery job
 *WebApi* | [**webScrapeAUrl**](docs/WebApi.md#webScrapeAUrl) | **POST** /v1/web/scrape | Scrape a URL
-*WebApi* | [**webSubmitBatchScrapingJob**](docs/WebApi.md#webSubmitBatchScrapingJob) | **POST** /v1/web/batch | Submit batch scraping job
 *WebApi* | [**webTakeAScreenshot**](docs/WebApi.md#webTakeAScreenshot) | **POST** /v1/web/screenshot | Take a screenshot
 *WebApi* | [**webWebScraperHealthCheck**](docs/WebApi.md#webWebScraperHealthCheck) | **GET** /v1/web/health | Web scraper health check
 *WebApi* | [**webWebScraperHealthCheckHead**](docs/WebApi.md#webWebScraperHealthCheckHead) | **HEAD** /v1/web/health | Web scraper health check
@@ -683,6 +681,9 @@ Class | Method | HTTP request | Description
  - [BillingLogResponse](docs/BillingLogResponse.md)
  - [BrandsResponse](docs/BrandsResponse.md)
  - [ColorsResponse](docs/ColorsResponse.md)
+ - [ExtractRequest](docs/ExtractRequest.md)
+ - [ExtractRequestExtractRulesValue](docs/ExtractRequestExtractRulesValue.md)
+ - [ExtractRule](docs/ExtractRule.md)
  - [FilterRuleCreate](docs/FilterRuleCreate.md)
  - [FilterRuleDeliveryLogListResponse](docs/FilterRuleDeliveryLogListResponse.md)
  - [FilterRuleDeliveryLogResponse](docs/FilterRuleDeliveryLogResponse.md)
@@ -695,6 +696,7 @@ Class | Method | HTTP request | Description
  - [ItemDetailResponse](docs/ItemDetailResponse.md)
  - [MarketsResponse](docs/MarketsResponse.md)
  - [PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse](docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md)
+ - [ScreenshotRequest](docs/ScreenshotRequest.md)
  - [SearchResponse](docs/SearchResponse.md)
  - [StatusesResponse](docs/StatusesResponse.md)
  - [StreamMonitorCreate](docs/StreamMonitorCreate.md)
