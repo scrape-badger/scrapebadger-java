@@ -539,8 +539,8 @@ public class Example {
     BingApi apiInstance = new BingApi(defaultClient);
     String query = "query_example"; // String | Search keywords, e.g. 'coffee machine'
     String market = "en-US"; // String | Bing market code, e.g. 'en-US', 'en-GB', 'de-DE'. See /markets.
-    Integer count = 10; // Integer | Results per page (1-50)
-    Integer offset = 0; // Integer | Zero-based result offset for pagination
+    Integer count = 10; // Integer | Organic results to return (1-50), merged from Bing's following pages when one page is short. May return fewer.
+    Integer offset = 0; // Integer | Organic results to skip in Bing's ranking. Paginate with offset += count.
     String safeSearch = "safeSearch_example"; // String | off | moderate | strict (default moderate)
     try {
       Object result = apiInstance.bingWebSearch(query, market, count, offset, safeSearch);
@@ -562,8 +562,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **query** | **String**| Search keywords, e.g. &#39;coffee machine&#39; | |
 | **market** | **String**| Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. | [optional] [default to en-US] |
-| **count** | **Integer**| Results per page (1-50) | [optional] [default to 10] |
-| **offset** | **Integer**| Zero-based result offset for pagination | [optional] [default to 0] |
+| **count** | **Integer**| Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. | [optional] [default to 10] |
+| **offset** | **Integer**| Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. | [optional] [default to 0] |
 | **safeSearch** | **String**| off | moderate | strict (default moderate) | [optional] |
 
 ### Return type

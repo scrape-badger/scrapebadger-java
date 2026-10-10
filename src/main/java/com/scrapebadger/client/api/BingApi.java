@@ -1035,8 +1035,8 @@ public class BingApi {
      * Build call for bingWebSearch
      * @param query Search keywords, e.g. &#39;coffee machine&#39; (required)
      * @param market Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to en-US)
-     * @param count Results per page (1-50) (optional, default to 10)
-     * @param offset Zero-based result offset for pagination (optional, default to 0)
+     * @param count Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)
+     * @param offset Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)
      * @param safeSearch off | moderate | strict (default moderate) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1129,8 +1129,8 @@ public class BingApi {
      * Bing web SERP — organic results, ads, related searches and total count.
      * @param query Search keywords, e.g. &#39;coffee machine&#39; (required)
      * @param market Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to en-US)
-     * @param count Results per page (1-50) (optional, default to 10)
-     * @param offset Zero-based result offset for pagination (optional, default to 0)
+     * @param count Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)
+     * @param offset Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)
      * @param safeSearch off | moderate | strict (default moderate) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1152,8 +1152,8 @@ public class BingApi {
      * Bing web SERP — organic results, ads, related searches and total count.
      * @param query Search keywords, e.g. &#39;coffee machine&#39; (required)
      * @param market Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to en-US)
-     * @param count Results per page (1-50) (optional, default to 10)
-     * @param offset Zero-based result offset for pagination (optional, default to 0)
+     * @param count Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)
+     * @param offset Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)
      * @param safeSearch off | moderate | strict (default moderate) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1176,8 +1176,8 @@ public class BingApi {
      * Bing web SERP — organic results, ads, related searches and total count.
      * @param query Search keywords, e.g. &#39;coffee machine&#39; (required)
      * @param market Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to en-US)
-     * @param count Results per page (1-50) (optional, default to 10)
-     * @param offset Zero-based result offset for pagination (optional, default to 0)
+     * @param count Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)
+     * @param offset Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)
      * @param safeSearch off | moderate | strict (default moderate) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
