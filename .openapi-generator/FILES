@@ -83,6 +83,7 @@ docs/VintedSellerSummary.md
 docs/VintedStatus.md
 docs/VintedUserProfile.md
 docs/VintedUserSummary.md
+docs/WallapopApi.md
 docs/WalmartApi.md
 docs/WebApi.md
 docs/WebhookCreate.md
@@ -147,6 +148,7 @@ src/main/java/com/scrapebadger/client/api/RedfinApi.java
 src/main/java/com/scrapebadger/client/api/TikTokApi.java
 src/main/java/com/scrapebadger/client/api/TwitterApi.java
 src/main/java/com/scrapebadger/client/api/VintedApi.java
+src/main/java/com/scrapebadger/client/api/WallapopApi.java
 src/main/java/com/scrapebadger/client/api/WalmartApi.java
 src/main/java/com/scrapebadger/client/api/WebApi.java
 src/main/java/com/scrapebadger/client/api/YahooApi.java
@@ -241,6 +243,7 @@ src/test/java/com/scrapebadger/client/api/RedfinApiTest.java
 src/test/java/com/scrapebadger/client/api/TikTokApiTest.java
 src/test/java/com/scrapebadger/client/api/TwitterApiTest.java
 src/test/java/com/scrapebadger/client/api/VintedApiTest.java
+src/test/java/com/scrapebadger/client/api/WallapopApiTest.java
 src/test/java/com/scrapebadger/client/api/WalmartApiTest.java
 src/test/java/com/scrapebadger/client/api/WebApiTest.java
 src/test/java/com/scrapebadger/client/api/YahooApiTest.java
