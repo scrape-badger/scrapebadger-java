@@ -111,7 +111,7 @@ public class FacebookApiTest {
     /**
      * Get group posts
      *
-     * Get a Facebook group&#39;s post feed.
+     * Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
      *
      * @throws ApiException if the Api call fails
      */
@@ -119,7 +119,8 @@ public class FacebookApiTest {
     public void facebookGetGroupPostsTest() throws ApiException {
         String groupId = null;
         String after = null;
-        Object response = api.facebookGetGroupPosts(groupId, after);
+        String sort = null;
+        Object response = api.facebookGetGroupPosts(groupId, after, sort);
         // TODO: test validations
     }
 

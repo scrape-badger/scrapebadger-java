@@ -787,6 +787,7 @@ public class FacebookApi {
      * Build call for facebookGetGroupPosts
      * @param groupId  (required)
      * @param after  (optional)
+     * @param sort newest | relevance (optional, default to newest)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -798,7 +799,7 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetGroupPostsCall(String groupId, String after, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call facebookGetGroupPostsCall(String groupId, String after, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -828,6 +829,10 @@ public class FacebookApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
         }
 
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -848,21 +853,22 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call facebookGetGroupPostsValidateBeforeCall(String groupId, String after, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call facebookGetGroupPostsValidateBeforeCall(String groupId, String after, String sort, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling facebookGetGroupPosts(Async)");
         }
 
-        return facebookGetGroupPostsCall(groupId, after, _callback);
+        return facebookGetGroupPostsCall(groupId, after, sort, _callback);
 
     }
 
     /**
      * Get group posts
-     * Get a Facebook group&#39;s post feed.
+     * Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
      * @param groupId  (required)
      * @param after  (optional)
+     * @param sort newest | relevance (optional, default to newest)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -873,16 +879,17 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object facebookGetGroupPosts(String groupId, String after) throws ApiException {
-        ApiResponse<Object> localVarResp = facebookGetGroupPostsWithHttpInfo(groupId, after);
+    public Object facebookGetGroupPosts(String groupId, String after, String sort) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookGetGroupPostsWithHttpInfo(groupId, after, sort);
         return localVarResp.getData();
     }
 
     /**
      * Get group posts
-     * Get a Facebook group&#39;s post feed.
+     * Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
      * @param groupId  (required)
      * @param after  (optional)
+     * @param sort newest | relevance (optional, default to newest)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -893,17 +900,18 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> facebookGetGroupPostsWithHttpInfo(String groupId, String after) throws ApiException {
-        okhttp3.Call localVarCall = facebookGetGroupPostsValidateBeforeCall(groupId, after, null);
+    public ApiResponse<Object> facebookGetGroupPostsWithHttpInfo(String groupId, String after, String sort) throws ApiException {
+        okhttp3.Call localVarCall = facebookGetGroupPostsValidateBeforeCall(groupId, after, sort, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get group posts (asynchronously)
-     * Get a Facebook group&#39;s post feed.
+     * Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
      * @param groupId  (required)
      * @param after  (optional)
+     * @param sort newest | relevance (optional, default to newest)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -915,9 +923,9 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookGetGroupPostsAsync(String groupId, String after, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call facebookGetGroupPostsAsync(String groupId, String after, String sort, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = facebookGetGroupPostsValidateBeforeCall(groupId, after, _callback);
+        okhttp3.Call localVarCall = facebookGetGroupPostsValidateBeforeCall(groupId, after, sort, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -396,11 +396,11 @@ public class Example {
 
 <a id="facebookGetGroupPosts"></a>
 # **facebookGetGroupPosts**
-> Object facebookGetGroupPosts(groupId, after)
+> Object facebookGetGroupPosts(groupId, after, sort)
 
 Get group posts
 
-Get a Facebook group&#39;s post feed.
+Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
 
 ### Example
 ```java
@@ -426,8 +426,9 @@ public class Example {
     FacebookApi apiInstance = new FacebookApi(defaultClient);
     String groupId = "groupId_example"; // String | 
     String after = "after_example"; // String | 
+    String sort = "newest"; // String | newest | relevance
     try {
-      Object result = apiInstance.facebookGetGroupPosts(groupId, after);
+      Object result = apiInstance.facebookGetGroupPosts(groupId, after, sort);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookGetGroupPosts");
@@ -446,6 +447,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **groupId** | **String**|  | |
 | **after** | **String**|  | [optional] |
+| **sort** | **String**| newest | relevance | [optional] [default to newest] [enum: newest, relevance] |
 
 ### Return type
 
