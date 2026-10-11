@@ -38,6 +38,7 @@ docs/FilterRuleValidateResponse.md
 docs/GeminiApi.md
 docs/GoogleApi.md
 docs/GooglePlayApi.md
+docs/GumtreeApi.md
 docs/HTTPValidationError.md
 docs/IdealistaApi.md
 docs/ImmobiliareApi.md
@@ -134,6 +135,7 @@ src/main/java/com/scrapebadger/client/api/FacebookApi.java
 src/main/java/com/scrapebadger/client/api/GeminiApi.java
 src/main/java/com/scrapebadger/client/api/GoogleApi.java
 src/main/java/com/scrapebadger/client/api/GooglePlayApi.java
+src/main/java/com/scrapebadger/client/api/GumtreeApi.java
 src/main/java/com/scrapebadger/client/api/IdealistaApi.java
 src/main/java/com/scrapebadger/client/api/ImmobiliareApi.java
 src/main/java/com/scrapebadger/client/api/InstagramApi.java
@@ -229,6 +231,7 @@ src/test/java/com/scrapebadger/client/api/FacebookApiTest.java
 src/test/java/com/scrapebadger/client/api/GeminiApiTest.java
 src/test/java/com/scrapebadger/client/api/GoogleApiTest.java
 src/test/java/com/scrapebadger/client/api/GooglePlayApiTest.java
+src/test/java/com/scrapebadger/client/api/GumtreeApiTest.java
 src/test/java/com/scrapebadger/client/api/IdealistaApiTest.java
 src/test/java/com/scrapebadger/client/api/ImmobiliareApiTest.java
 src/test/java/com/scrapebadger/client/api/InstagramApiTest.java
