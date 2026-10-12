@@ -42,14 +42,15 @@ public class GumtreeApiTest {
     @Test
     public void gumtreeGetListingTest() throws ApiException {
         String listingId = null;
-        Object response = api.gumtreeGetListing(listingId);
+        String market = null;
+        Object response = api.gumtreeGetListing(listingId, market);
         // TODO: test validations
     }
 
     /**
      * Get search filters
      *
-     * Filters, sort orders and radius options for a category, with live counts.
+     * Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
      *
      * @throws ApiException if the Api call fails
      */
@@ -58,7 +59,9 @@ public class GumtreeApiTest {
         String category = null;
         String location = null;
         String query = null;
-        Object response = api.gumtreeGetSearchFilters(category, location, query);
+        String filters = null;
+        String market = null;
+        Object response = api.gumtreeGetSearchFilters(category, location, query, filters, market);
         // TODO: test validations
     }
 
@@ -73,7 +76,8 @@ public class GumtreeApiTest {
     public void gumtreeGetSellerListingsTest() throws ApiException {
         String listingId = null;
         Integer page = null;
-        Object response = api.gumtreeGetSellerListings(listingId, page);
+        String market = null;
+        Object response = api.gumtreeGetSellerListings(listingId, page, market);
         // TODO: test validations
     }
 
@@ -106,49 +110,65 @@ public class GumtreeApiTest {
     /**
      * List categories
      *
-     * Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+     * Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void gumtreeListCategoriesTest() throws ApiException {
         Integer parentId = null;
-        Object response = api.gumtreeListCategories(parentId);
+        String market = null;
+        Object response = api.gumtreeListCategories(parentId, market);
         // TODO: test validations
     }
 
     /**
      * List locations
      *
-     * Browse Gumtree&#39;s location tree.
+     * Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void gumtreeListLocationsTest() throws ApiException {
         Integer parentId = null;
-        Object response = api.gumtreeListLocations(parentId);
+        String market = null;
+        Object response = api.gumtreeListLocations(parentId, market);
+        // TODO: test validations
+    }
+
+    /**
+     * List markets
+     *
+     * The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void gumtreeListMarketsTest() throws ApiException {
+        Object response = api.gumtreeListMarkets();
         // TODO: test validations
     }
 
     /**
      * Location suggestions
      *
-     * Resolve a place name or postcode to Gumtree locations with coordinates.
+     * Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void gumtreeLocationSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.gumtreeLocationSuggestions(query);
+        String market = null;
+        Object response = api.gumtreeLocationSuggestions(query, market);
         // TODO: test validations
     }
 
     /**
      * Search listings
      *
-     * Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+     * Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
      *
      * @throws ApiException if the Api call fails
      */
@@ -166,7 +186,8 @@ public class GumtreeApiTest {
         Boolean withPhotos = null;
         String filters = null;
         Integer page = null;
-        Object response = api.gumtreeSearchListings(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page);
+        String market = null;
+        Object response = api.gumtreeSearchListings(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market);
         // TODO: test validations
     }
 
@@ -180,7 +201,8 @@ public class GumtreeApiTest {
     @Test
     public void gumtreeSearchSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.gumtreeSearchSuggestions(query);
+        String market = null;
+        Object response = api.gumtreeSearchSuggestions(query, market);
         // TODO: test validations
     }
 

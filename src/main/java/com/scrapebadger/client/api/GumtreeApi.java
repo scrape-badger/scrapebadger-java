@@ -75,7 +75,8 @@ public class GumtreeApi {
 
     /**
      * Build call for gumtreeGetListing
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -87,7 +88,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeGetListingCall(String listingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeGetListingCall(String listingId, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,6 +114,10 @@ public class GumtreeApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -133,20 +138,21 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeGetListingValidateBeforeCall(String listingId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gumtreeGetListingValidateBeforeCall(String listingId, String market, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
             throw new ApiException("Missing the required parameter 'listingId' when calling gumtreeGetListing(Async)");
         }
 
-        return gumtreeGetListingCall(listingId, _callback);
+        return gumtreeGetListingCall(listingId, market, _callback);
 
     }
 
     /**
      * Get listing
      * Full listing — description, attributes, images, seller, similar listings.
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -157,15 +163,16 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeGetListing(String listingId) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeGetListingWithHttpInfo(listingId);
+    public Object gumtreeGetListing(String listingId, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeGetListingWithHttpInfo(listingId, market);
         return localVarResp.getData();
     }
 
     /**
      * Get listing
      * Full listing — description, attributes, images, seller, similar listings.
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -176,8 +183,8 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeGetListingWithHttpInfo(String listingId) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeGetListingValidateBeforeCall(listingId, null);
+    public ApiResponse<Object> gumtreeGetListingWithHttpInfo(String listingId, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeGetListingValidateBeforeCall(listingId, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -185,7 +192,8 @@ public class GumtreeApi {
     /**
      * Get listing (asynchronously)
      * Full listing — description, attributes, images, seller, similar listings.
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -197,18 +205,20 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeGetListingAsync(String listingId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeGetListingAsync(String listingId, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeGetListingValidateBeforeCall(listingId, _callback);
+        okhttp3.Call localVarCall = gumtreeGetListingValidateBeforeCall(listingId, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for gumtreeGetSearchFilters
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param query  (optional)
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param query Optional keywords to scope the counts (optional)
+     * @param filters za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -220,7 +230,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeGetSearchFiltersCall(String category, String location, String query, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeGetSearchFiltersCall(String category, String location, String query, String filters, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -257,6 +267,14 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
         }
 
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -277,17 +295,19 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeGetSearchFiltersValidateBeforeCall(String category, String location, String query, final ApiCallback _callback) throws ApiException {
-        return gumtreeGetSearchFiltersCall(category, location, query, _callback);
+    private okhttp3.Call gumtreeGetSearchFiltersValidateBeforeCall(String category, String location, String query, String filters, String market, final ApiCallback _callback) throws ApiException {
+        return gumtreeGetSearchFiltersCall(category, location, query, filters, market, _callback);
 
     }
 
     /**
      * Get search filters
-     * Filters, sort orders and radius options for a category, with live counts.
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param query  (optional)
+     * Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param query Optional keywords to scope the counts (optional)
+     * @param filters za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -298,17 +318,19 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeGetSearchFilters(String category, String location, String query) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeGetSearchFiltersWithHttpInfo(category, location, query);
+    public Object gumtreeGetSearchFilters(String category, String location, String query, String filters, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeGetSearchFiltersWithHttpInfo(category, location, query, filters, market);
         return localVarResp.getData();
     }
 
     /**
      * Get search filters
-     * Filters, sort orders and radius options for a category, with live counts.
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param query  (optional)
+     * Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param query Optional keywords to scope the counts (optional)
+     * @param filters za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -319,18 +341,20 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeGetSearchFiltersWithHttpInfo(String category, String location, String query) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeGetSearchFiltersValidateBeforeCall(category, location, query, null);
+    public ApiResponse<Object> gumtreeGetSearchFiltersWithHttpInfo(String category, String location, String query, String filters, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeGetSearchFiltersValidateBeforeCall(category, location, query, filters, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get search filters (asynchronously)
-     * Filters, sort orders and radius options for a category, with live counts.
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param query  (optional)
+     * Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param query Optional keywords to scope the counts (optional)
+     * @param filters za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -342,17 +366,18 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeGetSearchFiltersAsync(String category, String location, String query, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeGetSearchFiltersAsync(String category, String location, String query, String filters, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeGetSearchFiltersValidateBeforeCall(category, location, query, _callback);
+        okhttp3.Call localVarCall = gumtreeGetSearchFiltersValidateBeforeCall(category, location, query, filters, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for gumtreeGetSellerListings
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -364,7 +389,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeGetSellerListingsCall(String listingId, Integer page, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeGetSellerListingsCall(String listingId, Integer page, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -394,6 +419,10 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -414,21 +443,22 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeGetSellerListingsValidateBeforeCall(String listingId, Integer page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gumtreeGetSellerListingsValidateBeforeCall(String listingId, Integer page, String market, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
             throw new ApiException("Missing the required parameter 'listingId' when calling gumtreeGetSellerListings(Async)");
         }
 
-        return gumtreeGetSellerListingsCall(listingId, page, _callback);
+        return gumtreeGetSellerListingsCall(listingId, page, market, _callback);
 
     }
 
     /**
      * Get seller listings
      * Every live listing by the seller of the given listing.
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -439,16 +469,17 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeGetSellerListings(String listingId, Integer page) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeGetSellerListingsWithHttpInfo(listingId, page);
+    public Object gumtreeGetSellerListings(String listingId, Integer page, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeGetSellerListingsWithHttpInfo(listingId, page, market);
         return localVarResp.getData();
     }
 
     /**
      * Get seller listings
      * Every live listing by the seller of the given listing.
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -459,8 +490,8 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeGetSellerListingsWithHttpInfo(String listingId, Integer page) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeGetSellerListingsValidateBeforeCall(listingId, page, null);
+    public ApiResponse<Object> gumtreeGetSellerListingsWithHttpInfo(String listingId, Integer page, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeGetSellerListingsValidateBeforeCall(listingId, page, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -468,8 +499,9 @@ public class GumtreeApi {
     /**
      * Get seller listings (asynchronously)
      * Every live listing by the seller of the given listing.
-     * @param listingId Gumtree listing id — the number at the end of a gumtree.com/p/... URL (required)
+     * @param listingId Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one) (required)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -481,9 +513,9 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeGetSellerListingsAsync(String listingId, Integer page, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeGetSellerListingsAsync(String listingId, Integer page, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeGetSellerListingsValidateBeforeCall(listingId, page, _callback);
+        okhttp3.Call localVarCall = gumtreeGetSellerListingsValidateBeforeCall(listingId, page, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -724,7 +756,8 @@ public class GumtreeApi {
     }
     /**
      * Build call for gumtreeListCategories
-     * @param parentId Parent category id (default: all) (optional, default to 1)
+     * @param parentId Category id to list the children of (default: all) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -736,7 +769,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeListCategoriesCall(Integer parentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeListCategoriesCall(Integer parentId, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -765,6 +798,10 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("parent_id", parentId));
         }
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -785,15 +822,16 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeListCategoriesValidateBeforeCall(Integer parentId, final ApiCallback _callback) throws ApiException {
-        return gumtreeListCategoriesCall(parentId, _callback);
+    private okhttp3.Call gumtreeListCategoriesValidateBeforeCall(Integer parentId, String market, final ApiCallback _callback) throws ApiException {
+        return gumtreeListCategoriesCall(parentId, market, _callback);
 
     }
 
     /**
      * List categories
-     * Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
-     * @param parentId Parent category id (default: all) (optional, default to 1)
+     * Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
+     * @param parentId Category id to list the children of (default: all) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -804,15 +842,16 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeListCategories(Integer parentId) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeListCategoriesWithHttpInfo(parentId);
+    public Object gumtreeListCategories(Integer parentId, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeListCategoriesWithHttpInfo(parentId, market);
         return localVarResp.getData();
     }
 
     /**
      * List categories
-     * Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
-     * @param parentId Parent category id (default: all) (optional, default to 1)
+     * Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
+     * @param parentId Category id to list the children of (default: all) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -823,16 +862,17 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeListCategoriesWithHttpInfo(Integer parentId) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeListCategoriesValidateBeforeCall(parentId, null);
+    public ApiResponse<Object> gumtreeListCategoriesWithHttpInfo(Integer parentId, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeListCategoriesValidateBeforeCall(parentId, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List categories (asynchronously)
-     * Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
-     * @param parentId Parent category id (default: all) (optional, default to 1)
+     * Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
+     * @param parentId Category id to list the children of (default: all) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -844,16 +884,17 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeListCategoriesAsync(Integer parentId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeListCategoriesAsync(Integer parentId, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeListCategoriesValidateBeforeCall(parentId, _callback);
+        okhttp3.Call localVarCall = gumtreeListCategoriesValidateBeforeCall(parentId, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for gumtreeListLocations
-     * @param parentId Parent location id (default: UK) (optional, default to 10000392)
+     * @param parentId Location id to list the children of (default: the whole country) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -865,7 +906,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeListLocationsCall(Integer parentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeListLocationsCall(Integer parentId, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -894,6 +935,10 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("parent_id", parentId));
         }
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -914,15 +959,16 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeListLocationsValidateBeforeCall(Integer parentId, final ApiCallback _callback) throws ApiException {
-        return gumtreeListLocationsCall(parentId, _callback);
+    private okhttp3.Call gumtreeListLocationsValidateBeforeCall(Integer parentId, String market, final ApiCallback _callback) throws ApiException {
+        return gumtreeListLocationsCall(parentId, market, _callback);
 
     }
 
     /**
      * List locations
-     * Browse Gumtree&#39;s location tree.
-     * @param parentId Parent location id (default: UK) (optional, default to 10000392)
+     * Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+     * @param parentId Location id to list the children of (default: the whole country) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -933,15 +979,16 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeListLocations(Integer parentId) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeListLocationsWithHttpInfo(parentId);
+    public Object gumtreeListLocations(Integer parentId, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeListLocationsWithHttpInfo(parentId, market);
         return localVarResp.getData();
     }
 
     /**
      * List locations
-     * Browse Gumtree&#39;s location tree.
-     * @param parentId Parent location id (default: UK) (optional, default to 10000392)
+     * Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+     * @param parentId Location id to list the children of (default: the whole country) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -952,16 +999,17 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeListLocationsWithHttpInfo(Integer parentId) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeListLocationsValidateBeforeCall(parentId, null);
+    public ApiResponse<Object> gumtreeListLocationsWithHttpInfo(Integer parentId, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeListLocationsValidateBeforeCall(parentId, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List locations (asynchronously)
-     * Browse Gumtree&#39;s location tree.
-     * @param parentId Parent location id (default: UK) (optional, default to 10000392)
+     * Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+     * @param parentId Location id to list the children of (default: the whole country) (optional)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -973,16 +1021,134 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeListLocationsAsync(Integer parentId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeListLocationsAsync(Integer parentId, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeListLocationsValidateBeforeCall(parentId, _callback);
+        okhttp3.Call localVarCall = gumtreeListLocationsValidateBeforeCall(parentId, market, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for gumtreeListMarkets
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gumtreeListMarketsCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/gumtree/markets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gumtreeListMarketsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return gumtreeListMarketsCall(_callback);
+
+    }
+
+    /**
+     * List markets
+     * The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object gumtreeListMarkets() throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeListMarketsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List markets
+     * The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> gumtreeListMarketsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = gumtreeListMarketsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List markets (asynchronously)
+     * The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gumtreeListMarketsAsync(final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gumtreeListMarketsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for gumtreeLocationSuggestions
-     * @param query Town or postcode prefix, e.g. &#39;manch&#39; (required)
+     * @param query Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -994,7 +1160,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeLocationSuggestionsCall(String query, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeLocationSuggestionsCall(String query, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1023,6 +1189,10 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
         }
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1043,20 +1213,21 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeLocationSuggestionsValidateBeforeCall(String query, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gumtreeLocationSuggestionsValidateBeforeCall(String query, String market, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling gumtreeLocationSuggestions(Async)");
         }
 
-        return gumtreeLocationSuggestionsCall(query, _callback);
+        return gumtreeLocationSuggestionsCall(query, market, _callback);
 
     }
 
     /**
      * Location suggestions
-     * Resolve a place name or postcode to Gumtree locations with coordinates.
-     * @param query Town or postcode prefix, e.g. &#39;manch&#39; (required)
+     * Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
+     * @param query Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1067,15 +1238,16 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeLocationSuggestions(String query) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeLocationSuggestionsWithHttpInfo(query);
+    public Object gumtreeLocationSuggestions(String query, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeLocationSuggestionsWithHttpInfo(query, market);
         return localVarResp.getData();
     }
 
     /**
      * Location suggestions
-     * Resolve a place name or postcode to Gumtree locations with coordinates.
-     * @param query Town or postcode prefix, e.g. &#39;manch&#39; (required)
+     * Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
+     * @param query Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1086,16 +1258,17 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeLocationSuggestionsWithHttpInfo(String query) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeLocationSuggestionsValidateBeforeCall(query, null);
+    public ApiResponse<Object> gumtreeLocationSuggestionsWithHttpInfo(String query, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeLocationSuggestionsValidateBeforeCall(query, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Location suggestions (asynchronously)
-     * Resolve a place name or postcode to Gumtree locations with coordinates.
-     * @param query Town or postcode prefix, e.g. &#39;manch&#39; (required)
+     * Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
+     * @param query Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1107,9 +1280,9 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeLocationSuggestionsAsync(String query, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeLocationSuggestionsAsync(String query, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeLocationSuggestionsValidateBeforeCall(query, _callback);
+        okhttp3.Call localVarCall = gumtreeLocationSuggestionsValidateBeforeCall(query, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1117,17 +1290,18 @@ public class GumtreeApi {
     /**
      * Build call for gumtreeSearchListings
      * @param query Search keywords, e.g. &#39;mountain bike&#39; (optional)
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param distance Radius in miles (optional)
-     * @param minPrice GBP; needs a category (optional)
-     * @param maxPrice GBP; needs a category (optional)
-     * @param sort  (optional)
-     * @param sellerType  (optional)
-     * @param urgentOnly  (optional, default to false)
-     * @param withPhotos  (optional, default to false)
-     * @param filters Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param distance Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)
+     * @param minPrice Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param maxPrice Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param sort Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)
+     * @param sellerType uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)
+     * @param urgentOnly uk only: only ads marked urgent (optional, default to false)
+     * @param withPhotos uk only: only ads with photos (optional, default to false)
+     * @param filters Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1139,7 +1313,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeSearchListingsCall(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeSearchListingsCall(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1212,6 +1386,10 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1232,26 +1410,27 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeSearchListingsValidateBeforeCall(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, final ApiCallback _callback) throws ApiException {
-        return gumtreeSearchListingsCall(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, _callback);
+    private okhttp3.Call gumtreeSearchListingsValidateBeforeCall(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, String market, final ApiCallback _callback) throws ApiException {
+        return gumtreeSearchListingsCall(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market, _callback);
 
     }
 
     /**
      * Search listings
-     * Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+     * Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
      * @param query Search keywords, e.g. &#39;mountain bike&#39; (optional)
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param distance Radius in miles (optional)
-     * @param minPrice GBP; needs a category (optional)
-     * @param maxPrice GBP; needs a category (optional)
-     * @param sort  (optional)
-     * @param sellerType  (optional)
-     * @param urgentOnly  (optional, default to false)
-     * @param withPhotos  (optional, default to false)
-     * @param filters Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param distance Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)
+     * @param minPrice Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param maxPrice Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param sort Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)
+     * @param sellerType uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)
+     * @param urgentOnly uk only: only ads marked urgent (optional, default to false)
+     * @param withPhotos uk only: only ads with photos (optional, default to false)
+     * @param filters Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1262,26 +1441,27 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeSearchListings(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeSearchListingsWithHttpInfo(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page);
+    public Object gumtreeSearchListings(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeSearchListingsWithHttpInfo(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market);
         return localVarResp.getData();
     }
 
     /**
      * Search listings
-     * Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+     * Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
      * @param query Search keywords, e.g. &#39;mountain bike&#39; (optional)
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param distance Radius in miles (optional)
-     * @param minPrice GBP; needs a category (optional)
-     * @param maxPrice GBP; needs a category (optional)
-     * @param sort  (optional)
-     * @param sellerType  (optional)
-     * @param urgentOnly  (optional, default to false)
-     * @param withPhotos  (optional, default to false)
-     * @param filters Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param distance Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)
+     * @param minPrice Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param maxPrice Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param sort Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)
+     * @param sellerType uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)
+     * @param urgentOnly uk only: only ads marked urgent (optional, default to false)
+     * @param withPhotos uk only: only ads with photos (optional, default to false)
+     * @param filters Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1292,27 +1472,28 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeSearchListingsWithHttpInfo(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeSearchListingsValidateBeforeCall(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, null);
+    public ApiResponse<Object> gumtreeSearchListingsWithHttpInfo(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeSearchListingsValidateBeforeCall(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search listings (asynchronously)
-     * Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+     * Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
      * @param query Search keywords, e.g. &#39;mountain bike&#39; (optional)
-     * @param category Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to all)
-     * @param location Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to uk)
-     * @param distance Radius in miles (optional)
-     * @param minPrice GBP; needs a category (optional)
-     * @param maxPrice GBP; needs a category (optional)
-     * @param sort  (optional)
-     * @param sellerType  (optional)
-     * @param urgentOnly  (optional, default to false)
-     * @param withPhotos  (optional, default to false)
-     * @param filters Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)
+     * @param category uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to all)
+     * @param location uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)
+     * @param distance Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)
+     * @param minPrice Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param maxPrice Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)
+     * @param sort Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)
+     * @param sellerType uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)
+     * @param urgentOnly uk only: only ads marked urgent (optional, default to false)
+     * @param withPhotos uk only: only ads with photos (optional, default to false)
+     * @param filters Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)
      * @param page  (optional, default to 1)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1324,9 +1505,9 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeSearchListingsAsync(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeSearchListingsAsync(String query, String category, String location, BigDecimal distance, Integer minPrice, Integer maxPrice, String sort, String sellerType, Boolean urgentOnly, Boolean withPhotos, String filters, Integer page, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeSearchListingsValidateBeforeCall(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, _callback);
+        okhttp3.Call localVarCall = gumtreeSearchListingsValidateBeforeCall(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1334,6 +1515,7 @@ public class GumtreeApi {
     /**
      * Build call for gumtreeSearchSuggestions
      * @param query Partial search term, e.g. &#39;iph&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1345,7 +1527,7 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeSearchSuggestionsCall(String query, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gumtreeSearchSuggestionsCall(String query, String market, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1374,6 +1556,10 @@ public class GumtreeApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
         }
 
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1394,13 +1580,13 @@ public class GumtreeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gumtreeSearchSuggestionsValidateBeforeCall(String query, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gumtreeSearchSuggestionsValidateBeforeCall(String query, String market, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling gumtreeSearchSuggestions(Async)");
         }
 
-        return gumtreeSearchSuggestionsCall(query, _callback);
+        return gumtreeSearchSuggestionsCall(query, market, _callback);
 
     }
 
@@ -1408,6 +1594,7 @@ public class GumtreeApi {
      * Search suggestions
      * Gumtree search-box keyword suggestions with their categories.
      * @param query Partial search term, e.g. &#39;iph&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1418,8 +1605,8 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object gumtreeSearchSuggestions(String query) throws ApiException {
-        ApiResponse<Object> localVarResp = gumtreeSearchSuggestionsWithHttpInfo(query);
+    public Object gumtreeSearchSuggestions(String query, String market) throws ApiException {
+        ApiResponse<Object> localVarResp = gumtreeSearchSuggestionsWithHttpInfo(query, market);
         return localVarResp.getData();
     }
 
@@ -1427,6 +1614,7 @@ public class GumtreeApi {
      * Search suggestions
      * Gumtree search-box keyword suggestions with their categories.
      * @param query Partial search term, e.g. &#39;iph&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1437,8 +1625,8 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> gumtreeSearchSuggestionsWithHttpInfo(String query) throws ApiException {
-        okhttp3.Call localVarCall = gumtreeSearchSuggestionsValidateBeforeCall(query, null);
+    public ApiResponse<Object> gumtreeSearchSuggestionsWithHttpInfo(String query, String market) throws ApiException {
+        okhttp3.Call localVarCall = gumtreeSearchSuggestionsValidateBeforeCall(query, market, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1447,6 +1635,7 @@ public class GumtreeApi {
      * Search suggestions (asynchronously)
      * Gumtree search-box keyword suggestions with their categories.
      * @param query Partial search term, e.g. &#39;iph&#39; (required)
+     * @param market Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1458,9 +1647,9 @@ public class GumtreeApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gumtreeSearchSuggestionsAsync(String query, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call gumtreeSearchSuggestionsAsync(String query, String market, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gumtreeSearchSuggestionsValidateBeforeCall(query, _callback);
+        okhttp3.Call localVarCall = gumtreeSearchSuggestionsValidateBeforeCall(query, market, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
