@@ -2889,7 +2889,7 @@ public class GoogleApi {
      * @param si Cached search params (optional)
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
-     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)
+     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3078,7 +3078,7 @@ public class GoogleApi {
      * @param si Cached search params (optional)
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
-     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)
+     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3120,7 +3120,7 @@ public class GoogleApi {
      * @param si Cached search params (optional)
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
-     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)
+     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3163,7 +3163,7 @@ public class GoogleApi {
      * @param si Cached search params (optional)
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
-     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)
+     * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

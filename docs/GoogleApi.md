@@ -1402,7 +1402,7 @@ public class Example {
     String si = "si_example"; // String | Cached search params
     String ibp = "ibp_example"; // String | Layout control
     String uds = "uds_example"; // String | Google filter string
-    Boolean aiOverview = false; // Boolean | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview.
+    Boolean aiOverview = false; // Boolean | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged.
     try {
       Object result = apiInstance.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview);
       System.out.println(result);
@@ -1444,7 +1444,7 @@ public class Example {
 | **si** | **String**| Cached search params | [optional] |
 | **ibp** | **String**| Layout control | [optional] |
 | **uds** | **String**| Google filter string | [optional] |
-| **aiOverview** | **Boolean**| Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. | [optional] [default to false] |
+| **aiOverview** | **Boolean**| Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. | [optional] [default to false] |
 
 ### Return type
 
