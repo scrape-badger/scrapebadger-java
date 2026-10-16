@@ -54,7 +54,7 @@ import com.scrapebadger.client.JSON;
  * Envelope returned by search and search_by_image.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
-public class SearchResponse {
+public class PortalApiRoutersVintedSchemasSearchResponse {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   @javax.annotation.Nonnull
@@ -75,15 +75,15 @@ public class SearchResponse {
   @javax.annotation.Nullable
   private String sellerCountry;
 
-  public SearchResponse() {
+  public PortalApiRoutersVintedSchemasSearchResponse() {
   }
 
-  public SearchResponse items(@javax.annotation.Nonnull List<VintedItemSummary> items) {
+  public PortalApiRoutersVintedSchemasSearchResponse items(@javax.annotation.Nonnull List<VintedItemSummary> items) {
     this.items = items;
     return this;
   }
 
-  public SearchResponse addItemsItem(VintedItemSummary itemsItem) {
+  public PortalApiRoutersVintedSchemasSearchResponse addItemsItem(VintedItemSummary itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -105,7 +105,7 @@ public class SearchResponse {
   }
 
 
-  public SearchResponse pagination(@javax.annotation.Nonnull VintedPagination pagination) {
+  public PortalApiRoutersVintedSchemasSearchResponse pagination(@javax.annotation.Nonnull VintedPagination pagination) {
     this.pagination = pagination;
     return this;
   }
@@ -124,7 +124,7 @@ public class SearchResponse {
   }
 
 
-  public SearchResponse market(@javax.annotation.Nonnull String market) {
+  public PortalApiRoutersVintedSchemasSearchResponse market(@javax.annotation.Nonnull String market) {
     this.market = market;
     return this;
   }
@@ -143,7 +143,7 @@ public class SearchResponse {
   }
 
 
-  public SearchResponse sellerCountry(@javax.annotation.Nullable String sellerCountry) {
+  public PortalApiRoutersVintedSchemasSearchResponse sellerCountry(@javax.annotation.Nullable String sellerCountry) {
     this.sellerCountry = sellerCountry;
     return this;
   }
@@ -171,11 +171,11 @@ public class SearchResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchResponse searchResponse = (SearchResponse) o;
-    return Objects.equals(this.items, searchResponse.items) &&
-        Objects.equals(this.pagination, searchResponse.pagination) &&
-        Objects.equals(this.market, searchResponse.market) &&
-        Objects.equals(this.sellerCountry, searchResponse.sellerCountry);
+    PortalApiRoutersVintedSchemasSearchResponse portalApiRoutersVintedSchemasSearchResponse = (PortalApiRoutersVintedSchemasSearchResponse) o;
+    return Objects.equals(this.items, portalApiRoutersVintedSchemasSearchResponse.items) &&
+        Objects.equals(this.pagination, portalApiRoutersVintedSchemasSearchResponse.pagination) &&
+        Objects.equals(this.market, portalApiRoutersVintedSchemasSearchResponse.market) &&
+        Objects.equals(this.sellerCountry, portalApiRoutersVintedSchemasSearchResponse.sellerCountry);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -197,7 +197,7 @@ public class SearchResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchResponse {\n");
+    sb.append("class PortalApiRoutersVintedSchemasSearchResponse {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    market: ").append(toIndentedString(market)).append("\n");
@@ -240,25 +240,25 @@ public class SearchResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SearchResponse
+   * @throws IOException if the JSON Element is invalid with respect to PortalApiRoutersVintedSchemasSearchResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SearchResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchResponse is not found in the empty JSON string", SearchResponse.openapiRequiredFields.toString()));
+        if (!PortalApiRoutersVintedSchemasSearchResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PortalApiRoutersVintedSchemasSearchResponse is not found in the empty JSON string", PortalApiRoutersVintedSchemasSearchResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SearchResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!PortalApiRoutersVintedSchemasSearchResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PortalApiRoutersVintedSchemasSearchResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SearchResponse.openapiRequiredFields) {
+      for (String requiredField : PortalApiRoutersVintedSchemasSearchResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -288,22 +288,22 @@ public class SearchResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchResponse' and its subtypes
+       if (!PortalApiRoutersVintedSchemasSearchResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PortalApiRoutersVintedSchemasSearchResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchResponse.class));
+       final TypeAdapter<PortalApiRoutersVintedSchemasSearchResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PortalApiRoutersVintedSchemasSearchResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SearchResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<PortalApiRoutersVintedSchemasSearchResponse>() {
            @Override
-           public void write(JsonWriter out, SearchResponse value) throws IOException {
+           public void write(JsonWriter out, PortalApiRoutersVintedSchemasSearchResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public SearchResponse read(JsonReader in) throws IOException {
+           public PortalApiRoutersVintedSchemasSearchResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -314,18 +314,18 @@ public class SearchResponse {
   }
 
   /**
-   * Create an instance of SearchResponse given an JSON string
+   * Create an instance of PortalApiRoutersVintedSchemasSearchResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SearchResponse
-   * @throws IOException if the JSON string is invalid with respect to SearchResponse
+   * @return An instance of PortalApiRoutersVintedSchemasSearchResponse
+   * @throws IOException if the JSON string is invalid with respect to PortalApiRoutersVintedSchemasSearchResponse
    */
-  public static SearchResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchResponse.class);
+  public static PortalApiRoutersVintedSchemasSearchResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PortalApiRoutersVintedSchemasSearchResponse.class);
   }
 
   /**
-   * Convert an instance of SearchResponse to an JSON string
+   * Convert an instance of PortalApiRoutersVintedSchemasSearchResponse to an JSON string
    *
    * @return JSON string
    */

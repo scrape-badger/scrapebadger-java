@@ -1,6 +1,6 @@
 
 
-# SearchResponse
+# PortalApiRoutersVintedSchemasSearchResponse
 
 Envelope returned by search and search_by_image.
 

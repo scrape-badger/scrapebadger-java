@@ -18,8 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.scrapebadger.client.model.VintedItemSummary;
-import com.scrapebadger.client.model.VintedPagination;
+import com.scrapebadger.client.model.Price;
+import com.scrapebadger.client.model.Variant;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,49 +29,49 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SearchResponse
+ * Model tests for StockProduct
  */
-public class SearchResponseTest {
-    private final SearchResponse model = new SearchResponse();
+public class StockProductTest {
+    private final StockProduct model = new StockProduct();
 
     /**
-     * Model tests for SearchResponse
+     * Model tests for StockProduct
      */
     @Test
-    public void testSearchResponse() {
-        // TODO: test SearchResponse
+    public void testStockProduct() {
+        // TODO: test StockProduct
     }
 
     /**
-     * Test the property 'items'
+     * Test the property 'productId'
      */
     @Test
-    public void itemsTest() {
-        // TODO: test items
+    public void productIdTest() {
+        // TODO: test productId
     }
 
     /**
-     * Test the property 'pagination'
+     * Test the property 'productPrice'
      */
     @Test
-    public void paginationTest() {
-        // TODO: test pagination
+    public void productPriceTest() {
+        // TODO: test productPrice
     }
 
     /**
-     * Test the property 'market'
+     * Test the property 'isInStock'
      */
     @Test
-    public void marketTest() {
-        // TODO: test market
+    public void isInStockTest() {
+        // TODO: test isInStock
     }
 
     /**
-     * Test the property 'sellerCountry'
+     * Test the property 'variants'
      */
     @Test
-    public void sellerCountryTest() {
-        // TODO: test sellerCountry
+    public void variantsTest() {
+        // TODO: test variants
     }
 
 }

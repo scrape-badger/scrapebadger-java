@@ -20,7 +20,7 @@ import com.scrapebadger.client.model.ColorsResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
 import com.scrapebadger.client.model.ItemDetailResponse;
 import com.scrapebadger.client.model.MarketsResponse;
-import com.scrapebadger.client.model.SearchResponse;
+import com.scrapebadger.client.model.PortalApiRoutersVintedSchemasSearchResponse;
 import com.scrapebadger.client.model.StatusesResponse;
 import com.scrapebadger.client.model.UserItemsResponse;
 import com.scrapebadger.client.model.UserProfileResponse;
@@ -183,7 +183,7 @@ public class VintedApiTest {
     @Test
     public void vintedSearchByImageTest() throws ApiException {
         VintedImageSearchRequest vintedImageSearchRequest = null;
-        SearchResponse response = api.vintedSearchByImage(vintedImageSearchRequest);
+        PortalApiRoutersVintedSchemasSearchResponse response = api.vintedSearchByImage(vintedImageSearchRequest);
         // TODO: test validations
     }
 
@@ -212,7 +212,7 @@ public class VintedApiTest {
         String searchSessionId = null;
         String statusIds = null;
         String order = null;
-        SearchResponse response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+        PortalApiRoutersVintedSchemasSearchResponse response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
         // TODO: test validations
     }
 

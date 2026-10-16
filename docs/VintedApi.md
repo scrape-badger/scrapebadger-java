@@ -655,7 +655,7 @@ public class Example {
 
 <a id="vintedSearchByImage"></a>
 # **vintedSearchByImage**
-> SearchResponse vintedSearchByImage(vintedImageSearchRequest)
+> PortalApiRoutersVintedSchemasSearchResponse vintedSearchByImage(vintedImageSearchRequest)
 
 Search by image
 
@@ -685,7 +685,7 @@ public class Example {
     VintedApi apiInstance = new VintedApi(defaultClient);
     VintedImageSearchRequest vintedImageSearchRequest = new VintedImageSearchRequest(); // VintedImageSearchRequest | 
     try {
-      SearchResponse result = apiInstance.vintedSearchByImage(vintedImageSearchRequest);
+      PortalApiRoutersVintedSchemasSearchResponse result = apiInstance.vintedSearchByImage(vintedImageSearchRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedSearchByImage");
@@ -706,7 +706,7 @@ public class Example {
 
 ### Return type
 
-[**SearchResponse**](SearchResponse.md)
+[**PortalApiRoutersVintedSchemasSearchResponse**](PortalApiRoutersVintedSchemasSearchResponse.md)
 
 ### Authorization
 
@@ -725,7 +725,7 @@ public class Example {
 
 <a id="vintedSearchVintedItems"></a>
 # **vintedSearchVintedItems**
-> SearchResponse vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order)
+> PortalApiRoutersVintedSchemasSearchResponse vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order)
 
 Search Vinted items
 
@@ -770,7 +770,7 @@ public class Example {
     String statusIds = "statusIds_example"; // String | Comma-separated condition/status IDs
     String order = "order_example"; // String | 
     try {
-      SearchResponse result = apiInstance.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+      PortalApiRoutersVintedSchemasSearchResponse result = apiInstance.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VintedApi#vintedSearchVintedItems");
@@ -806,7 +806,7 @@ public class Example {
 
 ### Return type
 
-[**SearchResponse**](SearchResponse.md)
+[**PortalApiRoutersVintedSchemasSearchResponse**](PortalApiRoutersVintedSchemasSearchResponse.md)
 
 ### Authorization
 
