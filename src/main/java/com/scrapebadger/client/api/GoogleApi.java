@@ -2307,6 +2307,244 @@ public class GoogleApi {
         return localVarCall;
     }
     /**
+     * Build call for googleGoogleLightWebSearch
+     * @param q Search query (supports Google operators) (required)
+     * @param gl Country code (optional, default to us)
+     * @param hl Language code (optional, default to en)
+     * @param num  (optional, default to 10)
+     * @param start Page offset (0, 10, 20...) (optional, default to 0)
+     * @param domain Google domain (optional, default to google.com)
+     * @param location City-level geo-targeting (optional)
+     * @param uule Encoded location (optional)
+     * @param lr Language restrict (e.g. lang_en) (optional)
+     * @param tbs Time filter (e.g. qdr:d) (optional)
+     * @param safe Safe search: off or active (optional, default to off)
+     * @param filter  (optional)
+     * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param output  (optional, default to json)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call googleGoogleLightWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/google/light/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (q != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("q", q));
+        }
+
+        if (gl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("gl", gl));
+        }
+
+        if (hl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hl", hl));
+        }
+
+        if (num != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("num", num));
+        }
+
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
+        if (domain != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("domain", domain));
+        }
+
+        if (location != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("location", location));
+        }
+
+        if (uule != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uule", uule));
+        }
+
+        if (lr != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lr", lr));
+        }
+
+        if (tbs != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tbs", tbs));
+        }
+
+        if (safe != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("safe", safe));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (nfpr != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("nfpr", nfpr));
+        }
+
+        if (output != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("output", output));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call googleGoogleLightWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'q' is set
+        if (q == null) {
+            throw new ApiException("Missing the required parameter 'q' when calling googleGoogleLightWebSearch(Async)");
+        }
+
+        return googleGoogleLightWebSearchCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, _callback);
+
+    }
+
+    /**
+     * Google Light web search
+     * Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+     * @param q Search query (supports Google operators) (required)
+     * @param gl Country code (optional, default to us)
+     * @param hl Language code (optional, default to en)
+     * @param num  (optional, default to 10)
+     * @param start Page offset (0, 10, 20...) (optional, default to 0)
+     * @param domain Google domain (optional, default to google.com)
+     * @param location City-level geo-targeting (optional)
+     * @param uule Encoded location (optional)
+     * @param lr Language restrict (e.g. lang_en) (optional)
+     * @param tbs Time filter (e.g. qdr:d) (optional)
+     * @param safe Safe search: off or active (optional, default to off)
+     * @param filter  (optional)
+     * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param output  (optional, default to json)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object googleGoogleLightWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output) throws ApiException {
+        ApiResponse<Object> localVarResp = googleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Google Light web search
+     * Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+     * @param q Search query (supports Google operators) (required)
+     * @param gl Country code (optional, default to us)
+     * @param hl Language code (optional, default to en)
+     * @param num  (optional, default to 10)
+     * @param start Page offset (0, 10, 20...) (optional, default to 0)
+     * @param domain Google domain (optional, default to google.com)
+     * @param location City-level geo-targeting (optional)
+     * @param uule Encoded location (optional)
+     * @param lr Language restrict (e.g. lang_en) (optional)
+     * @param tbs Time filter (e.g. qdr:d) (optional)
+     * @param safe Safe search: off or active (optional, default to off)
+     * @param filter  (optional)
+     * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param output  (optional, default to json)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> googleGoogleLightWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output) throws ApiException {
+        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Google Light web search (asynchronously)
+     * Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+     * @param q Search query (supports Google operators) (required)
+     * @param gl Country code (optional, default to us)
+     * @param hl Language code (optional, default to en)
+     * @param num  (optional, default to 10)
+     * @param start Page offset (0, 10, 20...) (optional, default to 0)
+     * @param domain Google domain (optional, default to google.com)
+     * @param location City-level geo-targeting (optional)
+     * @param uule Encoded location (optional)
+     * @param lr Language restrict (e.g. lang_en) (optional)
+     * @param tbs Time filter (e.g. qdr:d) (optional)
+     * @param safe Safe search: off or active (optional, default to off)
+     * @param filter  (optional)
+     * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param output  (optional, default to json)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call googleGoogleLightWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for googleGoogleScraperHealthCheck
      * @param _callback Callback for upload/download progress
      * @return Call to execute

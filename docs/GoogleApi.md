@@ -17,6 +17,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**googleGoogleFlightsCalendarCheapestFarePerDate**](GoogleApi.md#googleGoogleFlightsCalendarCheapestFarePerDate) | **GET** /v1/google/flights/calendar | Google Flights calendar — cheapest fare per date |
 | [**googleGoogleFlightsSearch**](GoogleApi.md#googleGoogleFlightsSearch) | **GET** /v1/google/flights/search | Google Flights search |
 | [**googleGoogleLensVisualSearch**](GoogleApi.md#googleGoogleLensVisualSearch) | **GET** /v1/google/lens/search | Google Lens visual search |
+| [**googleGoogleLightWebSearch**](GoogleApi.md#googleGoogleLightWebSearch) | **GET** /v1/google/light/search | Google Light web search |
 | [**googleGoogleScraperHealthCheck**](GoogleApi.md#googleGoogleScraperHealthCheck) | **GET** /v1/google/health | Google scraper health check |
 | [**googleGoogleScraperHealthCheckHead**](GoogleApi.md#googleGoogleScraperHealthCheckHead) | **HEAD** /v1/google/health | Google scraper health check |
 | [**googleGoogleSearchSuggestions**](GoogleApi.md#googleGoogleSearchSuggestions) | **GET** /v1/google/autocomplete | Google search suggestions |
@@ -1045,6 +1046,102 @@ public class Example {
 | **product** | **Boolean**| Only the tiles Google marked buyable (price + stock), drawn from the same grid | [optional] [default to false] |
 | **visualMatches** | **Boolean**| Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; | [optional] [default to true] |
 | **exactMatches** | **Boolean**| Return only the pages hosting this image, flagged exact_match. Available for most images (8/10 in sampling); falls back to the full grid otherwise, saying so in warnings | [optional] [default to false] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="googleGoogleLightWebSearch"></a>
+# **googleGoogleLightWebSearch**
+> Object googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output)
+
+Google Light web search
+
+Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.GoogleApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    GoogleApi apiInstance = new GoogleApi(defaultClient);
+    String q = "q_example"; // String | Search query (supports Google operators)
+    String gl = "us"; // String | Country code
+    String hl = "en"; // String | Language code
+    Integer num = 10; // Integer | 
+    Integer start = 0; // Integer | Page offset (0, 10, 20...)
+    String domain = "google.com"; // String | Google domain
+    String location = "location_example"; // String | City-level geo-targeting
+    String uule = "uule_example"; // String | Encoded location
+    String lr = "lr_example"; // String | Language restrict (e.g. lang_en)
+    String tbs = "tbs_example"; // String | Time filter (e.g. qdr:d)
+    String safe = "off"; // String | Safe search: off or active
+    Integer filter = 56; // Integer | 
+    Integer nfpr = 0; // Integer | Disable auto-correction
+    String output = "json"; // String | 
+    try {
+      Object result = apiInstance.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GoogleApi#googleGoogleLightWebSearch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **q** | **String**| Search query (supports Google operators) | |
+| **gl** | **String**| Country code | [optional] [default to us] |
+| **hl** | **String**| Language code | [optional] [default to en] |
+| **num** | **Integer**|  | [optional] [default to 10] |
+| **start** | **Integer**| Page offset (0, 10, 20...) | [optional] [default to 0] |
+| **domain** | **String**| Google domain | [optional] [default to google.com] |
+| **location** | **String**| City-level geo-targeting | [optional] |
+| **uule** | **String**| Encoded location | [optional] |
+| **lr** | **String**| Language restrict (e.g. lang_en) | [optional] |
+| **tbs** | **String**| Time filter (e.g. qdr:d) | [optional] |
+| **safe** | **String**| Safe search: off or active | [optional] [default to off] |
+| **filter** | **Integer**|  | [optional] |
+| **nfpr** | **Integer**| Disable auto-correction | [optional] [default to 0] |
+| **output** | **String**|  | [optional] [default to json] [enum: json, html] |
 
 ### Return type
 

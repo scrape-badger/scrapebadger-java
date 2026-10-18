@@ -265,6 +265,33 @@ public class GoogleApiTest {
     }
 
     /**
+     * Google Light web search
+     *
+     * Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void googleGoogleLightWebSearchTest() throws ApiException {
+        String q = null;
+        String gl = null;
+        String hl = null;
+        Integer num = null;
+        Integer start = null;
+        String domain = null;
+        String location = null;
+        String uule = null;
+        String lr = null;
+        String tbs = null;
+        String safe = null;
+        Integer filter = null;
+        Integer nfpr = null;
+        String output = null;
+        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+        // TODO: test validations
+    }
+
+    /**
      * Google scraper health check
      *
      * Check health of the Google scraper service.  Accepts &#x60;&#x60;HEAD&#x60;&#x60; so external uptime checkers (UptimeRobot uses HEAD by default for HTTP monitors) don&#39;t get a 405 Method Not Allowed.
