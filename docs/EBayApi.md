@@ -104,11 +104,11 @@ public class Example {
 
 <a id="ebayCompletedSoldListings"></a>
 # **ebayCompletedSoldListings**
-> Object ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language)
+> Object ebayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language)
 
 Completed / sold listings
 
-Search completed/sold listings — eBay&#39;s sold-price history.  eBay pads a short result set with \&quot;results matching fewer words\&quot; and counts only the exact ones in &#x60;&#x60;pagination.total_results&#x60;&#x60;. Results come back in eBay&#39;s own ranking order with the exact matches first, and each one carries &#x60;&#x60;exact_match&#x60;&#x60; (true/false) so a price series can be built without parsing titles. An empty &#x60;&#x60;results&#x60;&#x60; with &#x60;&#x60;total_results: 0&#x60;&#x60; is eBay&#39;s own answer and costs 0 credits — a fetch failure is never a 200.  &#x60;&#x60;price&#x60;&#x60; is what the listing sold for, including the market&#39;s buyer-protection fee, as a local buyer sees it. It is &#x60;&#x60;null&#x60;&#x60; on one shape: an auction that also accepted offers (&#x60;&#x60;bids&#x60;&#x60; set). eBay&#39;s sold index answers those with either the listing&#39;s start/Buy-It-Now price or the price it sold at, varying between identical requests with nothing to say which, so no number there is trustworthy — &#x60;&#x60;/v1/ebay/items/{item_id}&#x60;&#x60; carries the winning bid for them (before the fee). A listing that closed purely on an accepted Best Offer prices normally: eBay never publishes the accepted amount, so &#x60;&#x60;price&#x60;&#x60; is the listed one, exactly as its own item page shows.
+Search completed/sold listings — eBay&#39;s sold-price history.  Pass &#x60;&#x60;query&#x60;&#x60;, &#x60;&#x60;seller&#x60;&#x60; or both. &#x60;&#x60;seller&#x60;&#x60; alone returns everything that seller sold, page by page, with no keyword needed.  eBay pads a short result set with \&quot;results matching fewer words\&quot; and counts only the exact ones in &#x60;&#x60;pagination.total_results&#x60;&#x60;. Results come back in eBay&#39;s own ranking order with the exact matches first, and each one carries &#x60;&#x60;exact_match&#x60;&#x60; (true/false) so a price series can be built without parsing titles. An empty &#x60;&#x60;results&#x60;&#x60; with &#x60;&#x60;total_results: 0&#x60;&#x60; is eBay&#39;s own answer and costs 0 credits — a fetch failure is never a 200.  &#x60;&#x60;price&#x60;&#x60; is what the listing sold for, including the market&#39;s buyer-protection fee, as a local buyer sees it. It is &#x60;&#x60;null&#x60;&#x60; on one shape: an auction that also accepted offers (&#x60;&#x60;bids&#x60;&#x60; set). eBay&#39;s sold index answers those with either the listing&#39;s start/Buy-It-Now price or the price it sold at, varying between identical requests with nothing to say which, so no number there is trustworthy — &#x60;&#x60;/v1/ebay/items/{item_id}&#x60;&#x60; carries the winning bid for them (before the fee). A listing that closed purely on an accepted Best Offer prices normally: eBay never publishes the accepted amount, so &#x60;&#x60;price&#x60;&#x60; is the listed one, exactly as its own item page shows.
 
 ### Example
 ```java
@@ -132,7 +132,8 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     EBayApi apiInstance = new EBayApi(defaultClient);
-    String query = "query_example"; // String | Search keywords
+    String query = "query_example"; // String | Search keywords. Optional when `seller` is set.
+    String seller = "seller_example"; // String | Only this seller's sold listings (eBay username). Works without `query`.
     String domain = "com"; // String | Marketplace domain (com, co.uk, de …)
     String categoryId = "categoryId_example"; // String | Restrict to a category id
     Integer page = 1; // Integer | 
@@ -144,7 +145,7 @@ public class Example {
     String location = "location_example"; // String | domestic|worldwide
     String language = "language_example"; // String | english|japanese|chinese|korean
     try {
-      Object result = apiInstance.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
+      Object result = apiInstance.ebayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EBayApi#ebayCompletedSoldListings");
@@ -161,7 +162,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **query** | **String**| Search keywords | |
+| **query** | **String**| Search keywords. Optional when &#x60;seller&#x60; is set. | [optional] |
+| **seller** | **String**| Only this seller&#39;s sold listings (eBay username). Works without &#x60;query&#x60;. | [optional] |
 | **domain** | **String**| Marketplace domain (com, co.uk, de …) | [optional] [default to com] |
 | **categoryId** | **String**| Restrict to a category id | [optional] |
 | **page** | **Integer**|  | [optional] [default to 1] |

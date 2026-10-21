@@ -34,7 +34,7 @@ public class InstagramApiTest {
     /**
      * About this account
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+     * Country, join date and former usernames.
      *
      * @throws ApiException if the Api call fails
      */
@@ -48,8 +48,6 @@ public class InstagramApiTest {
     /**
      * Blended top search
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -62,7 +60,7 @@ public class InstagramApiTest {
     /**
      * Get active stories
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+     * Active stories (account pool only).
      *
      * @throws ApiException if the Api call fails
      */
@@ -75,8 +73,6 @@ public class InstagramApiTest {
 
     /**
      * Get audio track
-     *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      *
      * @throws ApiException if the Api call fails
      */
@@ -104,7 +100,7 @@ public class InstagramApiTest {
     /**
      * Get followers
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+     * Followers list, paginated (account pool).
      *
      * @throws ApiException if the Api call fails
      */
@@ -121,8 +117,6 @@ public class InstagramApiTest {
     /**
      * Get following
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -137,8 +131,6 @@ public class InstagramApiTest {
     /**
      * Get hashtag info
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -150,8 +142,6 @@ public class InstagramApiTest {
 
     /**
      * Get highlights
-     *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      *
      * @throws ApiException if the Api call fails
      */
@@ -165,8 +155,6 @@ public class InstagramApiTest {
     /**
      * Get likers
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -178,8 +166,6 @@ public class InstagramApiTest {
 
     /**
      * Get location
-     *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      *
      * @throws ApiException if the Api call fails
      */
@@ -221,8 +207,6 @@ public class InstagramApiTest {
     /**
      * Get tagged posts
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -252,8 +236,6 @@ public class InstagramApiTest {
 
     /**
      * Get user reels
-     *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      *
      * @throws ApiException if the Api call fails
      */
@@ -291,8 +273,6 @@ public class InstagramApiTest {
     /**
      * Recent hashtag posts
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -307,8 +287,6 @@ public class InstagramApiTest {
     /**
      * Related profiles
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -320,8 +298,6 @@ public class InstagramApiTest {
 
     /**
      * Search hashtags
-     *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      *
      * @throws ApiException if the Api call fails
      */
@@ -335,8 +311,6 @@ public class InstagramApiTest {
     /**
      * Search users
      *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -348,8 +322,6 @@ public class InstagramApiTest {
 
     /**
      * Top hashtag posts
-     *
-     * **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
      *
      * @throws ApiException if the Api call fails
      */

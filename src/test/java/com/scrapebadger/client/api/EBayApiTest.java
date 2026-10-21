@@ -55,13 +55,14 @@ public class EBayApiTest {
     /**
      * Completed / sold listings
      *
-     * Search completed/sold listings — eBay&#39;s sold-price history.  eBay pads a short result set with \&quot;results matching fewer words\&quot; and counts only the exact ones in &#x60;&#x60;pagination.total_results&#x60;&#x60;. Results come back in eBay&#39;s own ranking order with the exact matches first, and each one carries &#x60;&#x60;exact_match&#x60;&#x60; (true/false) so a price series can be built without parsing titles. An empty &#x60;&#x60;results&#x60;&#x60; with &#x60;&#x60;total_results: 0&#x60;&#x60; is eBay&#39;s own answer and costs 0 credits — a fetch failure is never a 200.  &#x60;&#x60;price&#x60;&#x60; is what the listing sold for, including the market&#39;s buyer-protection fee, as a local buyer sees it. It is &#x60;&#x60;null&#x60;&#x60; on one shape: an auction that also accepted offers (&#x60;&#x60;bids&#x60;&#x60; set). eBay&#39;s sold index answers those with either the listing&#39;s start/Buy-It-Now price or the price it sold at, varying between identical requests with nothing to say which, so no number there is trustworthy — &#x60;&#x60;/v1/ebay/items/{item_id}&#x60;&#x60; carries the winning bid for them (before the fee). A listing that closed purely on an accepted Best Offer prices normally: eBay never publishes the accepted amount, so &#x60;&#x60;price&#x60;&#x60; is the listed one, exactly as its own item page shows.
+     * Search completed/sold listings — eBay&#39;s sold-price history.  Pass &#x60;&#x60;query&#x60;&#x60;, &#x60;&#x60;seller&#x60;&#x60; or both. &#x60;&#x60;seller&#x60;&#x60; alone returns everything that seller sold, page by page, with no keyword needed.  eBay pads a short result set with \&quot;results matching fewer words\&quot; and counts only the exact ones in &#x60;&#x60;pagination.total_results&#x60;&#x60;. Results come back in eBay&#39;s own ranking order with the exact matches first, and each one carries &#x60;&#x60;exact_match&#x60;&#x60; (true/false) so a price series can be built without parsing titles. An empty &#x60;&#x60;results&#x60;&#x60; with &#x60;&#x60;total_results: 0&#x60;&#x60; is eBay&#39;s own answer and costs 0 credits — a fetch failure is never a 200.  &#x60;&#x60;price&#x60;&#x60; is what the listing sold for, including the market&#39;s buyer-protection fee, as a local buyer sees it. It is &#x60;&#x60;null&#x60;&#x60; on one shape: an auction that also accepted offers (&#x60;&#x60;bids&#x60;&#x60; set). eBay&#39;s sold index answers those with either the listing&#39;s start/Buy-It-Now price or the price it sold at, varying between identical requests with nothing to say which, so no number there is trustworthy — &#x60;&#x60;/v1/ebay/items/{item_id}&#x60;&#x60; carries the winning bid for them (before the fee). A listing that closed purely on an accepted Best Offer prices normally: eBay never publishes the accepted amount, so &#x60;&#x60;price&#x60;&#x60; is the listed one, exactly as its own item page shows.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void ebayCompletedSoldListingsTest() throws ApiException {
         String query = null;
+        String seller = null;
         String domain = null;
         String categoryId = null;
         Integer page = null;
@@ -72,7 +73,7 @@ public class EBayApiTest {
         BigDecimal maxPrice = null;
         String location = null;
         String language = null;
-        Object response = api.ebayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
+        Object response = api.ebayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
         // TODO: test validations
     }
 
