@@ -14,6 +14,7 @@ Account information response.
 |**tier** | **String** |  |  |
 |**rateLimitPerMinute** | **Integer** |  |  |
 |**subscription** | [**SubscriptionInfo**](SubscriptionInfo.md) |  |  [optional] |
+|**agentTrial** | [**AgentTrialInfo**](AgentTrialInfo.md) |  |  [optional] |
 
 
 

@@ -8,6 +8,7 @@ build.gradle
 build.sbt
 docs/AccountApi.md
 docs/AccountInfo.md
+docs/AgentTrialInfo.md
 docs/AirbnbApi.md
 docs/AliExpressApi.md
 docs/AmazonApi.md
@@ -37,6 +38,8 @@ docs/ExtractRequest.md
 docs/ExtractRequestExtractRulesValue.md
 docs/ExtractRule.md
 docs/FacebookApi.md
+docs/FeedbackApi.md
+docs/FeedbackRequest.md
 docs/FilterRuleCreate.md
 docs/FilterRuleDeliveryLogListResponse.md
 docs/FilterRuleDeliveryLogResponse.md
@@ -75,10 +78,14 @@ docs/Product.md
 docs/ProductPrice.md
 docs/ProductResponse.md
 docs/Productcode.md
+docs/QuoteApi.md
+docs/QuoteRequest.md
 docs/Ratings.md
 docs/RealtorApi.md
 docs/RedditApi.md
 docs/RedfinApi.md
+docs/RequestsApi.md
+docs/ResultsApi.md
 docs/ScreenshotRequest.md
 docs/Searchterm.md
 docs/StatusesResponse.md
@@ -166,6 +173,7 @@ src/main/java/com/scrapebadger/client/api/DuckDuckGoApi.java
 src/main/java/com/scrapebadger/client/api/EBayApi.java
 src/main/java/com/scrapebadger/client/api/EtsyApi.java
 src/main/java/com/scrapebadger/client/api/FacebookApi.java
+src/main/java/com/scrapebadger/client/api/FeedbackApi.java
 src/main/java/com/scrapebadger/client/api/GeminiApi.java
 src/main/java/com/scrapebadger/client/api/GoogleApi.java
 src/main/java/com/scrapebadger/client/api/GooglePlayApi.java
@@ -178,9 +186,12 @@ src/main/java/com/scrapebadger/client/api/LinkedInApi.java
 src/main/java/com/scrapebadger/client/api/LoopNetApi.java
 src/main/java/com/scrapebadger/client/api/NaverApi.java
 src/main/java/com/scrapebadger/client/api/PerplexityApi.java
+src/main/java/com/scrapebadger/client/api/QuoteApi.java
 src/main/java/com/scrapebadger/client/api/RealtorApi.java
 src/main/java/com/scrapebadger/client/api/RedditApi.java
 src/main/java/com/scrapebadger/client/api/RedfinApi.java
+src/main/java/com/scrapebadger/client/api/RequestsApi.java
+src/main/java/com/scrapebadger/client/api/ResultsApi.java
 src/main/java/com/scrapebadger/client/api/TargetApi.java
 src/main/java/com/scrapebadger/client/api/TikTokApi.java
 src/main/java/com/scrapebadger/client/api/TwitterApi.java
@@ -198,6 +209,7 @@ src/main/java/com/scrapebadger/client/auth/HttpBasicAuth.java
 src/main/java/com/scrapebadger/client/auth/HttpBearerAuth.java
 src/main/java/com/scrapebadger/client/model/AbstractOpenApiSchema.java
 src/main/java/com/scrapebadger/client/model/AccountInfo.java
+src/main/java/com/scrapebadger/client/model/AgentTrialInfo.java
 src/main/java/com/scrapebadger/client/model/BillingLogListResponse.java
 src/main/java/com/scrapebadger/client/model/BillingLogResponse.java
 src/main/java/com/scrapebadger/client/model/Brandid.java
@@ -211,6 +223,7 @@ src/main/java/com/scrapebadger/client/model/Description.java
 src/main/java/com/scrapebadger/client/model/ExtractRequest.java
 src/main/java/com/scrapebadger/client/model/ExtractRequestExtractRulesValue.java
 src/main/java/com/scrapebadger/client/model/ExtractRule.java
+src/main/java/com/scrapebadger/client/model/FeedbackRequest.java
 src/main/java/com/scrapebadger/client/model/FilterRuleCreate.java
 src/main/java/com/scrapebadger/client/model/FilterRuleDeliveryLogListResponse.java
 src/main/java/com/scrapebadger/client/model/FilterRuleDeliveryLogResponse.java
@@ -237,6 +250,7 @@ src/main/java/com/scrapebadger/client/model/Product.java
 src/main/java/com/scrapebadger/client/model/ProductPrice.java
 src/main/java/com/scrapebadger/client/model/ProductResponse.java
 src/main/java/com/scrapebadger/client/model/Productcode.java
+src/main/java/com/scrapebadger/client/model/QuoteRequest.java
 src/main/java/com/scrapebadger/client/model/Ratings.java
 src/main/java/com/scrapebadger/client/model/ScreenshotRequest.java
 src/main/java/com/scrapebadger/client/model/Searchterm.java
@@ -292,6 +306,7 @@ src/test/java/com/scrapebadger/client/api/DuckDuckGoApiTest.java
 src/test/java/com/scrapebadger/client/api/EBayApiTest.java
 src/test/java/com/scrapebadger/client/api/EtsyApiTest.java
 src/test/java/com/scrapebadger/client/api/FacebookApiTest.java
+src/test/java/com/scrapebadger/client/api/FeedbackApiTest.java
 src/test/java/com/scrapebadger/client/api/GeminiApiTest.java
 src/test/java/com/scrapebadger/client/api/GoogleApiTest.java
 src/test/java/com/scrapebadger/client/api/GooglePlayApiTest.java
@@ -304,9 +319,12 @@ src/test/java/com/scrapebadger/client/api/LinkedInApiTest.java
 src/test/java/com/scrapebadger/client/api/LoopNetApiTest.java
 src/test/java/com/scrapebadger/client/api/NaverApiTest.java
 src/test/java/com/scrapebadger/client/api/PerplexityApiTest.java
+src/test/java/com/scrapebadger/client/api/QuoteApiTest.java
 src/test/java/com/scrapebadger/client/api/RealtorApiTest.java
 src/test/java/com/scrapebadger/client/api/RedditApiTest.java
 src/test/java/com/scrapebadger/client/api/RedfinApiTest.java
+src/test/java/com/scrapebadger/client/api/RequestsApiTest.java
+src/test/java/com/scrapebadger/client/api/ResultsApiTest.java
 src/test/java/com/scrapebadger/client/api/TargetApiTest.java
 src/test/java/com/scrapebadger/client/api/TikTokApiTest.java
 src/test/java/com/scrapebadger/client/api/TwitterApiTest.java
@@ -319,6 +337,7 @@ src/test/java/com/scrapebadger/client/api/YandexApiTest.java
 src/test/java/com/scrapebadger/client/api/YouTubeApiTest.java
 src/test/java/com/scrapebadger/client/api/ZillowApiTest.java
 src/test/java/com/scrapebadger/client/model/AccountInfoTest.java
+src/test/java/com/scrapebadger/client/model/AgentTrialInfoTest.java
 src/test/java/com/scrapebadger/client/model/BillingLogListResponseTest.java
 src/test/java/com/scrapebadger/client/model/BillingLogResponseTest.java
 src/test/java/com/scrapebadger/client/model/BrandidTest.java
@@ -332,6 +351,7 @@ src/test/java/com/scrapebadger/client/model/DescriptionTest.java
 src/test/java/com/scrapebadger/client/model/ExtractRequestExtractRulesValueTest.java
 src/test/java/com/scrapebadger/client/model/ExtractRequestTest.java
 src/test/java/com/scrapebadger/client/model/ExtractRuleTest.java
+src/test/java/com/scrapebadger/client/model/FeedbackRequestTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleCreateTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleDeliveryLogListResponseTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleDeliveryLogResponseTest.java
@@ -358,6 +378,7 @@ src/test/java/com/scrapebadger/client/model/ProductPriceTest.java
 src/test/java/com/scrapebadger/client/model/ProductResponseTest.java
 src/test/java/com/scrapebadger/client/model/ProductTest.java
 src/test/java/com/scrapebadger/client/model/ProductcodeTest.java
+src/test/java/com/scrapebadger/client/model/QuoteRequestTest.java
 src/test/java/com/scrapebadger/client/model/RatingsTest.java
 src/test/java/com/scrapebadger/client/model/ScreenshotRequestTest.java
 src/test/java/com/scrapebadger/client/model/SearchtermTest.java

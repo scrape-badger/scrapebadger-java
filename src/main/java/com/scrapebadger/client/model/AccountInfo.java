@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.scrapebadger.client.model.AgentTrialInfo;
 import com.scrapebadger.client.model.SubscriptionInfo;
 import java.io.IOException;
 import java.util.Arrays;
@@ -81,6 +82,11 @@ public class AccountInfo {
   @SerializedName(SERIALIZED_NAME_SUBSCRIPTION)
   @javax.annotation.Nullable
   private SubscriptionInfo subscription;
+
+  public static final String SERIALIZED_NAME_AGENT_TRIAL = "agent_trial";
+  @SerializedName(SERIALIZED_NAME_AGENT_TRIAL)
+  @javax.annotation.Nullable
+  private AgentTrialInfo agentTrial;
 
   public AccountInfo() {
   }
@@ -199,6 +205,25 @@ public class AccountInfo {
   }
 
 
+  public AccountInfo agentTrial(@javax.annotation.Nullable AgentTrialInfo agentTrial) {
+    this.agentTrial = agentTrial;
+    return this;
+  }
+
+  /**
+   * Get agentTrial
+   * @return agentTrial
+   */
+  @javax.annotation.Nullable
+  public AgentTrialInfo getAgentTrial() {
+    return agentTrial;
+  }
+
+  public void setAgentTrial(@javax.annotation.Nullable AgentTrialInfo agentTrial) {
+    this.agentTrial = agentTrial;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -214,7 +239,8 @@ public class AccountInfo {
         Objects.equals(this.totalCreditsBalance, accountInfo.totalCreditsBalance) &&
         Objects.equals(this.tier, accountInfo.tier) &&
         Objects.equals(this.rateLimitPerMinute, accountInfo.rateLimitPerMinute) &&
-        Objects.equals(this.subscription, accountInfo.subscription);
+        Objects.equals(this.subscription, accountInfo.subscription) &&
+        Objects.equals(this.agentTrial, accountInfo.agentTrial);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -223,7 +249,7 @@ public class AccountInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creditsBalance, subscriptionCreditsBalance, totalCreditsBalance, tier, rateLimitPerMinute, subscription);
+    return Objects.hash(creditsBalance, subscriptionCreditsBalance, totalCreditsBalance, tier, rateLimitPerMinute, subscription, agentTrial);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -243,6 +269,7 @@ public class AccountInfo {
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("    rateLimitPerMinute: ").append(toIndentedString(rateLimitPerMinute)).append("\n");
     sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
+    sb.append("    agentTrial: ").append(toIndentedString(agentTrial)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -271,6 +298,7 @@ public class AccountInfo {
     openapiFields.add("tier");
     openapiFields.add("rate_limit_per_minute");
     openapiFields.add("subscription");
+    openapiFields.add("agent_trial");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -315,6 +343,10 @@ public class AccountInfo {
       // validate the optional field `subscription`
       if (jsonObj.get("subscription") != null && !jsonObj.get("subscription").isJsonNull()) {
         SubscriptionInfo.validateJsonElement(jsonObj.get("subscription"));
+      }
+      // validate the optional field `agent_trial`
+      if (jsonObj.get("agent_trial") != null && !jsonObj.get("agent_trial").isJsonNull()) {
+        AgentTrialInfo.validateJsonElement(jsonObj.get("agent_trial"));
       }
   }
 
