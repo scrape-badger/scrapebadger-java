@@ -322,6 +322,7 @@ Class | Method | HTTP request | Description
 *FacebookApi* | [**facebookGetProfilePosts**](docs/FacebookApi.md#facebookGetProfilePosts) | **GET** /v1/facebook/profiles/{identifier}/posts | Get profile posts
 *FacebookApi* | [**facebookListCategories**](docs/FacebookApi.md#facebookListCategories) | **GET** /v1/facebook/marketplace/categories | List categories
 *FacebookApi* | [**facebookListLocations**](docs/FacebookApi.md#facebookListLocations) | **GET** /v1/facebook/marketplace/locations | List locations
+*FacebookApi* | [**facebookResolveATownPostcodeToAMarketplaceLocation**](docs/FacebookApi.md#facebookResolveATownPostcodeToAMarketplaceLocation) | **GET** /v1/facebook/marketplace/locations/resolve | Resolve a town/postcode to a Marketplace location
 *FacebookApi* | [**facebookSearchAdvertiserPages**](docs/FacebookApi.md#facebookSearchAdvertiserPages) | **GET** /v1/facebook/ads/pages/search | Search advertiser pages
 *FacebookApi* | [**facebookSearchEvents**](docs/FacebookApi.md#facebookSearchEvents) | **GET** /v1/facebook/search/events | Search events
 *FacebookApi* | [**facebookSearchEverything**](docs/FacebookApi.md#facebookSearchEverything) | **GET** /v1/facebook/search | Search everything

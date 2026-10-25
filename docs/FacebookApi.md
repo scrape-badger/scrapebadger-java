@@ -18,6 +18,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**facebookGetProfilePosts**](FacebookApi.md#facebookGetProfilePosts) | **GET** /v1/facebook/profiles/{identifier}/posts | Get profile posts |
 | [**facebookListCategories**](FacebookApi.md#facebookListCategories) | **GET** /v1/facebook/marketplace/categories | List categories |
 | [**facebookListLocations**](FacebookApi.md#facebookListLocations) | **GET** /v1/facebook/marketplace/locations | List locations |
+| [**facebookResolveATownPostcodeToAMarketplaceLocation**](FacebookApi.md#facebookResolveATownPostcodeToAMarketplaceLocation) | **GET** /v1/facebook/marketplace/locations/resolve | Resolve a town/postcode to a Marketplace location |
 | [**facebookSearchAdvertiserPages**](FacebookApi.md#facebookSearchAdvertiserPages) | **GET** /v1/facebook/ads/pages/search | Search advertiser pages |
 | [**facebookSearchEvents**](FacebookApi.md#facebookSearchEvents) | **GET** /v1/facebook/search/events | Search events |
 | [**facebookSearchEverything**](FacebookApi.md#facebookSearchEverything) | **GET** /v1/facebook/search | Search everything |
@@ -1031,6 +1032,82 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+<a id="facebookResolveATownPostcodeToAMarketplaceLocation"></a>
+# **facebookResolveATownPostcodeToAMarketplaceLocation**
+> Object facebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country)
+
+Resolve a town/postcode to a Marketplace location
+
+Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.FacebookApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    FacebookApi apiInstance = new FacebookApi(defaultClient);
+    String query = "query_example"; // String | Town, city, postcode or address (e.g. 'Durham', 'DH1 3LE')
+    BigDecimal latitude = new BigDecimal(78); // BigDecimal | Resolve this exact point instead
+    BigDecimal longitude = new BigDecimal(78); // BigDecimal | 
+    String country = "country_example"; // String | ISO country code hint for an ambiguous name (e.g. gb)
+    try {
+      Object result = apiInstance.facebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FacebookApi#facebookResolveATownPostcodeToAMarketplaceLocation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **query** | **String**| Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) | [optional] |
+| **latitude** | **BigDecimal**| Resolve this exact point instead | [optional] |
+| **longitude** | **BigDecimal**|  | [optional] |
+| **country** | **String**| ISO country code hint for an ambiguous name (e.g. gb) | [optional] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="facebookSearchAdvertiserPages"></a>
 # **facebookSearchAdvertiserPages**

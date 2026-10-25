@@ -14,6 +14,7 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -238,6 +239,23 @@ public class FacebookApiTest {
     @Test
     public void facebookListLocationsTest() throws ApiException {
         Object response = api.facebookListLocations();
+        // TODO: test validations
+    }
+
+    /**
+     * Resolve a town/postcode to a Marketplace location
+     *
+     * Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void facebookResolveATownPostcodeToAMarketplaceLocationTest() throws ApiException {
+        String query = null;
+        BigDecimal latitude = null;
+        BigDecimal longitude = null;
+        String country = null;
+        Object response = api.facebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country);
         // TODO: test validations
     }
 
