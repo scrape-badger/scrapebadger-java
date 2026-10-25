@@ -32,7 +32,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="facebookBrowseAMarketplaceCategory"></a>
 # **facebookBrowseAMarketplaceCategory**
-> Object facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, after)
+> Object facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after)
 
 Browse a Marketplace category
 
@@ -65,9 +65,10 @@ public class Example {
     Integer minPrice = 56; // Integer | 
     Integer maxPrice = 56; // Integer | 
     String sortBy = "sortBy_example"; // String | 
+    Integer radius = 56; // Integer | Radius around the location (km, or miles in the US)
     String after = "after_example"; // String | 
     try {
-      Object result = apiInstance.facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, after);
+      Object result = apiInstance.facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookBrowseAMarketplaceCategory");
@@ -89,6 +90,7 @@ public class Example {
 | **minPrice** | **Integer**|  | [optional] |
 | **maxPrice** | **Integer**|  | [optional] |
 | **sortBy** | **String**|  | [optional] |
+| **radius** | **Integer**| Radius around the location (km, or miles in the US) | [optional] |
 | **after** | **String**|  | [optional] |
 
 ### Return type

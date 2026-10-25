@@ -45,8 +45,9 @@ public class FacebookApiTest {
         Integer minPrice = null;
         Integer maxPrice = null;
         String sortBy = null;
+        Integer radius = null;
         String after = null;
-        Object response = api.facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, after);
+        Object response = api.facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after);
         // TODO: test validations
     }
 

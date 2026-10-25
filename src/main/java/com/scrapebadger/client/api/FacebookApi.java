@@ -79,6 +79,7 @@ public class FacebookApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param sortBy  (optional)
+     * @param radius Radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -91,7 +92,7 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookBrowseAMarketplaceCategoryCall(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, String after, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call facebookBrowseAMarketplaceCategoryCall(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, Integer radius, String after, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,6 +134,10 @@ public class FacebookApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_by", sortBy));
         }
 
+        if (radius != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("radius", radius));
+        }
+
         if (after != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
         }
@@ -157,13 +162,13 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call facebookBrowseAMarketplaceCategoryValidateBeforeCall(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, String after, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call facebookBrowseAMarketplaceCategoryValidateBeforeCall(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, Integer radius, String after, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'category' is set
         if (category == null) {
             throw new ApiException("Missing the required parameter 'category' when calling facebookBrowseAMarketplaceCategory(Async)");
         }
 
-        return facebookBrowseAMarketplaceCategoryCall(category, location, minPrice, maxPrice, sortBy, after, _callback);
+        return facebookBrowseAMarketplaceCategoryCall(category, location, minPrice, maxPrice, sortBy, radius, after, _callback);
 
     }
 
@@ -175,6 +180,7 @@ public class FacebookApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param sortBy  (optional)
+     * @param radius Radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -186,8 +192,8 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object facebookBrowseAMarketplaceCategory(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, String after) throws ApiException {
-        ApiResponse<Object> localVarResp = facebookBrowseAMarketplaceCategoryWithHttpInfo(category, location, minPrice, maxPrice, sortBy, after);
+    public Object facebookBrowseAMarketplaceCategory(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, Integer radius, String after) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookBrowseAMarketplaceCategoryWithHttpInfo(category, location, minPrice, maxPrice, sortBy, radius, after);
         return localVarResp.getData();
     }
 
@@ -199,6 +205,7 @@ public class FacebookApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param sortBy  (optional)
+     * @param radius Radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -210,8 +217,8 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> facebookBrowseAMarketplaceCategoryWithHttpInfo(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, String after) throws ApiException {
-        okhttp3.Call localVarCall = facebookBrowseAMarketplaceCategoryValidateBeforeCall(category, location, minPrice, maxPrice, sortBy, after, null);
+    public ApiResponse<Object> facebookBrowseAMarketplaceCategoryWithHttpInfo(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, Integer radius, String after) throws ApiException {
+        okhttp3.Call localVarCall = facebookBrowseAMarketplaceCategoryValidateBeforeCall(category, location, minPrice, maxPrice, sortBy, radius, after, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -224,6 +231,7 @@ public class FacebookApi {
      * @param minPrice  (optional)
      * @param maxPrice  (optional)
      * @param sortBy  (optional)
+     * @param radius Radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -236,9 +244,9 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookBrowseAMarketplaceCategoryAsync(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, String after, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call facebookBrowseAMarketplaceCategoryAsync(String category, String location, Integer minPrice, Integer maxPrice, String sortBy, Integer radius, String after, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = facebookBrowseAMarketplaceCategoryValidateBeforeCall(category, location, minPrice, maxPrice, sortBy, after, _callback);
+        okhttp3.Call localVarCall = facebookBrowseAMarketplaceCategoryValidateBeforeCall(category, location, minPrice, maxPrice, sortBy, radius, after, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
