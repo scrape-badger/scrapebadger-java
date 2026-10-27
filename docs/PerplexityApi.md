@@ -14,7 +14,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="perplexityAskPerplexityAQuestion"></a>
 # **perplexityAskPerplexityAQuestion**
-> Object perplexityAskPerplexityAQuestion(prompt, country)
+> Object perplexityAskPerplexityAQuestion(prompt, country, strictCountry)
 
 Ask Perplexity a question
 
@@ -44,8 +44,9 @@ public class Example {
     PerplexityApi apiInstance = new PerplexityApi(defaultClient);
     String prompt = "prompt_example"; // String | The prompt to send to Perplexity (max 4096 characters).
     String country = "country_example"; // String | ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'.
+    Boolean strictCountry = false; // Boolean | Answer only from an exit in `country`, never another one; 503 `country_unavailable` (not billed) when none answers. Requires `country`.
     try {
-      Object result = apiInstance.perplexityAskPerplexityAQuestion(prompt, country);
+      Object result = apiInstance.perplexityAskPerplexityAQuestion(prompt, country, strictCountry);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PerplexityApi#perplexityAskPerplexityAQuestion");
@@ -64,6 +65,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **prompt** | **String**| The prompt to send to Perplexity (max 4096 characters). | |
 | **country** | **String**| ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. | [optional] |
+| **strictCountry** | **Boolean**| Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. | [optional] [default to false] |
 
 ### Return type
 
@@ -151,7 +153,7 @@ This endpoint does not need any parameter.
 
 <a id="perplexityMeasureABrandSVisibilityInAPerplexityAnswer"></a>
 # **perplexityMeasureABrandSVisibilityInAPerplexityAnswer**
-> Object perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country)
+> Object perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry)
 
 Measure a brand&#39;s visibility in a Perplexity answer
 
@@ -185,8 +187,9 @@ public class Example {
     String aliases = "aliases_example"; // String | Comma-separated alternative names.
     String competitors = "competitors_example"; // String | Comma-separated competitor names.
     String country = "country_example"; // String | ISO-3166 alpha-2 egress country.
+    Boolean strictCountry = false; // Boolean | Answer only from an exit in `country`, never another one; 503 `country_unavailable` (not billed) when none answers. Requires `country`.
     try {
-      Object result = apiInstance.perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country);
+      Object result = apiInstance.perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PerplexityApi#perplexityMeasureABrandSVisibilityInAPerplexityAnswer");
@@ -209,6 +212,7 @@ public class Example {
 | **aliases** | **String**| Comma-separated alternative names. | [optional] |
 | **competitors** | **String**| Comma-separated competitor names. | [optional] |
 | **country** | **String**| ISO-3166 alpha-2 egress country. | [optional] |
+| **strictCountry** | **Boolean**| Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. | [optional] [default to false] |
 
 ### Return type
 
