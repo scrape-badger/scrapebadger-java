@@ -15,6 +15,7 @@ package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
 import com.scrapebadger.client.model.AccountInfo;
+import com.scrapebadger.client.model.WebhookSecret;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,6 +42,32 @@ public class AccountApiTest {
     @Test
     public void accountGetAccountInfoTest() throws ApiException {
         AccountInfo response = api.accountGetAccountInfo();
+        // TODO: test validations
+    }
+
+    /**
+     * Get the webhook signing secret
+     *
+     * The secret that signs this account&#39;s async-request webhooks, created on first read. Verify a delivery by comparing &#x60;&#x60;X-ScrapeBadger-Signature&#x60;&#x60; with &#x60;&#x60;sha256&#x3D;&#x60;&#x60; + hex HMAC-SHA256(secret, raw body).
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void accountGetTheWebhookSigningSecretTest() throws ApiException {
+        WebhookSecret response = api.accountGetTheWebhookSigningSecret();
+        // TODO: test validations
+    }
+
+    /**
+     * Rotate the webhook signing secret
+     *
+     * Replace the signing secret. Deliveries that start from now on are signed with the new one; retries of a delivery already under way keep the old one.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void accountRotateTheWebhookSigningSecretTest() throws ApiException {
+        WebhookSecret response = api.accountRotateTheWebhookSigningSecret();
         // TODO: test validations
     }
 

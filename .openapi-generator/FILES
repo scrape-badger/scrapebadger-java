@@ -16,6 +16,11 @@ docs/ApartmentsApi.md
 docs/AppStoreApi.md
 docs/AsosApi.md
 docs/BaiduApi.md
+docs/BatchApi.md
+docs/BatchItem.md
+docs/BatchItemQueryValue.md
+docs/BatchItemQueryValueAnyOfInner.md
+docs/BatchRequest.md
 docs/BestBuyApi.md
 docs/BillingLogListResponse.md
 docs/BillingLogResponse.md
@@ -128,6 +133,7 @@ docs/WebhookCreate.md
 docs/WebhookListItem.md
 docs/WebhookListResponse.md
 docs/WebhookResponse.md
+docs/WebhookSecret.md
 docs/WebhookTestRequest.md
 docs/WebhookTestResponse.md
 docs/YahooApi.md
@@ -164,6 +170,7 @@ src/main/java/com/scrapebadger/client/api/ApartmentsApi.java
 src/main/java/com/scrapebadger/client/api/AppStoreApi.java
 src/main/java/com/scrapebadger/client/api/AsosApi.java
 src/main/java/com/scrapebadger/client/api/BaiduApi.java
+src/main/java/com/scrapebadger/client/api/BatchApi.java
 src/main/java/com/scrapebadger/client/api/BestBuyApi.java
 src/main/java/com/scrapebadger/client/api/BingApi.java
 src/main/java/com/scrapebadger/client/api/BookingApi.java
@@ -210,6 +217,10 @@ src/main/java/com/scrapebadger/client/auth/HttpBearerAuth.java
 src/main/java/com/scrapebadger/client/model/AbstractOpenApiSchema.java
 src/main/java/com/scrapebadger/client/model/AccountInfo.java
 src/main/java/com/scrapebadger/client/model/AgentTrialInfo.java
+src/main/java/com/scrapebadger/client/model/BatchItem.java
+src/main/java/com/scrapebadger/client/model/BatchItemQueryValue.java
+src/main/java/com/scrapebadger/client/model/BatchItemQueryValueAnyOfInner.java
+src/main/java/com/scrapebadger/client/model/BatchRequest.java
 src/main/java/com/scrapebadger/client/model/BillingLogListResponse.java
 src/main/java/com/scrapebadger/client/model/BillingLogResponse.java
 src/main/java/com/scrapebadger/client/model/Brandid.java
@@ -287,6 +298,7 @@ src/main/java/com/scrapebadger/client/model/WebhookCreate.java
 src/main/java/com/scrapebadger/client/model/WebhookListItem.java
 src/main/java/com/scrapebadger/client/model/WebhookListResponse.java
 src/main/java/com/scrapebadger/client/model/WebhookResponse.java
+src/main/java/com/scrapebadger/client/model/WebhookSecret.java
 src/main/java/com/scrapebadger/client/model/WebhookTestRequest.java
 src/main/java/com/scrapebadger/client/model/WebhookTestResponse.java
 src/test/java/com/scrapebadger/client/api/AccountApiTest.java
@@ -297,6 +309,7 @@ src/test/java/com/scrapebadger/client/api/ApartmentsApiTest.java
 src/test/java/com/scrapebadger/client/api/AppStoreApiTest.java
 src/test/java/com/scrapebadger/client/api/AsosApiTest.java
 src/test/java/com/scrapebadger/client/api/BaiduApiTest.java
+src/test/java/com/scrapebadger/client/api/BatchApiTest.java
 src/test/java/com/scrapebadger/client/api/BestBuyApiTest.java
 src/test/java/com/scrapebadger/client/api/BingApiTest.java
 src/test/java/com/scrapebadger/client/api/BookingApiTest.java
@@ -338,6 +351,10 @@ src/test/java/com/scrapebadger/client/api/YouTubeApiTest.java
 src/test/java/com/scrapebadger/client/api/ZillowApiTest.java
 src/test/java/com/scrapebadger/client/model/AccountInfoTest.java
 src/test/java/com/scrapebadger/client/model/AgentTrialInfoTest.java
+src/test/java/com/scrapebadger/client/model/BatchItemQueryValueAnyOfInnerTest.java
+src/test/java/com/scrapebadger/client/model/BatchItemQueryValueTest.java
+src/test/java/com/scrapebadger/client/model/BatchItemTest.java
+src/test/java/com/scrapebadger/client/model/BatchRequestTest.java
 src/test/java/com/scrapebadger/client/model/BillingLogListResponseTest.java
 src/test/java/com/scrapebadger/client/model/BillingLogResponseTest.java
 src/test/java/com/scrapebadger/client/model/BrandidTest.java
@@ -415,5 +432,6 @@ src/test/java/com/scrapebadger/client/model/WebhookCreateTest.java
 src/test/java/com/scrapebadger/client/model/WebhookListItemTest.java
 src/test/java/com/scrapebadger/client/model/WebhookListResponseTest.java
 src/test/java/com/scrapebadger/client/model/WebhookResponseTest.java
+src/test/java/com/scrapebadger/client/model/WebhookSecretTest.java
 src/test/java/com/scrapebadger/client/model/WebhookTestRequestTest.java
 src/test/java/com/scrapebadger/client/model/WebhookTestResponseTest.java

@@ -181,6 +181,8 @@ All URIs are relative to *https://scrapebadger.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**accountGetAccountInfo**](docs/AccountApi.md#accountGetAccountInfo) | **GET** /v1/account/me | Get account info
+*AccountApi* | [**accountGetTheWebhookSigningSecret**](docs/AccountApi.md#accountGetTheWebhookSigningSecret) | **GET** /v1/account/webhook-secret | Get the webhook signing secret
+*AccountApi* | [**accountRotateTheWebhookSigningSecret**](docs/AccountApi.md#accountRotateTheWebhookSigningSecret) | **POST** /v1/account/webhook-secret/rotate | Rotate the webhook signing secret
 *AirbnbApi* | [**airbnbAirbnbScraperHealthCheck**](docs/AirbnbApi.md#airbnbAirbnbScraperHealthCheck) | **GET** /v1/airbnb/health | Airbnb scraper health check
 *AirbnbApi* | [**airbnbAirbnbScraperHealthCheckHead**](docs/AirbnbApi.md#airbnbAirbnbScraperHealthCheckHead) | **HEAD** /v1/airbnb/health | Airbnb scraper health check
 *AirbnbApi* | [**airbnbGetAvailabilityCalendar**](docs/AirbnbApi.md#airbnbGetAvailabilityCalendar) | **GET** /v1/airbnb/listings/{room_id}/calendar | Get availability calendar
@@ -238,6 +240,7 @@ Class | Method | HTTP request | Description
 *BaiduApi* | [**baiduBaiduScraperHealthCheckHead**](docs/BaiduApi.md#baiduBaiduScraperHealthCheckHead) | **HEAD** /v1/baidu/health | Baidu scraper health check
 *BaiduApi* | [**baiduBaiduWebSearch**](docs/BaiduApi.md#baiduBaiduWebSearch) | **GET** /v1/baidu/search | Baidu web search
 *BaiduApi* | [**baiduSearchSuggestions**](docs/BaiduApi.md#baiduSearchSuggestions) | **GET** /v1/baidu/autocomplete | Search suggestions
+*BatchApi* | [**batchSubmitABatchOfAsyncRequests**](docs/BatchApi.md#batchSubmitABatchOfAsyncRequests) | **POST** /v1/batch | Submit a batch of async requests
 *BestBuyApi* | [**bestbuyBrowseACategory**](docs/BestBuyApi.md#bestbuyBrowseACategory) | **GET** /v1/bestbuy/category | Browse a category
 *BestBuyApi* | [**bestbuyGetCategories**](docs/BestBuyApi.md#bestbuyGetCategories) | **GET** /v1/bestbuy/categories | Get categories
 *BestBuyApi* | [**bestbuyGetLaptopAndComputerDeals**](docs/BestBuyApi.md#bestbuyGetLaptopAndComputerDeals) | **GET** /v1/bestbuy/deals | Get laptop and computer deals
@@ -751,6 +754,10 @@ Class | Method | HTTP request | Description
 
  - [AccountInfo](docs/AccountInfo.md)
  - [AgentTrialInfo](docs/AgentTrialInfo.md)
+ - [BatchItem](docs/BatchItem.md)
+ - [BatchItemQueryValue](docs/BatchItemQueryValue.md)
+ - [BatchItemQueryValueAnyOfInner](docs/BatchItemQueryValueAnyOfInner.md)
+ - [BatchRequest](docs/BatchRequest.md)
  - [BillingLogListResponse](docs/BillingLogListResponse.md)
  - [BillingLogResponse](docs/BillingLogResponse.md)
  - [Brandid](docs/Brandid.md)
@@ -828,6 +835,7 @@ Class | Method | HTTP request | Description
  - [WebhookListItem](docs/WebhookListItem.md)
  - [WebhookListResponse](docs/WebhookListResponse.md)
  - [WebhookResponse](docs/WebhookResponse.md)
+ - [WebhookSecret](docs/WebhookSecret.md)
  - [WebhookTestRequest](docs/WebhookTestRequest.md)
  - [WebhookTestResponse](docs/WebhookTestResponse.md)
 
