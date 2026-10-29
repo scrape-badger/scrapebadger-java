@@ -34,6 +34,7 @@ docs/ChatGptApi.md
 docs/ColorsResponse.md
 docs/Colour.md
 docs/Colourwayid.md
+docs/CopilotApi.md
 docs/DepopApi.md
 docs/Description.md
 docs/DuckDuckGoApi.md
@@ -175,6 +176,7 @@ src/main/java/com/scrapebadger/client/api/BestBuyApi.java
 src/main/java/com/scrapebadger/client/api/BingApi.java
 src/main/java/com/scrapebadger/client/api/BookingApi.java
 src/main/java/com/scrapebadger/client/api/ChatGptApi.java
+src/main/java/com/scrapebadger/client/api/CopilotApi.java
 src/main/java/com/scrapebadger/client/api/DepopApi.java
 src/main/java/com/scrapebadger/client/api/DuckDuckGoApi.java
 src/main/java/com/scrapebadger/client/api/EBayApi.java
@@ -314,6 +316,7 @@ src/test/java/com/scrapebadger/client/api/BestBuyApiTest.java
 src/test/java/com/scrapebadger/client/api/BingApiTest.java
 src/test/java/com/scrapebadger/client/api/BookingApiTest.java
 src/test/java/com/scrapebadger/client/api/ChatGptApiTest.java
+src/test/java/com/scrapebadger/client/api/CopilotApiTest.java
 src/test/java/com/scrapebadger/client/api/DepopApiTest.java
 src/test/java/com/scrapebadger/client/api/DuckDuckGoApiTest.java
 src/test/java/com/scrapebadger/client/api/EBayApiTest.java
