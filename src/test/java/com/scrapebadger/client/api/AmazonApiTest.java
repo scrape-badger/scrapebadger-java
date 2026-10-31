@@ -128,7 +128,7 @@ public class AmazonApiTest {
     /**
      * Get product reviews
      *
-     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
+     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.  &#x60;&#x60;mode&#x3D;full&#x60;&#x60; serves the rest, pool first and woot second: one pool account is leased and the authenticated review pages are walked until Amazon stops returning new rows (a gate, the review-limit banner or an expired session rotates the lease), then — when &#x60;&#x60;woot_offer&#x60;&#x60; names a current woot.com offer page carrying the ASIN (.com only) — Amazon-owned woot.com&#39;s anonymous reviews endpoint is fanned out as a bonus and merged in, deduped by review id. The same filter / sort / pagination contract applies to the collected set. When no source produced rows the answer is 503 (&#x60;&#x60;pool_exhausted&#x60;&#x60;, or &#x60;&#x60;reviews_unavailable&#x60;&#x60; when both paths ran) — never an empty 200 that reads as \&quot;no reviews\&quot;. Auth, rate limits, credits and usage logging are the gateway&#39;s, exactly as for every other mode of this endpoint.
      *
      * @throws ApiException if the Api call fails
      */
@@ -141,7 +141,12 @@ public class AmazonApiTest {
         String star = null;
         Boolean verifiedOnly = null;
         Boolean mediaOnly = null;
-        Object response = api.amazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly);
+        String mode = null;
+        Integer maxPages = null;
+        Boolean perStar = null;
+        Integer limit = null;
+        String wootOffer = null;
+        Object response = api.amazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
         // TODO: test validations
     }
 

@@ -929,6 +929,11 @@ public class AmazonApi {
      * @param star 1-5 | one_star..five_star | positive | critical | all_stars (optional)
      * @param verifiedOnly  (optional, default to false)
      * @param mediaOnly  (optional, default to false)
+     * @param mode public (anonymous featured block) | full (authenticated account pool) (optional, default to public)
+     * @param maxPages full mode: pages to walk per star sweep (optional, default to 10)
+     * @param perStar full mode: sweep each star filter and merge + dedupe (optional, default to false)
+     * @param limit full mode: stop at this many distinct reviews (optional)
+     * @param wootOffer full mode + .com: URL (or slug) of a CURRENT woot.com offer page carrying the ASIN — unlocks the anonymous woot reviews endpoint as a bonus transport after the account pool (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -940,7 +945,7 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amazonGetProductReviewsCall(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amazonGetProductReviewsCall(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, String mode, Integer maxPages, Boolean perStar, Integer limit, String wootOffer, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -990,6 +995,26 @@ public class AmazonApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("media_only", mediaOnly));
         }
 
+        if (mode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mode", mode));
+        }
+
+        if (maxPages != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_pages", maxPages));
+        }
+
+        if (perStar != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("per_star", perStar));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (wootOffer != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("woot_offer", wootOffer));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1010,19 +1035,19 @@ public class AmazonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amazonGetProductReviewsValidateBeforeCall(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amazonGetProductReviewsValidateBeforeCall(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, String mode, Integer maxPages, Boolean perStar, Integer limit, String wootOffer, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'asin' is set
         if (asin == null) {
             throw new ApiException("Missing the required parameter 'asin' when calling amazonGetProductReviews(Async)");
         }
 
-        return amazonGetProductReviewsCall(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, _callback);
+        return amazonGetProductReviewsCall(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer, _callback);
 
     }
 
     /**
      * Get product reviews
-     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
+     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.  &#x60;&#x60;mode&#x3D;full&#x60;&#x60; serves the rest, pool first and woot second: one pool account is leased and the authenticated review pages are walked until Amazon stops returning new rows (a gate, the review-limit banner or an expired session rotates the lease), then — when &#x60;&#x60;woot_offer&#x60;&#x60; names a current woot.com offer page carrying the ASIN (.com only) — Amazon-owned woot.com&#39;s anonymous reviews endpoint is fanned out as a bonus and merged in, deduped by review id. The same filter / sort / pagination contract applies to the collected set. When no source produced rows the answer is 503 (&#x60;&#x60;pool_exhausted&#x60;&#x60;, or &#x60;&#x60;reviews_unavailable&#x60;&#x60; when both paths ran) — never an empty 200 that reads as \&quot;no reviews\&quot;. Auth, rate limits, credits and usage logging are the gateway&#39;s, exactly as for every other mode of this endpoint.
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param page Review page (10 reviews/page) (optional, default to 1)
@@ -1030,6 +1055,11 @@ public class AmazonApi {
      * @param star 1-5 | one_star..five_star | positive | critical | all_stars (optional)
      * @param verifiedOnly  (optional, default to false)
      * @param mediaOnly  (optional, default to false)
+     * @param mode public (anonymous featured block) | full (authenticated account pool) (optional, default to public)
+     * @param maxPages full mode: pages to walk per star sweep (optional, default to 10)
+     * @param perStar full mode: sweep each star filter and merge + dedupe (optional, default to false)
+     * @param limit full mode: stop at this many distinct reviews (optional)
+     * @param wootOffer full mode + .com: URL (or slug) of a CURRENT woot.com offer page carrying the ASIN — unlocks the anonymous woot reviews endpoint as a bonus transport after the account pool (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1040,14 +1070,14 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object amazonGetProductReviews(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly) throws ApiException {
-        ApiResponse<Object> localVarResp = amazonGetProductReviewsWithHttpInfo(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly);
+    public Object amazonGetProductReviews(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, String mode, Integer maxPages, Boolean perStar, Integer limit, String wootOffer) throws ApiException {
+        ApiResponse<Object> localVarResp = amazonGetProductReviewsWithHttpInfo(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
         return localVarResp.getData();
     }
 
     /**
      * Get product reviews
-     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
+     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.  &#x60;&#x60;mode&#x3D;full&#x60;&#x60; serves the rest, pool first and woot second: one pool account is leased and the authenticated review pages are walked until Amazon stops returning new rows (a gate, the review-limit banner or an expired session rotates the lease), then — when &#x60;&#x60;woot_offer&#x60;&#x60; names a current woot.com offer page carrying the ASIN (.com only) — Amazon-owned woot.com&#39;s anonymous reviews endpoint is fanned out as a bonus and merged in, deduped by review id. The same filter / sort / pagination contract applies to the collected set. When no source produced rows the answer is 503 (&#x60;&#x60;pool_exhausted&#x60;&#x60;, or &#x60;&#x60;reviews_unavailable&#x60;&#x60; when both paths ran) — never an empty 200 that reads as \&quot;no reviews\&quot;. Auth, rate limits, credits and usage logging are the gateway&#39;s, exactly as for every other mode of this endpoint.
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param page Review page (10 reviews/page) (optional, default to 1)
@@ -1055,6 +1085,11 @@ public class AmazonApi {
      * @param star 1-5 | one_star..five_star | positive | critical | all_stars (optional)
      * @param verifiedOnly  (optional, default to false)
      * @param mediaOnly  (optional, default to false)
+     * @param mode public (anonymous featured block) | full (authenticated account pool) (optional, default to public)
+     * @param maxPages full mode: pages to walk per star sweep (optional, default to 10)
+     * @param perStar full mode: sweep each star filter and merge + dedupe (optional, default to false)
+     * @param limit full mode: stop at this many distinct reviews (optional)
+     * @param wootOffer full mode + .com: URL (or slug) of a CURRENT woot.com offer page carrying the ASIN — unlocks the anonymous woot reviews endpoint as a bonus transport after the account pool (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1065,15 +1100,15 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> amazonGetProductReviewsWithHttpInfo(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly) throws ApiException {
-        okhttp3.Call localVarCall = amazonGetProductReviewsValidateBeforeCall(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, null);
+    public ApiResponse<Object> amazonGetProductReviewsWithHttpInfo(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, String mode, Integer maxPages, Boolean perStar, Integer limit, String wootOffer) throws ApiException {
+        okhttp3.Call localVarCall = amazonGetProductReviewsValidateBeforeCall(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get product reviews (asynchronously)
-     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
+     * Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.  &#x60;&#x60;mode&#x3D;full&#x60;&#x60; serves the rest, pool first and woot second: one pool account is leased and the authenticated review pages are walked until Amazon stops returning new rows (a gate, the review-limit banner or an expired session rotates the lease), then — when &#x60;&#x60;woot_offer&#x60;&#x60; names a current woot.com offer page carrying the ASIN (.com only) — Amazon-owned woot.com&#39;s anonymous reviews endpoint is fanned out as a bonus and merged in, deduped by review id. The same filter / sort / pagination contract applies to the collected set. When no source produced rows the answer is 503 (&#x60;&#x60;pool_exhausted&#x60;&#x60;, or &#x60;&#x60;reviews_unavailable&#x60;&#x60; when both paths ran) — never an empty 200 that reads as \&quot;no reviews\&quot;. Auth, rate limits, credits and usage logging are the gateway&#39;s, exactly as for every other mode of this endpoint.
      * @param asin  (required)
      * @param domain  (optional, default to com)
      * @param page Review page (10 reviews/page) (optional, default to 1)
@@ -1081,6 +1116,11 @@ public class AmazonApi {
      * @param star 1-5 | one_star..five_star | positive | critical | all_stars (optional)
      * @param verifiedOnly  (optional, default to false)
      * @param mediaOnly  (optional, default to false)
+     * @param mode public (anonymous featured block) | full (authenticated account pool) (optional, default to public)
+     * @param maxPages full mode: pages to walk per star sweep (optional, default to 10)
+     * @param perStar full mode: sweep each star filter and merge + dedupe (optional, default to false)
+     * @param limit full mode: stop at this many distinct reviews (optional)
+     * @param wootOffer full mode + .com: URL (or slug) of a CURRENT woot.com offer page carrying the ASIN — unlocks the anonymous woot reviews endpoint as a bonus transport after the account pool (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1092,9 +1132,9 @@ public class AmazonApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amazonGetProductReviewsAsync(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call amazonGetProductReviewsAsync(String asin, String domain, Integer page, String sortBy, String star, Boolean verifiedOnly, Boolean mediaOnly, String mode, Integer maxPages, Boolean perStar, Integer limit, String wootOffer, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = amazonGetProductReviewsValidateBeforeCall(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, _callback);
+        okhttp3.Call localVarCall = amazonGetProductReviewsValidateBeforeCall(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
