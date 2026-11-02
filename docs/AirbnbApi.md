@@ -176,7 +176,7 @@ public class Example {
     AirbnbApi apiInstance = new AirbnbApi(defaultClient);
     String roomId = "roomId_example"; // String | 
     Integer month = 1; // Integer | Start month (1-12)
-    Integer year = 2026; // Integer | Start year
+    Integer year = 56; // Integer | Start year (current UTC year when omitted)
     Integer months = 12; // Integer | Number of months (max 12)
     String currency = "currency_example"; // String | 
     String locale = "locale_example"; // String | 
@@ -200,7 +200,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **roomId** | **String**|  | |
 | **month** | **Integer**| Start month (1-12) | [optional] [default to 1] |
-| **year** | **Integer**| Start year | [optional] [default to 2026] |
+| **year** | **Integer**| Start year (current UTC year when omitted) | [optional] |
 | **months** | **Integer**| Number of months (max 12) | [optional] [default to 12] |
 | **currency** | **String**|  | [optional] |
 | **locale** | **String**|  | [optional] |

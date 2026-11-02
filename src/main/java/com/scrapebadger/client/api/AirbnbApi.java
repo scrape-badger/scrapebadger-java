@@ -311,7 +311,7 @@ public class AirbnbApi {
      * Build call for airbnbGetAvailabilityCalendar
      * @param roomId  (required)
      * @param month Start month (1-12) (optional, default to 1)
-     * @param year Start year (optional, default to 2026)
+     * @param year Start year (current UTC year when omitted) (optional)
      * @param months Number of months (max 12) (optional, default to 12)
      * @param currency  (optional)
      * @param locale  (optional)
@@ -407,7 +407,7 @@ public class AirbnbApi {
      * Day-by-day availability for up to 12 months: bookable, check-in/out windows and min/max nights per date.
      * @param roomId  (required)
      * @param month Start month (1-12) (optional, default to 1)
-     * @param year Start year (optional, default to 2026)
+     * @param year Start year (current UTC year when omitted) (optional)
      * @param months Number of months (max 12) (optional, default to 12)
      * @param currency  (optional)
      * @param locale  (optional)
@@ -431,7 +431,7 @@ public class AirbnbApi {
      * Day-by-day availability for up to 12 months: bookable, check-in/out windows and min/max nights per date.
      * @param roomId  (required)
      * @param month Start month (1-12) (optional, default to 1)
-     * @param year Start year (optional, default to 2026)
+     * @param year Start year (current UTC year when omitted) (optional)
      * @param months Number of months (max 12) (optional, default to 12)
      * @param currency  (optional)
      * @param locale  (optional)
@@ -456,7 +456,7 @@ public class AirbnbApi {
      * Day-by-day availability for up to 12 months: bookable, check-in/out windows and min/max nights per date.
      * @param roomId  (required)
      * @param month Start month (1-12) (optional, default to 1)
-     * @param year Start year (optional, default to 2026)
+     * @param year Start year (current UTC year when omitted) (optional)
      * @param months Number of months (max 12) (optional, default to 12)
      * @param currency  (optional)
      * @param locale  (optional)
