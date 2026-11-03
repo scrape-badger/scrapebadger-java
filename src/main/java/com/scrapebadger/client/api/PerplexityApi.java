@@ -77,6 +77,7 @@ public class PerplexityApi {
      * @param prompt The prompt to send to Perplexity (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +89,7 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call perplexityAskPerplexityAQuestionCall(String prompt, String country, Boolean strictCountry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call perplexityAskPerplexityAQuestionCall(String prompt, String country, Boolean strictCountry, String location, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,6 +126,10 @@ public class PerplexityApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("strict_country", strictCountry));
         }
 
+        if (location != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("location", location));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -145,13 +150,13 @@ public class PerplexityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call perplexityAskPerplexityAQuestionValidateBeforeCall(String prompt, String country, Boolean strictCountry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call perplexityAskPerplexityAQuestionValidateBeforeCall(String prompt, String country, Boolean strictCountry, String location, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'prompt' is set
         if (prompt == null) {
             throw new ApiException("Missing the required parameter 'prompt' when calling perplexityAskPerplexityAQuestion(Async)");
         }
 
-        return perplexityAskPerplexityAQuestionCall(prompt, country, strictCountry, _callback);
+        return perplexityAskPerplexityAQuestionCall(prompt, country, strictCountry, location, _callback);
 
     }
 
@@ -161,6 +166,7 @@ public class PerplexityApi {
      * @param prompt The prompt to send to Perplexity (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -171,8 +177,8 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object perplexityAskPerplexityAQuestion(String prompt, String country, Boolean strictCountry) throws ApiException {
-        ApiResponse<Object> localVarResp = perplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry);
+    public Object perplexityAskPerplexityAQuestion(String prompt, String country, Boolean strictCountry, String location) throws ApiException {
+        ApiResponse<Object> localVarResp = perplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry, location);
         return localVarResp.getData();
     }
 
@@ -182,6 +188,7 @@ public class PerplexityApi {
      * @param prompt The prompt to send to Perplexity (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -192,8 +199,8 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> perplexityAskPerplexityAQuestionWithHttpInfo(String prompt, String country, Boolean strictCountry) throws ApiException {
-        okhttp3.Call localVarCall = perplexityAskPerplexityAQuestionValidateBeforeCall(prompt, country, strictCountry, null);
+    public ApiResponse<Object> perplexityAskPerplexityAQuestionWithHttpInfo(String prompt, String country, Boolean strictCountry, String location) throws ApiException {
+        okhttp3.Call localVarCall = perplexityAskPerplexityAQuestionValidateBeforeCall(prompt, country, strictCountry, location, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -204,6 +211,7 @@ public class PerplexityApi {
      * @param prompt The prompt to send to Perplexity (max 4096 characters). (required)
      * @param country ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -215,9 +223,9 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call perplexityAskPerplexityAQuestionAsync(String prompt, String country, Boolean strictCountry, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call perplexityAskPerplexityAQuestionAsync(String prompt, String country, Boolean strictCountry, String location, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = perplexityAskPerplexityAQuestionValidateBeforeCall(prompt, country, strictCountry, _callback);
+        okhttp3.Call localVarCall = perplexityAskPerplexityAQuestionValidateBeforeCall(prompt, country, strictCountry, location, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -348,6 +356,7 @@ public class PerplexityApi {
      * @param competitors Comma-separated competitor names. (optional)
      * @param country ISO-3166 alpha-2 egress country. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -359,7 +368,7 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call perplexityMeasureABrandSVisibilityInAPerplexityAnswerCall(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call perplexityMeasureABrandSVisibilityInAPerplexityAnswerCall(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, String location, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -412,6 +421,10 @@ public class PerplexityApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("strict_country", strictCountry));
         }
 
+        if (location != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("location", location));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -432,7 +445,7 @@ public class PerplexityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call perplexityMeasureABrandSVisibilityInAPerplexityAnswerValidateBeforeCall(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call perplexityMeasureABrandSVisibilityInAPerplexityAnswerValidateBeforeCall(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, String location, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'prompt' is set
         if (prompt == null) {
             throw new ApiException("Missing the required parameter 'prompt' when calling perplexityMeasureABrandSVisibilityInAPerplexityAnswer(Async)");
@@ -443,7 +456,7 @@ public class PerplexityApi {
             throw new ApiException("Missing the required parameter 'brand' when calling perplexityMeasureABrandSVisibilityInAPerplexityAnswer(Async)");
         }
 
-        return perplexityMeasureABrandSVisibilityInAPerplexityAnswerCall(prompt, brand, domain, aliases, competitors, country, strictCountry, _callback);
+        return perplexityMeasureABrandSVisibilityInAPerplexityAnswerCall(prompt, brand, domain, aliases, competitors, country, strictCountry, location, _callback);
 
     }
 
@@ -457,6 +470,7 @@ public class PerplexityApi {
      * @param competitors Comma-separated competitor names. (optional)
      * @param country ISO-3166 alpha-2 egress country. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -467,8 +481,8 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object perplexityMeasureABrandSVisibilityInAPerplexityAnswer(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry) throws ApiException {
-        ApiResponse<Object> localVarResp = perplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(prompt, brand, domain, aliases, competitors, country, strictCountry);
+    public Object perplexityMeasureABrandSVisibilityInAPerplexityAnswer(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, String location) throws ApiException {
+        ApiResponse<Object> localVarResp = perplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
         return localVarResp.getData();
     }
 
@@ -482,6 +496,7 @@ public class PerplexityApi {
      * @param competitors Comma-separated competitor names. (optional)
      * @param country ISO-3166 alpha-2 egress country. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -492,8 +507,8 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> perplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry) throws ApiException {
-        okhttp3.Call localVarCall = perplexityMeasureABrandSVisibilityInAPerplexityAnswerValidateBeforeCall(prompt, brand, domain, aliases, competitors, country, strictCountry, null);
+    public ApiResponse<Object> perplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, String location) throws ApiException {
+        okhttp3.Call localVarCall = perplexityMeasureABrandSVisibilityInAPerplexityAnswerValidateBeforeCall(prompt, brand, domain, aliases, competitors, country, strictCountry, location, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -508,6 +523,7 @@ public class PerplexityApi {
      * @param competitors Comma-separated competitor names. (optional)
      * @param country ISO-3166 alpha-2 egress country. (optional)
      * @param strictCountry Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)
+     * @param location Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -519,9 +535,9 @@ public class PerplexityApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call perplexityMeasureABrandSVisibilityInAPerplexityAnswerAsync(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call perplexityMeasureABrandSVisibilityInAPerplexityAnswerAsync(String prompt, String brand, String domain, String aliases, String competitors, String country, Boolean strictCountry, String location, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = perplexityMeasureABrandSVisibilityInAPerplexityAnswerValidateBeforeCall(prompt, brand, domain, aliases, competitors, country, strictCountry, _callback);
+        okhttp3.Call localVarCall = perplexityMeasureABrandSVisibilityInAPerplexityAnswerValidateBeforeCall(prompt, brand, domain, aliases, competitors, country, strictCountry, location, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

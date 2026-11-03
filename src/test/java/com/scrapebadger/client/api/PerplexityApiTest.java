@@ -43,7 +43,8 @@ public class PerplexityApiTest {
         String prompt = null;
         String country = null;
         Boolean strictCountry = null;
-        Object response = api.perplexityAskPerplexityAQuestion(prompt, country, strictCountry);
+        String location = null;
+        Object response = api.perplexityAskPerplexityAQuestion(prompt, country, strictCountry, location);
         // TODO: test validations
     }
 
@@ -76,7 +77,8 @@ public class PerplexityApiTest {
         String competitors = null;
         String country = null;
         Boolean strictCountry = null;
-        Object response = api.perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry);
+        String location = null;
+        Object response = api.perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
         // TODO: test validations
     }
 
