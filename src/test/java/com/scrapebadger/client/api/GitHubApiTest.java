@@ -15,6 +15,7 @@ package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
 import com.scrapebadger.client.model.GitHubProfileResponse;
+import com.scrapebadger.client.model.GitHubRepositoryResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -47,6 +48,21 @@ public class GitHubApiTest {
         Integer page = null;
         String nextPageToken = null;
         GitHubProfileResponse response = api.githubGetProfile(username, tab, year, page, nextPageToken);
+        // TODO: test validations
+    }
+
+    /**
+     * Get repository
+     *
+     * Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void githubGetRepositoryTest() throws ApiException {
+        String owner = null;
+        String repo = null;
+        GitHubRepositoryResponse response = api.githubGetRepository(owner, repo);
         // TODO: test validations
     }
 

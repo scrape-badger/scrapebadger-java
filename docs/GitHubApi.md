@@ -5,6 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**githubGetProfile**](GitHubApi.md#githubGetProfile) | **GET** /v1/github/profiles/{username} | Get profile |
+| [**githubGetRepository**](GitHubApi.md#githubGetRepository) | **GET** /v1/github/repositories/{owner}/{repo} | Get repository |
 
 
 <a id="githubGetProfile"></a>
@@ -69,6 +70,78 @@ public class Example {
 ### Return type
 
 [**GitHubProfileResponse**](GitHubProfileResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="githubGetRepository"></a>
+# **githubGetRepository**
+> GitHubRepositoryResponse githubGetRepository(owner, repo)
+
+Get repository
+
+Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.GitHubApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    GitHubApi apiInstance = new GitHubApi(defaultClient);
+    String owner = "owner_example"; // String | 
+    String repo = "repo_example"; // String | 
+    try {
+      GitHubRepositoryResponse result = apiInstance.githubGetRepository(owner, repo);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GitHubApi#githubGetRepository");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**|  | |
+| **repo** | **String**|  | |
+
+### Return type
+
+[**GitHubRepositoryResponse**](GitHubRepositoryResponse.md)
 
 ### Authorization
 
