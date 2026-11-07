@@ -13,7 +13,6 @@
 
 package com.scrapebadger.client.model;
 
-import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

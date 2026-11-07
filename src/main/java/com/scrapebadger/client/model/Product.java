@@ -23,7 +23,7 @@ import com.scrapebadger.client.model.Brandid;
 import com.scrapebadger.client.model.Brandname;
 import com.scrapebadger.client.model.Colour;
 import com.scrapebadger.client.model.Colourwayid;
-import com.scrapebadger.client.model.Description;
+import com.scrapebadger.client.model.Description1;
 import com.scrapebadger.client.model.Gender;
 import com.scrapebadger.client.model.Imageurl;
 import com.scrapebadger.client.model.Isinstock;
@@ -157,7 +157,7 @@ public class Product {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
-  private Description description;
+  private Description1 description;
 
   public static final String SERIALIZED_NAME_RATINGS = "ratings";
   @SerializedName(SERIALIZED_NAME_RATINGS)
@@ -519,7 +519,7 @@ public class Product {
   }
 
 
-  public Product description(@javax.annotation.Nullable Description description) {
+  public Product description(@javax.annotation.Nullable Description1 description) {
     this.description = description;
     return this;
   }
@@ -529,11 +529,11 @@ public class Product {
    * @return description
    */
   @javax.annotation.Nullable
-  public Description getDescription() {
+  public Description1 getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable Description description) {
+  public void setDescription(@javax.annotation.Nullable Description1 description) {
     this.description = description;
   }
 
@@ -836,7 +836,7 @@ public class Product {
       }
       // validate the optional field `description`
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) {
-        Description.validateJsonElement(jsonObj.get("description"));
+        Description1.validateJsonElement(jsonObj.get("description"));
       }
       // validate the optional field `ratings`
       if (jsonObj.get("ratings") != null && !jsonObj.get("ratings").isJsonNull()) {

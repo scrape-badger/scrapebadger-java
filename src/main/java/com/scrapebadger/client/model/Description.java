@@ -14,7 +14,6 @@
 package com.scrapebadger.client.model;
 
 import java.util.Objects;
-import java.util.Map;
 
 
 
@@ -63,8 +62,8 @@ public class Description extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'Description' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Map<String, Object>> adapterMap<String, Object> = gson.getDelegateAdapter(this, TypeToken.get(Map<String, Object>.class));
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
+            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
+            final TypeAdapter<ModelNull> adapterModelNull = gson.getDelegateAdapter(this, TypeToken.get(ModelNull.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Description>() {
                 @Override
@@ -74,19 +73,19 @@ public class Description extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `Map<String, Object>`
-                    if (value.getActualInstance() instanceof Map<String, Object>) {
-                        JsonPrimitive primitive = adapterMapStringObject.toJsonTree((Map<String, Object>)value.getActualInstance()).getAsJsonPrimitive();
+                    // check if the actual instance is of the type `String`
+                    if (value.getActualInstance() instanceof String) {
+                        JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
                         elementAdapter.write(out, primitive);
                         return;
                     }
-                    // check if the actual instance is of the type `Object`
-                    if (value.getActualInstance() instanceof Object) {
-                        JsonPrimitive primitive = adapterObject.toJsonTree((Object)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                    // check if the actual instance is of the type `ModelNull`
+                    if (value.getActualInstance() instanceof ModelNull) {
+                        JsonElement element = adapterModelNull.toJsonTree((ModelNull)value.getActualInstance());
+                        elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: Map<String, Object>, Object");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: String");
                 }
 
                 @Override
@@ -97,35 +96,33 @@ public class Description extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize Map<String, Object>
+                    // deserialize String
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
+                        if (!jsonElement.getAsJsonPrimitive().isString()) {
+                            throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
                         }
-                        actualAdapter = adapterMapStringObject;
+                        actualAdapter = adapterString;
                         Description ret = new Description();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Map<String, Object> failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Map<String, Object>'", e);
+                        errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'String'", e);
                     }
-                    // deserialize Object
+                    // deserialize ModelNull
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterObject;
+                        ModelNull.validateJsonElement(jsonElement);
+                        actualAdapter = adapterModelNull;
                         Description ret = new Description();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Object failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Object'", e);
+                        errorMessages.add(String.format("Deserialization for ModelNull failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ModelNull'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for Description: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -138,17 +135,17 @@ public class Description extends AbstractOpenApiSchema {
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
     public Description() {
-        super("anyOf", Boolean.FALSE);
+        super("anyOf", Boolean.TRUE);
     }
 
     public Description(Object o) {
-        super("anyOf", Boolean.FALSE);
+        super("anyOf", Boolean.TRUE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("Map<String, Object>", Map.class);
-        schemas.put("Object", Object.class);
+        schemas.put("String", String.class);
+        schemas.put("ModelNull", ModelNull.class);
     }
 
     @Override
@@ -159,30 +156,35 @@ public class Description extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * Map<String, Object>, Object
+     * String
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof Map<String, Object>) {
+        if (instance == null) {
+           super.setActualInstance(instance);
+           return;
+        }
+
+        if (instance instanceof String) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof Object) {
+        if (instance instanceof ModelNull) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Map<String, Object>, Object");
+        throw new RuntimeException("Invalid instance type. Must be String");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Map<String, Object>, Object
+     * String
      *
-     * @return The actual instance (Map<String, Object>, Object)
+     * @return The actual instance (String)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -191,25 +193,25 @@ public class Description extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `Map<String, Object>`. If the actual instance is not `Map<String, Object>`,
+     * Get the actual instance of `String`. If the actual instance is not `String`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Map<String, Object>`
-     * @throws ClassCastException if the instance is not `Map<String, Object>`
+     * @return The actual instance of `String`
+     * @throws ClassCastException if the instance is not `String`
      */
-    public Map<String, Object> getMapStringObject() throws ClassCastException {
-        return (Map<String, Object>)super.getActualInstance();
+    public String getString() throws ClassCastException {
+        return (String)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `Object`. If the actual instance is not `Object`,
+     * Get the actual instance of `ModelNull`. If the actual instance is not `ModelNull`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Object`
-     * @throws ClassCastException if the instance is not `Object`
+     * @return The actual instance of `ModelNull`
+     * @throws ClassCastException if the instance is not `ModelNull`
      */
-    public Object getObject() throws ClassCastException {
-        return (Object)super.getActualInstance();
+    public ModelNull getModelNull() throws ClassCastException {
+        return (ModelNull)super.getActualInstance();
     }
 
     /**
@@ -221,27 +223,25 @@ public class Description extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with Map<String, Object>
+        // validate the json string with String
         try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
+            if (!jsonElement.getAsJsonPrimitive().isString()) {
+                throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
             }
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Map<String, Object> failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with Object
+        // validate the json string with ModelNull
         try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-            }
+            ModelNull.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Object failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for ModelNull failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for Description with anyOf schemas: Map<String, Object>, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for Description with anyOf schemas: String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
