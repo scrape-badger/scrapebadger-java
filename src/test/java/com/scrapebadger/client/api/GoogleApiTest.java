@@ -288,6 +288,9 @@ public class GoogleApiTest {
         Integer filter = null;
         Integer nfpr = null;
         String output = null;
+        String oq = null;
+        String sourceid = null;
+        String ie = null;
         String googleDomain = null;
         BigDecimal lat = null;
         BigDecimal lon = null;
@@ -316,7 +319,7 @@ public class GoogleApiTest {
         String si = null;
         String ibp = null;
         String uds = null;
-        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
         // TODO: test validations
     }
 
@@ -416,6 +419,9 @@ public class GoogleApiTest {
         Boolean aiOverview = null;
         String mode = null;
         String expandRelatedQuestions = null;
+        String oq = null;
+        String sourceid = null;
+        String ie = null;
         String googleDomain = null;
         BigDecimal lat = null;
         BigDecimal lon = null;
@@ -435,7 +441,7 @@ public class GoogleApiTest {
         String asQdr = null;
         String asRq = null;
         String asSitesearch = null;
-        Object response = api.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+        Object response = api.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
         // TODO: test validations
     }
 

@@ -1068,7 +1068,7 @@ public class Example {
 
 <a id="googleGoogleLightWebSearch"></a>
 # **googleGoogleLightWebSearch**
-> Object googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds)
+> Object googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds)
 
 Google Light web search
 
@@ -1110,13 +1110,16 @@ public class Example {
     Integer filter = 56; // Integer | 
     Integer nfpr = 0; // Integer | Disable auto-correction
     String output = "json"; // String | 
+    String oq = "oq_example"; // String | Original query sent to Google. Defaults to q; an empty string omits it.
+    String sourceid = "sourceid_example"; // String | Google source identifier. Defaults to chrome; an empty string omits it.
+    String ie = "ie_example"; // String | Google input encoding hint. Defaults to UTF-8; an empty string omits it.
     String googleDomain = "googleDomain_example"; // String | Alias for domain; Google requests use google.com with country targeting.
     BigDecimal lat = new BigDecimal(78); // BigDecimal | Latitude; supply together with lon instead of location or uule.
     BigDecimal lon = new BigDecimal(78); // BigDecimal | Longitude; supply together with lat.
     BigDecimal radius = new BigDecimal(78); // BigDecimal | Location accuracy in meters; requires lat/lon or a named city with a known center.
     String colorScheme = "light"; // String | Google color scheme.
     String tbm = "isch"; // String | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results.
-    String udm = "udm_example"; // String | Google result filter: 14 web, 18 forums. Other verticals require output=html.
+    String udm = "udm_example"; // String | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html.
     Boolean noCache = false; // Boolean | Bypass result caches and request a fresh Google fetch.
     String asDt = "asDt_example"; // String | Site restriction mode: i includes, e excludes as_sitesearch.
     String asEpq = "asEpq_example"; // String | Exact phrase.
@@ -1139,7 +1142,7 @@ public class Example {
     String ibp = "ibp_example"; // String | Layout control.
     String uds = "uds_example"; // String | Google filter string.
     try {
-      Object result = apiInstance.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+      Object result = apiInstance.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GoogleApi#googleGoogleLightWebSearch");
@@ -1170,13 +1173,16 @@ public class Example {
 | **filter** | **Integer**|  | [optional] |
 | **nfpr** | **Integer**| Disable auto-correction | [optional] [default to 0] |
 | **output** | **String**|  | [optional] [default to json] [enum: json, html] |
+| **oq** | **String**| Original query sent to Google. Defaults to q; an empty string omits it. | [optional] |
+| **sourceid** | **String**| Google source identifier. Defaults to chrome; an empty string omits it. | [optional] |
+| **ie** | **String**| Google input encoding hint. Defaults to UTF-8; an empty string omits it. | [optional] |
 | **googleDomain** | **String**| Alias for domain; Google requests use google.com with country targeting. | [optional] |
 | **lat** | **BigDecimal**| Latitude; supply together with lon instead of location or uule. | [optional] |
 | **lon** | **BigDecimal**| Longitude; supply together with lat. | [optional] |
 | **radius** | **BigDecimal**| Location accuracy in meters; requires lat/lon or a named city with a known center. | [optional] |
 | **colorScheme** | **String**| Google color scheme. | [optional] [enum: light, dark] |
 | **tbm** | **String**| Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional] [enum: isch, lcl, vid, nws, shop, pts, bks] |
-| **udm** | **String**| Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. | [optional] |
+| **udm** | **String**| Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional] |
 | **noCache** | **Boolean**| Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
 | **asDt** | **String**| Site restriction mode: i includes, e excludes as_sitesearch. | [optional] |
 | **asEpq** | **String**| Exact phrase. | [optional] |
@@ -1504,7 +1510,7 @@ public class Example {
 
 <a id="googleGoogleWebSearch"></a>
 # **googleGoogleWebSearch**
-> Object googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch)
+> Object googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch)
 
 Google web search
 
@@ -1558,13 +1564,16 @@ public class Example {
     Boolean aiOverview = false; // Boolean | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged.
     String mode = "full"; // String | 
     String expandRelatedQuestions = "expandRelatedQuestions_example"; // String | Open all People Also Ask answers (true) or the first N (0-99).
+    String oq = "oq_example"; // String | Original query sent to Google. Defaults to q; an empty string omits it.
+    String sourceid = "sourceid_example"; // String | Google source identifier. Defaults to chrome; an empty string omits it.
+    String ie = "ie_example"; // String | Google input encoding hint. Defaults to UTF-8; an empty string omits it.
     String googleDomain = "googleDomain_example"; // String | Alias for domain; Google requests use google.com with country targeting.
     BigDecimal lat = new BigDecimal(78); // BigDecimal | Latitude; supply together with lon instead of location or uule.
     BigDecimal lon = new BigDecimal(78); // BigDecimal | Longitude; supply together with lat.
     BigDecimal radius = new BigDecimal(78); // BigDecimal | Location accuracy in meters; requires lat/lon or a named city with a known center.
     String colorScheme = "light"; // String | Google color scheme.
     String tbm = "isch"; // String | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results.
-    String udm = "udm_example"; // String | Google result filter: 14 web, 18 forums. Other verticals require output=html.
+    String udm = "udm_example"; // String | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html.
     Boolean noCache = false; // Boolean | Bypass result caches and request a fresh Google fetch.
     String asDt = "asDt_example"; // String | Site restriction mode: i includes, e excludes as_sitesearch.
     String asEpq = "asEpq_example"; // String | Exact phrase.
@@ -1578,7 +1587,7 @@ public class Example {
     String asRq = "asRq_example"; // String | Related URL; availability depends on Google.
     String asSitesearch = "asSitesearch_example"; // String | Restrict results to a site.
     try {
-      Object result = apiInstance.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+      Object result = apiInstance.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GoogleApi#googleGoogleWebSearch");
@@ -1621,13 +1630,16 @@ public class Example {
 | **aiOverview** | **Boolean**| Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. | [optional] [default to false] |
 | **mode** | **String**|  | [optional] [default to full] [enum: full, fast] |
 | **expandRelatedQuestions** | **String**| Open all People Also Ask answers (true) or the first N (0-99). | [optional] |
+| **oq** | **String**| Original query sent to Google. Defaults to q; an empty string omits it. | [optional] |
+| **sourceid** | **String**| Google source identifier. Defaults to chrome; an empty string omits it. | [optional] |
+| **ie** | **String**| Google input encoding hint. Defaults to UTF-8; an empty string omits it. | [optional] |
 | **googleDomain** | **String**| Alias for domain; Google requests use google.com with country targeting. | [optional] |
 | **lat** | **BigDecimal**| Latitude; supply together with lon instead of location or uule. | [optional] |
 | **lon** | **BigDecimal**| Longitude; supply together with lat. | [optional] |
 | **radius** | **BigDecimal**| Location accuracy in meters; requires lat/lon or a named city with a known center. | [optional] |
 | **colorScheme** | **String**| Google color scheme. | [optional] [enum: light, dark] |
 | **tbm** | **String**| Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional] [enum: isch, lcl, vid, nws, shop, pts, bks] |
-| **udm** | **String**| Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. | [optional] |
+| **udm** | **String**| Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional] |
 | **noCache** | **Boolean**| Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
 | **asDt** | **String**| Site restriction mode: i includes, e excludes as_sitesearch. | [optional] |
 | **asEpq** | **String**| Exact phrase. | [optional] |
