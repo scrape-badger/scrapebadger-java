@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
 *AsosApi* | [**asosSearchProducts**](docs/AsosApi.md#asosSearchProducts) | **GET** /v1/asos/search | Search products
 *AsosApi* | [**asosSearchSuggestions**](docs/AsosApi.md#asosSearchSuggestions) | **GET** /v1/asos/autocomplete | Search suggestions
 *AutoScout24Api* | [**autoscout24CheckAutoscout24Health**](docs/AutoScout24Api.md#autoscout24CheckAutoscout24Health) | **GET** /v1/autoscout24/health | Check AutoScout24 health
+*AutoScout24Api* | [**autoscout24GetListing**](docs/AutoScout24Api.md#autoscout24GetListing) | **GET** /v1/autoscout24/listing | Get listing
 *AutoScout24Api* | [**autoscout24ListMarkets**](docs/AutoScout24Api.md#autoscout24ListMarkets) | **GET** /v1/autoscout24/markets | List markets
 *AutoScout24Api* | [**autoscout24ListSearchFilters**](docs/AutoScout24Api.md#autoscout24ListSearchFilters) | **GET** /v1/autoscout24/filters | List search filters
 *AutoScout24Api* | [**autoscout24SearchVehicles**](docs/AutoScout24Api.md#autoscout24SearchVehicles) | **GET** /v1/autoscout24/search | Search vehicles
@@ -776,6 +777,8 @@ Class | Method | HTTP request | Description
  - [Article](docs/Article.md)
  - [AutoScout24FiltersResponse](docs/AutoScout24FiltersResponse.md)
  - [AutoScout24Listing](docs/AutoScout24Listing.md)
+ - [AutoScout24ListingDetail](docs/AutoScout24ListingDetail.md)
+ - [AutoScout24ListingResponse](docs/AutoScout24ListingResponse.md)
  - [AutoScout24Market](docs/AutoScout24Market.md)
  - [AutoScout24MarketsResponse](docs/AutoScout24MarketsResponse.md)
  - [AutoScout24SearchResponse](docs/AutoScout24SearchResponse.md)

@@ -20,6 +20,8 @@ docs/AsosApi.md
 docs/AutoScout24Api.md
 docs/AutoScout24FiltersResponse.md
 docs/AutoScout24Listing.md
+docs/AutoScout24ListingDetail.md
+docs/AutoScout24ListingResponse.md
 docs/AutoScout24Market.md
 docs/AutoScout24MarketsResponse.md
 docs/AutoScout24SearchResponse.md
@@ -298,6 +300,8 @@ src/main/java/com/scrapebadger/client/model/AgentTrialInfo.java
 src/main/java/com/scrapebadger/client/model/Article.java
 src/main/java/com/scrapebadger/client/model/AutoScout24FiltersResponse.java
 src/main/java/com/scrapebadger/client/model/AutoScout24Listing.java
+src/main/java/com/scrapebadger/client/model/AutoScout24ListingDetail.java
+src/main/java/com/scrapebadger/client/model/AutoScout24ListingResponse.java
 src/main/java/com/scrapebadger/client/model/AutoScout24Market.java
 src/main/java/com/scrapebadger/client/model/AutoScout24MarketsResponse.java
 src/main/java/com/scrapebadger/client/model/AutoScout24SearchResponse.java
@@ -504,6 +508,8 @@ src/test/java/com/scrapebadger/client/model/AgeTest.java
 src/test/java/com/scrapebadger/client/model/AgentTrialInfoTest.java
 src/test/java/com/scrapebadger/client/model/ArticleTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24FiltersResponseTest.java
+src/test/java/com/scrapebadger/client/model/AutoScout24ListingDetailTest.java
+src/test/java/com/scrapebadger/client/model/AutoScout24ListingResponseTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24ListingTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24MarketTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24MarketsResponseTest.java

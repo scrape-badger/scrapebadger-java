@@ -15,6 +15,7 @@ package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
 import com.scrapebadger.client.model.AutoScout24FiltersResponse;
+import com.scrapebadger.client.model.AutoScout24ListingResponse;
 import com.scrapebadger.client.model.AutoScout24MarketsResponse;
 import com.scrapebadger.client.model.AutoScout24SearchResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
@@ -42,6 +43,22 @@ public class AutoScout24ApiTest {
     @Test
     public void autoscout24CheckAutoscout24HealthTest() throws ApiException {
         Object response = api.autoscout24CheckAutoscout24Health();
+        // TODO: test validations
+    }
+
+    /**
+     * Get listing
+     *
+     * Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void autoscout24GetListingTest() throws ApiException {
+        String url = null;
+        String listingId = null;
+        String market = null;
+        AutoScout24ListingResponse response = api.autoscout24GetListing(url, listingId, market);
         // TODO: test validations
     }
 
@@ -76,7 +93,7 @@ public class AutoScout24ApiTest {
     /**
      * Search vehicles
      *
-     * Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+     * Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
      *
      * @throws ApiException if the Api call fails
      */

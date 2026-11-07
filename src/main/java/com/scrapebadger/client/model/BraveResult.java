@@ -62,6 +62,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -1209,9 +1210,20 @@ public class BraveResult {
         Objects.equals(this.additionalProperties, braveResult.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(position, title, url, snippet, description, displayUrl, siteName, language, type, subtype, isLive, profile, metaUrl, thumbnail, age, pageAge, publishedAt, publishedUtc, pageFetched, pageFetchedAt, pageFetchedUtc, sitelinks, article, book, organization, location, product, productCluster, rating, recipe, review, software, faq, qa, deepResults, cluster, video, properties, data, familyFriendly, confidence, source, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

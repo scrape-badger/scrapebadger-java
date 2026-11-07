@@ -5,6 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**autoscout24CheckAutoscout24Health**](AutoScout24Api.md#autoscout24CheckAutoscout24Health) | **GET** /v1/autoscout24/health | Check AutoScout24 health |
+| [**autoscout24GetListing**](AutoScout24Api.md#autoscout24GetListing) | **GET** /v1/autoscout24/listing | Get listing |
 | [**autoscout24ListMarkets**](AutoScout24Api.md#autoscout24ListMarkets) | **GET** /v1/autoscout24/markets | List markets |
 | [**autoscout24ListSearchFilters**](AutoScout24Api.md#autoscout24ListSearchFilters) | **GET** /v1/autoscout24/filters | List search filters |
 | [**autoscout24SearchVehicles**](AutoScout24Api.md#autoscout24SearchVehicles) | **GET** /v1/autoscout24/search | Search vehicles |
@@ -72,6 +73,80 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+<a id="autoscout24GetListing"></a>
+# **autoscout24GetListing**
+> AutoScout24ListingResponse autoscout24GetListing(url, listingId, market)
+
+Get listing
+
+Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.AutoScout24Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    AutoScout24Api apiInstance = new AutoScout24Api(defaultClient);
+    String url = "url_example"; // String | Full HTTPS listing URL from search results. Supply url or listing_id, not both.
+    String listingId = "listingId_example"; // String | Listing UUID from search results; requires no SEO slug.
+    String market = "de"; // String | Inferred from URL, otherwise de. Explicit market must match the URL host.
+    try {
+      AutoScout24ListingResponse result = apiInstance.autoscout24GetListing(url, listingId, market);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AutoScout24Api#autoscout24GetListing");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **url** | **String**| Full HTTPS listing URL from search results. Supply url or listing_id, not both. | [optional] |
+| **listingId** | **String**| Listing UUID from search results; requires no SEO slug. | [optional] |
+| **market** | **String**| Inferred from URL, otherwise de. Explicit market must match the URL host. | [optional] [enum: de, at, be, es, fr, it, lu, nl] |
+
+### Return type
+
+[**AutoScout24ListingResponse**](AutoScout24ListingResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="autoscout24ListMarkets"></a>
 # **autoscout24ListMarkets**
@@ -216,7 +291,7 @@ public class Example {
 
 Search vehicles
 
-Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
 
 ### Example
 ```java

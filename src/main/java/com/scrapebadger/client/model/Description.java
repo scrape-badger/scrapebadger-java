@@ -63,7 +63,6 @@ public class Description extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
-            final TypeAdapter<ModelNull> adapterModelNull = gson.getDelegateAdapter(this, TypeToken.get(ModelNull.class));
 
             return (TypeAdapter<T>) new TypeAdapter<Description>() {
                 @Override
@@ -77,12 +76,6 @@ public class Description extends AbstractOpenApiSchema {
                     if (value.getActualInstance() instanceof String) {
                         JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
                         elementAdapter.write(out, primitive);
-                        return;
-                    }
-                    // check if the actual instance is of the type `ModelNull`
-                    if (value.getActualInstance() instanceof ModelNull) {
-                        JsonElement element = adapterModelNull.toJsonTree((ModelNull)value.getActualInstance());
-                        elementAdapter.write(out, element);
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: String");
@@ -111,19 +104,6 @@ public class Description extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'String'", e);
                     }
-                    // deserialize ModelNull
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ModelNull.validateJsonElement(jsonElement);
-                        actualAdapter = adapterModelNull;
-                        Description ret = new Description();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for ModelNull failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ModelNull'", e);
-                    }
 
                     throw new IOException(String.format("Failed deserialization for Description: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
@@ -145,7 +125,6 @@ public class Description extends AbstractOpenApiSchema {
 
     static {
         schemas.put("String", String.class);
-        schemas.put("ModelNull", ModelNull.class);
     }
 
     @Override
@@ -168,11 +147,6 @@ public class Description extends AbstractOpenApiSchema {
         }
 
         if (instance instanceof String) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof ModelNull) {
             super.setActualInstance(instance);
             return;
         }
@@ -204,17 +178,6 @@ public class Description extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ModelNull`. If the actual instance is not `ModelNull`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ModelNull`
-     * @throws ClassCastException if the instance is not `ModelNull`
-     */
-    public ModelNull getModelNull() throws ClassCastException {
-        return (ModelNull)super.getActualInstance();
-    }
-
-    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -231,14 +194,6 @@ public class Description extends AbstractOpenApiSchema {
             return;
         } catch (Exception e) {
             errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with ModelNull
-        try {
-            ModelNull.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for ModelNull failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         throw new IOException(String.format("The JSON string is invalid for Description with anyOf schemas: String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
