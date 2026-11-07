@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
 
 import java.lang.reflect.Type;
@@ -2322,6 +2323,34 @@ public class GoogleApi {
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
      * @param output  (optional, default to json)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
+     * @param device Device target. (optional)
+     * @param userAgent Custom User-Agent. (optional)
+     * @param cr Country restrict. (optional)
+     * @param ludocid Place CID. (optional)
+     * @param lsig Map view ID. (optional)
+     * @param kgmid Knowledge Graph entity ID. (optional)
+     * @param si Cached Google parameters. (optional)
+     * @param ibp Layout control. (optional)
+     * @param uds Google filter string. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2333,7 +2362,7 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleLightWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googleGoogleLightWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2414,6 +2443,118 @@ public class GoogleApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("output", output));
         }
 
+        if (googleDomain != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("google_domain", googleDomain));
+        }
+
+        if (lat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lat", lat));
+        }
+
+        if (lon != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lon", lon));
+        }
+
+        if (radius != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("radius", radius));
+        }
+
+        if (colorScheme != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("color_scheme", colorScheme));
+        }
+
+        if (tbm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tbm", tbm));
+        }
+
+        if (udm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("udm", udm));
+        }
+
+        if (noCache != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("no_cache", noCache));
+        }
+
+        if (asDt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_dt", asDt));
+        }
+
+        if (asEpq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_epq", asEpq));
+        }
+
+        if (asEq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_eq", asEq));
+        }
+
+        if (asLq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_lq", asLq));
+        }
+
+        if (asNlo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_nlo", asNlo));
+        }
+
+        if (asNhi != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_nhi", asNhi));
+        }
+
+        if (asOq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_oq", asOq));
+        }
+
+        if (asQ != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_q", asQ));
+        }
+
+        if (asQdr != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_qdr", asQdr));
+        }
+
+        if (asRq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_rq", asRq));
+        }
+
+        if (asSitesearch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_sitesearch", asSitesearch));
+        }
+
+        if (device != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("device", device));
+        }
+
+        if (userAgent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_agent", userAgent));
+        }
+
+        if (cr != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cr", cr));
+        }
+
+        if (ludocid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ludocid", ludocid));
+        }
+
+        if (lsig != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lsig", lsig));
+        }
+
+        if (kgmid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("kgmid", kgmid));
+        }
+
+        if (si != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("si", si));
+        }
+
+        if (ibp != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ibp", ibp));
+        }
+
+        if (uds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("uds", uds));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2434,13 +2575,13 @@ public class GoogleApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googleGoogleLightWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call googleGoogleLightWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'q' is set
         if (q == null) {
             throw new ApiException("Missing the required parameter 'q' when calling googleGoogleLightWebSearch(Async)");
         }
 
-        return googleGoogleLightWebSearchCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, _callback);
+        return googleGoogleLightWebSearchCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, _callback);
 
     }
 
@@ -2461,6 +2602,34 @@ public class GoogleApi {
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
      * @param output  (optional, default to json)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
+     * @param device Device target. (optional)
+     * @param userAgent Custom User-Agent. (optional)
+     * @param cr Country restrict. (optional)
+     * @param ludocid Place CID. (optional)
+     * @param lsig Map view ID. (optional)
+     * @param kgmid Knowledge Graph entity ID. (optional)
+     * @param si Cached Google parameters. (optional)
+     * @param ibp Layout control. (optional)
+     * @param uds Google filter string. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2471,8 +2640,8 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object googleGoogleLightWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output) throws ApiException {
-        ApiResponse<Object> localVarResp = googleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+    public Object googleGoogleLightWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds) throws ApiException {
+        ApiResponse<Object> localVarResp = googleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
         return localVarResp.getData();
     }
 
@@ -2493,6 +2662,34 @@ public class GoogleApi {
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
      * @param output  (optional, default to json)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
+     * @param device Device target. (optional)
+     * @param userAgent Custom User-Agent. (optional)
+     * @param cr Country restrict. (optional)
+     * @param ludocid Place CID. (optional)
+     * @param lsig Map view ID. (optional)
+     * @param kgmid Knowledge Graph entity ID. (optional)
+     * @param si Cached Google parameters. (optional)
+     * @param ibp Layout control. (optional)
+     * @param uds Google filter string. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2503,8 +2700,8 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googleGoogleLightWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output) throws ApiException {
-        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, null);
+    public ApiResponse<Object> googleGoogleLightWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds) throws ApiException {
+        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2526,6 +2723,34 @@ public class GoogleApi {
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
      * @param output  (optional, default to json)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
+     * @param device Device target. (optional)
+     * @param userAgent Custom User-Agent. (optional)
+     * @param cr Country restrict. (optional)
+     * @param ludocid Place CID. (optional)
+     * @param lsig Map view ID. (optional)
+     * @param kgmid Knowledge Graph entity ID. (optional)
+     * @param si Cached Google parameters. (optional)
+     * @param ibp Layout control. (optional)
+     * @param uds Google filter string. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2537,9 +2762,9 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleLightWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googleGoogleLightWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, _callback);
+        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3128,6 +3353,27 @@ public class GoogleApi {
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
      * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
+     * @param mode  (optional, default to full)
+     * @param expandRelatedQuestions Open all People Also Ask answers (true) or the first N (0-99). (optional)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3139,7 +3385,7 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googleGoogleWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3260,6 +3506,90 @@ public class GoogleApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("ai_overview", aiOverview));
         }
 
+        if (mode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mode", mode));
+        }
+
+        if (expandRelatedQuestions != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("expand_related_questions", expandRelatedQuestions));
+        }
+
+        if (googleDomain != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("google_domain", googleDomain));
+        }
+
+        if (lat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lat", lat));
+        }
+
+        if (lon != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lon", lon));
+        }
+
+        if (radius != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("radius", radius));
+        }
+
+        if (colorScheme != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("color_scheme", colorScheme));
+        }
+
+        if (tbm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tbm", tbm));
+        }
+
+        if (udm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("udm", udm));
+        }
+
+        if (noCache != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("no_cache", noCache));
+        }
+
+        if (asDt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_dt", asDt));
+        }
+
+        if (asEpq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_epq", asEpq));
+        }
+
+        if (asEq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_eq", asEq));
+        }
+
+        if (asLq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_lq", asLq));
+        }
+
+        if (asNlo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_nlo", asNlo));
+        }
+
+        if (asNhi != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_nhi", asNhi));
+        }
+
+        if (asOq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_oq", asOq));
+        }
+
+        if (asQ != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_q", asQ));
+        }
+
+        if (asQdr != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_qdr", asQdr));
+        }
+
+        if (asRq != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_rq", asRq));
+        }
+
+        if (asSitesearch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("as_sitesearch", asSitesearch));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3280,13 +3610,13 @@ public class GoogleApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googleGoogleWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call googleGoogleWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'q' is set
         if (q == null) {
             throw new ApiException("Missing the required parameter 'q' when calling googleGoogleWebSearch(Async)");
         }
 
-        return googleGoogleWebSearchCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, _callback);
+        return googleGoogleWebSearchCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, _callback);
 
     }
 
@@ -3317,6 +3647,27 @@ public class GoogleApi {
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
      * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
+     * @param mode  (optional, default to full)
+     * @param expandRelatedQuestions Open all People Also Ask answers (true) or the first N (0-99). (optional)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3327,8 +3678,8 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object googleGoogleWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview) throws ApiException {
-        ApiResponse<Object> localVarResp = googleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview);
+    public Object googleGoogleWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch) throws ApiException {
+        ApiResponse<Object> localVarResp = googleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
         return localVarResp.getData();
     }
 
@@ -3359,6 +3710,27 @@ public class GoogleApi {
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
      * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
+     * @param mode  (optional, default to full)
+     * @param expandRelatedQuestions Open all People Also Ask answers (true) or the first N (0-99). (optional)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3369,8 +3741,8 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googleGoogleWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview) throws ApiException {
-        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, null);
+    public ApiResponse<Object> googleGoogleWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch) throws ApiException {
+        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3402,6 +3774,27 @@ public class GoogleApi {
      * @param ibp Layout control (optional)
      * @param uds Google filter string (optional)
      * @param aiOverview Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)
+     * @param mode  (optional, default to full)
+     * @param expandRelatedQuestions Open all People Also Ask answers (true) or the first N (0-99). (optional)
+     * @param googleDomain Alias for domain; Google requests use google.com with country targeting. (optional)
+     * @param lat Latitude; supply together with lon instead of location or uule. (optional)
+     * @param lon Longitude; supply together with lat. (optional)
+     * @param radius Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)
+     * @param colorScheme Google color scheme. (optional)
+     * @param tbm Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)
+     * @param udm Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)
+     * @param noCache Bypass result caches and request a fresh Google fetch. (optional, default to false)
+     * @param asDt Site restriction mode: i includes, e excludes as_sitesearch. (optional)
+     * @param asEpq Exact phrase. (optional)
+     * @param asEq Words to exclude. (optional)
+     * @param asLq Find pages linking to this URL; availability depends on Google. (optional)
+     * @param asNlo Numeric range minimum. (optional)
+     * @param asNhi Numeric range maximum. (optional)
+     * @param asOq Match any of these words. (optional)
+     * @param asQ Additional query words. (optional)
+     * @param asQdr Time range, such as d, w, m or y1. (optional)
+     * @param asRq Related URL; availability depends on Google. (optional)
+     * @param asSitesearch Restrict results to a site. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3413,9 +3806,9 @@ public class GoogleApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googleGoogleWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, _callback);
+        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

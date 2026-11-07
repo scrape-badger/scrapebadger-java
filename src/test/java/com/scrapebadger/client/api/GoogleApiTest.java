@@ -14,6 +14,7 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -287,7 +288,35 @@ public class GoogleApiTest {
         Integer filter = null;
         Integer nfpr = null;
         String output = null;
-        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+        String googleDomain = null;
+        BigDecimal lat = null;
+        BigDecimal lon = null;
+        BigDecimal radius = null;
+        String colorScheme = null;
+        String tbm = null;
+        String udm = null;
+        Boolean noCache = null;
+        String asDt = null;
+        String asEpq = null;
+        String asEq = null;
+        String asLq = null;
+        String asNlo = null;
+        String asNhi = null;
+        String asOq = null;
+        String asQ = null;
+        String asQdr = null;
+        String asRq = null;
+        String asSitesearch = null;
+        String device = null;
+        String userAgent = null;
+        String cr = null;
+        String ludocid = null;
+        String lsig = null;
+        String kgmid = null;
+        String si = null;
+        String ibp = null;
+        String uds = null;
+        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
         // TODO: test validations
     }
 
@@ -385,7 +414,28 @@ public class GoogleApiTest {
         String ibp = null;
         String uds = null;
         Boolean aiOverview = null;
-        Object response = api.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview);
+        String mode = null;
+        String expandRelatedQuestions = null;
+        String googleDomain = null;
+        BigDecimal lat = null;
+        BigDecimal lon = null;
+        BigDecimal radius = null;
+        String colorScheme = null;
+        String tbm = null;
+        String udm = null;
+        Boolean noCache = null;
+        String asDt = null;
+        String asEpq = null;
+        String asEq = null;
+        String asLq = null;
+        String asNlo = null;
+        String asNhi = null;
+        String asOq = null;
+        String asQ = null;
+        String asQdr = null;
+        String asRq = null;
+        String asSitesearch = null;
+        Object response = api.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
         // TODO: test validations
     }
 
