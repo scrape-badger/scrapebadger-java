@@ -2740,6 +2740,8 @@ public class FacebookApi {
      * @param deliveryMethod  (optional)
      * @param radius Search radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
+     * @param strictFilters Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics (optional, default to false)
+     * @param includeDetails Enrich returned listings with full public descriptions and photos; enables verified search (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2751,7 +2753,7 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookSearchMarketplaceCall(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call facebookSearchMarketplaceCall(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, Boolean strictFilters, Boolean includeDetails, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2816,6 +2818,14 @@ public class FacebookApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
         }
 
+        if (strictFilters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("strict_filters", strictFilters));
+        }
+
+        if (includeDetails != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_details", includeDetails));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2836,19 +2846,19 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call facebookSearchMarketplaceValidateBeforeCall(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call facebookSearchMarketplaceValidateBeforeCall(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, Boolean strictFilters, Boolean includeDetails, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling facebookSearchMarketplace(Async)");
         }
 
-        return facebookSearchMarketplaceCall(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, _callback);
+        return facebookSearchMarketplaceCall(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails, _callback);
 
     }
 
     /**
      * Search Marketplace
-     * Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
+     * Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.  Set strict_filters&#x3D;true for locally enforced radius (always km) and age. Public price-range continuations are bounded to eight pages; sort the full collected set for newest-first monitoring. Coverage and freshness are partial.
      * @param query Search keywords (required)
      * @param location Marketplace location slug or numeric place id (optional, default to nyc)
      * @param minPrice  (optional)
@@ -2859,6 +2869,8 @@ public class FacebookApi {
      * @param deliveryMethod  (optional)
      * @param radius Search radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
+     * @param strictFilters Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics (optional, default to false)
+     * @param includeDetails Enrich returned listings with full public descriptions and photos; enables verified search (optional, default to false)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2869,14 +2881,14 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object facebookSearchMarketplace(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after) throws ApiException {
-        ApiResponse<Object> localVarResp = facebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
+    public Object facebookSearchMarketplace(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, Boolean strictFilters, Boolean includeDetails) throws ApiException {
+        ApiResponse<Object> localVarResp = facebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
         return localVarResp.getData();
     }
 
     /**
      * Search Marketplace
-     * Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
+     * Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.  Set strict_filters&#x3D;true for locally enforced radius (always km) and age. Public price-range continuations are bounded to eight pages; sort the full collected set for newest-first monitoring. Coverage and freshness are partial.
      * @param query Search keywords (required)
      * @param location Marketplace location slug or numeric place id (optional, default to nyc)
      * @param minPrice  (optional)
@@ -2887,6 +2899,8 @@ public class FacebookApi {
      * @param deliveryMethod  (optional)
      * @param radius Search radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
+     * @param strictFilters Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics (optional, default to false)
+     * @param includeDetails Enrich returned listings with full public descriptions and photos; enables verified search (optional, default to false)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2897,15 +2911,15 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> facebookSearchMarketplaceWithHttpInfo(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after) throws ApiException {
-        okhttp3.Call localVarCall = facebookSearchMarketplaceValidateBeforeCall(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, null);
+    public ApiResponse<Object> facebookSearchMarketplaceWithHttpInfo(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, Boolean strictFilters, Boolean includeDetails) throws ApiException {
+        okhttp3.Call localVarCall = facebookSearchMarketplaceValidateBeforeCall(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search Marketplace (asynchronously)
-     * Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
+     * Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.  Set strict_filters&#x3D;true for locally enforced radius (always km) and age. Public price-range continuations are bounded to eight pages; sort the full collected set for newest-first monitoring. Coverage and freshness are partial.
      * @param query Search keywords (required)
      * @param location Marketplace location slug or numeric place id (optional, default to nyc)
      * @param minPrice  (optional)
@@ -2916,6 +2930,8 @@ public class FacebookApi {
      * @param deliveryMethod  (optional)
      * @param radius Search radius around the location (km, or miles in the US) (optional)
      * @param after  (optional)
+     * @param strictFilters Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics (optional, default to false)
+     * @param includeDetails Enrich returned listings with full public descriptions and photos; enables verified search (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2927,9 +2943,9 @@ public class FacebookApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call facebookSearchMarketplaceAsync(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call facebookSearchMarketplaceAsync(String query, String location, Integer minPrice, Integer maxPrice, Integer daysSinceListed, String sortBy, String itemCondition, String deliveryMethod, Integer radius, String after, Boolean strictFilters, Boolean includeDetails, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = facebookSearchMarketplaceValidateBeforeCall(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, _callback);
+        okhttp3.Call localVarCall = facebookSearchMarketplaceValidateBeforeCall(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

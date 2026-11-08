@@ -1399,11 +1399,11 @@ public class Example {
 
 <a id="facebookSearchMarketplace"></a>
 # **facebookSearchMarketplace**
-> Object facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after)
+> Object facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails)
 
 Search Marketplace
 
-Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
+Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.  Set strict_filters&#x3D;true for locally enforced radius (always km) and age. Public price-range continuations are bounded to eight pages; sort the full collected set for newest-first monitoring. Coverage and freshness are partial.
 
 ### Example
 ```java
@@ -1437,8 +1437,10 @@ public class Example {
     String deliveryMethod = "deliveryMethod_example"; // String | 
     Integer radius = 56; // Integer | Search radius around the location (km, or miles in the US)
     String after = "after_example"; // String | 
+    Boolean strictFilters = false; // Boolean | Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics
+    Boolean includeDetails = false; // Boolean | Enrich returned listings with full public descriptions and photos; enables verified search
     try {
-      Object result = apiInstance.facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
+      Object result = apiInstance.facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FacebookApi#facebookSearchMarketplace");
@@ -1465,6 +1467,8 @@ public class Example {
 | **deliveryMethod** | **String**|  | [optional] |
 | **radius** | **Integer**| Search radius around the location (km, or miles in the US) | [optional] |
 | **after** | **String**|  | [optional] |
+| **strictFilters** | **Boolean**| Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics | [optional] [default to false] |
+| **includeDetails** | **Boolean**| Enrich returned listings with full public descriptions and photos; enables verified search | [optional] [default to false] |
 
 ### Return type
 
