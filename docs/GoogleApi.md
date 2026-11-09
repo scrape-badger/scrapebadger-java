@@ -1120,7 +1120,7 @@ public class Example {
     String colorScheme = "light"; // String | Google color scheme.
     String tbm = "isch"; // String | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results.
     String udm = "udm_example"; // String | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html.
-    Boolean noCache = false; // Boolean | Bypass result caches and request a fresh Google fetch.
+    Boolean noCache = false; // Boolean | Ignored: responses are never cached.
     String asDt = "asDt_example"; // String | Site restriction mode: i includes, e excludes as_sitesearch.
     String asEpq = "asEpq_example"; // String | Exact phrase.
     String asEq = "asEq_example"; // String | Words to exclude.
@@ -1183,7 +1183,7 @@ public class Example {
 | **colorScheme** | **String**| Google color scheme. | [optional] [enum: light, dark] |
 | **tbm** | **String**| Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional] [enum: isch, lcl, vid, nws, shop, pts, bks] |
 | **udm** | **String**| Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional] |
-| **noCache** | **Boolean**| Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
+| **noCache** | **Boolean**| Ignored: responses are never cached. | [optional] [default to false] |
 | **asDt** | **String**| Site restriction mode: i includes, e excludes as_sitesearch. | [optional] |
 | **asEpq** | **String**| Exact phrase. | [optional] |
 | **asEq** | **String**| Words to exclude. | [optional] |
@@ -1574,7 +1574,7 @@ public class Example {
     String colorScheme = "light"; // String | Google color scheme.
     String tbm = "isch"; // String | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results.
     String udm = "udm_example"; // String | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html.
-    Boolean noCache = false; // Boolean | Bypass result caches and request a fresh Google fetch.
+    Boolean noCache = false; // Boolean | Ignored: responses are never cached.
     String asDt = "asDt_example"; // String | Site restriction mode: i includes, e excludes as_sitesearch.
     String asEpq = "asEpq_example"; // String | Exact phrase.
     String asEq = "asEq_example"; // String | Words to exclude.
@@ -1640,7 +1640,7 @@ public class Example {
 | **colorScheme** | **String**| Google color scheme. | [optional] [enum: light, dark] |
 | **tbm** | **String**| Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional] [enum: isch, lcl, vid, nws, shop, pts, bks] |
 | **udm** | **String**| Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional] |
-| **noCache** | **Boolean**| Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
+| **noCache** | **Boolean**| Ignored: responses are never cached. | [optional] [default to false] |
 | **asDt** | **String**| Site restriction mode: i includes, e excludes as_sitesearch. | [optional] |
 | **asEpq** | **String**| Exact phrase. | [optional] |
 | **asEq** | **String**| Words to exclude. | [optional] |
