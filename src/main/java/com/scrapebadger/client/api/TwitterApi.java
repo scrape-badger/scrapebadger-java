@@ -30,7 +30,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.BillingLogListResponse;
 import com.scrapebadger.client.model.FilterRuleCreate;
-import com.scrapebadger.client.model.FilterRuleDeliveryLogListResponse;
 import com.scrapebadger.client.model.FilterRuleListResponse;
 import com.scrapebadger.client.model.FilterRuleResponse;
 import com.scrapebadger.client.model.FilterRuleUpdate;
@@ -42,7 +41,6 @@ import com.scrapebadger.client.model.StreamMonitorCreate;
 import com.scrapebadger.client.model.StreamMonitorListResponse;
 import com.scrapebadger.client.model.StreamMonitorResponse;
 import com.scrapebadger.client.model.StreamMonitorUpdate;
-import com.scrapebadger.client.model.TweetDeliveryLogListResponse;
 import com.scrapebadger.client.model.WebhookCreate;
 import com.scrapebadger.client.model.WebhookListResponse;
 import com.scrapebadger.client.model.WebhookResponse;
@@ -5358,11 +5356,6 @@ public class TwitterApi {
     /**
      * Build call for twitterListDeliveryLogsForAFilterRule
      * @param ruleId  (required)
-     * @param deliveryStatus  (optional)
-     * @param authorUsername  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5370,11 +5363,13 @@ public class TwitterApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call twitterListDeliveryLogsForAFilterRuleCall(String ruleId, String deliveryStatus, String authorUsername, Integer page, Integer pageSize, String sort, final ApiCallback _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call twitterListDeliveryLogsForAFilterRuleCall(String ruleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5400,26 +5395,6 @@ public class TwitterApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (deliveryStatus != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("delivery_status", deliveryStatus));
-        }
-
-        if (authorUsername != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("author_username", authorUsername));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
-        }
-
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -5439,75 +5414,62 @@ public class TwitterApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call twitterListDeliveryLogsForAFilterRuleValidateBeforeCall(String ruleId, String deliveryStatus, String authorUsername, Integer page, Integer pageSize, String sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call twitterListDeliveryLogsForAFilterRuleValidateBeforeCall(String ruleId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'ruleId' is set
         if (ruleId == null) {
             throw new ApiException("Missing the required parameter 'ruleId' when calling twitterListDeliveryLogsForAFilterRule(Async)");
         }
 
-        return twitterListDeliveryLogsForAFilterRuleCall(ruleId, deliveryStatus, authorUsername, page, pageSize, sort, _callback);
+        return twitterListDeliveryLogsForAFilterRuleCall(ruleId, _callback);
 
     }
 
     /**
      * List delivery logs for a filter rule
-     * List tweet delivery logs for a specific filter rule.
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
      * @param ruleId  (required)
-     * @param deliveryStatus  (optional)
-     * @param authorUsername  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
-     * @return FilterRuleDeliveryLogListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public FilterRuleDeliveryLogListResponse twitterListDeliveryLogsForAFilterRule(String ruleId, String deliveryStatus, String authorUsername, Integer page, Integer pageSize, String sort) throws ApiException {
-        ApiResponse<FilterRuleDeliveryLogListResponse> localVarResp = twitterListDeliveryLogsForAFilterRuleWithHttpInfo(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
-        return localVarResp.getData();
+    @Deprecated
+    public void twitterListDeliveryLogsForAFilterRule(String ruleId) throws ApiException {
+        twitterListDeliveryLogsForAFilterRuleWithHttpInfo(ruleId);
     }
 
     /**
      * List delivery logs for a filter rule
-     * List tweet delivery logs for a specific filter rule.
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
      * @param ruleId  (required)
-     * @param deliveryStatus  (optional)
-     * @param authorUsername  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
-     * @return ApiResponse&lt;FilterRuleDeliveryLogListResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public ApiResponse<FilterRuleDeliveryLogListResponse> twitterListDeliveryLogsForAFilterRuleWithHttpInfo(String ruleId, String deliveryStatus, String authorUsername, Integer page, Integer pageSize, String sort) throws ApiException {
-        okhttp3.Call localVarCall = twitterListDeliveryLogsForAFilterRuleValidateBeforeCall(ruleId, deliveryStatus, authorUsername, page, pageSize, sort, null);
-        Type localVarReturnType = new TypeToken<FilterRuleDeliveryLogListResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    @Deprecated
+    public ApiResponse<Void> twitterListDeliveryLogsForAFilterRuleWithHttpInfo(String ruleId) throws ApiException {
+        okhttp3.Call localVarCall = twitterListDeliveryLogsForAFilterRuleValidateBeforeCall(ruleId, null);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List delivery logs for a filter rule (asynchronously)
-     * List tweet delivery logs for a specific filter rule.
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
      * @param ruleId  (required)
-     * @param deliveryStatus  (optional)
-     * @param authorUsername  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5515,15 +5477,16 @@ public class TwitterApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call twitterListDeliveryLogsForAFilterRuleAsync(String ruleId, String deliveryStatus, String authorUsername, Integer page, Integer pageSize, String sort, final ApiCallback<FilterRuleDeliveryLogListResponse> _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call twitterListDeliveryLogsForAFilterRuleAsync(String ruleId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = twitterListDeliveryLogsForAFilterRuleValidateBeforeCall(ruleId, deliveryStatus, authorUsername, page, pageSize, sort, _callback);
-        Type localVarReturnType = new TypeToken<FilterRuleDeliveryLogListResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        okhttp3.Call localVarCall = twitterListDeliveryLogsForAFilterRuleValidateBeforeCall(ruleId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -5818,12 +5781,6 @@ public class TwitterApi {
     }
     /**
      * Build call for twitterListTweetDeliveryLogs
-     * @param monitorId  (optional)
-     * @param authorUsername  (optional)
-     * @param deliveryStatus  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5831,11 +5788,12 @@ public class TwitterApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call twitterListTweetDeliveryLogsCall(String monitorId, String authorUsername, String deliveryStatus, Integer page, Integer pageSize, String sort, final ApiCallback _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call twitterListTweetDeliveryLogsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5860,30 +5818,6 @@ public class TwitterApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (monitorId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("monitor_id", monitorId));
-        }
-
-        if (authorUsername != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("author_username", authorUsername));
-        }
-
-        if (deliveryStatus != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("delivery_status", deliveryStatus));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
-        }
-
-        if (sort != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -5903,70 +5837,52 @@ public class TwitterApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call twitterListTweetDeliveryLogsValidateBeforeCall(String monitorId, String authorUsername, String deliveryStatus, Integer page, Integer pageSize, String sort, final ApiCallback _callback) throws ApiException {
-        return twitterListTweetDeliveryLogsCall(monitorId, authorUsername, deliveryStatus, page, pageSize, sort, _callback);
+    private okhttp3.Call twitterListTweetDeliveryLogsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return twitterListTweetDeliveryLogsCall(_callback);
 
     }
 
     /**
      * List tweet delivery logs
-     * List tweet delivery logs for the authenticated API key&#39;s monitors.
-     * @param monitorId  (optional)
-     * @param authorUsername  (optional)
-     * @param deliveryStatus  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
-     * @return TweetDeliveryLogListResponse
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public TweetDeliveryLogListResponse twitterListTweetDeliveryLogs(String monitorId, String authorUsername, String deliveryStatus, Integer page, Integer pageSize, String sort) throws ApiException {
-        ApiResponse<TweetDeliveryLogListResponse> localVarResp = twitterListTweetDeliveryLogsWithHttpInfo(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
-        return localVarResp.getData();
+    @Deprecated
+    public void twitterListTweetDeliveryLogs() throws ApiException {
+        twitterListTweetDeliveryLogsWithHttpInfo();
     }
 
     /**
      * List tweet delivery logs
-     * List tweet delivery logs for the authenticated API key&#39;s monitors.
-     * @param monitorId  (optional)
-     * @param authorUsername  (optional)
-     * @param deliveryStatus  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
-     * @return ApiResponse&lt;TweetDeliveryLogListResponse&gt;
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public ApiResponse<TweetDeliveryLogListResponse> twitterListTweetDeliveryLogsWithHttpInfo(String monitorId, String authorUsername, String deliveryStatus, Integer page, Integer pageSize, String sort) throws ApiException {
-        okhttp3.Call localVarCall = twitterListTweetDeliveryLogsValidateBeforeCall(monitorId, authorUsername, deliveryStatus, page, pageSize, sort, null);
-        Type localVarReturnType = new TypeToken<TweetDeliveryLogListResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    @Deprecated
+    public ApiResponse<Void> twitterListTweetDeliveryLogsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = twitterListTweetDeliveryLogsValidateBeforeCall(null);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List tweet delivery logs (asynchronously)
-     * List tweet delivery logs for the authenticated API key&#39;s monitors.
-     * @param monitorId  (optional)
-     * @param authorUsername  (optional)
-     * @param deliveryStatus  (optional)
-     * @param page  (optional, default to 1)
-     * @param pageSize  (optional, default to 20)
-     * @param sort  (optional, default to desc)
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5974,15 +5890,15 @@ public class TwitterApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
-    public okhttp3.Call twitterListTweetDeliveryLogsAsync(String monitorId, String authorUsername, String deliveryStatus, Integer page, Integer pageSize, String sort, final ApiCallback<TweetDeliveryLogListResponse> _callback) throws ApiException {
+    @Deprecated
+    public okhttp3.Call twitterListTweetDeliveryLogsAsync(final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = twitterListTweetDeliveryLogsValidateBeforeCall(monitorId, authorUsername, deliveryStatus, page, pageSize, sort, _callback);
-        Type localVarReturnType = new TypeToken<TweetDeliveryLogListResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        okhttp3.Call localVarCall = twitterListTweetDeliveryLogsValidateBeforeCall(_callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

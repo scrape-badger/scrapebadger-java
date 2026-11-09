@@ -2828,11 +2828,11 @@ public class Example {
 
 <a id="twitterListDeliveryLogsForAFilterRule"></a>
 # **twitterListDeliveryLogsForAFilterRule**
-> FilterRuleDeliveryLogListResponse twitterListDeliveryLogsForAFilterRule(ruleId, deliveryStatus, authorUsername, page, pageSize, sort)
+> twitterListDeliveryLogsForAFilterRule(ruleId)
 
 List delivery logs for a filter rule
 
-List tweet delivery logs for a specific filter rule.
+Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
 
 ### Example
 ```java
@@ -2857,14 +2857,8 @@ public class Example {
 
     TwitterApi apiInstance = new TwitterApi(defaultClient);
     String ruleId = "ruleId_example"; // String | 
-    String deliveryStatus = "deliveryStatus_example"; // String | 
-    String authorUsername = "authorUsername_example"; // String | 
-    Integer page = 1; // Integer | 
-    Integer pageSize = 20; // Integer | 
-    String sort = "asc"; // String | 
     try {
-      FilterRuleDeliveryLogListResponse result = apiInstance.twitterListDeliveryLogsForAFilterRule(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
-      System.out.println(result);
+      apiInstance.twitterListDeliveryLogsForAFilterRule(ruleId);
     } catch (ApiException e) {
       System.err.println("Exception when calling TwitterApi#twitterListDeliveryLogsForAFilterRule");
       System.err.println("Status code: " + e.getCode());
@@ -2881,15 +2875,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **ruleId** | **String**|  | |
-| **deliveryStatus** | **String**|  | [optional] |
-| **authorUsername** | **String**|  | [optional] |
-| **page** | **Integer**|  | [optional] [default to 1] |
-| **pageSize** | **Integer**|  | [optional] [default to 20] |
-| **sort** | **String**|  | [optional] [default to desc] [enum: asc, desc] |
 
 ### Return type
 
-[**FilterRuleDeliveryLogListResponse**](FilterRuleDeliveryLogListResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -2903,7 +2892,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
+| **410** | Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. |  -  |
 | **422** | Validation Error |  -  |
 
 <a id="twitterListFilterRules"></a>
@@ -3056,11 +3045,11 @@ public class Example {
 
 <a id="twitterListTweetDeliveryLogs"></a>
 # **twitterListTweetDeliveryLogs**
-> TweetDeliveryLogListResponse twitterListTweetDeliveryLogs(monitorId, authorUsername, deliveryStatus, page, pageSize, sort)
+> twitterListTweetDeliveryLogs()
 
 List tweet delivery logs
 
-List tweet delivery logs for the authenticated API key&#39;s monitors.
+Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
 
 ### Example
 ```java
@@ -3084,15 +3073,8 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     TwitterApi apiInstance = new TwitterApi(defaultClient);
-    String monitorId = "monitorId_example"; // String | 
-    String authorUsername = "authorUsername_example"; // String | 
-    String deliveryStatus = "deliveryStatus_example"; // String | 
-    Integer page = 1; // Integer | 
-    Integer pageSize = 20; // Integer | 
-    String sort = "asc"; // String | 
     try {
-      TweetDeliveryLogListResponse result = apiInstance.twitterListTweetDeliveryLogs(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
-      System.out.println(result);
+      apiInstance.twitterListTweetDeliveryLogs();
     } catch (ApiException e) {
       System.err.println("Exception when calling TwitterApi#twitterListTweetDeliveryLogs");
       System.err.println("Status code: " + e.getCode());
@@ -3105,19 +3087,11 @@ public class Example {
 ```
 
 ### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **monitorId** | **String**|  | [optional] |
-| **authorUsername** | **String**|  | [optional] |
-| **deliveryStatus** | **String**|  | [optional] |
-| **page** | **Integer**|  | [optional] [default to 1] |
-| **pageSize** | **Integer**|  | [optional] [default to 20] |
-| **sort** | **String**|  | [optional] [default to desc] [enum: asc, desc] |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**TweetDeliveryLogListResponse**](TweetDeliveryLogListResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -3131,8 +3105,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
+| **410** | Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. |  -  |
 
 <a id="twitterListWebhooks"></a>
 # **twitterListWebhooks**

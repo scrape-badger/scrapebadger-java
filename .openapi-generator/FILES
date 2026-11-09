@@ -75,8 +75,6 @@ docs/Faq.md
 docs/FeedbackApi.md
 docs/FeedbackRequest.md
 docs/FilterRuleCreate.md
-docs/FilterRuleDeliveryLogListResponse.md
-docs/FilterRuleDeliveryLogResponse.md
 docs/FilterRuleListResponse.md
 docs/FilterRuleResponse.md
 docs/FilterRuleUpdate.md
@@ -193,8 +191,6 @@ docs/Subtype.md
 docs/TargetApi.md
 docs/Thumbnail.md
 docs/TikTokApi.md
-docs/TweetDeliveryLogListResponse.md
-docs/TweetDeliveryLogResponse.md
 docs/TwitterApi.md
 docs/Type.md
 docs/Url.md
@@ -370,8 +366,6 @@ src/main/java/com/scrapebadger/client/model/FamilyFriendly.java
 src/main/java/com/scrapebadger/client/model/Faq.java
 src/main/java/com/scrapebadger/client/model/FeedbackRequest.java
 src/main/java/com/scrapebadger/client/model/FilterRuleCreate.java
-src/main/java/com/scrapebadger/client/model/FilterRuleDeliveryLogListResponse.java
-src/main/java/com/scrapebadger/client/model/FilterRuleDeliveryLogResponse.java
 src/main/java/com/scrapebadger/client/model/FilterRuleListResponse.java
 src/main/java/com/scrapebadger/client/model/FilterRuleResponse.java
 src/main/java/com/scrapebadger/client/model/FilterRuleUpdate.java
@@ -467,8 +461,6 @@ src/main/java/com/scrapebadger/client/model/StreamMonitorUpdate.java
 src/main/java/com/scrapebadger/client/model/SubscriptionInfo.java
 src/main/java/com/scrapebadger/client/model/Subtype.java
 src/main/java/com/scrapebadger/client/model/Thumbnail.java
-src/main/java/com/scrapebadger/client/model/TweetDeliveryLogListResponse.java
-src/main/java/com/scrapebadger/client/model/TweetDeliveryLogResponse.java
 src/main/java/com/scrapebadger/client/model/Type.java
 src/main/java/com/scrapebadger/client/model/Url.java
 src/main/java/com/scrapebadger/client/model/UserItemsResponse.java
@@ -607,8 +599,6 @@ src/test/java/com/scrapebadger/client/model/FamilyFriendlyTest.java
 src/test/java/com/scrapebadger/client/model/FaqTest.java
 src/test/java/com/scrapebadger/client/model/FeedbackRequestTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleCreateTest.java
-src/test/java/com/scrapebadger/client/model/FilterRuleDeliveryLogListResponseTest.java
-src/test/java/com/scrapebadger/client/model/FilterRuleDeliveryLogResponseTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleListResponseTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleResponseTest.java
 src/test/java/com/scrapebadger/client/model/FilterRuleUpdateTest.java
@@ -704,8 +694,6 @@ src/test/java/com/scrapebadger/client/model/StreamMonitorUpdateTest.java
 src/test/java/com/scrapebadger/client/model/SubscriptionInfoTest.java
 src/test/java/com/scrapebadger/client/model/SubtypeTest.java
 src/test/java/com/scrapebadger/client/model/ThumbnailTest.java
-src/test/java/com/scrapebadger/client/model/TweetDeliveryLogListResponseTest.java
-src/test/java/com/scrapebadger/client/model/TweetDeliveryLogResponseTest.java
 src/test/java/com/scrapebadger/client/model/TypeTest.java
 src/test/java/com/scrapebadger/client/model/UrlTest.java
 src/test/java/com/scrapebadger/client/model/UserItemsResponseTest.java

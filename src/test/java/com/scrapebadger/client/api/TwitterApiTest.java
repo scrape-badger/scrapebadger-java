@@ -17,7 +17,6 @@ import com.scrapebadger.client.ApiException;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.BillingLogListResponse;
 import com.scrapebadger.client.model.FilterRuleCreate;
-import com.scrapebadger.client.model.FilterRuleDeliveryLogListResponse;
 import com.scrapebadger.client.model.FilterRuleListResponse;
 import com.scrapebadger.client.model.FilterRuleResponse;
 import com.scrapebadger.client.model.FilterRuleUpdate;
@@ -29,7 +28,6 @@ import com.scrapebadger.client.model.StreamMonitorCreate;
 import com.scrapebadger.client.model.StreamMonitorListResponse;
 import com.scrapebadger.client.model.StreamMonitorResponse;
 import com.scrapebadger.client.model.StreamMonitorUpdate;
-import com.scrapebadger.client.model.TweetDeliveryLogListResponse;
 import com.scrapebadger.client.model.WebhookCreate;
 import com.scrapebadger.client.model.WebhookListResponse;
 import com.scrapebadger.client.model.WebhookResponse;
@@ -620,19 +618,14 @@ public class TwitterApiTest {
     /**
      * List delivery logs for a filter rule
      *
-     * List tweet delivery logs for a specific filter rule.
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void twitterListDeliveryLogsForAFilterRuleTest() throws ApiException {
         String ruleId = null;
-        String deliveryStatus = null;
-        String authorUsername = null;
-        Integer page = null;
-        Integer pageSize = null;
-        String sort = null;
-        FilterRuleDeliveryLogListResponse response = api.twitterListDeliveryLogsForAFilterRule(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
+        api.twitterListDeliveryLogsForAFilterRule(ruleId);
         // TODO: test validations
     }
 
@@ -671,19 +664,13 @@ public class TwitterApiTest {
     /**
      * List tweet delivery logs
      *
-     * List tweet delivery logs for the authenticated API key&#39;s monitors.
+     * Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void twitterListTweetDeliveryLogsTest() throws ApiException {
-        String monitorId = null;
-        String authorUsername = null;
-        String deliveryStatus = null;
-        Integer page = null;
-        Integer pageSize = null;
-        String sort = null;
-        TweetDeliveryLogListResponse response = api.twitterListTweetDeliveryLogs(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
+        api.twitterListTweetDeliveryLogs();
         // TODO: test validations
     }
 
