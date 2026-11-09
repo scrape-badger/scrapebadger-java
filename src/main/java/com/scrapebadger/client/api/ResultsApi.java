@@ -73,7 +73,7 @@ public class ResultsApi {
     }
 
     /**
-     * Build call for resultsReReadAResult
+     * Build call for resultsReReadAResultRemoved
      * @param resultId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -86,7 +86,7 @@ public class ResultsApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resultsReReadAResultCall(String resultId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resultsReReadAResultRemovedCall(String resultId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -132,19 +132,19 @@ public class ResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resultsReReadAResultValidateBeforeCall(String resultId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resultsReReadAResultRemovedValidateBeforeCall(String resultId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'resultId' is set
         if (resultId == null) {
-            throw new ApiException("Missing the required parameter 'resultId' when calling resultsReReadAResult(Async)");
+            throw new ApiException("Missing the required parameter 'resultId' when calling resultsReReadAResultRemoved(Async)");
         }
 
-        return resultsReReadAResultCall(resultId, _callback);
+        return resultsReReadAResultRemovedCall(resultId, _callback);
 
     }
 
     /**
-     * Re-read a result
-     * Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+     * Re-read a result (removed)
+     * Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
      * @param resultId  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -156,14 +156,14 @@ public class ResultsApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object resultsReReadAResult(String resultId) throws ApiException {
-        ApiResponse<Object> localVarResp = resultsReReadAResultWithHttpInfo(resultId);
+    public Object resultsReReadAResultRemoved(String resultId) throws ApiException {
+        ApiResponse<Object> localVarResp = resultsReReadAResultRemovedWithHttpInfo(resultId);
         return localVarResp.getData();
     }
 
     /**
-     * Re-read a result
-     * Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+     * Re-read a result (removed)
+     * Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
      * @param resultId  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -175,15 +175,15 @@ public class ResultsApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> resultsReReadAResultWithHttpInfo(String resultId) throws ApiException {
-        okhttp3.Call localVarCall = resultsReReadAResultValidateBeforeCall(resultId, null);
+    public ApiResponse<Object> resultsReReadAResultRemovedWithHttpInfo(String resultId) throws ApiException {
+        okhttp3.Call localVarCall = resultsReReadAResultRemovedValidateBeforeCall(resultId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Re-read a result (asynchronously)
-     * Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+     * Re-read a result (removed) (asynchronously)
+     * Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
      * @param resultId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -196,9 +196,9 @@ public class ResultsApi {
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resultsReReadAResultAsync(String resultId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call resultsReReadAResultRemovedAsync(String resultId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = resultsReReadAResultValidateBeforeCall(resultId, _callback);
+        okhttp3.Call localVarCall = resultsReReadAResultRemovedValidateBeforeCall(resultId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

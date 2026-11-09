@@ -4,16 +4,16 @@ All URIs are relative to *https://scrapebadger.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**resultsReReadAResult**](ResultsApi.md#resultsReReadAResult) | **GET** /v1/results/{result_id} | Re-read a result |
+| [**resultsReReadAResultRemoved**](ResultsApi.md#resultsReReadAResultRemoved) | **GET** /v1/results/{result_id} | Re-read a result (removed) |
 
 
-<a id="resultsReReadAResult"></a>
-# **resultsReReadAResult**
-> Object resultsReReadAResult(resultId)
+<a id="resultsReReadAResultRemoved"></a>
+# **resultsReReadAResultRemoved**
+> Object resultsReReadAResultRemoved(resultId)
 
-Re-read a result
+Re-read a result (removed)
 
-Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
 
 ### Example
 ```java
@@ -39,10 +39,10 @@ public class Example {
     ResultsApi apiInstance = new ResultsApi(defaultClient);
     String resultId = "resultId_example"; // String | 
     try {
-      Object result = apiInstance.resultsReReadAResult(resultId);
+      Object result = apiInstance.resultsReReadAResultRemoved(resultId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ResultsApi#resultsReReadAResult");
+      System.err.println("Exception when calling ResultsApi#resultsReReadAResultRemoved");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
