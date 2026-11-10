@@ -632,11 +632,11 @@ public class Example {
 
 <a id="googleGoogleAiModeSearch"></a>
 # **googleGoogleAiModeSearch**
-> Object googleGoogleAiModeSearch(q, gl, hl, includeHtml)
+> Object googleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon)
 
 Google AI Mode search
 
-Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
 
 ### Example
 ```java
@@ -661,11 +661,15 @@ public class Example {
 
     GoogleApi apiInstance = new GoogleApi(defaultClient);
     String q = "q_example"; // String | Search query for AI-generated response
-    String gl = "us"; // String | Country code
+    String gl = "us"; // String | Google country (market) code. It shapes the answer; it does not pick the exit IP's country. Defaults to the `location`'s country when `location` is set.
     String hl = "en"; // String | Language code
     Boolean includeHtml = true; // Boolean | Include the raw `answer_html` (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured `text_blocks` + `markdown`.
+    String location = "location_example"; // String | Answer as if the user were here: a Google canonical location name (e.g. `Wonju-si,Gangwon-do,South Korea`), a Google criteria ID, or an unambiguous short name within `gl`. Use only one of location, uule, or lat/lon.
+    String uule = "uule_example"; // String | A Google UULE value in its `w+` (canonical name) or `j+` (coordinates) form.
+    BigDecimal lat = new BigDecimal(78); // BigDecimal | Latitude of the user's location (with lon).
+    BigDecimal lon = new BigDecimal(78); // BigDecimal | Longitude of the user's location (with lat).
     try {
-      Object result = apiInstance.googleGoogleAiModeSearch(q, gl, hl, includeHtml);
+      Object result = apiInstance.googleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GoogleApi#googleGoogleAiModeSearch");
@@ -683,9 +687,13 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **q** | **String**| Search query for AI-generated response | |
-| **gl** | **String**| Country code | [optional] [default to us] |
+| **gl** | **String**| Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. | [optional] [default to us] |
 | **hl** | **String**| Language code | [optional] [default to en] |
 | **includeHtml** | **Boolean**| Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. | [optional] [default to true] |
+| **location** | **String**| Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. | [optional] |
+| **uule** | **String**| A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. | [optional] |
+| **lat** | **BigDecimal**| Latitude of the user&#39;s location (with lon). | [optional] |
+| **lon** | **BigDecimal**| Longitude of the user&#39;s location (with lat). | [optional] |
 
 ### Return type
 

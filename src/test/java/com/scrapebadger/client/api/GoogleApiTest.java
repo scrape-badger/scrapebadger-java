@@ -155,7 +155,7 @@ public class GoogleApiTest {
     /**
      * Google AI Mode search
      *
-     * Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+     * Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
      *
      * @throws ApiException if the Api call fails
      */
@@ -165,7 +165,11 @@ public class GoogleApiTest {
         String gl = null;
         String hl = null;
         Boolean includeHtml = null;
-        Object response = api.googleGoogleAiModeSearch(q, gl, hl, includeHtml);
+        String location = null;
+        String uule = null;
+        BigDecimal lat = null;
+        BigDecimal lon = null;
+        Object response = api.googleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon);
         // TODO: test validations
     }
 
