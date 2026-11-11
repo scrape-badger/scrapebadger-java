@@ -136,6 +136,7 @@ docs/LinkedInApi.md
 docs/Location.md
 docs/LoopNetApi.md
 docs/MarketsResponse.md
+docs/MetaAiApi.md
 docs/MetaUrl.md
 docs/NaverApi.md
 docs/NextOffset.md
@@ -294,6 +295,7 @@ src/main/java/com/scrapebadger/client/api/InstagramApi.java
 src/main/java/com/scrapebadger/client/api/LeboncoinApi.java
 src/main/java/com/scrapebadger/client/api/LinkedInApi.java
 src/main/java/com/scrapebadger/client/api/LoopNetApi.java
+src/main/java/com/scrapebadger/client/api/MetaAiApi.java
 src/main/java/com/scrapebadger/client/api/NaverApi.java
 src/main/java/com/scrapebadger/client/api/PerplexityApi.java
 src/main/java/com/scrapebadger/client/api/QuoteApi.java
@@ -532,6 +534,7 @@ src/test/java/com/scrapebadger/client/api/InstagramApiTest.java
 src/test/java/com/scrapebadger/client/api/LeboncoinApiTest.java
 src/test/java/com/scrapebadger/client/api/LinkedInApiTest.java
 src/test/java/com/scrapebadger/client/api/LoopNetApiTest.java
+src/test/java/com/scrapebadger/client/api/MetaAiApiTest.java
 src/test/java/com/scrapebadger/client/api/NaverApiTest.java
 src/test/java/com/scrapebadger/client/api/PerplexityApiTest.java
 src/test/java/com/scrapebadger/client/api/QuoteApiTest.java
