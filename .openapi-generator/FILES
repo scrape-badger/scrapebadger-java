@@ -119,6 +119,7 @@ docs/GitHubStatus.md
 docs/GitHubTextLink.md
 docs/GoogleApi.md
 docs/GooglePlayApi.md
+docs/GrokApi.md
 docs/GumtreeApi.md
 docs/HTTPValidationError.md
 docs/IdealistaApi.md
@@ -288,6 +289,7 @@ src/main/java/com/scrapebadger/client/api/GeminiApi.java
 src/main/java/com/scrapebadger/client/api/GitHubApi.java
 src/main/java/com/scrapebadger/client/api/GoogleApi.java
 src/main/java/com/scrapebadger/client/api/GooglePlayApi.java
+src/main/java/com/scrapebadger/client/api/GrokApi.java
 src/main/java/com/scrapebadger/client/api/GumtreeApi.java
 src/main/java/com/scrapebadger/client/api/IdealistaApi.java
 src/main/java/com/scrapebadger/client/api/ImmobiliareApi.java
@@ -527,6 +529,7 @@ src/test/java/com/scrapebadger/client/api/GeminiApiTest.java
 src/test/java/com/scrapebadger/client/api/GitHubApiTest.java
 src/test/java/com/scrapebadger/client/api/GoogleApiTest.java
 src/test/java/com/scrapebadger/client/api/GooglePlayApiTest.java
+src/test/java/com/scrapebadger/client/api/GrokApiTest.java
 src/test/java/com/scrapebadger/client/api/GumtreeApiTest.java
 src/test/java/com/scrapebadger/client/api/IdealistaApiTest.java
 src/test/java/com/scrapebadger/client/api/ImmobiliareApiTest.java

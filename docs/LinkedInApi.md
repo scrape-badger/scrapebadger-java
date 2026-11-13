@@ -9,6 +9,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**linkedinGetAPublicArticle**](LinkedInApi.md#linkedinGetAPublicArticle) | **GET** /v1/linkedin/articles/{article_slug} | Get a public article |
 | [**linkedinGetAPublicPost**](LinkedInApi.md#linkedinGetAPublicPost) | **GET** /v1/linkedin/posts/{post_slug} | Get a public post |
 | [**linkedinGetCompany**](LinkedInApi.md#linkedinGetCompany) | **GET** /v1/linkedin/companies/{universal_name} | Get company |
+| [**linkedinGetFullProfileThroughTheAuthenticatedProjection**](LinkedInApi.md#linkedinGetFullProfileThroughTheAuthenticatedProjection) | **GET** /v1/linkedin/profiles/{public_id}/full | Get full profile through the authenticated projection |
 | [**linkedinGetJobDetail**](LinkedInApi.md#linkedinGetJobDetail) | **GET** /v1/linkedin/jobs/{job_id} | Get job detail |
 | [**linkedinGetPublicProfile**](LinkedInApi.md#linkedinGetPublicProfile) | **GET** /v1/linkedin/profiles/{public_id} | Get public profile |
 | [**linkedinGetSchool**](LinkedInApi.md#linkedinGetSchool) | **GET** /v1/linkedin/schools/{universal_name} | Get school |
@@ -359,6 +360,78 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **universalName** | **String**|  | |
+| **country** | **String**| Residential proxy country | [optional] [default to us] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+<a id="linkedinGetFullProfileThroughTheAuthenticatedProjection"></a>
+# **linkedinGetFullProfileThroughTheAuthenticatedProjection**
+> Object linkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country)
+
+Get full profile through the authenticated projection
+
+Full profile using the server-owned authenticated LinkedIn session.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.LinkedInApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    LinkedInApi apiInstance = new LinkedInApi(defaultClient);
+    String publicId = "publicId_example"; // String | 
+    String country = "us"; // String | Residential proxy country
+    try {
+      Object result = apiInstance.linkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LinkedInApi#linkedinGetFullProfileThroughTheAuthenticatedProjection");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **publicId** | **String**|  | |
 | **country** | **String**| Residential proxy country | [optional] [default to us] |
 
 ### Return type

@@ -108,6 +108,21 @@ public class LinkedInApiTest {
     }
 
     /**
+     * Get full profile through the authenticated projection
+     *
+     * Full profile using the server-owned authenticated LinkedIn session.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void linkedinGetFullProfileThroughTheAuthenticatedProjectionTest() throws ApiException {
+        String publicId = null;
+        String country = null;
+        Object response = api.linkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country);
+        // TODO: test validations
+    }
+
+    /**
      * Get job detail
      *
      * Full detail for one job posting (guest API, no login).

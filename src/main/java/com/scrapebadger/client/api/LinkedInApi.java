@@ -776,6 +776,145 @@ public class LinkedInApi {
         return localVarCall;
     }
     /**
+     * Build call for linkedinGetFullProfileThroughTheAuthenticatedProjection
+     * @param publicId  (required)
+     * @param country Residential proxy country (optional, default to us)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call linkedinGetFullProfileThroughTheAuthenticatedProjectionCall(String publicId, String country, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/linkedin/profiles/{public_id}/full"
+            .replace("{" + "public_id" + "}", localVarApiClient.escapeString(publicId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (country != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("country", country));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call linkedinGetFullProfileThroughTheAuthenticatedProjectionValidateBeforeCall(String publicId, String country, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'publicId' is set
+        if (publicId == null) {
+            throw new ApiException("Missing the required parameter 'publicId' when calling linkedinGetFullProfileThroughTheAuthenticatedProjection(Async)");
+        }
+
+        return linkedinGetFullProfileThroughTheAuthenticatedProjectionCall(publicId, country, _callback);
+
+    }
+
+    /**
+     * Get full profile through the authenticated projection
+     * Full profile using the server-owned authenticated LinkedIn session.
+     * @param publicId  (required)
+     * @param country Residential proxy country (optional, default to us)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object linkedinGetFullProfileThroughTheAuthenticatedProjection(String publicId, String country) throws ApiException {
+        ApiResponse<Object> localVarResp = linkedinGetFullProfileThroughTheAuthenticatedProjectionWithHttpInfo(publicId, country);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get full profile through the authenticated projection
+     * Full profile using the server-owned authenticated LinkedIn session.
+     * @param publicId  (required)
+     * @param country Residential proxy country (optional, default to us)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> linkedinGetFullProfileThroughTheAuthenticatedProjectionWithHttpInfo(String publicId, String country) throws ApiException {
+        okhttp3.Call localVarCall = linkedinGetFullProfileThroughTheAuthenticatedProjectionValidateBeforeCall(publicId, country, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get full profile through the authenticated projection (asynchronously)
+     * Full profile using the server-owned authenticated LinkedIn session.
+     * @param publicId  (required)
+     * @param country Residential proxy country (optional, default to us)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call linkedinGetFullProfileThroughTheAuthenticatedProjectionAsync(String publicId, String country, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = linkedinGetFullProfileThroughTheAuthenticatedProjectionValidateBeforeCall(publicId, country, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for linkedinGetJobDetail
      * @param jobId  (required)
      * @param country Residential proxy country (optional, default to us)
