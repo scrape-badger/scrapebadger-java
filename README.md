@@ -570,6 +570,11 @@ Class | Method | HTTP request | Description
 *RedfinApi* | [**redfinSearchProperties**](docs/RedfinApi.md#redfinSearchProperties) | **GET** /v1/redfin/search | Search properties
 *RequestsApi* | [**requestsPollAnAsyncRequest**](docs/RequestsApi.md#requestsPollAnAsyncRequest) | **GET** /v1/requests/{request_id} | Poll an async request
 *ResultsApi* | [**resultsReReadAResultRemoved**](docs/ResultsApi.md#resultsReReadAResultRemoved) | **GET** /v1/results/{result_id} | Re-read a result (removed)
+*RufusApi* | [**rufusAmazonRufusScraperHealthCheck**](docs/RufusApi.md#rufusAmazonRufusScraperHealthCheck) | **GET** /v1/rufus/health | Amazon Rufus scraper health check
+*RufusApi* | [**rufusAmazonRufusScraperHealthCheckHead**](docs/RufusApi.md#rufusAmazonRufusScraperHealthCheckHead) | **HEAD** /v1/rufus/health | Amazon Rufus scraper health check
+*RufusApi* | [**rufusAskAmazonRufusAQuestion**](docs/RufusApi.md#rufusAskAmazonRufusAQuestion) | **GET** /v1/rufus/ask | Ask Amazon Rufus a question
+*RufusApi* | [**rufusAskAmazonRufusAQuestionPost**](docs/RufusApi.md#rufusAskAmazonRufusAQuestionPost) | **POST** /v1/rufus/ask | Ask Amazon Rufus a question (POST)
+*RufusApi* | [**rufusListAmazonRufusModels**](docs/RufusApi.md#rufusListAmazonRufusModels) | **GET** /v1/rufus/models | List Amazon Rufus models
 *TargetApi* | [**targetBrowseACategory**](docs/TargetApi.md#targetBrowseACategory) | **GET** /v1/target/category | Browse a category
 *TargetApi* | [**targetFindNearbyStores**](docs/TargetApi.md#targetFindNearbyStores) | **GET** /v1/target/stores | Find nearby stores
 *TargetApi* | [**targetGetCategories**](docs/TargetApi.md#targetGetCategories) | **GET** /v1/target/categories | Get categories
@@ -914,6 +919,7 @@ Class | Method | HTTP request | Description
  - [Ratings](docs/Ratings.md)
  - [Recipe](docs/Recipe.md)
  - [Review](docs/Review.md)
+ - [RufusAskRequest](docs/RufusAskRequest.md)
  - [ScreenshotRequest](docs/ScreenshotRequest.md)
  - [Searchterm](docs/Searchterm.md)
  - [SiteName](docs/SiteName.md)

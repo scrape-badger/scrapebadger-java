@@ -175,6 +175,8 @@ docs/RedfinApi.md
 docs/RequestsApi.md
 docs/ResultsApi.md
 docs/Review.md
+docs/RufusApi.md
+docs/RufusAskRequest.md
 docs/ScreenshotRequest.md
 docs/Searchterm.md
 docs/SiteName.md
@@ -306,6 +308,7 @@ src/main/java/com/scrapebadger/client/api/RedditApi.java
 src/main/java/com/scrapebadger/client/api/RedfinApi.java
 src/main/java/com/scrapebadger/client/api/RequestsApi.java
 src/main/java/com/scrapebadger/client/api/ResultsApi.java
+src/main/java/com/scrapebadger/client/api/RufusApi.java
 src/main/java/com/scrapebadger/client/api/TargetApi.java
 src/main/java/com/scrapebadger/client/api/TikTokApi.java
 src/main/java/com/scrapebadger/client/api/TwitterApi.java
@@ -449,6 +452,7 @@ src/main/java/com/scrapebadger/client/model/Rating.java
 src/main/java/com/scrapebadger/client/model/Ratings.java
 src/main/java/com/scrapebadger/client/model/Recipe.java
 src/main/java/com/scrapebadger/client/model/Review.java
+src/main/java/com/scrapebadger/client/model/RufusAskRequest.java
 src/main/java/com/scrapebadger/client/model/ScreenshotRequest.java
 src/main/java/com/scrapebadger/client/model/Searchterm.java
 src/main/java/com/scrapebadger/client/model/SiteName.java
@@ -546,6 +550,7 @@ src/test/java/com/scrapebadger/client/api/RedditApiTest.java
 src/test/java/com/scrapebadger/client/api/RedfinApiTest.java
 src/test/java/com/scrapebadger/client/api/RequestsApiTest.java
 src/test/java/com/scrapebadger/client/api/ResultsApiTest.java
+src/test/java/com/scrapebadger/client/api/RufusApiTest.java
 src/test/java/com/scrapebadger/client/api/TargetApiTest.java
 src/test/java/com/scrapebadger/client/api/TikTokApiTest.java
 src/test/java/com/scrapebadger/client/api/TwitterApiTest.java
@@ -684,6 +689,7 @@ src/test/java/com/scrapebadger/client/model/RatingTest.java
 src/test/java/com/scrapebadger/client/model/RatingsTest.java
 src/test/java/com/scrapebadger/client/model/RecipeTest.java
 src/test/java/com/scrapebadger/client/model/ReviewTest.java
+src/test/java/com/scrapebadger/client/model/RufusAskRequestTest.java
 src/test/java/com/scrapebadger/client/model/ScreenshotRequestTest.java
 src/test/java/com/scrapebadger/client/model/SearchtermTest.java
 src/test/java/com/scrapebadger/client/model/SiteNameTest.java
