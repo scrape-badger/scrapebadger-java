@@ -46,6 +46,8 @@ public class PerplexityApiTest {
         String country = null;
         Boolean strictCountry = null;
         String location = null;
+        Boolean html = null;
+        Boolean raw = null;
         String prefer = null;
         URI xCallbackURL = null;
         String idempotencyKey = null;
@@ -53,14 +55,14 @@ public class PerplexityApiTest {
         Integer asyncWait = null;
         URI callbackUrl = null;
         String idempotencyKey2 = null;
-        Object response = api.perplexityAskPerplexityAQuestion(prompt, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+        Object response = api.perplexityAskPerplexityAQuestion(prompt, country, strictCountry, location, html, raw, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
     /**
      * Ask Perplexity a question (POST)
      *
-     * POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+     * POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
      *
      * @throws ApiException if the Api call fails
      */
