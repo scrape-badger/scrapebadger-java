@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,14 @@ public class PerplexityApiTest {
         String country = null;
         Boolean strictCountry = null;
         String location = null;
-        Object response = api.perplexityAskPerplexityAQuestion(prompt, country, strictCountry, location);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.perplexityAskPerplexityAQuestion(prompt, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -57,7 +66,14 @@ public class PerplexityApiTest {
      */
     @Test
     public void perplexityAskPerplexityAQuestionPostTest() throws ApiException {
-        Object response = api.perplexityAskPerplexityAQuestionPost();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.perplexityAskPerplexityAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -78,7 +94,14 @@ public class PerplexityApiTest {
         String country = null;
         Boolean strictCountry = null;
         String location = null;
-        Object response = api.perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.perplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -91,7 +114,14 @@ public class PerplexityApiTest {
      */
     @Test
     public void perplexityMeasureABrandSVisibilityInAPerplexityAnswerPostTest() throws ApiException {
-        Object response = api.perplexityMeasureABrandSVisibilityInAPerplexityAnswerPost();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.perplexityMeasureABrandSVisibilityInAPerplexityAnswerPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

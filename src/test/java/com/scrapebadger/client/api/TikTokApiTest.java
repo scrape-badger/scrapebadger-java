@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,14 @@ public class TikTokApiTest {
         String categoryId = null;
         Integer pages = null;
         Integer limit = null;
-        Object response = api.tiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -61,7 +70,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGeneralSearch(query, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGeneralSearch(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -79,7 +95,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetCommentReplies(commentId, videoId, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetCommentReplies(commentId, videoId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -96,7 +119,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetComments(videoId, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetComments(videoId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -113,7 +143,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetFollowers(username, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetFollowers(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -130,7 +167,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetFollowing(username, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetFollowing(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -145,7 +189,14 @@ public class TikTokApiTest {
     public void tiktokGetHashtagDetailTest() throws ApiException {
         String name = null;
         String region = null;
-        Object response = api.tiktokGetHashtagDetail(name, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetHashtagDetail(name, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -162,7 +213,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetHashtagVideos(name, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetHashtagVideos(name, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -179,7 +237,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetLikedVideos(username, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetLikedVideos(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -194,7 +259,14 @@ public class TikTokApiTest {
     public void tiktokGetMusicSoundDetailTest() throws ApiException {
         String musicId = null;
         String region = null;
-        Object response = api.tiktokGetMusicSoundDetail(musicId, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetMusicSoundDetail(musicId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -211,7 +283,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetMusicVideos(musicId, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetMusicVideos(musicId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -226,7 +305,14 @@ public class TikTokApiTest {
     public void tiktokGetOembedMetadataTest() throws ApiException {
         String url = null;
         String region = null;
-        Object response = api.tiktokGetOembedMetadata(url, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetOembedMetadata(url, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -243,7 +329,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetRelatedVideos(videoId, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetRelatedVideos(videoId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -260,7 +353,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetReposts(username, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetReposts(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -275,7 +375,14 @@ public class TikTokApiTest {
     public void tiktokGetTiktokAdDetailTest() throws ApiException {
         String adId = null;
         String region = null;
-        Object response = api.tiktokGetTiktokAdDetail(adId, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetTiktokAdDetail(adId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -290,7 +397,14 @@ public class TikTokApiTest {
     public void tiktokGetTranscriptTest() throws ApiException {
         String videoId = null;
         String region = null;
-        Object response = api.tiktokGetTranscript(videoId, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetTranscript(videoId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -305,7 +419,14 @@ public class TikTokApiTest {
     public void tiktokGetUserProfileTest() throws ApiException {
         String username = null;
         String region = null;
-        Object response = api.tiktokGetUserProfile(username, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetUserProfile(username, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -322,7 +443,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokGetUserVideos(username, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetUserVideos(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -338,7 +466,14 @@ public class TikTokApiTest {
         String videoId = null;
         String region = null;
         String username = null;
-        Object response = api.tiktokGetVideoDetail(videoId, region, username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokGetVideoDetail(videoId, region, username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -377,7 +512,14 @@ public class TikTokApiTest {
      */
     @Test
     public void tiktokListRegionsTest() throws ApiException {
-        Object response = api.tiktokListRegions();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokListRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -394,7 +536,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokSearchHashtags(query, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokSearchHashtags(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -415,7 +564,14 @@ public class TikTokApiTest {
         Integer offset = null;
         String searchId = null;
         Integer count = null;
-        Object response = api.tiktokSearchTheTiktokAdLibrary(query, advertiserId, region, days, sort, offset, searchId, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokSearchTheTiktokAdLibrary(query, advertiserId, region, days, sort, offset, searchId, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -431,7 +587,14 @@ public class TikTokApiTest {
         String query = null;
         String region = null;
         Integer count = null;
-        Object response = api.tiktokSearchTiktokAdvertisers(query, region, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokSearchTiktokAdvertisers(query, region, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -448,7 +611,14 @@ public class TikTokApiTest {
         String region = null;
         String pageToken = null;
         Integer offset = null;
-        Object response = api.tiktokSearchTiktokShopProducts(q, region, pageToken, offset);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokSearchTiktokShopProducts(q, region, pageToken, offset, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -465,7 +635,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokSearchUsers(query, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokSearchUsers(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -482,7 +659,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.tiktokSearchVideos(query, region, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokSearchVideos(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -499,7 +683,14 @@ public class TikTokApiTest {
         String region = null;
         Integer count = null;
         List<String> excludeProductIds = null;
-        Object response = api.tiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -514,7 +705,14 @@ public class TikTokApiTest {
     public void tiktokTiktokShopCategorySubcategoriesTopProductsTest() throws ApiException {
         String categoryId = null;
         String region = null;
-        Object response = api.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -529,7 +727,14 @@ public class TikTokApiTest {
     public void tiktokTiktokShopProductDetailTest() throws ApiException {
         String productId = null;
         String region = null;
-        Object response = api.tiktokTiktokShopProductDetail(productId, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopProductDetail(productId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -550,7 +755,14 @@ public class TikTokApiTest {
         Integer rating = null;
         Boolean withMedia = null;
         Boolean verified = null;
-        Object response = api.tiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -566,7 +778,14 @@ public class TikTokApiTest {
         String region = null;
         Integer tabId = null;
         String pageToken = null;
-        Object response = api.tiktokTiktokShopRegionalMallFeed(region, tabId, pageToken);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopRegionalMallFeed(region, tabId, pageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -580,7 +799,14 @@ public class TikTokApiTest {
     @Test
     public void tiktokTiktokShopRootCategoriesTest() throws ApiException {
         String region = null;
-        Object response = api.tiktokTiktokShopRootCategories(region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopRootCategories(region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -597,7 +823,14 @@ public class TikTokApiTest {
         String region = null;
         String cursor = null;
         Integer count = null;
-        Object response = api.tiktokTiktokShopStoreProducts(sellerId, region, cursor, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopStoreProducts(sellerId, region, cursor, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -615,7 +848,14 @@ public class TikTokApiTest {
         Integer rankType = null;
         Integer cursor = null;
         Integer count = null;
-        Object response = api.tiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -631,7 +871,14 @@ public class TikTokApiTest {
         String region = null;
         Integer period = null;
         Integer count = null;
-        Object response = api.tiktokTrendingHashtags(region, period, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTrendingHashtags(region, period, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -647,7 +894,14 @@ public class TikTokApiTest {
         String region = null;
         Integer period = null;
         Integer count = null;
-        Object response = api.tiktokTrendingSongs(region, period, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTrendingSongs(region, period, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -662,7 +916,14 @@ public class TikTokApiTest {
     public void tiktokTrendingVideosTest() throws ApiException {
         String region = null;
         Integer count = null;
-        Object response = api.tiktokTrendingVideos(region, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.tiktokTrendingVideos(region, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

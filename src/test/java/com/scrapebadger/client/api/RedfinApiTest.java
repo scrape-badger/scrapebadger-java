@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,14 @@ public class RedfinApiTest {
     public void redfinGetAgentProfileListingsTest() throws ApiException {
         String url = null;
         String agentId = null;
-        Object response = api.redfinGetAgentProfileListings(url, agentId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redfinGetAgentProfileListings(url, agentId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -57,7 +66,14 @@ public class RedfinApiTest {
     @Test
     public void redfinGetPropertyDetailTest() throws ApiException {
         String propertyId = null;
-        Object response = api.redfinGetPropertyDetail(propertyId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redfinGetPropertyDetail(propertyId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -71,7 +87,14 @@ public class RedfinApiTest {
     @Test
     public void redfinGetPropertyDetailByUrlTest() throws ApiException {
         String url = null;
-        Object response = api.redfinGetPropertyDetailByUrl(url);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redfinGetPropertyDetailByUrl(url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -84,7 +107,14 @@ public class RedfinApiTest {
      */
     @Test
     public void redfinListCoverageMarketsTest() throws ApiException {
-        Object response = api.redfinListCoverageMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redfinListCoverageMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -124,7 +154,14 @@ public class RedfinApiTest {
     @Test
     public void redfinRegionAddressSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.redfinRegionAddressSuggestions(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redfinRegionAddressSuggestions(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -156,7 +193,14 @@ public class RedfinApiTest {
         BigDecimal south = null;
         BigDecimal east = null;
         BigDecimal west = null;
-        Object response = api.redfinSearchProperties(location, page, sort, priceMin, priceMax, bedsMin, bathsMin, homeType, sqftMin, sqftMax, lotMin, lotMax, yearBuiltMin, yearBuiltMax, maxDaysOnMarket, north, south, east, west);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redfinSearchProperties(location, page, sort, priceMin, priceMax, bedsMin, bathsMin, homeType, sqftMin, sqftMax, lotMin, lotMax, yearBuiltMin, yearBuiltMax, maxDaysOnMarket, north, south, east, west, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

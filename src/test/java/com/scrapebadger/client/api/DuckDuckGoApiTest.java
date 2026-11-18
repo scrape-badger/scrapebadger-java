@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -75,7 +77,14 @@ public class DuckDuckGoApiTest {
         String imageType = null;
         String layout = null;
         String license = null;
-        Object response = api.duckduckgoImageSearch(query, region, safesearch, page, size, color, imageType, layout, license);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoImageSearch(query, region, safesearch, page, size, color, imageType, layout, license, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -89,7 +98,14 @@ public class DuckDuckGoApiTest {
     @Test
     public void duckduckgoInstantAnswerTest() throws ApiException {
         String query = null;
-        Object response = api.duckduckgoInstantAnswer(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoInstantAnswer(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -102,7 +118,14 @@ public class DuckDuckGoApiTest {
      */
     @Test
     public void duckduckgoListSupportedRegionsTest() throws ApiException {
-        Object response = api.duckduckgoListSupportedRegions();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoListSupportedRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -120,7 +143,14 @@ public class DuckDuckGoApiTest {
         String safesearch = null;
         String timelimit = null;
         Integer page = null;
-        Object response = api.duckduckgoNewsSearch(query, region, safesearch, timelimit, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoNewsSearch(query, region, safesearch, timelimit, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -135,7 +165,14 @@ public class DuckDuckGoApiTest {
     public void duckduckgoSearchSuggestionsTest() throws ApiException {
         String query = null;
         String region = null;
-        Object response = api.duckduckgoSearchSuggestions(query, region);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoSearchSuggestions(query, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -154,7 +191,14 @@ public class DuckDuckGoApiTest {
         Integer page = null;
         String duration = null;
         String resolution = null;
-        Object response = api.duckduckgoVideoSearch(query, region, safesearch, page, duration, resolution);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoVideoSearch(query, region, safesearch, page, duration, resolution, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -172,7 +216,14 @@ public class DuckDuckGoApiTest {
         String safesearch = null;
         String timelimit = null;
         Integer page = null;
-        Object response = api.duckduckgoWebSearch(query, region, safesearch, timelimit, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.duckduckgoWebSearch(query, region, safesearch, timelimit, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

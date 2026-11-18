@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,14 @@ public class NaverApiTest {
     public void naverNaverBlogSearchTest() throws ApiException {
         String query = null;
         Integer page = null;
-        Object response = api.naverNaverBlogSearch(query, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverBlogSearch(query, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -60,7 +69,14 @@ public class NaverApiTest {
         String endDate = null;
         String timeUnit = null;
         Integer count = null;
-        Object response = api.naverNaverDatalabShoppingKeywordInsight(categoryId, startDate, endDate, timeUnit, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverDatalabShoppingKeywordInsight(categoryId, startDate, endDate, timeUnit, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -75,7 +91,14 @@ public class NaverApiTest {
     public void naverNaverNewsSearchTest() throws ApiException {
         String query = null;
         Integer page = null;
-        Object response = api.naverNaverNewsSearch(query, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverNewsSearch(query, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -89,7 +112,14 @@ public class NaverApiTest {
     @Test
     public void naverNaverPlaceDetailTest() throws ApiException {
         String placeId = null;
-        Object response = api.naverNaverPlaceDetail(placeId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverPlaceDetail(placeId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -103,7 +133,14 @@ public class NaverApiTest {
     @Test
     public void naverNaverPlaceLocalSearchTest() throws ApiException {
         String query = null;
-        Object response = api.naverNaverPlaceLocalSearch(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverPlaceLocalSearch(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -117,7 +154,14 @@ public class NaverApiTest {
     @Test
     public void naverNaverPlaceVisitorReviewsTest() throws ApiException {
         String placeId = null;
-        Object response = api.naverNaverPlaceVisitorReviews(placeId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverPlaceVisitorReviews(placeId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -160,7 +204,14 @@ public class NaverApiTest {
         String ageType = null;
         String sortType = null;
         String periodType = null;
-        Object response = api.naverNaverShoppingBestsellerRankings(categoryId, ageType, sortType, periodType);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverShoppingBestsellerRankings(categoryId, ageType, sortType, periodType, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -173,7 +224,14 @@ public class NaverApiTest {
      */
     @Test
     public void naverNaverShoppingCategoryReferenceTest() throws ApiException {
-        Object response = api.naverNaverShoppingCategoryReference();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverShoppingCategoryReference(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -190,7 +248,14 @@ public class NaverApiTest {
         String ageType = null;
         String sortType = null;
         String periodType = null;
-        Object response = api.naverNaverShoppingTrendingKeywordRankings(categoryId, ageType, sortType, periodType);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverShoppingTrendingKeywordRankings(categoryId, ageType, sortType, periodType, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -205,7 +270,14 @@ public class NaverApiTest {
     public void naverNaverWebSearchTest() throws ApiException {
         String query = null;
         Integer page = null;
-        Object response = api.naverNaverWebSearch(query, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverNaverWebSearch(query, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -219,7 +291,14 @@ public class NaverApiTest {
     @Test
     public void naverSearchSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.naverSearchSuggestions(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.naverSearchSuggestions(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

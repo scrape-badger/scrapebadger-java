@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -68,7 +70,14 @@ public class ApartmentsApiTest {
     public void apartmentsGetPropertyDetailBySlugIdTest() throws ApiException {
         String slug = null;
         String propertyId = null;
-        Object response = api.apartmentsGetPropertyDetailBySlugId(slug, propertyId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.apartmentsGetPropertyDetailBySlugId(slug, propertyId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -82,7 +91,14 @@ public class ApartmentsApiTest {
     @Test
     public void apartmentsGetPropertyDetailByUrlTest() throws ApiException {
         String url = null;
-        Object response = api.apartmentsGetPropertyDetailByUrl(url);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.apartmentsGetPropertyDetailByUrl(url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -100,7 +116,14 @@ public class ApartmentsApiTest {
         Integer beds = null;
         Integer minPrice = null;
         Integer maxPrice = null;
-        Object response = api.apartmentsSearchRentalListings(location, page, beds, minPrice, maxPrice);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.apartmentsSearchRentalListings(location, page, beds, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

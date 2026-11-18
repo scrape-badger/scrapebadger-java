@@ -27,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.scrapebadger.client.model.AccountWebhookDeliveries403Response;
+import com.scrapebadger.client.model.AsyncAccepted;
+import com.scrapebadger.client.model.AsyncCallbackStatus;
 import com.scrapebadger.client.model.HTTPValidationError;
 
 import java.lang.reflect.Type;
@@ -73,6 +76,137 @@ public class RequestsApi {
     }
 
     /**
+     * Build call for requestsCallbackStatus
+     * @param requestId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &#x60;callback_not_found&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestsCallbackStatusCall(String requestId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/requests/{request_id}/callback"
+            .replace("{" + "request_id" + "}", localVarApiClient.escapeString(requestId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call requestsCallbackStatusValidateBeforeCall(String requestId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'requestId' is set
+        if (requestId == null) {
+            throw new ApiException("Missing the required parameter 'requestId' when calling requestsCallbackStatus(Async)");
+        }
+
+        return requestsCallbackStatusCall(requestId, _callback);
+
+    }
+
+    /**
+     * Callback status
+     * Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+     * @param requestId  (required)
+     * @return AsyncCallbackStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &#x60;callback_not_found&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AsyncCallbackStatus requestsCallbackStatus(String requestId) throws ApiException {
+        ApiResponse<AsyncCallbackStatus> localVarResp = requestsCallbackStatusWithHttpInfo(requestId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Callback status
+     * Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+     * @param requestId  (required)
+     * @return ApiResponse&lt;AsyncCallbackStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &#x60;callback_not_found&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AsyncCallbackStatus> requestsCallbackStatusWithHttpInfo(String requestId) throws ApiException {
+        okhttp3.Call localVarCall = requestsCallbackStatusValidateBeforeCall(requestId, null);
+        Type localVarReturnType = new TypeToken<AsyncCallbackStatus>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Callback status (asynchronously)
+     * Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+     * @param requestId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> &#x60;callback_not_found&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestsCallbackStatusAsync(String requestId, final ApiCallback<AsyncCallbackStatus> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = requestsCallbackStatusValidateBeforeCall(requestId, _callback);
+        Type localVarReturnType = new TypeToken<AsyncCallbackStatus>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for requestsPollAnAsyncRequest
      * @param requestId  (required)
      * @param _callback Callback for upload/download progress
@@ -84,6 +218,8 @@ public class RequestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> The call is still running. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  </td></tr>
+        <tr><td> 404 </td><td> &#x60;request_not_found&#x60;: unknown, another account&#39;s, or expired. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestsPollAnAsyncRequestCall(String requestId, final ApiCallback _callback) throws ApiException {
@@ -144,7 +280,7 @@ public class RequestsApi {
 
     /**
      * Poll an async request
-     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
      * @param requestId  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -154,6 +290,8 @@ public class RequestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> The call is still running. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  </td></tr>
+        <tr><td> 404 </td><td> &#x60;request_not_found&#x60;: unknown, another account&#39;s, or expired. </td><td>  -  </td></tr>
      </table>
      */
     public Object requestsPollAnAsyncRequest(String requestId) throws ApiException {
@@ -163,7 +301,7 @@ public class RequestsApi {
 
     /**
      * Poll an async request
-     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
      * @param requestId  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -173,6 +311,8 @@ public class RequestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> The call is still running. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  </td></tr>
+        <tr><td> 404 </td><td> &#x60;request_not_found&#x60;: unknown, another account&#39;s, or expired. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> requestsPollAnAsyncRequestWithHttpInfo(String requestId) throws ApiException {
@@ -183,7 +323,7 @@ public class RequestsApi {
 
     /**
      * Poll an async request (asynchronously)
-     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
      * @param requestId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -194,6 +334,8 @@ public class RequestsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> The call is still running. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  </td></tr>
+        <tr><td> 404 </td><td> &#x60;request_not_found&#x60;: unknown, another account&#39;s, or expired. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestsPollAnAsyncRequestAsync(String requestId, final ApiCallback<Object> _callback) throws ApiException {

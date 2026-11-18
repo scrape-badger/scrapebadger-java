@@ -14,12 +14,14 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.BraveAutocompleteResponse;
 import com.scrapebadger.client.model.BraveLocalesResponse;
 import com.scrapebadger.client.model.BravePagedResponse;
 import com.scrapebadger.client.model.BraveResponse;
 import com.scrapebadger.client.model.BraveSearchResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,7 +49,14 @@ public class BraveApiTest {
     public void braveAutocompleteTest() throws ApiException {
         String query = null;
         String country = null;
-        BraveAutocompleteResponse response = api.braveAutocomplete(query, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BraveAutocompleteResponse response = api.braveAutocomplete(query, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -65,7 +74,14 @@ public class BraveApiTest {
         String uiLanguage = null;
         String safeSearch = null;
         Integer count = null;
-        BraveResponse response = api.braveImageSearch(query, country, uiLanguage, safeSearch, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BraveResponse response = api.braveImageSearch(query, country, uiLanguage, safeSearch, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -78,7 +94,14 @@ public class BraveApiTest {
      */
     @Test
     public void braveListSupportedLocalesTest() throws ApiException {
-        BraveLocalesResponse response = api.braveListSupportedLocales();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BraveLocalesResponse response = api.braveListSupportedLocales(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -96,7 +119,14 @@ public class BraveApiTest {
         String uiLanguage = null;
         String safeSearch = null;
         Integer count = null;
-        BraveResponse response = api.braveNewsSearch(query, country, uiLanguage, safeSearch, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BraveResponse response = api.braveNewsSearch(query, country, uiLanguage, safeSearch, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -115,7 +145,14 @@ public class BraveApiTest {
         String safeSearch = null;
         Integer page = null;
         Integer count = null;
-        BravePagedResponse response = api.braveVideoSearch(query, country, uiLanguage, safeSearch, page, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BravePagedResponse response = api.braveVideoSearch(query, country, uiLanguage, safeSearch, page, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -136,7 +173,14 @@ public class BraveApiTest {
         Integer count = null;
         String freshness = null;
         Boolean spellcheck = null;
-        BraveSearchResponse response = api.braveWebSearch(query, country, uiLanguage, safeSearch, page, count, freshness, spellcheck);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BraveSearchResponse response = api.braveWebSearch(query, country, uiLanguage, safeSearch, page, count, freshness, spellcheck, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,14 @@ public class AppStoreApiTest {
         String country = null;
         String lang = null;
         Boolean includeExtras = null;
-        Object response = api.appStoreGetAppDetail(appId, country, lang, includeExtras);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreGetAppDetail(appId, country, lang, includeExtras, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -61,7 +70,14 @@ public class AppStoreApiTest {
         String country = null;
         Integer page = null;
         String sort = null;
-        Object response = api.appStoreGetAppReviews(appId, country, page, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreGetAppReviews(appId, country, page, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -76,7 +92,14 @@ public class AppStoreApiTest {
     public void appStoreGetDeveloperAppsTest() throws ApiException {
         String artistId = null;
         String country = null;
-        Object response = api.appStoreGetDeveloperApps(artistId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreGetDeveloperApps(artistId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -89,7 +112,14 @@ public class AppStoreApiTest {
      */
     @Test
     public void appStoreListGenresTest() throws ApiException {
-        Object response = api.appStoreListGenres();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreListGenres(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -102,7 +132,14 @@ public class AppStoreApiTest {
      */
     @Test
     public void appStoreListMarketsTest() throws ApiException {
-        Object response = api.appStoreListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -121,7 +158,14 @@ public class AppStoreApiTest {
         Integer limit = null;
         Integer offset = null;
         String lang = null;
-        Object response = api.appStoreSearchApps(query, country, entity, limit, offset, lang);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreSearchApps(query, country, entity, limit, offset, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -139,7 +183,14 @@ public class AppStoreApiTest {
         Integer genre = null;
         Integer limit = null;
         String entity = null;
-        Object response = api.appStoreTopCharts(country, type, genre, limit, entity);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.appStoreTopCharts(country, type, genre, limit, entity, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

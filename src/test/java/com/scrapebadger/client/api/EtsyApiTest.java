@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetCategories(country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetCategories(country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -57,7 +66,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetListingDetail(listingId, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetListingDetail(listingId, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -74,7 +90,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetListingReviews(listingId, page, sort, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetListingReviews(listingId, page, sort, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -89,7 +112,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetSearchSuggestions(query, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetSearchSuggestions(query, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -105,7 +135,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetShopListings(shopName, page, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetShopListings(shopName, page, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -120,7 +157,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetShopProfile(shopName, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetShopProfile(shopName, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -136,7 +180,14 @@ public class EtsyApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.etsyGetShopReviews(shopName, page, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsyGetShopReviews(shopName, page, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -155,7 +206,14 @@ public class EtsyApiTest {
         String sort = null;
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
-        Object response = api.etsySearchListings(query, page, country, currency, language, sort, minPrice, maxPrice);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.etsySearchListings(query, page, country, currency, language, sort, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

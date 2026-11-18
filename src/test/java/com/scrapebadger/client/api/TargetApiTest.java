@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,14 @@ public class TargetApiTest {
         Integer pageSize = null;
         String storeId = null;
         String zipCode = null;
-        Object response = api.targetBrowseACategory(categoryId, page, pageSize, storeId, zipCode);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetBrowseACategory(categoryId, page, pageSize, storeId, zipCode, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -56,7 +65,14 @@ public class TargetApiTest {
     public void targetFindNearbyStoresTest() throws ApiException {
         String zipCode = null;
         Integer limit = null;
-        Object response = api.targetFindNearbyStores(zipCode, limit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetFindNearbyStores(zipCode, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -68,7 +84,14 @@ public class TargetApiTest {
     @Test
     public void targetGetCategoriesTest() throws ApiException {
         String categoryId = null;
-        Object response = api.targetGetCategories(categoryId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetCategories(categoryId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -82,7 +105,14 @@ public class TargetApiTest {
         String tcin = null;
         String zipCode = null;
         Integer limit = null;
-        Object response = api.targetGetProductAvailability(tcin, zipCode, limit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetProductAvailability(tcin, zipCode, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -96,7 +126,14 @@ public class TargetApiTest {
         String tcin = null;
         String storeId = null;
         String zipCode = null;
-        Object response = api.targetGetProductDetail(tcin, storeId, zipCode);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetProductDetail(tcin, storeId, zipCode, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -110,7 +147,14 @@ public class TargetApiTest {
         String tcin = null;
         Integer page = null;
         Integer pageSize = null;
-        Object response = api.targetGetProductQuestions(tcin, page, pageSize);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetProductQuestions(tcin, page, pageSize, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -125,7 +169,14 @@ public class TargetApiTest {
         Integer page = null;
         Integer pageSize = null;
         String sort = null;
-        Object response = api.targetGetProductReviews(tcin, page, pageSize, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetProductReviews(tcin, page, pageSize, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -137,7 +188,14 @@ public class TargetApiTest {
     @Test
     public void targetGetSearchSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.targetGetSearchSuggestions(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetSearchSuggestions(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -149,7 +207,14 @@ public class TargetApiTest {
     @Test
     public void targetGetStoreDetailTest() throws ApiException {
         String storeId = null;
-        Object response = api.targetGetStoreDetail(storeId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetGetStoreDetail(storeId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -160,7 +225,14 @@ public class TargetApiTest {
      */
     @Test
     public void targetListSupportedMarketsTest() throws ApiException {
-        Object response = api.targetListSupportedMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetListSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -177,7 +249,14 @@ public class TargetApiTest {
         String storeId = null;
         String zipCode = null;
         String sort = null;
-        Object response = api.targetSearchProducts(query, page, pageSize, storeId, zipCode, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.targetSearchProducts(query, page, pageSize, storeId, zipCode, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -48,7 +50,14 @@ public class IdealistaApiTest {
         Integer page = null;
         Integer maxItems = null;
         Boolean includeListings = null;
-        Object response = api.idealistaAgencyByPhone(phone, market, operation, propertyType, page, maxItems, includeListings);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaAgencyByPhone(phone, market, operation, propertyType, page, maxItems, includeListings, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -68,7 +77,14 @@ public class IdealistaApiTest {
         Integer page = null;
         Integer maxItems = null;
         Boolean includeListings = null;
-        Object response = api.idealistaAgencyProfileListings(shortName, market, operation, propertyType, page, maxItems, includeListings);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaAgencyProfileListings(shortName, market, operation, propertyType, page, maxItems, includeListings, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -84,7 +100,14 @@ public class IdealistaApiTest {
         String propertyCode = null;
         String market = null;
         String locale = null;
-        Object response = api.idealistaGetListingEngagementStats(propertyCode, market, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaGetListingEngagementStats(propertyCode, market, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -100,7 +123,14 @@ public class IdealistaApiTest {
         String propertyCode = null;
         String market = null;
         String locale = null;
-        Object response = api.idealistaGetPropertyDetail(propertyCode, market, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaGetPropertyDetail(propertyCode, market, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -139,7 +169,14 @@ public class IdealistaApiTest {
      */
     @Test
     public void idealistaListMarketsTest() throws ApiException {
-        Object response = api.idealistaListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -157,7 +194,14 @@ public class IdealistaApiTest {
         String propertyType = null;
         String market = null;
         String locale = null;
-        Object response = api.idealistaResolveLocations(query, operation, propertyType, market, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaResolveLocations(query, operation, propertyType, market, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -182,7 +226,14 @@ public class IdealistaApiTest {
         Integer minRooms = null;
         Integer maxRooms = null;
         String locale = null;
-        Object response = api.idealistaSearchAllBeatsResultCap(location, operation, propertyType, market, maxResults, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaSearchAllBeatsResultCap(location, operation, propertyType, market, maxResults, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -210,7 +261,14 @@ public class IdealistaApiTest {
         Integer minRooms = null;
         Integer maxRooms = null;
         String locale = null;
-        Object response = api.idealistaSearchListings(location, operation, propertyType, market, page, maxItems, sortBy, sortOrder, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.idealistaSearchListings(location, operation, propertyType, market, page, maxItems, sortBy, sortOrder, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

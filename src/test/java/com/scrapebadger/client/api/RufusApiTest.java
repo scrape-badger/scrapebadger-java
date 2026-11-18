@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
 import com.scrapebadger.client.model.RufusAskRequest;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -69,7 +71,14 @@ public class RufusApiTest {
     public void rufusAskAmazonRufusAQuestionTest() throws ApiException {
         String prompt = null;
         String asin = null;
-        Object response = api.rufusAskAmazonRufusAQuestion(prompt, asin);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.rufusAskAmazonRufusAQuestion(prompt, asin, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -83,7 +92,14 @@ public class RufusApiTest {
     @Test
     public void rufusAskAmazonRufusAQuestionPostTest() throws ApiException {
         RufusAskRequest rufusAskRequest = null;
-        Object response = api.rufusAskAmazonRufusAQuestionPost(rufusAskRequest);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.rufusAskAmazonRufusAQuestionPost(rufusAskRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -96,7 +112,14 @@ public class RufusApiTest {
      */
     @Test
     public void rufusListAmazonRufusModelsTest() throws ApiException {
-        Object response = api.rufusListAmazonRufusModels();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.rufusListAmazonRufusModels(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

@@ -14,6 +14,7 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.BillingLogListResponse;
 import com.scrapebadger.client.model.FilterRuleCreate;
@@ -28,6 +29,7 @@ import com.scrapebadger.client.model.StreamMonitorCreate;
 import com.scrapebadger.client.model.StreamMonitorListResponse;
 import com.scrapebadger.client.model.StreamMonitorResponse;
 import com.scrapebadger.client.model.StreamMonitorUpdate;
+import java.net.URI;
 import com.scrapebadger.client.model.WebhookCreate;
 import com.scrapebadger.client.model.WebhookListResponse;
 import com.scrapebadger.client.model.WebhookResponse;
@@ -62,7 +64,14 @@ public class TwitterApiTest {
         String queryType = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.twitterAdvancedTweetSearch(query, queryType, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterAdvancedTweetSearch(query, queryType, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -76,7 +85,14 @@ public class TwitterApiTest {
     @Test
     public void twitterBatchGetUsersByIdsTest() throws ApiException {
         String userIds = null;
-        Object response = api.twitterBatchGetUsersByIds(userIds);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterBatchGetUsersByIds(userIds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -90,7 +106,14 @@ public class TwitterApiTest {
     @Test
     public void twitterBatchGetUsersByUsernamesTest() throws ApiException {
         String usernames = null;
-        Object response = api.twitterBatchGetUsersByUsernames(usernames);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterBatchGetUsersByUsernames(usernames, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -174,7 +197,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetArticleByIdTest() throws ApiException {
         String articleId = null;
-        Object response = api.twitterGetArticleById(articleId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetArticleById(articleId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -188,7 +218,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetBroadcastDetailsTest() throws ApiException {
         String broadcastId = null;
-        Object response = api.twitterGetBroadcastDetails(broadcastId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetBroadcastDetails(broadcastId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -202,7 +239,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetCommunityDetailsTest() throws ApiException {
         String communityId = null;
-        Object response = api.twitterGetCommunityDetails(communityId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetCommunityDetails(communityId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -216,7 +260,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetCommunityNotesTest() throws ApiException {
         String tweetId = null;
-        Object response = api.twitterGetCommunityNotes(tweetId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetCommunityNotes(tweetId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -232,7 +283,14 @@ public class TwitterApiTest {
         String communityId = null;
         String tweetType = null;
         String cursor = null;
-        Object response = api.twitterGetCommunityTweets(communityId, tweetType, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetCommunityTweets(communityId, tweetType, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -273,7 +331,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetListDetailsTest() throws ApiException {
         String listId = null;
-        Object response = api.twitterGetListDetails(listId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetListDetails(listId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -288,7 +353,14 @@ public class TwitterApiTest {
     public void twitterGetListTweetsTest() throws ApiException {
         String listId = null;
         String cursor = null;
-        Object response = api.twitterGetListTweets(listId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetListTweets(listId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -302,7 +374,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetPlaceDetailsTest() throws ApiException {
         String placeId = null;
-        Object response = api.twitterGetPlaceDetails(placeId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetPlaceDetails(placeId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -316,7 +395,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetSimilarTweetsTest() throws ApiException {
         String tweetId = null;
-        Object response = api.twitterGetSimilarTweets(tweetId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetSimilarTweets(tweetId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -330,7 +416,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetSpaceDetailsTest() throws ApiException {
         String spaceId = null;
-        Object response = api.twitterGetSpaceDetails(spaceId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetSpaceDetails(spaceId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -359,7 +452,14 @@ public class TwitterApiTest {
     public void twitterGetTrendingTopicsTest() throws ApiException {
         String category = null;
         Integer count = null;
-        Object response = api.twitterGetTrendingTopics(category, count);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTrendingTopics(category, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -373,7 +473,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetTrendsByLocationTest() throws ApiException {
         String woeid = null;
-        Object response = api.twitterGetTrendsByLocation(woeid);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTrendsByLocation(woeid, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -388,7 +495,14 @@ public class TwitterApiTest {
     public void twitterGetTweetDetailsTest() throws ApiException {
         String tweetId = null;
         String cursor = null;
-        Object response = api.twitterGetTweetDetails(tweetId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetDetails(tweetId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -402,7 +516,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetTweetEditHistoryTest() throws ApiException {
         String tweetId = null;
-        Object response = api.twitterGetTweetEditHistory(tweetId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetEditHistory(tweetId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -417,7 +538,14 @@ public class TwitterApiTest {
     public void twitterGetTweetFavoritersTest() throws ApiException {
         String tweetId = null;
         String cursor = null;
-        Object response = api.twitterGetTweetFavoriters(tweetId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetFavoriters(tweetId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -432,7 +560,14 @@ public class TwitterApiTest {
     public void twitterGetTweetQuotesTest() throws ApiException {
         String tweetId = null;
         String cursor = null;
-        Object response = api.twitterGetTweetQuotes(tweetId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetQuotes(tweetId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -447,7 +582,14 @@ public class TwitterApiTest {
     public void twitterGetTweetRepliesTest() throws ApiException {
         String tweetId = null;
         String cursor = null;
-        Object response = api.twitterGetTweetReplies(tweetId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetReplies(tweetId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -462,7 +604,14 @@ public class TwitterApiTest {
     public void twitterGetTweetRetweetersTest() throws ApiException {
         String tweetId = null;
         String cursor = null;
-        Object response = api.twitterGetTweetRetweeters(tweetId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetRetweeters(tweetId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -476,7 +625,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetTweetsByIdsTest() throws ApiException {
         String tweets = null;
-        Object response = api.twitterGetTweetsByIds(tweets);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetTweetsByIds(tweets, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -491,7 +647,14 @@ public class TwitterApiTest {
     public void twitterGetUserArticlesTest() throws ApiException {
         String userId = null;
         String cursor = null;
-        Object response = api.twitterGetUserArticles(userId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserArticles(userId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -505,7 +668,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetUserByIdTest() throws ApiException {
         String userId = null;
-        Object response = api.twitterGetUserById(userId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserById(userId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -519,7 +689,14 @@ public class TwitterApiTest {
     @Test
     public void twitterGetUserByUsernameTest() throws ApiException {
         String username = null;
-        Object response = api.twitterGetUserByUsername(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserByUsername(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -534,7 +711,14 @@ public class TwitterApiTest {
     public void twitterGetUserFollowersTest() throws ApiException {
         String username = null;
         String cursor = null;
-        Object response = api.twitterGetUserFollowers(username, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserFollowers(username, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -549,7 +733,14 @@ public class TwitterApiTest {
     public void twitterGetUserFollowingTest() throws ApiException {
         String username = null;
         String cursor = null;
-        Object response = api.twitterGetUserFollowing(username, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserFollowing(username, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -565,7 +756,14 @@ public class TwitterApiTest {
         String username = null;
         Integer count = null;
         String cursor = null;
-        Object response = api.twitterGetUserMentions(username, count, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserMentions(username, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -580,7 +778,14 @@ public class TwitterApiTest {
     public void twitterGetUserSubscriptionsTest() throws ApiException {
         String userId = null;
         String cursor = null;
-        Object response = api.twitterGetUserSubscriptions(userId, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserSubscriptions(userId, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -595,7 +800,14 @@ public class TwitterApiTest {
     public void twitterGetUserTweetsTest() throws ApiException {
         String username = null;
         String cursor = null;
-        Object response = api.twitterGetUserTweets(username, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterGetUserTweets(username, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -713,7 +925,14 @@ public class TwitterApiTest {
     public void twitterSearchCommunitiesTest() throws ApiException {
         String query = null;
         String cursor = null;
-        Object response = api.twitterSearchCommunities(query, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterSearchCommunities(query, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -729,7 +948,14 @@ public class TwitterApiTest {
         String listId = null;
         String query = null;
         String cursor = null;
-        Object response = api.twitterSearchListTweets(listId, query, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterSearchListTweets(listId, query, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -745,7 +971,14 @@ public class TwitterApiTest {
         String query = null;
         BigDecimal lat = null;
         BigDecimal _long = null;
-        Object response = api.twitterSearchPlaces(query, lat, _long);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterSearchPlaces(query, lat, _long, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -760,7 +993,14 @@ public class TwitterApiTest {
     public void twitterSearchUsersTest() throws ApiException {
         String query = null;
         String cursor = null;
-        Object response = api.twitterSearchUsers(query, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.twitterSearchUsers(query, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

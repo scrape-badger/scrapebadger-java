@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,14 @@ public class ImmobiliareApiTest {
     public void immobiliareGetAgencyProfileTest() throws ApiException {
         Integer agencyId = null;
         String market = null;
-        Object response = api.immobiliareGetAgencyProfile(agencyId, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareGetAgencyProfile(agencyId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -59,7 +68,14 @@ public class ImmobiliareApiTest {
         String market = null;
         String contract = null;
         Integer page = null;
-        Object response = api.immobiliareGetAnAgencySListings(agencyId, market, contract, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareGetAnAgencySListings(agencyId, market, contract, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -74,7 +90,14 @@ public class ImmobiliareApiTest {
     public void immobiliareGetListingDetailTest() throws ApiException {
         Integer listingId = null;
         String market = null;
-        Object response = api.immobiliareGetListingDetail(listingId, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareGetListingDetail(listingId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -111,7 +134,14 @@ public class ImmobiliareApiTest {
      */
     @Test
     public void immobiliareListFilterEnumsTest() throws ApiException {
-        Object response = api.immobiliareListFilterEnums();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareListFilterEnums(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -122,7 +152,14 @@ public class ImmobiliareApiTest {
      */
     @Test
     public void immobiliareListMarketsTest() throws ApiException {
-        Object response = api.immobiliareListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -137,7 +174,14 @@ public class ImmobiliareApiTest {
     public void immobiliareLocationAutocompleteTest() throws ApiException {
         String query = null;
         String market = null;
-        Object response = api.immobiliareLocationAutocomplete(query, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareLocationAutocomplete(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -155,7 +199,14 @@ public class ImmobiliareApiTest {
         String provinceId = null;
         String cityId = null;
         String contract = null;
-        Object response = api.immobiliarePriceMTimeSeries(regionId, market, provinceId, cityId, contract);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliarePriceMTimeSeries(regionId, market, provinceId, cityId, contract, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -184,7 +235,14 @@ public class ImmobiliareApiTest {
         Integer bathroomsMin = null;
         String sort = null;
         Integer page = null;
-        Object response = api.immobiliareSearchListings(market, location, regionId, provinceId, cityId, contract, category, priceMin, priceMax, surfaceMin, surfaceMax, roomsMin, roomsMax, bathroomsMin, sort, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.immobiliareSearchListings(market, location, regionId, provinceId, cityId, contract, category, priceMin, priceMax, surfaceMin, surfaceMax, roomsMin, roomsMax, bathroomsMin, sort, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,14 @@ public class GooglePlayApiTest {
         String country = null;
         String lang = null;
         Integer num = null;
-        Object response = api.googlePlayBrowseACategory(categoryId, country, lang, num);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayBrowseACategory(categoryId, country, lang, num, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -60,7 +69,14 @@ public class GooglePlayApiTest {
         String appId = null;
         String country = null;
         String lang = null;
-        Object response = api.googlePlayGetAppDetail(appId, country, lang);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayGetAppDetail(appId, country, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -75,7 +91,14 @@ public class GooglePlayApiTest {
     public void googlePlayGetAppPermissionsTest() throws ApiException {
         String appId = null;
         String lang = null;
-        Object response = api.googlePlayGetAppPermissions(appId, lang);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayGetAppPermissions(appId, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -94,7 +117,14 @@ public class GooglePlayApiTest {
         String sort = null;
         Integer count = null;
         String pageToken = null;
-        Object response = api.googlePlayGetAppReviews(appId, country, lang, sort, count, pageToken);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayGetAppReviews(appId, country, lang, sort, count, pageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -111,7 +141,14 @@ public class GooglePlayApiTest {
         String country = null;
         String lang = null;
         Integer num = null;
-        Object response = api.googlePlayGetDeveloperApps(developer, country, lang, num);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayGetDeveloperApps(developer, country, lang, num, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -127,7 +164,14 @@ public class GooglePlayApiTest {
         String appId = null;
         String country = null;
         String lang = null;
-        Object response = api.googlePlayGetSimilarApps(appId, country, lang);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayGetSimilarApps(appId, country, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -140,7 +184,14 @@ public class GooglePlayApiTest {
      */
     @Test
     public void googlePlayListCategoriesTest() throws ApiException {
-        Object response = api.googlePlayListCategories();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayListCategories(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -153,7 +204,14 @@ public class GooglePlayApiTest {
      */
     @Test
     public void googlePlayListMarketsTest() throws ApiException {
-        Object response = api.googlePlayListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -170,7 +228,14 @@ public class GooglePlayApiTest {
         String country = null;
         String lang = null;
         String price = null;
-        Object response = api.googlePlaySearchApps(query, country, lang, price);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlaySearchApps(query, country, lang, price, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -187,7 +252,14 @@ public class GooglePlayApiTest {
         String category = null;
         String country = null;
         String lang = null;
-        Object response = api.googlePlayTopCharts(collection, category, country, lang);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePlayTopCharts(collection, category, country, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

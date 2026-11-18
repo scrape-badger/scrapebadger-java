@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +41,14 @@ public class AliExpressApiTest {
      */
     @Test
     public void aliexpressGetCategoryNavigationTest() throws ApiException {
-        Object response = api.aliexpressGetCategoryNavigation();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetCategoryNavigation(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -54,7 +63,14 @@ public class AliExpressApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.aliexpressGetProductDetail(productId, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetProductDetail(productId, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -69,7 +85,14 @@ public class AliExpressApiTest {
         Integer page = null;
         Integer pageSize = null;
         String sort = null;
-        Object response = api.aliexpressGetProductReviews(productId, page, pageSize, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetProductReviews(productId, page, pageSize, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -83,7 +106,14 @@ public class AliExpressApiTest {
         String query = null;
         String country = null;
         String language = null;
-        Object response = api.aliexpressGetSearchSuggestions(query, country, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetSearchSuggestions(query, country, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -96,7 +126,14 @@ public class AliExpressApiTest {
     public void aliexpressGetStoreProductCategoriesTest() throws ApiException {
         String storeId = null;
         String country = null;
-        Object response = api.aliexpressGetStoreProductCategories(storeId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetStoreProductCategories(storeId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -115,7 +152,14 @@ public class AliExpressApiTest {
         String language = null;
         String query = null;
         String sort = null;
-        Object response = api.aliexpressGetStoreProducts(storeId, page, pageSize, country, currency, language, query, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetStoreProducts(storeId, page, pageSize, country, currency, language, query, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -130,7 +174,14 @@ public class AliExpressApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.aliexpressGetStoreProfile(storeId, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressGetStoreProfile(storeId, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -149,7 +200,14 @@ public class AliExpressApiTest {
         String sort = null;
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
-        Object response = api.aliexpressSearchProducts(query, page, country, currency, language, sort, minPrice, maxPrice);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.aliexpressSearchProducts(query, page, country, currency, language, sort, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

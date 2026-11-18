@@ -14,9 +14,11 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.ExtractRequest;
 import com.scrapebadger.client.model.HTTPValidationError;
 import com.scrapebadger.client.model.ScreenshotRequest;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,14 @@ public class WebApiTest {
      */
     @Test
     public void webDetectAntiBotAndCaptchaSystemsTest() throws ApiException {
-        Object response = api.webDetectAntiBotAndCaptchaSystems();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.webDetectAntiBotAndCaptchaSystems(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -56,7 +65,14 @@ public class WebApiTest {
     @Test
     public void webExtractStructuredDataTest() throws ApiException {
         ExtractRequest extractRequest = null;
-        Object response = api.webExtractStructuredData(extractRequest);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.webExtractStructuredData(extractRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -83,7 +99,14 @@ public class WebApiTest {
      */
     @Test
     public void webScrapeAUrlTest() throws ApiException {
-        Object response = api.webScrapeAUrl();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.webScrapeAUrl(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -97,7 +120,14 @@ public class WebApiTest {
     @Test
     public void webTakeAScreenshotTest() throws ApiException {
         ScreenshotRequest screenshotRequest = null;
-        Object response = api.webTakeAScreenshot(screenshotRequest);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.webTakeAScreenshot(screenshotRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

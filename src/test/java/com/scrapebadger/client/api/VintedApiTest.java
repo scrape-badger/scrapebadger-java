@@ -14,6 +14,7 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.BrandsResponse;
 import com.scrapebadger.client.model.ColorsResponse;
@@ -22,6 +23,7 @@ import com.scrapebadger.client.model.ItemDetailResponse;
 import com.scrapebadger.client.model.MarketsResponse;
 import com.scrapebadger.client.model.PortalApiRoutersVintedSchemasSearchResponse;
 import com.scrapebadger.client.model.StatusesResponse;
+import java.net.URI;
 import com.scrapebadger.client.model.UserItemsResponse;
 import com.scrapebadger.client.model.UserProfileResponse;
 import com.scrapebadger.client.model.VintedImageSearchRequest;
@@ -53,7 +55,14 @@ public class VintedApiTest {
     public void vintedGetItemDetailsTest() throws ApiException {
         Integer itemId = null;
         String market = null;
-        ItemDetailResponse response = api.vintedGetItemDetails(itemId, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        ItemDetailResponse response = api.vintedGetItemDetails(itemId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -68,7 +77,14 @@ public class VintedApiTest {
     public void vintedGetUserProfileTest() throws ApiException {
         Integer userId = null;
         String market = null;
-        UserProfileResponse response = api.vintedGetUserProfile(userId, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        UserProfileResponse response = api.vintedGetUserProfile(userId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -85,7 +101,14 @@ public class VintedApiTest {
         String market = null;
         Integer page = null;
         Integer perPage = null;
-        UserItemsResponse response = api.vintedGetUserSListedItems(userId, market, page, perPage);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        UserItemsResponse response = api.vintedGetUserSListedItems(userId, market, page, perPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -99,7 +122,14 @@ public class VintedApiTest {
     @Test
     public void vintedListColorsTest() throws ApiException {
         String market = null;
-        ColorsResponse response = api.vintedListColors(market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        ColorsResponse response = api.vintedListColors(market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -113,7 +143,14 @@ public class VintedApiTest {
     @Test
     public void vintedListItemConditionsTest() throws ApiException {
         String market = null;
-        StatusesResponse response = api.vintedListItemConditions(market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        StatusesResponse response = api.vintedListItemConditions(market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -126,7 +163,14 @@ public class VintedApiTest {
      */
     @Test
     public void vintedListMarketsTest() throws ApiException {
-        MarketsResponse response = api.vintedListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        MarketsResponse response = api.vintedListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -139,7 +183,14 @@ public class VintedApiTest {
      */
     @Test
     public void vintedListPublicVintedMobileOperationsTest() throws ApiException {
-        Object response = api.vintedListPublicVintedMobileOperations();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.vintedListPublicVintedMobileOperations(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -154,7 +205,14 @@ public class VintedApiTest {
     public void vintedReadVintedMobileDataTest() throws ApiException {
         String operation = null;
         VintedMobileReadRequest vintedMobileReadRequest = null;
-        Object response = api.vintedReadVintedMobileData(operation, vintedMobileReadRequest);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.vintedReadVintedMobileData(operation, vintedMobileReadRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -169,7 +227,14 @@ public class VintedApiTest {
     public void vintedSearchBrandsTest() throws ApiException {
         String keyword = null;
         String market = null;
-        BrandsResponse response = api.vintedSearchBrands(keyword, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        BrandsResponse response = api.vintedSearchBrands(keyword, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -183,7 +248,14 @@ public class VintedApiTest {
     @Test
     public void vintedSearchByImageTest() throws ApiException {
         VintedImageSearchRequest vintedImageSearchRequest = null;
-        PortalApiRoutersVintedSchemasSearchResponse response = api.vintedSearchByImage(vintedImageSearchRequest);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        PortalApiRoutersVintedSchemasSearchResponse response = api.vintedSearchByImage(vintedImageSearchRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -212,7 +284,14 @@ public class VintedApiTest {
         String searchSessionId = null;
         String statusIds = null;
         String order = null;
-        PortalApiRoutersVintedSchemasSearchResponse response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        PortalApiRoutersVintedSchemasSearchResponse response = api.vintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

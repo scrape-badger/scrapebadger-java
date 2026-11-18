@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,14 @@ public class LeboncoinApiTest {
         String userId = null;
         Integer page = null;
         Integer limit = null;
-        Object response = api.leboncoinGetASellerSAds(userId, page, limit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinGetASellerSAds(userId, page, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -57,7 +66,14 @@ public class LeboncoinApiTest {
     @Test
     public void leboncoinGetAdDetailTest() throws ApiException {
         Integer listId = null;
-        Object response = api.leboncoinGetAdDetail(listId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinGetAdDetail(listId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -71,7 +87,14 @@ public class LeboncoinApiTest {
     @Test
     public void leboncoinGetSellerProfileTest() throws ApiException {
         String userId = null;
-        Object response = api.leboncoinGetSellerProfile(userId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinGetSellerProfile(userId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -86,7 +109,14 @@ public class LeboncoinApiTest {
     public void leboncoinGetSimilarAdsTest() throws ApiException {
         Integer listId = null;
         Integer limit = null;
-        Object response = api.leboncoinGetSimilarAds(listId, limit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinGetSimilarAds(listId, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -123,7 +153,14 @@ public class LeboncoinApiTest {
      */
     @Test
     public void leboncoinListCategoriesTest() throws ApiException {
-        Object response = api.leboncoinListCategories();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinListCategories(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -135,7 +172,14 @@ public class LeboncoinApiTest {
     @Test
     public void leboncoinListDepartmentsTest() throws ApiException {
         String regionId = null;
-        Object response = api.leboncoinListDepartments(regionId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinListDepartments(regionId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -146,7 +190,14 @@ public class LeboncoinApiTest {
      */
     @Test
     public void leboncoinListMarketsTest() throws ApiException {
-        Object response = api.leboncoinListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -157,7 +208,14 @@ public class LeboncoinApiTest {
      */
     @Test
     public void leboncoinListRegionsTest() throws ApiException {
-        Object response = api.leboncoinListRegions();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinListRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -169,7 +227,14 @@ public class LeboncoinApiTest {
     @Test
     public void leboncoinLocationAutocompleteTest() throws ApiException {
         String q = null;
-        Object response = api.leboncoinLocationAutocomplete(q);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinLocationAutocomplete(q, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -195,7 +260,14 @@ public class LeboncoinApiTest {
         String sort = null;
         Integer page = null;
         Integer limit = null;
-        Object response = api.leboncoinSearchLeboncoinAds(text, category, regionId, departmentId, city, zipcode, priceMin, priceMax, ownerType, adType, sort, page, limit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.leboncoinSearchLeboncoinAds(text, category, regionId, departmentId, city, zipcode, priceMin, priceMax, ownerType, adType, sort, page, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

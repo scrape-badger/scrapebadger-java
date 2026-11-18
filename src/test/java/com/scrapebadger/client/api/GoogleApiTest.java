@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,14 @@ public class GoogleApiTest {
     public void googleGetAuthorCitationsPerYearChartTest() throws ApiException {
         String authorId = null;
         String hl = null;
-        Object response = api.googleGetAuthorCitationsPerYearChart(authorId, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetAuthorCitationsPerYearChart(authorId, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -56,7 +65,14 @@ public class GoogleApiTest {
     public void googleGetBusinessPostsTest() throws ApiException {
         String dataId = null;
         String nextPageToken = null;
-        Object response = api.googleGetBusinessPosts(dataId, nextPageToken);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetBusinessPosts(dataId, nextPageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -71,7 +87,14 @@ public class GoogleApiTest {
     public void googleGetCitationFormatsForAScholarPaperTest() throws ApiException {
         String q = null;
         String hl = null;
-        Object response = api.googleGetCitationFormatsForAScholarPaper(q, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetCitationFormatsForAScholarPaper(q, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -86,7 +109,14 @@ public class GoogleApiTest {
         String dataId = null;
         String hl = null;
         String gl = null;
-        Object response = api.googleGetPlaceDetails(placeId, dataId, hl, gl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetPlaceDetails(placeId, dataId, hl, gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -100,7 +130,14 @@ public class GoogleApiTest {
         String dataId = null;
         String hl = null;
         String nextPageToken = null;
-        Object response = api.googleGetPlacePhotos(dataId, hl, nextPageToken);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetPlacePhotos(dataId, hl, nextPageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -116,7 +153,14 @@ public class GoogleApiTest {
         String hl = null;
         String nextPageToken = null;
         Integer results = null;
-        Object response = api.googleGetPlaceReviews(dataId, sortBy, hl, nextPageToken, results);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetPlaceReviews(dataId, sortBy, hl, nextPageToken, results, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -133,7 +177,14 @@ public class GoogleApiTest {
         String hl = null;
         Integer cstart = null;
         Integer pagesize = null;
-        Object response = api.googleGetScholarAuthorProfile(authorId, hl, cstart, pagesize);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetScholarAuthorProfile(authorId, hl, cstart, pagesize, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -148,7 +199,14 @@ public class GoogleApiTest {
     public void googleGetStockIndexQuoteTest() throws ApiException {
         String q = null;
         String hl = null;
-        Object response = api.googleGetStockIndexQuote(q, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGetStockIndexQuote(q, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -169,7 +227,14 @@ public class GoogleApiTest {
         String uule = null;
         BigDecimal lat = null;
         BigDecimal lon = null;
-        Object response = api.googleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -185,7 +250,14 @@ public class GoogleApiTest {
         String q = null;
         String gl = null;
         String hl = null;
-        Object response = api.googleGoogleAiOverviewInlineSerpBlock(q, gl, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleAiOverviewInlineSerpBlock(q, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -214,7 +286,14 @@ public class GoogleApiTest {
         String currency = null;
         String gl = null;
         String hl = null;
-        Object response = api.googleGoogleFlightsCalendarCheapestFarePerDate(departureId, arrivalId, outboundDateFrom, outboundDateTo, tripType, tripLengthDays, returnDateFrom, returnDateTo, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleFlightsCalendarCheapestFarePerDate(departureId, arrivalId, outboundDateFrom, outboundDateTo, tripType, tripLengthDays, returnDateFrom, returnDateTo, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -243,7 +322,14 @@ public class GoogleApiTest {
         String stops = null;
         Integer maxPrice = null;
         String departureToken = null;
-        Object response = api.googleGoogleFlightsSearch(departureId, arrivalId, outboundDate, returnDate, tripType, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl, stops, maxPrice, departureToken);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleFlightsSearch(departureId, arrivalId, outboundDate, returnDate, tripType, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl, stops, maxPrice, departureToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -265,7 +351,14 @@ public class GoogleApiTest {
         Boolean product = null;
         Boolean visualMatches = null;
         Boolean exactMatches = null;
-        Object response = api.googleGoogleLensVisualSearch(url, query, country, language, gl, hl, product, visualMatches, exactMatches);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleLensVisualSearch(url, query, country, language, gl, hl, product, visualMatches, exactMatches, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -323,7 +416,14 @@ public class GoogleApiTest {
         String si = null;
         String ibp = null;
         String uds = null;
-        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -365,7 +465,14 @@ public class GoogleApiTest {
         String q = null;
         String hl = null;
         String gl = null;
-        Object response = api.googleGoogleSearchSuggestions(q, hl, gl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleSearchSuggestions(q, hl, gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -384,7 +491,14 @@ public class GoogleApiTest {
         String domain = null;
         Integer num = null;
         Integer start = null;
-        Object response = api.googleGoogleShortsSearch(q, gl, hl, domain, num, start);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleShortsSearch(q, gl, hl, domain, num, start, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -445,7 +559,14 @@ public class GoogleApiTest {
         String asQdr = null;
         String asRq = null;
         String asSitesearch = null;
-        Object response = api.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -459,7 +580,14 @@ public class GoogleApiTest {
         String propertyToken = null;
         String checkIn = null;
         String checkOut = null;
-        Object response = api.googleHotelDetails(propertyToken, checkIn, checkOut);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleHotelDetails(propertyToken, checkIn, checkOut, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -482,7 +610,14 @@ public class GoogleApiTest {
         String mid = null;
         Boolean includeOffers = null;
         Boolean includeVariants = null;
-        Object response = api.googleImmersiveProductDetail(productId, q, gl, hl, catalogId, imageDocid, headlineOfferDocid, mid, includeOffers, includeVariants);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleImmersiveProductDetail(productId, q, gl, hl, catalogId, imageDocid, headlineOfferDocid, mid, includeOffers, includeVariants, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -495,7 +630,14 @@ public class GoogleApiTest {
     public void googleInterestByRegionTest() throws ApiException {
         String q = null;
         String geo = null;
-        Object response = api.googleInterestByRegion(q, geo);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleInterestByRegion(q, geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -509,7 +651,14 @@ public class GoogleApiTest {
         String q = null;
         String geo = null;
         String date = null;
-        Object response = api.googleInterestOverTime(q, geo, date);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleInterestOverTime(q, geo, date, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -527,7 +676,14 @@ public class GoogleApiTest {
         String gl = null;
         String hl = null;
         String domain = null;
-        Object response = api.googleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -542,7 +698,14 @@ public class GoogleApiTest {
         String hl = null;
         String gl = null;
         Integer maxResults = null;
-        Object response = api.googleNewsByTopic(topic, hl, gl, maxResults);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleNewsByTopic(topic, hl, gl, maxResults, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -554,7 +717,14 @@ public class GoogleApiTest {
     @Test
     public void googlePatentDetailsTest() throws ApiException {
         String patentId = null;
-        Object response = api.googlePatentDetails(patentId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googlePatentDetails(patentId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -567,7 +737,14 @@ public class GoogleApiTest {
     public void googleRelatedTopicsQueriesTest() throws ApiException {
         String q = null;
         String geo = null;
-        Object response = api.googleRelatedTopicsQueries(q, geo);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleRelatedTopicsQueries(q, geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -589,7 +766,14 @@ public class GoogleApiTest {
         String imgtype = null;
         String safe = null;
         Integer page = null;
-        Object response = api.googleSearchGoogleImages(q, gl, hl, tbs, imgsz, imgcolor, imgtype, safe, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchGoogleImages(q, gl, hl, tbs, imgsz, imgcolor, imgtype, safe, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -605,7 +789,14 @@ public class GoogleApiTest {
         String gl = null;
         String jobType = null;
         String datePosted = null;
-        Object response = api.googleSearchGoogleJobs(q, location, gl, jobType, datePosted);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchGoogleJobs(q, location, gl, jobType, datePosted, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -621,7 +812,14 @@ public class GoogleApiTest {
         String gl = null;
         String hl = null;
         Integer start = null;
-        Object response = api.googleSearchGoogleMapsPlaces(q, ll, gl, hl, start);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchGoogleMapsPlaces(q, ll, gl, hl, start, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -636,7 +834,14 @@ public class GoogleApiTest {
         String hl = null;
         String gl = null;
         Integer maxResults = null;
-        Object response = api.googleSearchGoogleNews(q, hl, gl, maxResults);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchGoogleNews(q, hl, gl, maxResults, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -656,7 +861,14 @@ public class GoogleApiTest {
         String asSdt = null;
         Integer page = null;
         Integer num = null;
-        Object response = api.googleSearchGoogleScholar(q, hl, asYlo, asYhi, asSdt, page, num);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchGoogleScholar(q, hl, asYlo, asYhi, asSdt, page, num, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -675,7 +887,14 @@ public class GoogleApiTest {
         String tbs = null;
         String safe = null;
         Integer page = null;
-        Object response = api.googleSearchGoogleVideos(q, gl, hl, tbs, safe, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchGoogleVideos(q, gl, hl, tbs, safe, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -692,7 +911,14 @@ public class GoogleApiTest {
         Integer adults = null;
         String currency = null;
         String gl = null;
-        Object response = api.googleSearchHotels(q, checkIn, checkOut, adults, currency, gl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchHotels(q, checkIn, checkOut, adults, currency, gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -715,7 +941,14 @@ public class GoogleApiTest {
         String patentType = null;
         String before = null;
         String after = null;
-        Object response = api.googleSearchPatents(q, page, num, sort, inventor, assignee, country, language, status, patentType, before, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchPatents(q, page, num, sort, inventor, assignee, country, language, status, patentType, before, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -731,7 +964,14 @@ public class GoogleApiTest {
         Integer minPrice = null;
         Integer maxPrice = null;
         String sortBy = null;
-        Object response = api.googleSearchProducts(q, gl, minPrice, maxPrice, sortBy);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchProducts(q, gl, minPrice, maxPrice, sortBy, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -748,7 +988,14 @@ public class GoogleApiTest {
         String hl = null;
         String afterAuthor = null;
         String beforeAuthor = null;
-        Object response = api.googleSearchScholarAuthorProfiles(mauthors, hl, afterAuthor, beforeAuthor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleSearchScholarAuthorProfiles(mauthors, hl, afterAuthor, beforeAuthor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -762,7 +1009,14 @@ public class GoogleApiTest {
         String hl = null;
         String gl = null;
         Integer maxResults = null;
-        Object response = api.googleTrendingNews(hl, gl, maxResults);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleTrendingNews(hl, gl, maxResults, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -774,7 +1028,14 @@ public class GoogleApiTest {
     @Test
     public void googleTrendingSearchesTest() throws ApiException {
         String geo = null;
-        Object response = api.googleTrendingSearches(geo);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleTrendingSearches(geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -790,7 +1051,14 @@ public class GoogleApiTest {
         String q = null;
         String hl = null;
         String tz = null;
-        Object response = api.googleTrendsTopicAutocomplete(q, hl, tz);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.googleTrendsTopicAutocomplete(q, hl, tz, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +42,14 @@ public class BestBuyApiTest {
     public void bestbuyBrowseACategoryTest() throws ApiException {
         String categoryId = null;
         Integer page = null;
-        Object response = api.bestbuyBrowseACategory(categoryId, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyBrowseACategory(categoryId, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -52,7 +61,14 @@ public class BestBuyApiTest {
     @Test
     public void bestbuyGetCategoriesTest() throws ApiException {
         String query = null;
-        Object response = api.bestbuyGetCategories(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetCategories(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -64,7 +80,14 @@ public class BestBuyApiTest {
     @Test
     public void bestbuyGetLaptopAndComputerDealsTest() throws ApiException {
         Integer page = null;
-        Object response = api.bestbuyGetLaptopAndComputerDeals(page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetLaptopAndComputerDeals(page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -78,7 +101,14 @@ public class BestBuyApiTest {
         String sku = null;
         String zipCode = null;
         String storeId = null;
-        Object response = api.bestbuyGetProductAvailability(sku, zipCode, storeId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetProductAvailability(sku, zipCode, storeId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -90,7 +120,14 @@ public class BestBuyApiTest {
     @Test
     public void bestbuyGetProductDetailTest() throws ApiException {
         String sku = null;
-        Object response = api.bestbuyGetProductDetail(sku);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetProductDetail(sku, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -105,7 +142,14 @@ public class BestBuyApiTest {
         Integer page = null;
         Integer pageSize = null;
         String query = null;
-        Object response = api.bestbuyGetProductQuestions(sku, page, pageSize, query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetProductQuestions(sku, page, pageSize, query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -120,7 +164,14 @@ public class BestBuyApiTest {
         Integer page = null;
         Integer pageSize = null;
         String sort = null;
-        Object response = api.bestbuyGetProductReviews(sku, page, pageSize, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetProductReviews(sku, page, pageSize, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -132,7 +183,14 @@ public class BestBuyApiTest {
     @Test
     public void bestbuyGetSearchSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.bestbuyGetSearchSuggestions(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyGetSearchSuggestions(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -143,7 +201,14 @@ public class BestBuyApiTest {
      */
     @Test
     public void bestbuyListSupportedMarketsTest() throws ApiException {
-        Object response = api.bestbuyListSupportedMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuyListSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -157,7 +222,14 @@ public class BestBuyApiTest {
         String query = null;
         Integer page = null;
         String sort = null;
-        Object response = api.bestbuySearchProducts(query, page, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.bestbuySearchProducts(query, page, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

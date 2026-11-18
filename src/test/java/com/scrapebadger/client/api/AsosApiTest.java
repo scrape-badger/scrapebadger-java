@@ -14,11 +14,13 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
 import com.scrapebadger.client.model.PortalApiRoutersV1AsosSearchResponse;
 import com.scrapebadger.client.model.ProductResponse;
 import com.scrapebadger.client.model.StockResponse;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +52,14 @@ public class AsosApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        ProductResponse response = api.asosGetProductDetail(productId, market, store, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        ProductResponse response = api.asosGetProductDetail(productId, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -69,7 +78,14 @@ public class AsosApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        StockResponse response = api.asosGetStockAndPrices(productIds, market, store, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        StockResponse response = api.asosGetStockAndPrices(productIds, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -88,7 +104,14 @@ public class AsosApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.asosListCategories(gender, market, store, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.asosListCategories(gender, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -99,7 +122,14 @@ public class AsosApiTest {
      */
     @Test
     public void asosListMarketsTest() throws ApiException {
-        Object response = api.asosListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.asosListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -119,7 +149,14 @@ public class AsosApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.asosListSearchFilters(query, categoryId, market, store, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.asosListSearchFilters(query, categoryId, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -147,7 +184,14 @@ public class AsosApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        PortalApiRoutersV1AsosSearchResponse response = api.asosSearchProducts(query, categoryId, offset, limit, sort, brand, colour, size, minPrice, maxPrice, market, store, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        PortalApiRoutersV1AsosSearchResponse response = api.asosSearchProducts(query, categoryId, offset, limit, sort, brand, colour, size, minPrice, maxPrice, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -166,7 +210,14 @@ public class AsosApiTest {
         String country = null;
         String currency = null;
         String language = null;
-        Object response = api.asosSearchSuggestions(query, market, store, country, currency, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.asosSearchSuggestions(query, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

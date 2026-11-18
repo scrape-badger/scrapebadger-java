@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,14 @@ public class GrokApiTest {
         String conversationId = null;
         String mode = null;
         String webSearch = null;
-        Object response = api.grokAskGrokAQuestion(prompt, conversationId, mode, webSearch);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.grokAskGrokAQuestion(prompt, conversationId, mode, webSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -55,7 +64,14 @@ public class GrokApiTest {
      */
     @Test
     public void grokAskGrokAQuestionPostTest() throws ApiException {
-        Object response = api.grokAskGrokAQuestionPost();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.grokAskGrokAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -67,7 +83,14 @@ public class GrokApiTest {
     @Test
     public void grokGetAGrokConversationTest() throws ApiException {
         String conversationId = null;
-        Object response = api.grokGetAGrokConversation(conversationId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.grokGetAGrokConversation(conversationId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -100,7 +123,14 @@ public class GrokApiTest {
      */
     @Test
     public void grokListGrokAssistantModesTest() throws ApiException {
-        Object response = api.grokListGrokAssistantModes();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.grokListGrokAssistantModes(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -117,7 +147,14 @@ public class GrokApiTest {
         String brandDomain = null;
         String mode = null;
         String webSearch = null;
-        Object response = api.grokMeasureBrandVisibilityInGrok(prompt, brand, competitors, brandDomain, mode, webSearch);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.grokMeasureBrandVisibilityInGrok(prompt, brand, competitors, brandDomain, mode, webSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -128,7 +165,14 @@ public class GrokApiTest {
      */
     @Test
     public void grokMeasureBrandVisibilityInGrokPostTest() throws ApiException {
-        Object response = api.grokMeasureBrandVisibilityInGrokPost();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.grokMeasureBrandVisibilityInGrokPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

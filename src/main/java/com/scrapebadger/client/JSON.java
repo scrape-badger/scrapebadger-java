@@ -94,9 +94,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AccountInfo.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AccountWebhookDeliveries403Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.Age.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AgentTrialInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.Article.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AsyncAccepted.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AsyncAcceptedNextAction.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AsyncCallbackStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AutoScout24FiltersResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AutoScout24Listing.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.AutoScout24ListingDetail.CustomTypeAdapterFactory());
@@ -258,6 +262,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.VintedUserProfile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.VintedUserSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookCreate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookDeliveries.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookDelivery.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookEvent.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookListItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookListResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.WebhookResponse.CustomTypeAdapterFactory());

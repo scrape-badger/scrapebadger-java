@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import com.scrapebadger.client.model.YelpMarketsResponse;
 import com.scrapebadger.client.model.YelpSearchResponse;
 import org.junit.jupiter.api.Disabled;
@@ -42,7 +44,14 @@ public class YelpApiTest {
      */
     @Test
     public void yelpListMarketsTest() throws ApiException {
-        YelpMarketsResponse response = api.yelpListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        YelpMarketsResponse response = api.yelpListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -63,7 +72,14 @@ public class YelpApiTest {
         String price = null;
         String features = null;
         Integer page = null;
-        YelpSearchResponse response = api.yelpSearchBusinesses(location, query, market, category, sortBy, price, features, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        YelpSearchResponse response = api.yelpSearchBusinesses(location, query, market, category, sortBy, price, features, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

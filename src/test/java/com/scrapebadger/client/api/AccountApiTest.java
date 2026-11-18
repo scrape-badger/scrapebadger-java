@@ -15,6 +15,8 @@ package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
 import com.scrapebadger.client.model.AccountInfo;
+import com.scrapebadger.client.model.AccountWebhookDeliveries403Response;
+import com.scrapebadger.client.model.WebhookDeliveries;
 import com.scrapebadger.client.model.WebhookSecret;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -68,6 +70,20 @@ public class AccountApiTest {
     @Test
     public void accountRotateTheWebhookSigningSecretTest() throws ApiException {
         WebhookSecret response = api.accountRotateTheWebhookSigningSecret();
+        // TODO: test validations
+    }
+
+    /**
+     * Webhook deliveries
+     *
+     * This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void accountWebhookDeliveriesTest() throws ApiException {
+        Integer limit = null;
+        WebhookDeliveries response = api.accountWebhookDeliveries(limit);
         // TODO: test validations
     }
 

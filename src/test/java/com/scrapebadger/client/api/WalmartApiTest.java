@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -46,7 +48,14 @@ public class WalmartApiTest {
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
         String facet = null;
-        Object response = api.walmartBrowseACategory(path, page, minPrice, maxPrice, facet);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartBrowseACategory(path, page, minPrice, maxPrice, facet, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -62,7 +71,14 @@ public class WalmartApiTest {
         Integer page = null;
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
-        Object response = api.walmartDealsRollbacksAndClearance(page, minPrice, maxPrice);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartDealsRollbacksAndClearance(page, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -79,7 +95,14 @@ public class WalmartApiTest {
         String query = null;
         Integer page = null;
         String sort = null;
-        Object response = api.walmartGetASellerSCatalogue(sellerId, query, page, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartGetASellerSCatalogue(sellerId, query, page, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -93,7 +116,14 @@ public class WalmartApiTest {
     @Test
     public void walmartGetProductDetailTest() throws ApiException {
         String itemId = null;
-        Object response = api.walmartGetProductDetail(itemId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartGetProductDetail(itemId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -109,7 +139,14 @@ public class WalmartApiTest {
         String itemId = null;
         Integer page = null;
         String sort = null;
-        Object response = api.walmartGetProductReviews(itemId, page, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartGetProductReviews(itemId, page, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -123,7 +160,14 @@ public class WalmartApiTest {
     @Test
     public void walmartGetSellerProfileTest() throws ApiException {
         String sellerId = null;
-        Object response = api.walmartGetSellerProfile(sellerId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartGetSellerProfile(sellerId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -137,7 +181,14 @@ public class WalmartApiTest {
     @Test
     public void walmartGetStoreNearbyStoresTest() throws ApiException {
         String storeId = null;
-        Object response = api.walmartGetStoreNearbyStores(storeId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartGetStoreNearbyStores(storeId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -150,7 +201,14 @@ public class WalmartApiTest {
      */
     @Test
     public void walmartListSupportedMarketsTest() throws ApiException {
-        Object response = api.walmartListSupportedMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartListSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -169,7 +227,14 @@ public class WalmartApiTest {
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
         String facet = null;
-        Object response = api.walmartSearchProducts(query, page, sort, minPrice, maxPrice, facet);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartSearchProducts(query, page, sort, minPrice, maxPrice, facet, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -183,7 +248,14 @@ public class WalmartApiTest {
     @Test
     public void walmartSearchSuggestionsTest() throws ApiException {
         String query = null;
-        Object response = api.walmartSearchSuggestions(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.walmartSearchSuggestions(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

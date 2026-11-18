@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -70,7 +72,14 @@ public class AmazonApiTest {
         String domain = null;
         String category = null;
         Integer page = null;
-        Object response = api.amazonBestsellersByCategory(domain, category, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonBestsellersByCategory(domain, category, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -87,7 +96,14 @@ public class AmazonApiTest {
         String domain = null;
         Integer page = null;
         String sortBy = null;
-        Object response = api.amazonBrowseNodeCategoryListing(node, domain, page, sortBy);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonBrowseNodeCategoryListing(node, domain, page, sortBy, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -104,7 +120,14 @@ public class AmazonApiTest {
         String domain = null;
         String zip = null;
         Integer page = null;
-        Object response = api.amazonGetAllSellerOffersBuybox(asin, domain, zip, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonGetAllSellerOffersBuybox(asin, domain, zip, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -121,7 +144,14 @@ public class AmazonApiTest {
         String domain = null;
         String zip = null;
         String language = null;
-        Object response = api.amazonGetProductDetail(asin, domain, zip, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonGetProductDetail(asin, domain, zip, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -146,7 +176,14 @@ public class AmazonApiTest {
         Boolean perStar = null;
         Integer limit = null;
         String wootOffer = null;
-        Object response = api.amazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -162,7 +199,14 @@ public class AmazonApiTest {
         String sellerId = null;
         String domain = null;
         Integer page = null;
-        Object response = api.amazonGetSellerFeedback(sellerId, domain, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonGetSellerFeedback(sellerId, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -177,7 +221,14 @@ public class AmazonApiTest {
     public void amazonGetSellerProfileTest() throws ApiException {
         String sellerId = null;
         String domain = null;
-        Object response = api.amazonGetSellerProfile(sellerId, domain);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonGetSellerProfile(sellerId, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -193,7 +244,14 @@ public class AmazonApiTest {
         String sellerId = null;
         String domain = null;
         Integer page = null;
-        Object response = api.amazonGetSellerStorefrontProducts(sellerId, domain, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonGetSellerStorefrontProducts(sellerId, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -208,7 +266,14 @@ public class AmazonApiTest {
     public void amazonKeywordSuggestionsTest() throws ApiException {
         String query = null;
         String domain = null;
-        Object response = api.amazonKeywordSuggestions(query, domain);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonKeywordSuggestions(query, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -222,7 +287,14 @@ public class AmazonApiTest {
     @Test
     public void amazonListCategoryAliasesTest() throws ApiException {
         String domain = null;
-        Object response = api.amazonListCategoryAliases(domain);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonListCategoryAliases(domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -235,7 +307,14 @@ public class AmazonApiTest {
      */
     @Test
     public void amazonListMarketplacesTest() throws ApiException {
-        Object response = api.amazonListMarketplaces();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonListMarketplaces(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -251,7 +330,14 @@ public class AmazonApiTest {
         String domain = null;
         String category = null;
         Integer page = null;
-        Object response = api.amazonNewReleasesByCategory(domain, category, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonNewReleasesByCategory(domain, category, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -273,7 +359,14 @@ public class AmazonApiTest {
         BigDecimal maxPrice = null;
         String zip = null;
         String language = null;
-        Object response = api.amazonSearchAmazonProducts(query, domain, page, sortBy, category, minPrice, maxPrice, zip, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonSearchAmazonProducts(query, domain, page, sortBy, category, minPrice, maxPrice, zip, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -289,7 +382,14 @@ public class AmazonApiTest {
         String domain = null;
         String category = null;
         Integer page = null;
-        Object response = api.amazonTodaySDeals(domain, category, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.amazonTodaySDeals(domain, category, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,14 @@ public class LinkedInApiTest {
         String companyId = null;
         Integer start = null;
         String country = null;
-        Object response = api.linkedinGetACompanySJobPostings(companyId, start, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetACompanySJobPostings(companyId, start, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -58,7 +67,14 @@ public class LinkedInApiTest {
     public void linkedinGetACourseTest() throws ApiException {
         String courseSlug = null;
         String country = null;
-        Object response = api.linkedinGetACourse(courseSlug, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetACourse(courseSlug, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -73,7 +89,14 @@ public class LinkedInApiTest {
     public void linkedinGetAPublicArticleTest() throws ApiException {
         String articleSlug = null;
         String country = null;
-        Object response = api.linkedinGetAPublicArticle(articleSlug, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetAPublicArticle(articleSlug, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -88,7 +111,14 @@ public class LinkedInApiTest {
     public void linkedinGetAPublicPostTest() throws ApiException {
         String postSlug = null;
         String country = null;
-        Object response = api.linkedinGetAPublicPost(postSlug, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetAPublicPost(postSlug, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -103,7 +133,14 @@ public class LinkedInApiTest {
     public void linkedinGetCompanyTest() throws ApiException {
         String universalName = null;
         String country = null;
-        Object response = api.linkedinGetCompany(universalName, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetCompany(universalName, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -118,7 +155,14 @@ public class LinkedInApiTest {
     public void linkedinGetFullProfileThroughTheAuthenticatedProjectionTest() throws ApiException {
         String publicId = null;
         String country = null;
-        Object response = api.linkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -133,7 +177,14 @@ public class LinkedInApiTest {
     public void linkedinGetJobDetailTest() throws ApiException {
         String jobId = null;
         String country = null;
-        Object response = api.linkedinGetJobDetail(jobId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetJobDetail(jobId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -148,7 +199,14 @@ public class LinkedInApiTest {
     public void linkedinGetPublicProfileTest() throws ApiException {
         String publicId = null;
         String country = null;
-        Object response = api.linkedinGetPublicProfile(publicId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetPublicProfile(publicId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -163,7 +221,14 @@ public class LinkedInApiTest {
     public void linkedinGetSchoolTest() throws ApiException {
         String universalName = null;
         String country = null;
-        Object response = api.linkedinGetSchool(universalName, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinGetSchool(universalName, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -213,7 +278,14 @@ public class LinkedInApiTest {
         String sort = null;
         Integer start = null;
         String country = null;
-        Object response = api.linkedinSearchLinkedinJobs(keywords, location, geoId, companyId, datePosted, experience, jobType, workplace, sort, start, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinSearchLinkedinJobs(keywords, location, geoId, companyId, datePosted, experience, jobType, workplace, sort, start, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -228,7 +300,14 @@ public class LinkedInApiTest {
     public void linkedinSuggestLocationGeoIdsTest() throws ApiException {
         String query = null;
         String type = null;
-        Object response = api.linkedinSuggestLocationGeoIds(query, type);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.linkedinSuggestLocationGeoIds(query, type, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

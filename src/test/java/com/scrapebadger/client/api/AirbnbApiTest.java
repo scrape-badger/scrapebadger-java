@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -73,7 +75,14 @@ public class AirbnbApiTest {
         Integer months = null;
         String currency = null;
         String locale = null;
-        Object response = api.airbnbGetAvailabilityCalendar(roomId, month, year, months, currency, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.airbnbGetAvailabilityCalendar(roomId, month, year, months, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -92,7 +101,14 @@ public class AirbnbApiTest {
         Integer infants = null;
         String currency = null;
         String locale = null;
-        Object response = api.airbnbGetExperienceDetail(experienceId, adults, children, infants, currency, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.airbnbGetExperienceDetail(experienceId, adults, children, infants, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -109,7 +125,14 @@ public class AirbnbApiTest {
         Integer adults = null;
         String currency = null;
         String locale = null;
-        Object response = api.airbnbGetListingDetail(roomId, adults, currency, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.airbnbGetListingDetail(roomId, adults, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -128,7 +151,14 @@ public class AirbnbApiTest {
         String sort = null;
         String currency = null;
         String locale = null;
-        Object response = api.airbnbGetListingReviews(roomId, limit, offset, sort, currency, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.airbnbGetListingReviews(roomId, limit, offset, sort, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -145,7 +175,14 @@ public class AirbnbApiTest {
         String cursor = null;
         String currency = null;
         String locale = null;
-        Object response = api.airbnbSearchExperiences(location, cursor, currency, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.airbnbSearchExperiences(location, cursor, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -179,7 +216,14 @@ public class AirbnbApiTest {
         Integer limit = null;
         String currency = null;
         String locale = null;
-        Object response = api.airbnbSearchStays(location, neLat, neLng, swLat, swLng, checkIn, checkOut, adults, children, infants, pets, priceMin, priceMax, minBedrooms, minBeds, minBathrooms, roomType, cursor, limit, currency, locale);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.airbnbSearchStays(location, neLat, neLng, swLat, swLng, checkIn, checkOut, adults, children, infants, pets, priceMin, priceMax, minBedrooms, minBeds, minBathrooms, roomType, cursor, limit, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

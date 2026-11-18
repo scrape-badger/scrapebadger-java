@@ -14,9 +14,11 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.GitHubProfileResponse;
 import com.scrapebadger.client.model.GitHubRepositoryResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -47,7 +49,14 @@ public class GitHubApiTest {
         Integer year = null;
         Integer page = null;
         String nextPageToken = null;
-        GitHubProfileResponse response = api.githubGetProfile(username, tab, year, page, nextPageToken);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        GitHubProfileResponse response = api.githubGetProfile(username, tab, year, page, nextPageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -62,7 +71,14 @@ public class GitHubApiTest {
     public void githubGetRepositoryTest() throws ApiException {
         String owner = null;
         String repo = null;
-        GitHubRepositoryResponse response = api.githubGetRepository(owner, repo);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        GitHubRepositoryResponse response = api.githubGetRepository(owner, repo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

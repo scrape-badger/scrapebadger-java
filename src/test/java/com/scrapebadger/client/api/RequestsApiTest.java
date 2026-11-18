@@ -14,6 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AccountWebhookDeliveries403Response;
+import com.scrapebadger.client.model.AsyncAccepted;
+import com.scrapebadger.client.model.AsyncCallbackStatus;
 import com.scrapebadger.client.model.HTTPValidationError;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -32,9 +35,23 @@ public class RequestsApiTest {
     private final RequestsApi api = new RequestsApi();
 
     /**
+     * Callback status
+     *
+     * Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void requestsCallbackStatusTest() throws ApiException {
+        String requestId = null;
+        AsyncCallbackStatus response = api.requestsCallbackStatus(requestId);
+        // TODO: test validations
+    }
+
+    /**
      * Poll an async request
      *
-     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+     * Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
      *
      * @throws ApiException if the Api call fails
      */

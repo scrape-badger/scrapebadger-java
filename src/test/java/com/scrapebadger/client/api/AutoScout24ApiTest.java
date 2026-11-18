@@ -14,11 +14,13 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.AutoScout24FiltersResponse;
 import com.scrapebadger.client.model.AutoScout24ListingResponse;
 import com.scrapebadger.client.model.AutoScout24MarketsResponse;
 import com.scrapebadger.client.model.AutoScout24SearchResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -58,7 +60,14 @@ public class AutoScout24ApiTest {
         String url = null;
         String listingId = null;
         String market = null;
-        AutoScout24ListingResponse response = api.autoscout24GetListing(url, listingId, market);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        AutoScout24ListingResponse response = api.autoscout24GetListing(url, listingId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -71,7 +80,14 @@ public class AutoScout24ApiTest {
      */
     @Test
     public void autoscout24ListMarketsTest() throws ApiException {
-        AutoScout24MarketsResponse response = api.autoscout24ListMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        AutoScout24MarketsResponse response = api.autoscout24ListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -86,7 +102,14 @@ public class AutoScout24ApiTest {
     public void autoscout24ListSearchFiltersTest() throws ApiException {
         String market = null;
         String make = null;
-        AutoScout24FiltersResponse response = api.autoscout24ListSearchFilters(market, make);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        AutoScout24FiltersResponse response = api.autoscout24ListSearchFilters(market, make, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -119,7 +142,14 @@ public class AutoScout24ApiTest {
         Integer radius = null;
         String sortBy = null;
         Integer page = null;
-        AutoScout24SearchResponse response = api.autoscout24SearchVehicles(market, make, model, priceMin, priceMax, mileageMin, mileageMax, yearMin, yearMax, powerMin, powerMax, fuelType, transmission, bodyType, sellerType, condition, zip, radius, sortBy, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        AutoScout24SearchResponse response = api.autoscout24SearchVehicles(market, make, model, priceMin, priceMax, mileageMin, mileageMax, yearMin, yearMax, powerMin, powerMax, fuelType, transmission, bodyType, sellerType, condition, zip, radius, sortBy, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

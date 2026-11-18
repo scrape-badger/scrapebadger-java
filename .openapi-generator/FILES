@@ -8,6 +8,7 @@ build.gradle
 build.sbt
 docs/AccountApi.md
 docs/AccountInfo.md
+docs/AccountWebhookDeliveries403Response.md
 docs/Age.md
 docs/AgentTrialInfo.md
 docs/AirbnbApi.md
@@ -17,6 +18,9 @@ docs/ApartmentsApi.md
 docs/AppStoreApi.md
 docs/Article.md
 docs/AsosApi.md
+docs/AsyncAccepted.md
+docs/AsyncAcceptedNextAction.md
+docs/AsyncCallbackStatus.md
 docs/AutoScout24Api.md
 docs/AutoScout24FiltersResponse.md
 docs/AutoScout24Listing.md
@@ -222,6 +226,9 @@ docs/WallapopApi.md
 docs/WalmartApi.md
 docs/WebApi.md
 docs/WebhookCreate.md
+docs/WebhookDeliveries.md
+docs/WebhookDelivery.md
+docs/WebhookEvent.md
 docs/WebhookListItem.md
 docs/WebhookListResponse.md
 docs/WebhookResponse.md
@@ -327,9 +334,13 @@ src/main/java/com/scrapebadger/client/auth/HttpBasicAuth.java
 src/main/java/com/scrapebadger/client/auth/HttpBearerAuth.java
 src/main/java/com/scrapebadger/client/model/AbstractOpenApiSchema.java
 src/main/java/com/scrapebadger/client/model/AccountInfo.java
+src/main/java/com/scrapebadger/client/model/AccountWebhookDeliveries403Response.java
 src/main/java/com/scrapebadger/client/model/Age.java
 src/main/java/com/scrapebadger/client/model/AgentTrialInfo.java
 src/main/java/com/scrapebadger/client/model/Article.java
+src/main/java/com/scrapebadger/client/model/AsyncAccepted.java
+src/main/java/com/scrapebadger/client/model/AsyncAcceptedNextAction.java
+src/main/java/com/scrapebadger/client/model/AsyncCallbackStatus.java
 src/main/java/com/scrapebadger/client/model/AutoScout24FiltersResponse.java
 src/main/java/com/scrapebadger/client/model/AutoScout24Listing.java
 src/main/java/com/scrapebadger/client/model/AutoScout24ListingDetail.java
@@ -491,6 +502,9 @@ src/main/java/com/scrapebadger/client/model/VintedStatus.java
 src/main/java/com/scrapebadger/client/model/VintedUserProfile.java
 src/main/java/com/scrapebadger/client/model/VintedUserSummary.java
 src/main/java/com/scrapebadger/client/model/WebhookCreate.java
+src/main/java/com/scrapebadger/client/model/WebhookDeliveries.java
+src/main/java/com/scrapebadger/client/model/WebhookDelivery.java
+src/main/java/com/scrapebadger/client/model/WebhookEvent.java
 src/main/java/com/scrapebadger/client/model/WebhookListItem.java
 src/main/java/com/scrapebadger/client/model/WebhookListResponse.java
 src/main/java/com/scrapebadger/client/model/WebhookResponse.java
@@ -564,9 +578,13 @@ src/test/java/com/scrapebadger/client/api/YelpApiTest.java
 src/test/java/com/scrapebadger/client/api/YouTubeApiTest.java
 src/test/java/com/scrapebadger/client/api/ZillowApiTest.java
 src/test/java/com/scrapebadger/client/model/AccountInfoTest.java
+src/test/java/com/scrapebadger/client/model/AccountWebhookDeliveries403ResponseTest.java
 src/test/java/com/scrapebadger/client/model/AgeTest.java
 src/test/java/com/scrapebadger/client/model/AgentTrialInfoTest.java
 src/test/java/com/scrapebadger/client/model/ArticleTest.java
+src/test/java/com/scrapebadger/client/model/AsyncAcceptedNextActionTest.java
+src/test/java/com/scrapebadger/client/model/AsyncAcceptedTest.java
+src/test/java/com/scrapebadger/client/model/AsyncCallbackStatusTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24FiltersResponseTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24ListingDetailTest.java
 src/test/java/com/scrapebadger/client/model/AutoScout24ListingResponseTest.java
@@ -728,6 +746,9 @@ src/test/java/com/scrapebadger/client/model/VintedStatusTest.java
 src/test/java/com/scrapebadger/client/model/VintedUserProfileTest.java
 src/test/java/com/scrapebadger/client/model/VintedUserSummaryTest.java
 src/test/java/com/scrapebadger/client/model/WebhookCreateTest.java
+src/test/java/com/scrapebadger/client/model/WebhookDeliveriesTest.java
+src/test/java/com/scrapebadger/client/model/WebhookDeliveryTest.java
+src/test/java/com/scrapebadger/client/model/WebhookEventTest.java
 src/test/java/com/scrapebadger/client/model/WebhookListItemTest.java
 src/test/java/com/scrapebadger/client/model/WebhookListResponseTest.java
 src/test/java/com/scrapebadger/client/model/WebhookResponseTest.java

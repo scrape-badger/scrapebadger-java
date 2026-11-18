@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +43,14 @@ public class InstagramApiTest {
     @Test
     public void instagramAboutThisAccountTest() throws ApiException {
         String username = null;
-        Object response = api.instagramAboutThisAccount(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramAboutThisAccount(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -53,7 +62,14 @@ public class InstagramApiTest {
     @Test
     public void instagramBlendedTopSearchTest() throws ApiException {
         String query = null;
-        Object response = api.instagramBlendedTopSearch(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramBlendedTopSearch(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -67,7 +83,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetActiveStoriesTest() throws ApiException {
         String username = null;
-        Object response = api.instagramGetActiveStories(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetActiveStories(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -79,7 +102,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetAudioTrackTest() throws ApiException {
         String audioId = null;
-        Object response = api.instagramGetAudioTrack(audioId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetAudioTrack(audioId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -93,7 +123,14 @@ public class InstagramApiTest {
         String code = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramGetComments(code, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetComments(code, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -110,7 +147,14 @@ public class InstagramApiTest {
         Integer amount = null;
         String cursor = null;
         String order = null;
-        Object response = api.instagramGetFollowers(username, amount, cursor, order);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetFollowers(username, amount, cursor, order, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -124,7 +168,14 @@ public class InstagramApiTest {
         String username = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramGetFollowing(username, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetFollowing(username, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -136,7 +187,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetHashtagInfoTest() throws ApiException {
         String tag = null;
-        Object response = api.instagramGetHashtagInfo(tag);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetHashtagInfo(tag, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -148,7 +206,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetHighlightsTest() throws ApiException {
         String username = null;
-        Object response = api.instagramGetHighlights(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetHighlights(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -160,7 +225,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetLikersTest() throws ApiException {
         String code = null;
-        Object response = api.instagramGetLikers(code);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetLikers(code, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -172,7 +244,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetLocationTest() throws ApiException {
         Integer locationPk = null;
-        Object response = api.instagramGetLocation(locationPk);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetLocation(locationPk, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -186,7 +265,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetPostReelDetailTest() throws ApiException {
         String code = null;
-        Object response = api.instagramGetPostReelDetail(code);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetPostReelDetail(code, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -200,7 +286,14 @@ public class InstagramApiTest {
     @Test
     public void instagramGetProfileTest() throws ApiException {
         String username = null;
-        Object response = api.instagramGetProfile(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetProfile(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -214,7 +307,14 @@ public class InstagramApiTest {
         String username = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramGetTaggedPosts(username, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetTaggedPosts(username, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -230,7 +330,14 @@ public class InstagramApiTest {
         String username = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramGetUserPosts(username, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetUserPosts(username, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -244,7 +351,14 @@ public class InstagramApiTest {
         String username = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramGetUserReels(username, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramGetUserReels(username, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -280,7 +394,14 @@ public class InstagramApiTest {
         String tag = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramRecentHashtagPosts(tag, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramRecentHashtagPosts(tag, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -292,7 +413,14 @@ public class InstagramApiTest {
     @Test
     public void instagramRelatedProfilesTest() throws ApiException {
         String username = null;
-        Object response = api.instagramRelatedProfiles(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramRelatedProfiles(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -304,7 +432,14 @@ public class InstagramApiTest {
     @Test
     public void instagramSearchHashtagsTest() throws ApiException {
         String query = null;
-        Object response = api.instagramSearchHashtags(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramSearchHashtags(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -316,7 +451,14 @@ public class InstagramApiTest {
     @Test
     public void instagramSearchUsersTest() throws ApiException {
         String query = null;
-        Object response = api.instagramSearchUsers(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramSearchUsers(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -330,7 +472,14 @@ public class InstagramApiTest {
         String tag = null;
         Integer amount = null;
         String cursor = null;
-        Object response = api.instagramTopHashtagPosts(tag, amount, cursor);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.instagramTopHashtagPosts(tag, amount, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

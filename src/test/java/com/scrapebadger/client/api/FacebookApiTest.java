@@ -14,8 +14,10 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -48,7 +50,14 @@ public class FacebookApiTest {
         String sortBy = null;
         Integer radius = null;
         String after = null;
-        Object response = api.facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -62,7 +71,14 @@ public class FacebookApiTest {
     @Test
     public void facebookGetAMarketplaceItemTest() throws ApiException {
         String itemId = null;
-        Object response = api.facebookGetAMarketplaceItem(itemId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetAMarketplaceItem(itemId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -77,7 +93,14 @@ public class FacebookApiTest {
     public void facebookGetAdvertiserPageInfoTest() throws ApiException {
         String pageId = null;
         String country = null;
-        Object response = api.facebookGetAdvertiserPageInfo(pageId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetAdvertiserPageInfo(pageId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -92,7 +115,14 @@ public class FacebookApiTest {
     public void facebookGetAnAdTest() throws ApiException {
         String adArchiveId = null;
         String country = null;
-        Object response = api.facebookGetAnAd(adArchiveId, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetAnAd(adArchiveId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -106,7 +136,14 @@ public class FacebookApiTest {
     @Test
     public void facebookGetGroupDetailTest() throws ApiException {
         String groupId = null;
-        Object response = api.facebookGetGroupDetail(groupId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetGroupDetail(groupId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -122,7 +159,14 @@ public class FacebookApiTest {
         String groupId = null;
         String after = null;
         String sort = null;
-        Object response = api.facebookGetGroupPosts(groupId, after, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetGroupPosts(groupId, after, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -136,7 +180,14 @@ public class FacebookApiTest {
     @Test
     public void facebookGetPageDetailTest() throws ApiException {
         String identifier = null;
-        Object response = api.facebookGetPageDetail(identifier);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetPageDetail(identifier, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -151,7 +202,14 @@ public class FacebookApiTest {
     public void facebookGetPagePostsTest() throws ApiException {
         String identifier = null;
         String after = null;
-        Object response = api.facebookGetPagePosts(identifier, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetPagePosts(identifier, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -168,7 +226,14 @@ public class FacebookApiTest {
         String url = null;
         String after = null;
         String sort = null;
-        Object response = api.facebookGetPostComments(postId, url, after, sort);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetPostComments(postId, url, after, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -183,7 +248,14 @@ public class FacebookApiTest {
     public void facebookGetPostDetailTest() throws ApiException {
         String postId = null;
         String url = null;
-        Object response = api.facebookGetPostDetail(postId, url);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetPostDetail(postId, url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -197,7 +269,14 @@ public class FacebookApiTest {
     @Test
     public void facebookGetProfileDetailTest() throws ApiException {
         String identifier = null;
-        Object response = api.facebookGetProfileDetail(identifier);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetProfileDetail(identifier, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -212,7 +291,14 @@ public class FacebookApiTest {
     public void facebookGetProfilePostsTest() throws ApiException {
         String identifier = null;
         String after = null;
-        Object response = api.facebookGetProfilePosts(identifier, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookGetProfilePosts(identifier, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -225,7 +311,14 @@ public class FacebookApiTest {
      */
     @Test
     public void facebookListCategoriesTest() throws ApiException {
-        Object response = api.facebookListCategories();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookListCategories(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -238,7 +331,14 @@ public class FacebookApiTest {
      */
     @Test
     public void facebookListLocationsTest() throws ApiException {
-        Object response = api.facebookListLocations();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookListLocations(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -255,7 +355,14 @@ public class FacebookApiTest {
         BigDecimal latitude = null;
         BigDecimal longitude = null;
         String country = null;
-        Object response = api.facebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -270,7 +377,14 @@ public class FacebookApiTest {
     public void facebookSearchAdvertiserPagesTest() throws ApiException {
         String query = null;
         String country = null;
-        Object response = api.facebookSearchAdvertiserPages(query, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchAdvertiserPages(query, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -285,7 +399,14 @@ public class FacebookApiTest {
     public void facebookSearchEventsTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchEvents(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchEvents(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -300,7 +421,14 @@ public class FacebookApiTest {
     public void facebookSearchEverythingTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchEverything(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchEverything(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -315,7 +443,14 @@ public class FacebookApiTest {
     public void facebookSearchGroupsTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchGroups(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchGroups(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -340,7 +475,14 @@ public class FacebookApiTest {
         String after = null;
         Boolean strictFilters = null;
         Boolean includeDetails = null;
-        Object response = api.facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -355,7 +497,14 @@ public class FacebookApiTest {
     public void facebookSearchPagesTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchPages(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchPages(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -370,7 +519,14 @@ public class FacebookApiTest {
     public void facebookSearchPeopleTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchPeople(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchPeople(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -385,7 +541,14 @@ public class FacebookApiTest {
     public void facebookSearchPlacesTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchPlaces(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchPlaces(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -400,7 +563,14 @@ public class FacebookApiTest {
     public void facebookSearchPostsTest() throws ApiException {
         String q = null;
         String after = null;
-        Object response = api.facebookSearchPosts(q, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchPosts(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -418,7 +588,14 @@ public class FacebookApiTest {
         String adType = null;
         String activeStatus = null;
         String after = null;
-        Object response = api.facebookSearchTheAdLibrary(query, country, adType, activeStatus, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.facebookSearchTheAdLibrary(query, country, adType, activeStatus, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

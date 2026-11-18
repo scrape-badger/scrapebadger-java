@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +41,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeBatchVideoDetailTest() throws ApiException {
         Map<String, Object> requestBody = null;
-        Object response = api.youtubeBatchVideoDetail(requestBody);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeBatchVideoDetail(requestBody, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -51,7 +60,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeChannelAboutTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeChannelAbout(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeChannelAbout(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -63,7 +79,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeChannelPlaylistsTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeChannelPlaylists(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeChannelPlaylists(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -75,7 +98,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeChannelShortsTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeChannelShorts(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeChannelShorts(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -87,7 +117,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeChannelStreamsTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeChannelStreams(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeChannelStreams(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -99,7 +136,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeChannelVideosTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeChannelVideos(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeChannelVideos(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -113,7 +157,14 @@ public class YouTubeApiTest {
         String videoId = null;
         String commentId = null;
         String continuation = null;
-        Object response = api.youtubeCommentReplies(videoId, commentId, continuation);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeCommentReplies(videoId, commentId, continuation, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -125,7 +176,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeCommunityPostCommentsTest() throws ApiException {
         String postId = null;
-        Object response = api.youtubeCommunityPostComments(postId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeCommunityPostComments(postId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -137,7 +195,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeCommunityPostsTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeCommunityPosts(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeCommunityPosts(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -148,7 +213,14 @@ public class YouTubeApiTest {
      */
     @Test
     public void youtubeContentRegionsTest() throws ApiException {
-        Object response = api.youtubeContentRegions();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeContentRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -160,7 +232,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeGetACommunityPostTest() throws ApiException {
         String postId = null;
-        Object response = api.youtubeGetACommunityPost(postId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGetACommunityPost(postId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -172,7 +251,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeGetAMixRadioQueueTest() throws ApiException {
         String playlistId = null;
-        Object response = api.youtubeGetAMixRadioQueue(playlistId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGetAMixRadioQueue(playlistId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -184,7 +270,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeGetAShortTest() throws ApiException {
         String videoId = null;
-        Object response = api.youtubeGetAShort(videoId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGetAShort(videoId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -200,7 +293,14 @@ public class YouTubeApiTest {
         String channelId = null;
         String gl = null;
         String hl = null;
-        Object response = api.youtubeGetChannelDetail(channelId, gl, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGetChannelDetail(channelId, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -212,7 +312,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeGetPlaylistDetailTest() throws ApiException {
         String playlistId = null;
-        Object response = api.youtubeGetPlaylistDetail(playlistId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGetPlaylistDetail(playlistId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -228,7 +335,14 @@ public class YouTubeApiTest {
         String videoId = null;
         String gl = null;
         String hl = null;
-        Object response = api.youtubeGetVideoDetail(videoId, gl, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGetVideoDetail(videoId, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -239,7 +353,14 @@ public class YouTubeApiTest {
      */
     @Test
     public void youtubeGuestHomeFeedTest() throws ApiException {
-        Object response = api.youtubeGuestHomeFeed();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeGuestHomeFeed(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -255,7 +376,14 @@ public class YouTubeApiTest {
         String query = null;
         String gl = null;
         String hl = null;
-        Object response = api.youtubeKeywordSuggestions(query, gl, hl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeKeywordSuggestions(query, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -267,7 +395,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeListCaptionTracksTest() throws ApiException {
         String videoId = null;
-        Object response = api.youtubeListCaptionTracks(videoId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeListCaptionTracks(videoId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -281,7 +416,14 @@ public class YouTubeApiTest {
         String videoId = null;
         String continuation = null;
         Boolean replay = null;
-        Object response = api.youtubeLiveChatMessages(videoId, continuation, replay);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeLiveChatMessages(videoId, continuation, replay, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -293,7 +435,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeOembedMetadataTest() throws ApiException {
         String url = null;
-        Object response = api.youtubeOembedMetadata(url);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeOembedMetadata(url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -305,7 +454,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubePlaylistItemsPageTest() throws ApiException {
         String playlistId = null;
-        Object response = api.youtubePlaylistItemsPage(playlistId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubePlaylistItemsPage(playlistId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -317,7 +473,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeRelatedVideosTest() throws ApiException {
         String videoId = null;
-        Object response = api.youtubeRelatedVideos(videoId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeRelatedVideos(videoId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -330,7 +493,14 @@ public class YouTubeApiTest {
     public void youtubeResolveHandleUrlToIdTest() throws ApiException {
         String handle = null;
         String url = null;
-        Object response = api.youtubeResolveHandleUrlToId(handle, url);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeResolveHandleUrlToId(handle, url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -343,7 +513,14 @@ public class YouTubeApiTest {
     public void youtubeSearchWithinAChannelTest() throws ApiException {
         String channelId = null;
         String query = null;
-        Object response = api.youtubeSearchWithinAChannel(channelId, query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeSearchWithinAChannel(channelId, query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -365,7 +542,14 @@ public class YouTubeApiTest {
         String gl = null;
         String hl = null;
         String continuation = null;
-        Object response = api.youtubeSearchYoutube(query, type, sortBy, uploadDate, duration, features, gl, hl, continuation);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeSearchYoutube(query, type, sortBy, uploadDate, duration, features, gl, hl, continuation, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -377,7 +561,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeSearchYoutubeMusicTest() throws ApiException {
         String query = null;
-        Object response = api.youtubeSearchYoutubeMusic(query);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeSearchYoutubeMusic(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -389,7 +580,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeShortsBySoundTest() throws ApiException {
         String soundId = null;
-        Object response = api.youtubeShortsBySound(soundId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeShortsBySound(soundId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -404,7 +602,14 @@ public class YouTubeApiTest {
     public void youtubeStreamFormatsTest() throws ApiException {
         String videoId = null;
         String client = null;
-        Object response = api.youtubeStreamFormats(videoId, client);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeStreamFormats(videoId, client, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -416,7 +621,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeSubscriberCountFastTest() throws ApiException {
         String channelId = null;
-        Object response = api.youtubeSubscriberCountFast(channelId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeSubscriberCountFast(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -427,7 +639,14 @@ public class YouTubeApiTest {
      */
     @Test
     public void youtubeSupportedMarketsTest() throws ApiException {
-        Object response = api.youtubeSupportedMarkets();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -438,7 +657,14 @@ public class YouTubeApiTest {
      */
     @Test
     public void youtubeTrendingShortsTest() throws ApiException {
-        Object response = api.youtubeTrendingShorts();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeTrendingShorts(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -451,7 +677,14 @@ public class YouTubeApiTest {
     public void youtubeTrendingVideosTest() throws ApiException {
         String gl = null;
         String type = null;
-        Object response = api.youtubeTrendingVideos(gl, type);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeTrendingVideos(gl, type, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -462,7 +695,14 @@ public class YouTubeApiTest {
      */
     @Test
     public void youtubeUiLanguagesTest() throws ApiException {
-        Object response = api.youtubeUiLanguages();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeUiLanguages(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -474,7 +714,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeVideoCategoriesTest() throws ApiException {
         String gl = null;
-        Object response = api.youtubeVideoCategories(gl);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeVideoCategories(gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -488,7 +735,14 @@ public class YouTubeApiTest {
         String videoId = null;
         String sortBy = null;
         String continuation = null;
-        Object response = api.youtubeVideoComments(videoId, sortBy, continuation);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeVideoComments(videoId, sortBy, continuation, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -501,7 +755,14 @@ public class YouTubeApiTest {
     public void youtubeVideoTranscriptTest() throws ApiException {
         String videoId = null;
         String language = null;
-        Object response = api.youtubeVideoTranscript(videoId, language);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeVideoTranscript(videoId, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -513,7 +774,14 @@ public class YouTubeApiTest {
     @Test
     public void youtubeVideosUnderAHashtagTest() throws ApiException {
         String tag = null;
-        Object response = api.youtubeVideosUnderAHashtag(tag);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.youtubeVideosUnderAHashtag(tag, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

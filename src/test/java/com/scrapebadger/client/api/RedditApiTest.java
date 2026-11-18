@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,14 @@ public class RedditApiTest {
         String postId = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditGetCrossPosts(postId, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetCrossPosts(postId, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -60,7 +69,14 @@ public class RedditApiTest {
         String sort = null;
         Integer limit = null;
         Integer depth = null;
-        Object response = api.redditGetPostComments(postId, sort, limit, depth);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetPostComments(postId, sort, limit, depth, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -74,7 +90,14 @@ public class RedditApiTest {
     @Test
     public void redditGetPostDetailTest() throws ApiException {
         String postId = null;
-        Object response = api.redditGetPostDetail(postId);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetPostDetail(postId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -92,7 +115,14 @@ public class RedditApiTest {
         String t = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditGetPostsByDomain(domain, sort, t, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetPostsByDomain(domain, sort, t, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -106,7 +136,14 @@ public class RedditApiTest {
     @Test
     public void redditGetSubredditInfoTest() throws ApiException {
         String subreddit = null;
-        Object response = api.redditGetSubredditInfo(subreddit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetSubredditInfo(subreddit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -124,7 +161,14 @@ public class RedditApiTest {
         String t = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditGetSubredditPosts(subreddit, sort, t, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetSubredditPosts(subreddit, sort, t, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -138,7 +182,14 @@ public class RedditApiTest {
     @Test
     public void redditGetSubredditRulesTest() throws ApiException {
         String subreddit = null;
-        Object response = api.redditGetSubredditRules(subreddit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetSubredditRules(subreddit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -155,7 +206,14 @@ public class RedditApiTest {
         String t = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditGetTrendingPosts(sort, t, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetTrendingPosts(sort, t, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -169,7 +227,14 @@ public class RedditApiTest {
     @Test
     public void redditGetUserProfileTest() throws ApiException {
         String username = null;
-        Object response = api.redditGetUserProfile(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetUserProfile(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -187,7 +252,14 @@ public class RedditApiTest {
         String t = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditGetUserSComments(username, sort, t, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetUserSComments(username, sort, t, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -201,7 +273,14 @@ public class RedditApiTest {
     @Test
     public void redditGetUserSModeratedSubredditsTest() throws ApiException {
         String username = null;
-        Object response = api.redditGetUserSModeratedSubreddits(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetUserSModeratedSubreddits(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -219,7 +298,14 @@ public class RedditApiTest {
         String t = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditGetUserSPosts(username, sort, t, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetUserSPosts(username, sort, t, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -233,7 +319,14 @@ public class RedditApiTest {
     @Test
     public void redditGetUserSTrophiesTest() throws ApiException {
         String username = null;
-        Object response = api.redditGetUserSTrophies(username);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetUserSTrophies(username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -248,7 +341,14 @@ public class RedditApiTest {
     public void redditGetWikiPageContentTest() throws ApiException {
         String subreddit = null;
         String page = null;
-        Object response = api.redditGetWikiPageContent(subreddit, page);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditGetWikiPageContent(subreddit, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -262,7 +362,14 @@ public class RedditApiTest {
     @Test
     public void redditListWikiPagesTest() throws ApiException {
         String subreddit = null;
-        Object response = api.redditListWikiPages(subreddit);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditListWikiPages(subreddit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -277,7 +384,14 @@ public class RedditApiTest {
     public void redditNewSubredditsTest() throws ApiException {
         Integer limit = null;
         String after = null;
-        Object response = api.redditNewSubreddits(limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditNewSubreddits(limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -292,7 +406,14 @@ public class RedditApiTest {
     public void redditPopularSubredditsTest() throws ApiException {
         Integer limit = null;
         String after = null;
-        Object response = api.redditPopularSubreddits(limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditPopularSubreddits(limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -333,7 +454,14 @@ public class RedditApiTest {
         String t = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditSearchRedditPosts(q, subreddit, sort, t, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditSearchRedditPosts(q, subreddit, sort, t, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -349,7 +477,14 @@ public class RedditApiTest {
         String q = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditSearchSubreddits(q, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditSearchSubreddits(q, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -365,7 +500,14 @@ public class RedditApiTest {
         String q = null;
         Integer limit = null;
         String after = null;
-        Object response = api.redditSearchUsers(q, limit, after);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.redditSearchUsers(q, limit, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 

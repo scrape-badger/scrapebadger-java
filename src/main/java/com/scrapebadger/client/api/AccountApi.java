@@ -28,6 +28,8 @@ import java.io.IOException;
 
 
 import com.scrapebadger.client.model.AccountInfo;
+import com.scrapebadger.client.model.AccountWebhookDeliveries403Response;
+import com.scrapebadger.client.model.WebhookDeliveries;
 import com.scrapebadger.client.model.WebhookSecret;
 
 import java.lang.reflect.Type;
@@ -421,6 +423,135 @@ public class AccountApi {
 
         okhttp3.Call localVarCall = accountRotateTheWebhookSigningSecretValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<WebhookSecret>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for accountWebhookDeliveries
+     * @param limit How many deliveries to return (1-200). (optional, default to 50)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> &#x60;trial_not_allowed&#x60; or &#x60;full_access_required&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountWebhookDeliveriesCall(Integer limit, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/account/webhook-deliveries";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call accountWebhookDeliveriesValidateBeforeCall(Integer limit, final ApiCallback _callback) throws ApiException {
+        return accountWebhookDeliveriesCall(limit, _callback);
+
+    }
+
+    /**
+     * Webhook deliveries
+     * This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+     * @param limit How many deliveries to return (1-200). (optional, default to 50)
+     * @return WebhookDeliveries
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> &#x60;trial_not_allowed&#x60; or &#x60;full_access_required&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public WebhookDeliveries accountWebhookDeliveries(Integer limit) throws ApiException {
+        ApiResponse<WebhookDeliveries> localVarResp = accountWebhookDeliveriesWithHttpInfo(limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Webhook deliveries
+     * This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+     * @param limit How many deliveries to return (1-200). (optional, default to 50)
+     * @return ApiResponse&lt;WebhookDeliveries&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> &#x60;trial_not_allowed&#x60; or &#x60;full_access_required&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WebhookDeliveries> accountWebhookDeliveriesWithHttpInfo(Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = accountWebhookDeliveriesValidateBeforeCall(limit, null);
+        Type localVarReturnType = new TypeToken<WebhookDeliveries>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Webhook deliveries (asynchronously)
+     * This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+     * @param limit How many deliveries to return (1-200). (optional, default to 50)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> &#x60;trial_not_allowed&#x60; or &#x60;full_access_required&#x60;. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountWebhookDeliveriesAsync(Integer limit, final ApiCallback<WebhookDeliveries> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = accountWebhookDeliveriesValidateBeforeCall(limit, _callback);
+        Type localVarReturnType = new TypeToken<WebhookDeliveries>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

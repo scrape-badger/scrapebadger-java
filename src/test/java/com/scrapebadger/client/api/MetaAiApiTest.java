@@ -14,7 +14,9 @@
 package com.scrapebadger.client.api;
 
 import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.model.AsyncAccepted;
 import com.scrapebadger.client.model.HTTPValidationError;
+import java.net.URI;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +44,14 @@ public class MetaAiApiTest {
     public void metaAiAskMetaAiAQuestionTest() throws ApiException {
         String prompt = null;
         String country = null;
-        Object response = api.metaAiAskMetaAiAQuestion(prompt, country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.metaAiAskMetaAiAQuestion(prompt, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -55,7 +64,14 @@ public class MetaAiApiTest {
      */
     @Test
     public void metaAiAskMetaAiAQuestionPostTest() throws ApiException {
-        Object response = api.metaAiAskMetaAiAQuestionPost();
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.metaAiAskMetaAiAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -69,7 +85,14 @@ public class MetaAiApiTest {
     @Test
     public void metaAiListMetaAiAssistantModesTest() throws ApiException {
         String country = null;
-        Object response = api.metaAiListMetaAiAssistantModes(country);
+        String prefer = null;
+        URI xCallbackURL = null;
+        String idempotencyKey = null;
+        Boolean async = null;
+        Integer asyncWait = null;
+        URI callbackUrl = null;
+        String idempotencyKey2 = null;
+        Object response = api.metaAiListMetaAiAssistantModes(country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
