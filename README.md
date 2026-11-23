@@ -391,6 +391,7 @@ Class | Method | HTTP request | Description
 *GoogleApi* | [**googleNewsByTopic**](docs/GoogleApi.md#googleNewsByTopic) | **GET** /v1/google/news/topics | News by topic
 *GoogleApi* | [**googlePatentDetails**](docs/GoogleApi.md#googlePatentDetails) | **GET** /v1/google/patents/detail | Patent details
 *GoogleApi* | [**googleRelatedTopicsQueries**](docs/GoogleApi.md#googleRelatedTopicsQueries) | **GET** /v1/google/trends/related | Related topics &amp; queries
+*GoogleApi* | [**googleResolve**](docs/GoogleApi.md#googleResolve) | **POST** /v1/google/resolve | Resolve
 *GoogleApi* | [**googleSearchGoogleImages**](docs/GoogleApi.md#googleSearchGoogleImages) | **GET** /v1/google/images/search | Search Google Images
 *GoogleApi* | [**googleSearchGoogleJobs**](docs/GoogleApi.md#googleSearchGoogleJobs) | **GET** /v1/google/jobs/search | Search Google Jobs
 *GoogleApi* | [**googleSearchGoogleMapsPlaces**](docs/GoogleApi.md#googleSearchGoogleMapsPlaces) | **GET** /v1/google/maps/search | Search Google Maps places
@@ -886,6 +887,10 @@ Class | Method | HTTP request | Description
  - [GitHubSocialAccount](docs/GitHubSocialAccount.md)
  - [GitHubStatus](docs/GitHubStatus.md)
  - [GitHubTextLink](docs/GitHubTextLink.md)
+ - [GoogleResolveItem](docs/GoogleResolveItem.md)
+ - [GoogleResolveRequest](docs/GoogleResolveRequest.md)
+ - [GoogleResolveResponse](docs/GoogleResolveResponse.md)
+ - [GoogleResolveRow](docs/GoogleResolveRow.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [Imageurl](docs/Imageurl.md)
  - [IsLive](docs/IsLive.md)

@@ -184,6 +184,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GitHubSocialAccount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GitHubStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GitHubTextLink.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GoogleResolveItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GoogleResolveRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GoogleResolveResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.GoogleResolveRow.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.HTTPValidationError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.Imageurl.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.scrapebadger.client.model.IsLive.CustomTypeAdapterFactory());

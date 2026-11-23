@@ -123,6 +123,10 @@ docs/GitHubStatus.md
 docs/GitHubTextLink.md
 docs/GoogleApi.md
 docs/GooglePlayApi.md
+docs/GoogleResolveItem.md
+docs/GoogleResolveRequest.md
+docs/GoogleResolveResponse.md
+docs/GoogleResolveRow.md
 docs/GrokApi.md
 docs/GumtreeApi.md
 docs/HTTPValidationError.md
@@ -424,6 +428,10 @@ src/main/java/com/scrapebadger/client/model/GitHubRepositoryResponse.java
 src/main/java/com/scrapebadger/client/model/GitHubSocialAccount.java
 src/main/java/com/scrapebadger/client/model/GitHubStatus.java
 src/main/java/com/scrapebadger/client/model/GitHubTextLink.java
+src/main/java/com/scrapebadger/client/model/GoogleResolveItem.java
+src/main/java/com/scrapebadger/client/model/GoogleResolveRequest.java
+src/main/java/com/scrapebadger/client/model/GoogleResolveResponse.java
+src/main/java/com/scrapebadger/client/model/GoogleResolveRow.java
 src/main/java/com/scrapebadger/client/model/HTTPValidationError.java
 src/main/java/com/scrapebadger/client/model/Imageurl.java
 src/main/java/com/scrapebadger/client/model/IsLive.java
@@ -668,6 +676,10 @@ src/test/java/com/scrapebadger/client/model/GitHubRepositoryTest.java
 src/test/java/com/scrapebadger/client/model/GitHubSocialAccountTest.java
 src/test/java/com/scrapebadger/client/model/GitHubStatusTest.java
 src/test/java/com/scrapebadger/client/model/GitHubTextLinkTest.java
+src/test/java/com/scrapebadger/client/model/GoogleResolveItemTest.java
+src/test/java/com/scrapebadger/client/model/GoogleResolveRequestTest.java
+src/test/java/com/scrapebadger/client/model/GoogleResolveResponseTest.java
+src/test/java/com/scrapebadger/client/model/GoogleResolveRowTest.java
 src/test/java/com/scrapebadger/client/model/HTTPValidationErrorTest.java
 src/test/java/com/scrapebadger/client/model/ImageurlTest.java
 src/test/java/com/scrapebadger/client/model/IsLiveTest.java

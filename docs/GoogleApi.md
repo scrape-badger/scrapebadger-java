@@ -31,6 +31,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**googleNewsByTopic**](GoogleApi.md#googleNewsByTopic) | **GET** /v1/google/news/topics | News by topic |
 | [**googlePatentDetails**](GoogleApi.md#googlePatentDetails) | **GET** /v1/google/patents/detail | Patent details |
 | [**googleRelatedTopicsQueries**](GoogleApi.md#googleRelatedTopicsQueries) | **GET** /v1/google/trends/related | Related topics &amp; queries |
+| [**googleResolve**](GoogleApi.md#googleResolve) | **POST** /v1/google/resolve | Resolve |
 | [**googleSearchGoogleImages**](GoogleApi.md#googleSearchGoogleImages) | **GET** /v1/google/images/search | Search Google Images |
 | [**googleSearchGoogleJobs**](GoogleApi.md#googleSearchGoogleJobs) | **GET** /v1/google/jobs/search | Search Google Jobs |
 | [**googleSearchGoogleMapsPlaces**](GoogleApi.md#googleSearchGoogleMapsPlaces) | **GET** /v1/google/maps/search | Search Google Maps places |
@@ -2646,6 +2647,77 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 | **202** | Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. |  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  |
+
+<a id="googleResolve"></a>
+# **googleResolve**
+> GoogleResolveResponse googleResolve(googleResolveRequest)
+
+Resolve
+
+Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+
+### Example
+```java
+// Import classes:
+import com.scrapebadger.client.ApiClient;
+import com.scrapebadger.client.ApiException;
+import com.scrapebadger.client.Configuration;
+import com.scrapebadger.client.auth.*;
+import com.scrapebadger.client.models.*;
+import com.scrapebadger.client.api.GoogleApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://scrapebadger.com");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    GoogleApi apiInstance = new GoogleApi(defaultClient);
+    GoogleResolveRequest googleResolveRequest = new GoogleResolveRequest(); // GoogleResolveRequest | 
+    try {
+      GoogleResolveResponse result = apiInstance.googleResolve(googleResolveRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GoogleApi#googleResolve");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **googleResolveRequest** | [**GoogleResolveRequest**](GoogleResolveRequest.md)|  | |
+
+### Return type
+
+[**GoogleResolveResponse**](GoogleResolveResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **503** | Link resolution is temporarily unavailable. Retry after the number of seconds in the &#x60;Retry-After&#x60; header. |  -  |
+| **422** | Validation Error |  -  |
 
 <a id="googleSearchGoogleImages"></a>
 # **googleSearchGoogleImages**

@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.scrapebadger.client.model.AsyncAccepted;
 import java.math.BigDecimal;
+import com.scrapebadger.client.model.GoogleResolveRequest;
+import com.scrapebadger.client.model.GoogleResolveResponse;
 import com.scrapebadger.client.model.HTTPValidationError;
 import java.net.URI;
 
@@ -6725,6 +6727,141 @@ public class GoogleApi {
 
         okhttp3.Call localVarCall = googleRelatedTopicsQueriesValidateBeforeCall(q, geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for googleResolve
+     * @param googleResolveRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Link resolution is temporarily unavailable. Retry after the number of seconds in the &#x60;Retry-After&#x60; header. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call googleResolveCall(GoogleResolveRequest googleResolveRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = googleResolveRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/google/resolve";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call googleResolveValidateBeforeCall(GoogleResolveRequest googleResolveRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'googleResolveRequest' is set
+        if (googleResolveRequest == null) {
+            throw new ApiException("Missing the required parameter 'googleResolveRequest' when calling googleResolve(Async)");
+        }
+
+        return googleResolveCall(googleResolveRequest, _callback);
+
+    }
+
+    /**
+     * Resolve
+     * Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+     * @param googleResolveRequest  (required)
+     * @return GoogleResolveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Link resolution is temporarily unavailable. Retry after the number of seconds in the &#x60;Retry-After&#x60; header. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GoogleResolveResponse googleResolve(GoogleResolveRequest googleResolveRequest) throws ApiException {
+        ApiResponse<GoogleResolveResponse> localVarResp = googleResolveWithHttpInfo(googleResolveRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Resolve
+     * Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+     * @param googleResolveRequest  (required)
+     * @return ApiResponse&lt;GoogleResolveResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Link resolution is temporarily unavailable. Retry after the number of seconds in the &#x60;Retry-After&#x60; header. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GoogleResolveResponse> googleResolveWithHttpInfo(GoogleResolveRequest googleResolveRequest) throws ApiException {
+        okhttp3.Call localVarCall = googleResolveValidateBeforeCall(googleResolveRequest, null);
+        Type localVarReturnType = new TypeToken<GoogleResolveResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Resolve (asynchronously)
+     * Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+     * @param googleResolveRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Link resolution is temporarily unavailable. Retry after the number of seconds in the &#x60;Retry-After&#x60; header. </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Validation Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call googleResolveAsync(GoogleResolveRequest googleResolveRequest, final ApiCallback<GoogleResolveResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = googleResolveValidateBeforeCall(googleResolveRequest, _callback);
+        Type localVarReturnType = new TypeToken<GoogleResolveResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
