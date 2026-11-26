@@ -463,7 +463,7 @@ public class Example {
 
 List categories
 
-The full category tree; ids are usable as the search category_id.
+The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
 
 ### Example
 ```java
@@ -544,7 +544,7 @@ public class Example {
 
 <a id="wallapopListFilterOptions"></a>
 # **wallapopListFilterOptions**
-> Object wallapopListFilterOptions(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
+> Object wallapopListFilterOptions(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
 
 List filter options
 
@@ -574,6 +574,7 @@ public class Example {
     WallapopApi apiInstance = new WallapopApi(defaultClient);
     String filterId = "filterId_example"; // String | 
     Integer categoryId = 56; // Integer | Category to scope options to
+    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids to scope options to
     String query = "query_example"; // String | Search text to scope options to
     String market = "es"; // String | Market: es (Spain), it (Italy), pt (Portugal)
     String prefer = "respond-async, wait=25"; // String | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait.
@@ -584,7 +585,7 @@ public class Example {
     URI callbackUrl = new URI(); // URI | Query form of `X-Callback-URL` (URL-encode it). Implies async; on its own the answer is an immediate `202` (wait 0). Not sent to the scraper.
     String idempotencyKey2 = "idempotencyKey_example"; // String | Query form of `Idempotency-Key`. Not sent to the scraper.
     try {
-      Object result = apiInstance.wallapopListFilterOptions(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+      Object result = apiInstance.wallapopListFilterOptions(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WallapopApi#wallapopListFilterOptions");
@@ -603,6 +604,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **filterId** | **String**|  | |
 | **categoryId** | **Integer**| Category to scope options to | [optional] |
+| **subcategoryIds** | **String**| Comma-separated subcategory ids to scope options to | [optional] |
 | **query** | **String**| Search text to scope options to | [optional] |
 | **market** | **String**| Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to es] |
 | **prefer** | **String**| &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional] |
@@ -717,7 +719,7 @@ public class Example {
 
 <a id="wallapopListSearchFilters"></a>
 # **wallapopListSearchFilters**
-> Object wallapopListSearchFilters(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
+> Object wallapopListSearchFilters(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
 
 List search filters
 
@@ -746,6 +748,7 @@ public class Example {
 
     WallapopApi apiInstance = new WallapopApi(defaultClient);
     Integer categoryId = 56; // Integer | Category the filters apply to
+    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids the filters apply to
     String query = "query_example"; // String | Search text the filters apply to
     String market = "es"; // String | Market: es (Spain), it (Italy), pt (Portugal)
     String prefer = "respond-async, wait=25"; // String | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait.
@@ -756,7 +759,7 @@ public class Example {
     URI callbackUrl = new URI(); // URI | Query form of `X-Callback-URL` (URL-encode it). Implies async; on its own the answer is an immediate `202` (wait 0). Not sent to the scraper.
     String idempotencyKey2 = "idempotencyKey_example"; // String | Query form of `Idempotency-Key`. Not sent to the scraper.
     try {
-      Object result = apiInstance.wallapopListSearchFilters(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+      Object result = apiInstance.wallapopListSearchFilters(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WallapopApi#wallapopListSearchFilters");
@@ -774,6 +777,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **categoryId** | **Integer**| Category the filters apply to | [optional] |
+| **subcategoryIds** | **String**| Comma-separated subcategory ids the filters apply to | [optional] |
 | **query** | **String**| Search text the filters apply to | [optional] |
 | **market** | **String**| Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to es] |
 | **prefer** | **String**| &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional] |
@@ -806,11 +810,11 @@ public class Example {
 
 <a id="wallapopSearchListings"></a>
 # **wallapopSearchListings**
-> Object wallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
+> Object wallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
 
 Search listings
 
-Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
 
 ### Example
 ```java
@@ -840,6 +844,7 @@ public class Example {
     BigDecimal longitude = new BigDecimal(78); // BigDecimal | Search centre longitude
     Integer distanceKm = 56; // Integer | Search radius
     Integer categoryId = 56; // Integer | Category id from /categories
+    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310
     BigDecimal minPrice = new BigDecimal(78); // BigDecimal | Minimum price (EUR)
     BigDecimal maxPrice = new BigDecimal(78); // BigDecimal | Maximum price (EUR)
     String condition = "condition_example"; // String | Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all
@@ -867,7 +872,7 @@ public class Example {
     URI callbackUrl = new URI(); // URI | Query form of `X-Callback-URL` (URL-encode it). Implies async; on its own the answer is an immediate `202` (wait 0). Not sent to the scraper.
     String idempotencyKey2 = "idempotencyKey_example"; // String | Query form of `Idempotency-Key`. Not sent to the scraper.
     try {
-      Object result = apiInstance.wallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+      Object result = apiInstance.wallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WallapopApi#wallapopSearchListings");
@@ -890,6 +895,7 @@ public class Example {
 | **longitude** | **BigDecimal**| Search centre longitude | [optional] |
 | **distanceKm** | **Integer**| Search radius | [optional] |
 | **categoryId** | **Integer**| Category id from /categories | [optional] |
+| **subcategoryIds** | **String**| Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 | [optional] |
 | **minPrice** | **BigDecimal**| Minimum price (EUR) | [optional] |
 | **maxPrice** | **BigDecimal**| Maximum price (EUR) | [optional] |
 | **condition** | **String**| Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all | [optional] |

@@ -1213,7 +1213,7 @@ public class WallapopApi {
 
     /**
      * List categories
-     * The full category tree; ids are usable as the search category_id.
+     * The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
      * @param xCallbackURL An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)
@@ -1240,7 +1240,7 @@ public class WallapopApi {
 
     /**
      * List categories
-     * The full category tree; ids are usable as the search category_id.
+     * The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
      * @param xCallbackURL An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)
@@ -1268,7 +1268,7 @@ public class WallapopApi {
 
     /**
      * List categories (asynchronously)
-     * The full category tree; ids are usable as the search category_id.
+     * The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
      * @param xCallbackURL An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)
@@ -1300,6 +1300,7 @@ public class WallapopApi {
      * Build call for wallapopListFilterOptions
      * @param filterId  (required)
      * @param categoryId Category to scope options to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids to scope options to (optional)
      * @param query Search text to scope options to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1321,7 +1322,7 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call wallapopListFilterOptionsCall(String filterId, Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call wallapopListFilterOptionsCall(String filterId, Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1349,6 +1350,10 @@ public class WallapopApi {
 
         if (categoryId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("category_id", categoryId));
+        }
+
+        if (subcategoryIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subcategory_ids", subcategoryIds));
         }
 
         if (query != null) {
@@ -1410,13 +1415,13 @@ public class WallapopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call wallapopListFilterOptionsValidateBeforeCall(String filterId, Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call wallapopListFilterOptionsValidateBeforeCall(String filterId, Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'filterId' is set
         if (filterId == null) {
             throw new ApiException("Missing the required parameter 'filterId' when calling wallapopListFilterOptions(Async)");
         }
 
-        return wallapopListFilterOptionsCall(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        return wallapopListFilterOptionsCall(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
 
     }
 
@@ -1425,6 +1430,7 @@ public class WallapopApi {
      * Long option lists (e.g. brand, model) for filters flagged options_endpoint.
      * @param filterId  (required)
      * @param categoryId Category to scope options to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids to scope options to (optional)
      * @param query Search text to scope options to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1445,8 +1451,8 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public Object wallapopListFilterOptions(String filterId, Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        ApiResponse<Object> localVarResp = wallapopListFilterOptionsWithHttpInfo(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    public Object wallapopListFilterOptions(String filterId, Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        ApiResponse<Object> localVarResp = wallapopListFilterOptionsWithHttpInfo(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         return localVarResp.getData();
     }
 
@@ -1455,6 +1461,7 @@ public class WallapopApi {
      * Long option lists (e.g. brand, model) for filters flagged options_endpoint.
      * @param filterId  (required)
      * @param categoryId Category to scope options to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids to scope options to (optional)
      * @param query Search text to scope options to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1475,8 +1482,8 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Object> wallapopListFilterOptionsWithHttpInfo(String filterId, Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        okhttp3.Call localVarCall = wallapopListFilterOptionsValidateBeforeCall(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
+    public ApiResponse<Object> wallapopListFilterOptionsWithHttpInfo(String filterId, Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        okhttp3.Call localVarCall = wallapopListFilterOptionsValidateBeforeCall(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1486,6 +1493,7 @@ public class WallapopApi {
      * Long option lists (e.g. brand, model) for filters flagged options_endpoint.
      * @param filterId  (required)
      * @param categoryId Category to scope options to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids to scope options to (optional)
      * @param query Search text to scope options to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1507,9 +1515,9 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call wallapopListFilterOptionsAsync(String filterId, Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call wallapopListFilterOptionsAsync(String filterId, Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = wallapopListFilterOptionsValidateBeforeCall(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        okhttp3.Call localVarCall = wallapopListFilterOptionsValidateBeforeCall(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1697,6 +1705,7 @@ public class WallapopApi {
     /**
      * Build call for wallapopListSearchFilters
      * @param categoryId Category the filters apply to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids the filters apply to (optional)
      * @param query Search text the filters apply to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1718,7 +1727,7 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call wallapopListSearchFiltersCall(Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call wallapopListSearchFiltersCall(Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1745,6 +1754,10 @@ public class WallapopApi {
 
         if (categoryId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("category_id", categoryId));
+        }
+
+        if (subcategoryIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subcategory_ids", subcategoryIds));
         }
 
         if (query != null) {
@@ -1806,8 +1819,8 @@ public class WallapopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call wallapopListSearchFiltersValidateBeforeCall(Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
-        return wallapopListSearchFiltersCall(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+    private okhttp3.Call wallapopListSearchFiltersValidateBeforeCall(Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+        return wallapopListSearchFiltersCall(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
 
     }
 
@@ -1815,6 +1828,7 @@ public class WallapopApi {
      * List search filters
      * The filters Wallapop offers for a category or query, with option ids.
      * @param categoryId Category the filters apply to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids the filters apply to (optional)
      * @param query Search text the filters apply to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1835,8 +1849,8 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public Object wallapopListSearchFilters(Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        ApiResponse<Object> localVarResp = wallapopListSearchFiltersWithHttpInfo(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    public Object wallapopListSearchFilters(Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        ApiResponse<Object> localVarResp = wallapopListSearchFiltersWithHttpInfo(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         return localVarResp.getData();
     }
 
@@ -1844,6 +1858,7 @@ public class WallapopApi {
      * List search filters
      * The filters Wallapop offers for a category or query, with option ids.
      * @param categoryId Category the filters apply to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids the filters apply to (optional)
      * @param query Search text the filters apply to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1864,8 +1879,8 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Object> wallapopListSearchFiltersWithHttpInfo(Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        okhttp3.Call localVarCall = wallapopListSearchFiltersValidateBeforeCall(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
+    public ApiResponse<Object> wallapopListSearchFiltersWithHttpInfo(Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        okhttp3.Call localVarCall = wallapopListSearchFiltersValidateBeforeCall(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1874,6 +1889,7 @@ public class WallapopApi {
      * List search filters (asynchronously)
      * The filters Wallapop offers for a category or query, with option ids.
      * @param categoryId Category the filters apply to (optional)
+     * @param subcategoryIds Comma-separated subcategory ids the filters apply to (optional)
      * @param query Search text the filters apply to (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param prefer &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)
@@ -1895,9 +1911,9 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call wallapopListSearchFiltersAsync(Integer categoryId, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call wallapopListSearchFiltersAsync(Integer categoryId, String subcategoryIds, String query, String market, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = wallapopListSearchFiltersValidateBeforeCall(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        okhttp3.Call localVarCall = wallapopListSearchFiltersValidateBeforeCall(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1910,6 +1926,7 @@ public class WallapopApi {
      * @param longitude Search centre longitude (optional)
      * @param distanceKm Search radius (optional)
      * @param categoryId Category id from /categories (optional)
+     * @param subcategoryIds Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)
      * @param minPrice Minimum price (EUR) (optional)
      * @param maxPrice Maximum price (EUR) (optional)
      * @param condition Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)
@@ -1948,7 +1965,7 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call wallapopSearchListingsCall(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call wallapopSearchListingsCall(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, String subcategoryIds, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1995,6 +2012,10 @@ public class WallapopApi {
 
         if (categoryId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("category_id", categoryId));
+        }
+
+        if (subcategoryIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subcategory_ids", subcategoryIds));
         }
 
         if (minPrice != null) {
@@ -2124,20 +2145,21 @@ public class WallapopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call wallapopSearchListingsValidateBeforeCall(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
-        return wallapopSearchListingsCall(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+    private okhttp3.Call wallapopSearchListingsValidateBeforeCall(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, String subcategoryIds, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+        return wallapopSearchListingsCall(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
 
     }
 
     /**
      * Search listings
-     * Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+     * Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
      * @param query Search text, e.g. &#39;iphone 14&#39; (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param latitude Search centre latitude (defaults to the market capital) (optional)
      * @param longitude Search centre longitude (optional)
      * @param distanceKm Search radius (optional)
      * @param categoryId Category id from /categories (optional)
+     * @param subcategoryIds Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)
      * @param minPrice Minimum price (EUR) (optional)
      * @param maxPrice Maximum price (EUR) (optional)
      * @param condition Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)
@@ -2175,20 +2197,21 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public Object wallapopSearchListings(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        ApiResponse<Object> localVarResp = wallapopSearchListingsWithHttpInfo(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    public Object wallapopSearchListings(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, String subcategoryIds, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        ApiResponse<Object> localVarResp = wallapopSearchListingsWithHttpInfo(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         return localVarResp.getData();
     }
 
     /**
      * Search listings
-     * Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+     * Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
      * @param query Search text, e.g. &#39;iphone 14&#39; (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param latitude Search centre latitude (defaults to the market capital) (optional)
      * @param longitude Search centre longitude (optional)
      * @param distanceKm Search radius (optional)
      * @param categoryId Category id from /categories (optional)
+     * @param subcategoryIds Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)
      * @param minPrice Minimum price (EUR) (optional)
      * @param maxPrice Maximum price (EUR) (optional)
      * @param condition Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)
@@ -2226,21 +2249,22 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Object> wallapopSearchListingsWithHttpInfo(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        okhttp3.Call localVarCall = wallapopSearchListingsValidateBeforeCall(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
+    public ApiResponse<Object> wallapopSearchListingsWithHttpInfo(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, String subcategoryIds, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        okhttp3.Call localVarCall = wallapopSearchListingsValidateBeforeCall(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Search listings (asynchronously)
-     * Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+     * Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
      * @param query Search text, e.g. &#39;iphone 14&#39; (optional)
      * @param market Market: es (Spain), it (Italy), pt (Portugal) (optional, default to es)
      * @param latitude Search centre latitude (defaults to the market capital) (optional)
      * @param longitude Search centre longitude (optional)
      * @param distanceKm Search radius (optional)
      * @param categoryId Category id from /categories (optional)
+     * @param subcategoryIds Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)
      * @param minPrice Minimum price (EUR) (optional)
      * @param maxPrice Maximum price (EUR) (optional)
      * @param condition Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)
@@ -2279,9 +2303,9 @@ public class WallapopApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call wallapopSearchListingsAsync(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call wallapopSearchListingsAsync(String query, String market, BigDecimal latitude, BigDecimal longitude, Integer distanceKm, Integer categoryId, String subcategoryIds, BigDecimal minPrice, BigDecimal maxPrice, String condition, String brand, String model, String color, String timeFilter, Boolean shippable, Boolean hasWarranty, Boolean refurbished, Integer minYear, Integer maxYear, Integer minKm, Integer maxKm, String gearbox, Integer minHorsepower, Integer maxHorsepower, String orderBy, String nextPage, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = wallapopSearchListingsValidateBeforeCall(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        okhttp3.Call localVarCall = wallapopSearchListingsValidateBeforeCall(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

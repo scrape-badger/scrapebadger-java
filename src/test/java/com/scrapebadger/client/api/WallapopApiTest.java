@@ -149,7 +149,7 @@ public class WallapopApiTest {
     /**
      * List categories
      *
-     * The full category tree; ids are usable as the search category_id.
+     * The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
      *
      * @throws ApiException if the Api call fails
      */
@@ -178,6 +178,7 @@ public class WallapopApiTest {
     public void wallapopListFilterOptionsTest() throws ApiException {
         String filterId = null;
         Integer categoryId = null;
+        String subcategoryIds = null;
         String query = null;
         String market = null;
         String prefer = null;
@@ -187,7 +188,7 @@ public class WallapopApiTest {
         Integer asyncWait = null;
         URI callbackUrl = null;
         String idempotencyKey2 = null;
-        Object response = api.wallapopListFilterOptions(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+        Object response = api.wallapopListFilterOptions(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
@@ -221,6 +222,7 @@ public class WallapopApiTest {
     @Test
     public void wallapopListSearchFiltersTest() throws ApiException {
         Integer categoryId = null;
+        String subcategoryIds = null;
         String query = null;
         String market = null;
         String prefer = null;
@@ -230,14 +232,14 @@ public class WallapopApiTest {
         Integer asyncWait = null;
         URI callbackUrl = null;
         String idempotencyKey2 = null;
-        Object response = api.wallapopListSearchFilters(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+        Object response = api.wallapopListSearchFilters(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
     /**
      * Search listings
      *
-     * Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+     * Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
      *
      * @throws ApiException if the Api call fails
      */
@@ -249,6 +251,7 @@ public class WallapopApiTest {
         BigDecimal longitude = null;
         Integer distanceKm = null;
         Integer categoryId = null;
+        String subcategoryIds = null;
         BigDecimal minPrice = null;
         BigDecimal maxPrice = null;
         String condition = null;
@@ -275,7 +278,7 @@ public class WallapopApiTest {
         Integer asyncWait = null;
         URI callbackUrl = null;
         String idempotencyKey2 = null;
-        Object response = api.wallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+        Object response = api.wallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         // TODO: test validations
     }
 
