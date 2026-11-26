@@ -574,7 +574,7 @@ public class Example {
     WallapopApi apiInstance = new WallapopApi(defaultClient);
     String filterId = "filterId_example"; // String | 
     Integer categoryId = 56; // Integer | Category to scope options to
-    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids to scope options to
+    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids (needs their category_id)
     String query = "query_example"; // String | Search text to scope options to
     String market = "es"; // String | Market: es (Spain), it (Italy), pt (Portugal)
     String prefer = "respond-async, wait=25"; // String | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait.
@@ -604,7 +604,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **filterId** | **String**|  | |
 | **categoryId** | **Integer**| Category to scope options to | [optional] |
-| **subcategoryIds** | **String**| Comma-separated subcategory ids to scope options to | [optional] |
+| **subcategoryIds** | **String**| Comma-separated subcategory ids (needs their category_id) | [optional] |
 | **query** | **String**| Search text to scope options to | [optional] |
 | **market** | **String**| Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to es] |
 | **prefer** | **String**| &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional] |
@@ -748,7 +748,7 @@ public class Example {
 
     WallapopApi apiInstance = new WallapopApi(defaultClient);
     Integer categoryId = 56; // Integer | Category the filters apply to
-    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids the filters apply to
+    String subcategoryIds = "subcategoryIds_example"; // String | Comma-separated subcategory ids (needs their category_id)
     String query = "query_example"; // String | Search text the filters apply to
     String market = "es"; // String | Market: es (Spain), it (Italy), pt (Portugal)
     String prefer = "respond-async, wait=25"; // String | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait.
@@ -777,7 +777,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **categoryId** | **Integer**| Category the filters apply to | [optional] |
-| **subcategoryIds** | **String**| Comma-separated subcategory ids the filters apply to | [optional] |
+| **subcategoryIds** | **String**| Comma-separated subcategory ids (needs their category_id) | [optional] |
 | **query** | **String**| Search text the filters apply to | [optional] |
 | **market** | **String**| Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to es] |
 | **prefer** | **String**| &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional] |

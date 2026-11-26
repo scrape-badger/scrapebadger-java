@@ -77286,7 +77286,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Comma-separated subcategory ids the filters apply to
+      - description: Comma-separated subcategory ids (needs their category_id)
         explode: true
         in: query
         name: subcategory_ids
@@ -77472,7 +77472,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Comma-separated subcategory ids to scope options to
+      - description: Comma-separated subcategory ids (needs their category_id)
         explode: true
         in: query
         name: subcategory_ids
