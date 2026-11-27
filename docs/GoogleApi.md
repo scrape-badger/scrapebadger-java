@@ -1272,7 +1272,7 @@ public class Example {
 
 <a id="googleGoogleLightWebSearch"></a>
 # **googleGoogleLightWebSearch**
-> Object googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
+> Object googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
 
 Google Light web search
 
@@ -1313,6 +1313,7 @@ public class Example {
     String safe = "off"; // String | Safe search: off or active
     Integer filter = 56; // Integer | 
     Integer nfpr = 0; // Integer | Disable auto-correction
+    Boolean requireResolvedLinks = false; // Boolean | Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full).
     String output = "json"; // String | 
     String oq = "oq_example"; // String | Original query sent to Google. Defaults to q; an empty string omits it.
     String sourceid = "sourceid_example"; // String | Google source identifier. Defaults to chrome; an empty string omits it.
@@ -1353,7 +1354,7 @@ public class Example {
     URI callbackUrl = new URI(); // URI | Query form of `X-Callback-URL` (URL-encode it). Implies async; on its own the answer is an immediate `202` (wait 0). Not sent to the scraper.
     String idempotencyKey2 = "idempotencyKey_example"; // String | Query form of `Idempotency-Key`. Not sent to the scraper.
     try {
-      Object result = apiInstance.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+      Object result = apiInstance.googleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GoogleApi#googleGoogleLightWebSearch");
@@ -1383,6 +1384,7 @@ public class Example {
 | **safe** | **String**| Safe search: off or active | [optional] [default to off] |
 | **filter** | **Integer**|  | [optional] |
 | **nfpr** | **Integer**| Disable auto-correction | [optional] [default to 0] |
+| **requireResolvedLinks** | **Boolean**| Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). | [optional] [default to false] |
 | **output** | **String**|  | [optional] [default to json] [enum: json, html] |
 | **oq** | **String**| Original query sent to Google. Defaults to q; an empty string omits it. | [optional] |
 | **sourceid** | **String**| Google source identifier. Defaults to chrome; an empty string omits it. | [optional] |
@@ -1759,7 +1761,7 @@ public class Example {
 
 <a id="googleGoogleWebSearch"></a>
 # **googleGoogleWebSearch**
-> Object googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
+> Object googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2)
 
 Google web search
 
@@ -1795,6 +1797,7 @@ public class Example {
     String domain = "google.com"; // String | Google domain
     String device = "desktop"; // String | Device target: desktop, mobile, iphone, android, tablet
     String userAgent = "userAgent_example"; // String | Custom User-Agent (overrides device)
+    Boolean requireResolvedLinks = false; // Boolean | Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full).
     String output = "json"; // String | Response format: json (parsed) or html (raw SERP)
     String location = "location_example"; // String | City-level geo-targeting
     String lr = "lr_example"; // String | Language restrict (e.g. lang_en)
@@ -1843,7 +1846,7 @@ public class Example {
     URI callbackUrl = new URI(); // URI | Query form of `X-Callback-URL` (URL-encode it). Implies async; on its own the answer is an immediate `202` (wait 0). Not sent to the scraper.
     String idempotencyKey2 = "idempotencyKey_example"; // String | Query form of `Idempotency-Key`. Not sent to the scraper.
     try {
-      Object result = apiInstance.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+      Object result = apiInstance.googleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GoogleApi#googleGoogleWebSearch");
@@ -1868,6 +1871,7 @@ public class Example {
 | **domain** | **String**| Google domain | [optional] [default to google.com] |
 | **device** | **String**| Device target: desktop, mobile, iphone, android, tablet | [optional] [default to desktop] [enum: desktop, mobile, iphone, android, tablet] |
 | **userAgent** | **String**| Custom User-Agent (overrides device) | [optional] |
+| **requireResolvedLinks** | **Boolean**| Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). | [optional] [default to false] |
 | **output** | **String**| Response format: json (parsed) or html (raw SERP) | [optional] [default to json] [enum: json, html] |
 | **location** | **String**| City-level geo-targeting | [optional] |
 | **lr** | **String**| Language restrict (e.g. lang_en) | [optional] |

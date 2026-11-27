@@ -3177,6 +3177,7 @@ public class GoogleApi {
      * @param safe Safe search: off or active (optional, default to off)
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output  (optional, default to json)
      * @param oq Original query sent to Google. Defaults to q; an empty string omits it. (optional)
      * @param sourceid Google source identifier. Defaults to chrome; an empty string omits it. (optional)
@@ -3228,7 +3229,7 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleLightWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googleGoogleLightWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, Boolean requireResolvedLinks, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3303,6 +3304,10 @@ public class GoogleApi {
 
         if (nfpr != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("nfpr", nfpr));
+        }
+
+        if (requireResolvedLinks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("require_resolved_links", requireResolvedLinks));
         }
 
         if (output != null) {
@@ -3484,13 +3489,13 @@ public class GoogleApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googleGoogleLightWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call googleGoogleLightWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, Boolean requireResolvedLinks, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'q' is set
         if (q == null) {
             throw new ApiException("Missing the required parameter 'q' when calling googleGoogleLightWebSearch(Async)");
         }
 
-        return googleGoogleLightWebSearchCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        return googleGoogleLightWebSearchCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
 
     }
 
@@ -3510,6 +3515,7 @@ public class GoogleApi {
      * @param safe Safe search: off or active (optional, default to off)
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output  (optional, default to json)
      * @param oq Original query sent to Google. Defaults to q; an empty string omits it. (optional)
      * @param sourceid Google source identifier. Defaults to chrome; an empty string omits it. (optional)
@@ -3560,8 +3566,8 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public Object googleGoogleLightWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        ApiResponse<Object> localVarResp = googleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    public Object googleGoogleLightWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, Boolean requireResolvedLinks, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        ApiResponse<Object> localVarResp = googleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         return localVarResp.getData();
     }
 
@@ -3581,6 +3587,7 @@ public class GoogleApi {
      * @param safe Safe search: off or active (optional, default to off)
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output  (optional, default to json)
      * @param oq Original query sent to Google. Defaults to q; an empty string omits it. (optional)
      * @param sourceid Google source identifier. Defaults to chrome; an empty string omits it. (optional)
@@ -3631,8 +3638,8 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googleGoogleLightWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
+    public ApiResponse<Object> googleGoogleLightWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, Boolean requireResolvedLinks, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3653,6 +3660,7 @@ public class GoogleApi {
      * @param safe Safe search: off or active (optional, default to off)
      * @param filter  (optional)
      * @param nfpr Disable auto-correction (optional, default to 0)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output  (optional, default to json)
      * @param oq Original query sent to Google. Defaults to q; an empty string omits it. (optional)
      * @param sourceid Google source identifier. Defaults to chrome; an empty string omits it. (optional)
@@ -3704,9 +3712,9 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleLightWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googleGoogleLightWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String location, String uule, String lr, String tbs, String safe, Integer filter, Integer nfpr, Boolean requireResolvedLinks, String output, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String device, String userAgent, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        okhttp3.Call localVarCall = googleGoogleLightWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4405,6 +4413,7 @@ public class GoogleApi {
      * @param domain Google domain (optional, default to google.com)
      * @param device Device target: desktop, mobile, iphone, android, tablet (optional, default to desktop)
      * @param userAgent Custom User-Agent (overrides device) (optional)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output Response format: json (parsed) or html (raw SERP) (optional, default to json)
      * @param location City-level geo-targeting (optional)
      * @param lr Language restrict (e.g. lang_en) (optional)
@@ -4464,7 +4473,7 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call googleGoogleWebSearchCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, Boolean requireResolvedLinks, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4519,6 +4528,10 @@ public class GoogleApi {
 
         if (userAgent != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_agent", userAgent));
+        }
+
+        if (requireResolvedLinks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("require_resolved_links", requireResolvedLinks));
         }
 
         if (output != null) {
@@ -4732,13 +4745,13 @@ public class GoogleApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call googleGoogleWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call googleGoogleWebSearchValidateBeforeCall(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, Boolean requireResolvedLinks, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'q' is set
         if (q == null) {
             throw new ApiException("Missing the required parameter 'q' when calling googleGoogleWebSearch(Async)");
         }
 
-        return googleGoogleWebSearchCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        return googleGoogleWebSearchCall(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
 
     }
 
@@ -4753,6 +4766,7 @@ public class GoogleApi {
      * @param domain Google domain (optional, default to google.com)
      * @param device Device target: desktop, mobile, iphone, android, tablet (optional, default to desktop)
      * @param userAgent Custom User-Agent (overrides device) (optional)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output Response format: json (parsed) or html (raw SERP) (optional, default to json)
      * @param location City-level geo-targeting (optional)
      * @param lr Language restrict (e.g. lang_en) (optional)
@@ -4811,8 +4825,8 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public Object googleGoogleWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        ApiResponse<Object> localVarResp = googleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    public Object googleGoogleWebSearch(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, Boolean requireResolvedLinks, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        ApiResponse<Object> localVarResp = googleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
         return localVarResp.getData();
     }
 
@@ -4827,6 +4841,7 @@ public class GoogleApi {
      * @param domain Google domain (optional, default to google.com)
      * @param device Device target: desktop, mobile, iphone, android, tablet (optional, default to desktop)
      * @param userAgent Custom User-Agent (overrides device) (optional)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output Response format: json (parsed) or html (raw SERP) (optional, default to json)
      * @param location City-level geo-targeting (optional)
      * @param lr Language restrict (e.g. lang_en) (optional)
@@ -4885,8 +4900,8 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Object> googleGoogleWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
-        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
+    public ApiResponse<Object> googleGoogleWebSearchWithHttpInfo(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, Boolean requireResolvedLinks, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2) throws ApiException {
+        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4902,6 +4917,7 @@ public class GoogleApi {
      * @param domain Google domain (optional, default to google.com)
      * @param device Device target: desktop, mobile, iphone, android, tablet (optional, default to desktop)
      * @param userAgent Custom User-Agent (overrides device) (optional)
+     * @param requireResolvedLinks Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional, default to false)
      * @param output Response format: json (parsed) or html (raw SERP) (optional, default to json)
      * @param location City-level geo-targeting (optional)
      * @param lr Language restrict (e.g. lang_en) (optional)
@@ -4961,9 +4977,9 @@ public class GoogleApi {
         <tr><td> 202 </td><td> Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. </td><td>  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call googleGoogleWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call googleGoogleWebSearchAsync(String q, String gl, String hl, Integer num, Integer start, String domain, String device, String userAgent, Boolean requireResolvedLinks, String output, String location, String lr, String tbs, String safe, String uule, Integer filter, Integer nfpr, String cr, String ludocid, String lsig, String kgmid, String si, String ibp, String uds, Boolean aiOverview, String mode, String expandRelatedQuestions, String oq, String sourceid, String ie, String googleDomain, BigDecimal lat, BigDecimal lon, BigDecimal radius, String colorScheme, String tbm, String udm, Boolean noCache, String asDt, String asEpq, String asEq, String asLq, String asNlo, String asNhi, String asOq, String asQ, String asQdr, String asRq, String asSitesearch, String prefer, URI xCallbackURL, String idempotencyKey, Boolean async, Integer asyncWait, URI callbackUrl, String idempotencyKey2, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
+        okhttp3.Call localVarCall = googleGoogleWebSearchValidateBeforeCall(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
